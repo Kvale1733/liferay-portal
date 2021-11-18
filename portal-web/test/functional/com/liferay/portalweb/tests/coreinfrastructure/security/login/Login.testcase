@@ -86,7 +86,7 @@ definition {
 		var userPassword = PropsUtil.get("email.password.2");
 
 		task ("Login and add CP") {
-			User.firstLoginPG();
+			User.firstLoginUI();
 
 			ApplicationsMenu.gotoPortlet(
 				category = "System",
@@ -467,7 +467,7 @@ definition {
 		var userPassword = PropsUtil.get("email.password.2");
 
 		task ("Login and add SSO openID connect provider") {
-			User.firstLoginPG();
+			User.firstLoginUI();
 
 			PortalSettings.gotoConfiguration(
 				baseURL = "http://localhost:8080",
@@ -499,7 +499,11 @@ definition {
 		}
 
 		task ("Logout and login") {
-			User.logoutAndLoginPG();
+			User.logoutPG();
+
+			User.loginUserPG(
+				password = "test",
+				userEmailAddress = "test@liferay.com");
 		}
 	}
 
