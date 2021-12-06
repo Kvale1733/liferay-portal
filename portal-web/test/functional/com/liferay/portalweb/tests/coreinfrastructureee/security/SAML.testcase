@@ -433,14 +433,10 @@ definition {
 		}
 
 		task ("Add CP able.com") {
-			PortalInstances.openVirtualInstancesAdmin();
-
-			PortalInstances.addCP(
-				mailDomain = "www.able.com",
-				virtualHost = "www.able.com",
-				webId = "www.able.com");
-
-			PortalInstances.viewCP(virtualHost = "www.able.com");
+			HeadlessPortalInstanceAPI.addPortalInstance(
+				domain = "www.able.com",
+				portalInstanceId = "www.able.com",
+				virtualHost = "www.able.com");
 		}
 
 		task ("Assert IdP role disabled message in SAML admin") {
@@ -2494,7 +2490,15 @@ definition {
 		var serviceProviderEntityId = "samlsp";
 
 		task ("Add 2 virtual instances") {
-			SAML.addVirtualInstances(virtualHosts = "www.able.com,www.baker.com");
+			HeadlessPortalInstanceAPI.addPortalInstance(
+				domain = "www.able.com",
+				portalInstanceId = "www.able.com",
+				virtualHost = "www.able.com");
+
+			HeadlessPortalInstanceAPI.addPortalInstance(
+				domain = "www.baker.com",
+				portalInstanceId = "www.baker.com",
+				virtualHost = "www.baker.com");
 		}
 
 		task ("Setup IdP at localhost:8080 and baker.com:8080") {
@@ -2850,15 +2854,15 @@ definition {
 		task ("Add CP able.com and baker.com") {
 			PortalInstances.openVirtualInstancesAdmin();
 
-			PortalInstances.addCP(
-				mailDomain = "www.able.com",
-				virtualHost = "www.able.com",
-				webId = "www.able.com");
+			HeadlessPortalInstanceAPI.addPortalInstance(
+				domain = "www.able.com",
+				portalInstanceId = "www.able.com",
+				virtualHost = "www.able.com");
 
-			PortalInstances.addCP(
-				mailDomain = "www.baker.com",
-				virtualHost = "www.baker.com",
-				webId = "www.baker.com");
+			HeadlessPortalInstanceAPI.addPortalInstance(
+				domain = "www.baker.com",
+				portalInstanceId = "www.baker.com",
+				virtualHost = "www.baker.com");
 		}
 
 		task ("Edit user screen name to localhost") {
@@ -3270,12 +3274,10 @@ definition {
 		task ("Add CP able.com") {
 			PortalInstances.openVirtualInstancesAdmin();
 
-			PortalInstances.addCP(
-				mailDomain = "www.able.com",
-				virtualHost = "www.able.com",
-				webId = "www.able.com");
-
-			PortalInstances.viewCP(virtualHost = "www.able.com");
+			HeadlessPortalInstanceAPI.addPortalInstance(
+				domain = "www.able.com",
+				portalInstanceId = "www.able.com",
+				virtualHost = "www.able.com");
 		}
 
 		task ("Login at able.com and edit email information") {
@@ -4114,14 +4116,10 @@ definition {
 		property test.name.skip.portal.instance = "SAML#ViewSPInitiatedSSOWithTransientNameId";
 
 		task ("Add CP able.com") {
-			PortalInstances.openVirtualInstancesAdmin();
-
-			PortalInstances.addCP(
-				mailDomain = "www.able.com",
-				virtualHost = "www.able.com",
-				webId = "www.able.com");
-
-			PortalInstances.viewCP(virtualHost = "www.able.com");
+			HeadlessPortalInstanceAPI.addPortalInstance(
+				domain = "www.able.com",
+				portalInstanceId = "www.able.com",
+				virtualHost = "www.able.com");
 		}
 
 		task ("Configure samlidp as IdP and samlsp as SP") {
