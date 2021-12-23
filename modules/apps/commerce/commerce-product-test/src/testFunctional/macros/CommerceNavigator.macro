@@ -21,6 +21,13 @@ definition {
 		Navigator.openSpecificURL(url = "localhost:8080/web/guest/p/${productName}");
 	}
 
+	macro gotoMiniumPage {
+		var productName = StringUtil.replace("${pageName}", " ", "-");
+		var productName = StringUtil.lowerCase("${pageName}");
+
+		Navigator.openSpecificURL(url = "localhost:8080/group/minium/${pageName}");
+	}
+
 	macro gotoMiniCart {
 		Click.clickNoMouseOver(locator1 = "CommerceAccelerators#MINI_CART_BUTTON");
 

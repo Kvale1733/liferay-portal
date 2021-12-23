@@ -1,0 +1,25 @@
+definition {
+
+	macro gotoConfigurationPG {
+		if (contains("${portletName}", "{portletName}")) {
+			var portletName = "Commerce Categories Navigation";
+		}
+
+		Portlet.gotoPortletOptions(
+			portletName = "${portletName}",
+			portletOption = "Configuration");
+
+		SelectFrame(locator1 = "IFrame#MODAL_BODY");
+	}
+
+	macro setVocabulary {
+		CommerceCategoriesNavigationPortlet.gotoConfigurationPG();
+
+		SelectField.select(
+				selectFieldLabel = "Vocabulary",
+				selectFieldValue = "${vocabulary}");
+
+		Button.clickSave();
+	}
+
+}

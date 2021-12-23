@@ -61,6 +61,9 @@ definition {
 		else if ("${widgetName}" == "Contacts Center") {
 			var portletId = "com_liferay_contacts_web_portlet_ContactsCenterPortlet";
 		}
+		else if ("${widgetName}" == "Commerce Categories Navigation") {
+			var portletId = "com_liferay_commerce_product_asset_categories_navigation_web_internal_portlet_CPAssetCategoriesNavigationPortlet";
+		}
 		else if ("${widgetName}" == "Custom Filter") {
 			var portletId = "com_liferay_portal_search_web_internal_custom_filter_portlet_CustomFilterPortlet";
 		}
