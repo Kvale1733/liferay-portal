@@ -84,6 +84,13 @@ definition {
 			objectName = "CustomObject",
 			pluralLabelName = "Custom Objects");
 
+		ObjectAdmin.addObjectFieldViaAPI(
+			fieldLabelName = "Field",
+			fieldName = "customObjectField",
+			fieldType = "String",
+			isRequired = "false",
+			objectName = "CustomObject");
+
 		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
 
 		JSONRole.addRegularRole(
@@ -186,8 +193,6 @@ definition {
 	@description = "LPS-135396 - Verify it is possible to add a Date field on layout"
 	@priority = "4"
 	test CanAddDateEntryOnLayout {
-		property portal.upstream = "quarantine";
-
 		ObjectAdmin.addObjectViaAPI(
 			labelName = "Custom Object",
 			objectName = "CustomObject",
@@ -208,7 +213,7 @@ definition {
 
 		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
 
-		ObjectPortlet.viewEntry(entry = "01/01/2001");
+		ObjectPortlet.viewEntry(entry = "Jan 1, 2001");
 	}
 
 	@description = "LPS-135396 - Verify it is possible to add a Double field on layout"
@@ -678,6 +683,7 @@ definition {
 	@priority = "5"
 	test CanDeleteEntry {
 		property portal.acceptance = "true";
+		property testray.component.names = "Frontend Dataset";
 
 		ObjectAdmin.addObjectViaAPI(
 			labelName = "Custom Object",
@@ -871,8 +877,6 @@ definition {
 	@description = "LPS-135396 - Verify it is possible to edit a Date entry on layout"
 	@priority = "4"
 	test CanEditDateEntryOnLayout {
-		property portal.upstream = "quarantine";
-
 		ObjectAdmin.addObjectViaAPI(
 			labelName = "Custom Object",
 			objectName = "CustomObject",
@@ -895,14 +899,14 @@ definition {
 		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
 
 		ObjectPortlet.updateEntry(
-			entry = "01/01/2001",
+			entry = "Jan 1, 2001",
 			updateEntry = "02/02/2002");
 
 		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
 
 		ObjectPortlet.assertEntryNotPresent(entry = "01/01/2001");
 
-		ObjectPortlet.viewEntry(entry = "02/02/2002");
+		ObjectPortlet.viewEntry(entry = "Feb 2, 2002");
 	}
 
 	@description = "LPS-135396 - Verify it is possible to edit a Double entry on layout"
@@ -1011,12 +1015,52 @@ definition {
 	}
 
 	@description = "LPS-135396 - Verify it is possible to edit a Picklist entry on layout"
-	@ignore = "Test Stub"
 	@priority = "4"
 	test CanEditPicklistEntryOnLayout {
+		Picklist.addPicklistViaAPI(picklistName = "Custom Picklist");
 
-		// TODO LPS-140560 CanEditPicklistEntryOnLayout pending implementation
+		for (var itemsName : list "1,2") {
+			Picklist.addPicklistItemViaAPI(
+				itemKey = "${itemsName}",
+				itemName = "Item Test ${itemsName}",
+				picklistName = "Custom Picklist");
+		}
 
+		ObjectAdmin.addObjectViaAPI(
+			labelName = "Custom Object",
+			objectName = "CustomObject",
+			pluralLabelName = "Custom Objects");
+
+		ObjectAdmin.openObjectAdmin();
+
+		ObjectPortlet.selectCustomObject(label = "Custom Object");
+
+		ObjectAdmin.goToFieldsTab();
+
+		ObjectAdmin.addObjectFieldViaUI(
+			fieldLabel = "Field Picklist",
+			fieldPicklist = "Custom Picklist",
+			fieldType = "Picklist");
+
+		Navigator.openURL();
+
+		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
+
+		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
+
+		ObjectAdmin.addObjectPicklistFieldEntryViaUI(picklistOption = "Item Test 1");
+
+		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
+
+		ObjectPortlet.viewEntryDetails(entry = "Item Test 1");
+
+		ObjectAdmin.changePicklistFieldEntry(
+			entrySelected = "Item Test 1",
+			newPicklistOption = "Item Test 2");
+
+		ObjectPortlet.assertEntryDetailsValueSelected(entrySelected = "Item Test 2");
+
+		ObjectPortlet.assertEntryDetailsNotPresent(entryNotSelected = "Item Test 1");
 	}
 
 	@description = "LPS-135396 - Verify it is possible to edit a String entry on layout"
@@ -1056,40 +1100,7 @@ definition {
 		ObjectPortlet.viewEntry(entry = "Update test");
 	}
 
-	@description = "LPS-135390 - Verify it is not possible to view and access the Custom Object portlet without the Access in Control Panel permission"
-	@priority = "5"
-	test CannotAccessCustomObjectWithoutAccessPermission {
-		property portal.acceptance = "true";
-
-		ObjectAdmin.addObjectViaAPI(
-			labelName = "Custom Object",
-			objectName = "CustomObject",
-			pluralLabelName = "Custom Objects");
-
-		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
-
-		JSONUser.addUser(
-			userEmailAddress = "userea@liferay.com",
-			userFirstName = "userfn",
-			userLastName = "userln",
-			userScreenName = "usersn");
-
-		JSONUser.setFirstPassword(
-			agreeToTermsAndAnswerReminderQuery = "true",
-			requireReset = "false",
-			userEmailAddress = "userea@liferay.com");
-
-		Navigator.openURL();
-
-		User.logoutAndLoginPG(
-			userLoginEmailAddress = "userea@liferay.com",
-			userLoginFullName = "userfn userln");
-
-		ApplicationsMenu.assertMenuButtonIsNotPresent();
-	}
-
 	@description = "LPS-135390 - Verify it is not possible to add an Object entry without the Add Object Entry permission"
-	@ignore = "true"
 	@priority = "5"
 	test CannotAddObjectEntryWithoutAddPermission {
 		property portal.acceptance = "true";
@@ -1557,8 +1568,6 @@ definition {
 	@description = "LPS-140082 - Verify it is possible to search for a partial Object entry on the Relationship field"
 	@priority = "4"
 	test CanSearchPartialOnRelationshipField {
-		property portal.upstream = "quarantine";
-
 		ObjectAdmin.addObjectViaAPI(
 			labelName = "Custom Object",
 			objectName = "CustomObject",
@@ -1773,8 +1782,6 @@ definition {
 	@description = "LPS-135396 - Verify it is possible to view a Date entry and label on layout"
 	@priority = "4"
 	test CanViewDateEntryOnLayout {
-		property portal.upstream = "quarantine";
-
 		ObjectAdmin.addObjectViaAPI(
 			labelName = "Custom Object",
 			objectName = "CustomObject",
@@ -1796,7 +1803,7 @@ definition {
 
 		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
 
-		ObjectPortlet.viewEntryDetails(entry = "01/01/2001");
+		ObjectPortlet.viewEntryDetails(entry = "Jan 1, 2001");
 
 		ObjectPortlet.assertEntryDetailsLabelPresent(entryLabel = "Field");
 
@@ -1975,12 +1982,48 @@ definition {
 	}
 
 	@description = "LPS-135396 - Verify it is possible to view a Picklist entry and label on layout"
-	@ignore = "Test Stub"
 	@priority = "4"
 	test CanViewPicklistEntryOnLayout {
+		Picklist.addPicklistViaAPI(picklistName = "Custom Picklist");
 
-		// TODO LPS-140559 CanViewPicklistEntryOnLayout pending implementation
+		for (var itemsName : list "1,2") {
+			Picklist.addPicklistItemViaAPI(
+				itemKey = "${itemsName}",
+				itemName = "Item Test ${itemsName}",
+				picklistName = "Custom Picklist");
+		}
 
+		ObjectAdmin.addObjectViaAPI(
+			labelName = "Custom Object",
+			objectName = "CustomObject",
+			pluralLabelName = "Custom Objects");
+
+		ObjectAdmin.openObjectAdmin();
+
+		ObjectPortlet.selectCustomObject(label = "Custom Object");
+
+		ObjectAdmin.goToFieldsTab();
+
+		ObjectAdmin.addObjectFieldViaUI(
+			fieldLabel = "Field Picklist",
+			fieldPicklist = "Custom Picklist",
+			fieldType = "Picklist");
+
+		Navigator.openURL();
+
+		ObjectAdmin.publishObjectViaAPI(objectName = "CustomObject");
+
+		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
+
+		ObjectAdmin.addObjectPicklistFieldEntryViaUI(picklistOption = "Item Test 1");
+
+		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
+
+		ObjectPortlet.viewEntryDetails(entry = "Item Test 1");
+
+		ObjectPortlet.assertEntryDetailsLabelPresent(entryLabel = "Field Picklist");
+
+		ObjectPortlet.assertEntryDetailsValueSelected(entrySelected = "Item Test 1");
 	}
 
 	@description = "LPS-135396 - Verify it is possible to view a String entry and label on layout"
@@ -2085,8 +2128,6 @@ definition {
 	@description = "LPS-135393 - Verify that a Date entry is correctly displayed on the auto-generated table on the Custom Object Portlet"
 	@priority = "4"
 	test DateDisplayedOnAutoGeneratedTable {
-		property portal.upstream = "quarantine";
-
 		ObjectAdmin.addObjectViaAPI(
 			labelName = "Custom Object",
 			objectName = "CustomObject",
@@ -2108,7 +2149,7 @@ definition {
 
 		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
 
-		ObjectPortlet.viewEntry(entry = "2021-09-23");
+		ObjectPortlet.viewEntry(entry = "Sep 23, 2021");
 	}
 
 	@description = "LPS-135393 - Verify that a Double entry is correctly displayed on the auto-generated table on the Custom Object Portlet"
@@ -2192,9 +2233,7 @@ definition {
 
 		ObjectPortlet.searchEntry(entryName = "Lorem ipsum");
 
-		AssertTextEquals(
-			locator1 = "Message#EMPTY_INFO",
-			value1 = "No items were found.");
+		ObjectAdmin.assertNoItemsWereFound();
 	}
 
 	@description = "LPS-135393 - Verify the empty state when searching for a value that does not exist on the dropdown to select the columns to be displayed on the auto-generated table on the Custom Object Portlet"
@@ -2245,9 +2284,7 @@ definition {
 
 		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
 
-		AssertTextEquals(
-			locator1 = "Message#EMPTY_INFO",
-			value1 = "No items were found.");
+		ObjectAdmin.assertNoItemsWereFound();
 	}
 
 	@description = "LPS-135393 - Verify that an Integer entry is correctly displayed on the auto-generated table on the Custom Object Portlet"
@@ -2326,11 +2363,11 @@ definition {
 		ObjectAdmin.addObjectSingleFieldEntryViaAPI(
 			fieldName = "customObjectField",
 			objectName = "CustomObject",
-			value = "Test text Test text Test text Test text Test text Test text Test text  Test");
+			value = "test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test ");
 
 		ObjectAdmin.goToCustomObject(objectName = "CustomObject");
 
-		ObjectPortlet.viewEntry(entry = "Test text Test text Test text Test text Test text Test text Test text  Test");
+		ObjectPortlet.viewEntry(entry = "test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test ");
 	}
 
 	@description = "LPS-135393 - Verify the table is updated when changing a page on the Custom Object Portlet"
