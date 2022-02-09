@@ -537,6 +537,12 @@ definition {
 		Click(locator1 = "Button#BACK");
 	}
 
+	macro assertAddDisplayLayoutError {
+		AssertElementPresent(
+			key_alertMessage = "${errorMessage}",
+			locator1 = "Message#ERROR_ENTER_A_VALID_VALUE");
+	}
+
 	macro assertDefaultDisplayPage {
 		if (!(isSet(pageType))) {
 			AssertTextEquals(
