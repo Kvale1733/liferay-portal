@@ -226,6 +226,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>PRODUCT_DETAILS_SKU</td>
+	<td>//span[contains(text(),'${key_productSku}')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>PRODUCT_DETAILS_ADD_TO_WISH_LIST</td>
 	<td>//div[contains(@class,'product-detail')]//div[contains(@class,'add-to-wish-list')]//button</td>
 	<td></td>
