@@ -577,6 +577,17 @@ definition {
 			locator1 = "CommerceEntry#OVERRIDE_DEFAULT_DISPLAY_PAGE");
 	}
 
+	macro assertProductDisplayPageOverride {
+		AssertElementPresent(
+			key_entryName = "${product}",
+			key_table = "Override Default Product Display Page",
+			locator1 = "CommerceEntry#TABLE_ENTRY_NAME");
+
+		AssertElementPresent(
+			key_layout = "${layout}",
+			locator1 = "CommerceEntry#OVERRIDE_DEFAULT_DISPLAY_PAGE_LAYOUT");
+	}
+
 	macro changePinColor {
 		Type(
 			locator1 = "CommerceEntry#DEFAULT_DIAMETER_CUSTOM_COLOR_SELECTION",
