@@ -56,6 +56,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>SELECT_PRODUCT_CHOOSE_BUTTON</td>
+	<td>//tr[contains(@data-name,'${key_productName}')]//button</td>
+	<td></td>
+</tr>
+<tr>
 	<td>SINGLE_ENTRY_CHECKBOX</td>
 	<td>//*[@data-qa-id='row']//*[text()='${key_entryName}']//..//input[@type='checkbox'] | //tr[@data-name='${key_entryName}']//input[@type="checkbox"] | //*[@data-qa-id='row' and contains(.,'${key_entryName}')]//input[@type='checkbox']</td>
 	<td></td>
