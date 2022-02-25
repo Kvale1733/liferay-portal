@@ -10,7 +10,6 @@
 </thead>
 
 <tbody>
-
 <tr>
 	<td>TERMS_AND_CONDITIONS</td>
 	<td>//div[@class='table-list-title' and contains(.,'${key_termName}')]</td>
@@ -26,7 +25,6 @@
 	<td>//input[contains(@class,'field form-control lfr-input-text') and @value='${key_testPriority}']</td>
 	<td></td>
 </tr>
-
 </tbody>
 </table>
 </body>
