@@ -25,6 +25,21 @@
 	<td>//input[contains(@class,'field form-control lfr-input-text') and @value='${key_testPriority}']</td>
 	<td></td>
 </tr>
+<tr>
+	<td>TERMS_AND_CONDITIONS_ACTIVE_SWITCH</td>
+	<td>//input[contains(@class,'field toggle-switch-check')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TERMS_AND_CONDITIONS_PUBLISH_BUTTON</td>
+	<td>//a[contains(@class,'btn-primary')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TERMS_AND_CONDITIONS_ACTIVE_TEXT</td>
+	<td>//div[contains(@class,'dnd-td') and contains(.,'${key_active}')]</td>
+	<td></td>
+</tr>
 </tbody>
 </table>
 </body>
