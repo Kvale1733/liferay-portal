@@ -77,4 +77,66 @@ definition {
 		}
 	}
 
+	@description = "Add a new payment term to Terms and Conditions."
+	@priority = "3"
+	test ChangeTheStatus {
+		property portal.acceptance = "false";
+
+		task ("Given a new entry into the "Terms and Conditions" with the status to "Active"") {
+			CommerceNavigator.gotoPortlet(
+				category = "Order Management",
+				portlet = "Terms and Conditions");
+
+			LexiconEntry.gotoAdd();
+
+			SelectFrame.selectFrameNoLoading(locator1 = "IFrame#MODAL_BODY");
+
+			Type(
+				key_fieldLabel = "Name",
+				locator1 = "TextInput#GENERIC_TEXT_INPUT",
+				value1 = "test-name");
+
+			AssertClick(
+				locator1 = "Button#SUBMIT",
+				value1 = "Submit");
+		}
+
+		task ("When a sales manager opens the entry and toggles the active switch and goes back to dashboard to assert entry is active.") {
+			Check.checkToggleSwitch(locator1 = "CommercePayment#TERMS_AND_CONDITIONS_ACTIVE_SWITCH");
+
+			AssertClick(
+				locator1 = "CommercePayment#TERMS_AND_CONDITIONS_PUBLISH_BUTTON",
+				value1 = "Publish");
+
+			CommerceNavigator.gotoPortlet(
+				category = "Order Management",
+				portlet = "Terms and Conditions");
+
+			AssertElementPresent(
+				key_active = "Yes",
+				locator1 = "CommercePayment#TERMS_AND_CONDITIONS_ACTIVE_TEXT");
+		}
+
+		task ("Then a sales manager opens the entry and disables the active toggles and goes back to fashboard to assert entry is inactive.") {
+			AssertClick(
+				key_termName = "test-name",
+				locator1 = "CommercePayment#TERMS_AND_CONDITIONS",
+				value1 = "test-name");
+
+			Uncheck.uncheckToggleSwitch(locator1 = "CommercePayment#TERMS_AND_CONDITIONS_ACTIVE_SWITCH");
+
+			AssertClick(
+				locator1 = "CommercePayment#TERMS_AND_CONDITIONS_PUBLISH_BUTTON",
+				value1 = "Publish");
+
+			CommerceNavigator.gotoPortlet(
+				category = "Order Management",
+				portlet = "Terms and Conditions");
+
+			AssertElementPresent(
+				key_active = "No",
+				locator1 = "CommercePayment#TERMS_AND_CONDITIONS_ACTIVE_TEXT");
+		}
+	}
+
 }
