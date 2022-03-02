@@ -1,9 +1,9 @@
-@component-name = "portal-data-integration"
+@component-name = "portal-batch-engine"
 definition {
 
-	property portal.release = "false";
-	property portal.upstream = "false";
-	property testray.main.component.name = "Data Integration";
+	property portal.release = "true";
+	property portal.upstream = "true";
+	property testray.main.component.name = "Batch Engine";
 
 	setUp {
 		TestCase.setUpPortalInstance();
@@ -22,5 +22,12 @@ definition {
 		}
 	}
 
+	@description = "Verify users can import entities via JSON files"
+	@priority = "3"
+	test CanImportJSONFiles {
+		task ("Given a Minium site") {
+			JSONBatchPlannerLogAPI._getBatchPlannerLogIds();
+		}
+	}
 
 }
