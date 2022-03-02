@@ -1,0 +1,26 @@
+@component-name = "portal-data-integration"
+definition {
+
+	property portal.release = "false";
+	property portal.upstream = "false";
+	property testray.main.component.name = "Data Integration";
+
+	setUp {
+		TestCase.setUpPortalInstance();
+
+		User.firstLoginPG();
+	}
+
+	tearDown {
+		var testPortalInstance = PropsUtil.get("test.portal.instance");
+
+		if ("${testPortalInstance}" == "true") {
+			PortalInstances.tearDownCP();
+		}
+		else {
+			Accounts.tearDownCP();
+		}
+	}
+
+
+}
