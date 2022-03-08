@@ -1288,6 +1288,13 @@ definition {
 				value1 = "${accountTaxId}");
 		}
 
+		if (isSet(externalReferenceCode)) {
+			AssertTextEquals(
+				key_fieldLabel = "External Reference Code",
+				locator1 = "TextInput#GENERIC_TEXT_INPUT",
+				value1 = "${externalReferenceCode}");
+		}
+
 		AssertTextEquals(
 			key_fieldLabel = "Tax ID",
 			locator1 = "Icon#HELPER",
