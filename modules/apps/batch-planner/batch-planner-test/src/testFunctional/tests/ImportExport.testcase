@@ -27,6 +27,7 @@ definition {
 	@description = "Verify users can import entities via CSV files"
 	@priority = "3"
 	test CanImportCSVFiles {
+        property portal.acceptance = "kvale17"; 
 		task ("Given a CSV file with data on multiple accounts") {
 			ImportExport.openImportExportAdmin();
 
@@ -86,6 +87,7 @@ definition {
 	@description = "Verify users can import entities via JSON files"
 	@priority = "3"
 	test CanImportJSONFiles {
+        property portal.acceptance = "kvale17"; 
 		task ("Given a JSON file with data on multiple accounts") {
 			ImportExport.openImportExportAdmin();
 
@@ -145,6 +147,7 @@ definition {
 	@description = "Verify users can import entities via JSONL files"
 	@priority = "3"
 	test CanImportJSONLFiles {
+        property portal.acceptance = "kvale17"; 
 		task ("Given a JSONL file with data on multiple accounts") {
 			ImportExport.openImportExportAdmin();
 
