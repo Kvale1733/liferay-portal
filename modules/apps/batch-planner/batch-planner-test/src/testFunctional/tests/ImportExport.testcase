@@ -138,6 +138,8 @@ definition {
 
 			Navigator.gotoBack();
 
+			Refresh();
+
 			Accounts.viewAccountDetails(
 				accountDescription = "Test Person Account Description",
 				accountName = "Test Person Account",
