@@ -355,4 +355,17 @@ definition {
 		AssertElementPresent(locator1 = "Message#SUCCESS");
 	}
 
+	macro viewCatalogProductDetails {
+		ApplicationsMenu.gotoSite(site = "Minium");
+
+		CommerceAcceleratorsInitializer.gotoMiniumProductDetailsPage(productName = "${productName}");
+
+		FrontStore.assertProductDetails(
+			productListPrice = "${productListPrice}",
+			productName = "${productName}",
+			productSKU = "${productSKU}");
+
+		ControlMenu.viewHeaderTitle(headerTitle = "${headerTitle}");
+	}
+
 }
