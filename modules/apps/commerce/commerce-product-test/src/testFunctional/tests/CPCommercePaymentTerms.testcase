@@ -25,7 +25,7 @@ definition {
 		CommerceConfiguration.commerceInitializersTearDown();
 	}
 
-	@description = "[Please Update]"
+	@description = "Add a new payment term to Terms and Conditions."
 	@ignore = "Test Stub"
 	@priority = "4"
 	test AddANewPaymentTerm {
@@ -33,6 +33,43 @@ definition {
 
 		// TODO COMMERCE-8279 AddANewPaymentTerm pending implementation
 
+		task ("Given a terms and coditions page.") {
+			CommerceNavigator.gotoPortlet(
+				category = "Order Management",
+				portlet = "Terms and Conditions");
+		}
+
+		task ("When a sales manager creates a new entry and is presented to the details page of the entry") {
+			CommerceOrders.addTermsAndCondition(
+				termsAndConditionName = "Test Terms and Condition",
+				termsAndConditionType = "Payment Terms",
+				valuePosition = "");
+		}
+
+		task ("And when the sales manager goes back to the "Terms and Conditions" page, the new entry is present.") {
+			Click(locator1 = "Icon#BACK");
+
+			CommerceOrders.viewTermsAndConditionEntry(
+				termsAndConditionActiveStatus = "Yes",
+				termsAndConditionName = "Test Terms and Condition",
+				termsAndConditionType = "Payment Terms",
+				valuePosition = "0");
+		}
+
+		task ("Then the sales manager opens the new entry again and sees that all the field contains the correct data") {
+			AssertClick(
+				key_termsAndConditionName = "Test Terms and Condition",
+				locator1 = "CommerceOrders#ORDER_DETAILS_TERMS_AND_CONDITIONS_NAME",
+				value1 = "Test Terms and Condition");
+
+			AssertElementPresent(
+				key_testName = "Test Terms and Condition",
+				locator1 = "CommerceOrders#ORDER_DETAILS_TERMS_CONDITIONS_DETAILS_PAGE_TITLE");
+
+			AssertElementPresent(
+				key_testPriority = "0.0",
+				locator1 = "CommerceOrders#ORDER_DETAILS_TERMS_CONDITIONS_DETAILS_PAGE_PRIORITY");
+		}
 	}
 
 	@description = "[Please Update]"
