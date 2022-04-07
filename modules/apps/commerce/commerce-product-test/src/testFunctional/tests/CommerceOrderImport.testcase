@@ -201,7 +201,7 @@ definition {
 				userEmailAddress = "buyer@liferay.com");
 		}
 
-		task ("When I add an item to the cart and complete the checkout") {	
+		task ("When I add an item to the cart and complete the checkout") {
 			FrontStore.addInitializerProductToCart(
 				productName = "U-Joint",
 				productQuantity = "1");
@@ -281,7 +281,7 @@ definition {
 				productUnitPrice = "34",
 				shippingMethod = "Standard");
 
-			CommerceNavigator.gotoMiniumSidebarItem(menuItem = "Catalog");			
+			CommerceNavigator.gotoMiniumSidebarItem(menuItem = "Catalog");
 		}
 
 		task ("And when I create new order from pending orders") {
@@ -304,12 +304,11 @@ definition {
 					key_entryName = "${orderId}",
 					locator1 = "CommerceEntry#TABLE_LIST_TITLE");
 			}
- 
+
 			AssertElementNotPresent(
 				key_entryName = "${createdOrderId}",
 				locator1 = "CommerceEntry#TABLE_LIST_TITLE");
 		}
-
 	}
 
 	@description = "Verify the import status of the itens after editing the warehouse"
@@ -351,7 +350,7 @@ definition {
 				newAddressZipCode = "Test Zip Code",
 				purchasePrice = "73",
 				shippingMethod = "Standard");
-		}		
+		}
 
 		task ("When I edit to zero the warehouse of an item that I checked") {
 			User.logoutAndLoginPG(
@@ -363,10 +362,10 @@ definition {
 				portlet = "Products");
 
 			CommerceEntry.editWarehousesQuantity(
-				productName = "U-Joint",
-				productSku = "MIN55861",
 				italyQuantity = "0",
 				northeastQuantity = "0",
+				productName = "U-Joint",
+				productSku = "MIN55861",
 				southwestQuantity = "0");
 
 			User.logoutPG();
@@ -385,7 +384,7 @@ definition {
 			CommerceOrders.importFromOrder(
 				orderId = "${activeOrderId}",
 				successMessage = "2 rows were imported successfully.");
-		
+
 			Refresh();
 
 			CommerceOrders.viewOrdersDetails(
@@ -394,7 +393,7 @@ definition {
 				productQuantity = "1",
 				productSku = "MIN55860",
 				productTotalPrice = "15.00");
-			
+
 			CommerceOrders.viewOrdersDetails(
 				productListPrice = "34.00",
 				productName = "Torque Converters",
