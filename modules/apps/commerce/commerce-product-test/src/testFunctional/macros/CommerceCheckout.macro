@@ -171,4 +171,124 @@ definition {
 			value1 = "${totalValue}");
 	}
 
+	macro initializersCheckoutForAllPurchase {
+		WaitForElementPresent(locator1 = "CommerceAccelerators#CHECKOUT_PORTLET_BODY");
+
+		if (isSet(newAddressName)) {
+			Type(
+				key_fieldName = "Name",
+				locator1 = "CommerceAccelerators#CHECKOUT_GENERIC_TEXT_INPUT",
+				value1 = "${newAddressName}");
+
+			Type(
+				key_fieldName = "Address",
+				locator1 = "CommerceAccelerators#CHECKOUT_GENERIC_TEXT_INPUT",
+				value1 = "${newAddressAddress}");
+
+			Select(
+				key_fieldName = "Country",
+				locator1 = "CommerceAccelerators#CHECKOUT_GENERIC_SELECT",
+				value1 = "${newAddressCountry}");
+
+			Type(
+				key_fieldName = "Zip",
+				locator1 = "CommerceAccelerators#CHECKOUT_GENERIC_TEXT_INPUT",
+				value1 = "${newAddressZipCode}");
+
+			Type(
+				key_fieldName = "City",
+				locator1 = "CommerceAccelerators#CHECKOUT_GENERIC_TEXT_INPUT",
+				value1 = "${newAddressCity}");
+
+			if (isSet(guestEmail)) {
+				Type(
+					locator1 = "CommerceAccelerators#GUEST_CHECKOUT_EMAIL",
+					value1 = "${guestEmail}");
+			}
+		}
+
+		Click(locator1 = "Button#CONTINUE");
+
+		var subtotal = "${purchasePrice}";
+		
+		if (isSet(shippingMethod)) {
+			if (IsElementPresent(key_label = "Shipping Method", locator1 = "CommerceAccelerators#CHECKOUT_MULTI_STEP_INDICATOR_LABEL")) {
+				Click(
+					key_radioOption = "${shippingMethod}",
+					locator1 = "CommerceEntry#RADIO_BUTTON");
+
+				Click(locator1 = "Button#CONTINUE");
+			}
+
+			if ("${shippingMethod}" == "Standard") {
+				var deliveryValue = "15";
+			}
+			else {
+				if ("${shippingMethod}" == "Expedited") {
+					var deliveryValue = "25";
+				}
+			}
+
+			var total = ${subtotal} + ${deliveryValue};
+		}
+		else {
+			var total = "${subtotal}";
+		}
+
+		if (IsElementPresent(key_label = "Shipping Address", locator1 = "CommerceAccelerators#CHECKOUT_MULTI_STEP_INDICATOR_LABEL")) {
+			AssertTextEquals.assertPartialText(
+				key_addressInfo = "${newAddressName}",
+				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SHIPPING_ADDRESS",
+				value1 = "${newAddressName}");
+
+			AssertTextEquals.assertPartialText(
+				key_addressInfo = "${newAddressAddress}",
+				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SHIPPING_ADDRESS",
+				value1 = "${newAddressAddress}");
+
+			AssertTextEquals.assertPartialText(
+				key_addressInfo = "${newAddressCity}",
+				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SHIPPING_ADDRESS",
+				value1 = "${newAddressCity}");
+
+			AssertTextEquals.assertPartialText(
+				key_addressInfo = "${newAddressCountry}",
+				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SHIPPING_ADDRESS",
+				value1 = "${newAddressCountry}");
+		}
+
+		if (isSet(paymentMethod)) {
+			AssertTextEquals(
+				key_paymentMethod = "${paymentMethod}",
+				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_PAYMENT_METHOD",
+				value1 = "${paymentMethod}");
+		}
+
+		AssertTextEquals.assertPartialText(
+			key_subtotalValue = "${subtotal}",
+			locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SUBTOTAL",
+			value1 = "${subtotal}");
+
+		if (isSet(deliveryValue)) {
+			AssertTextEquals.assertPartialText(
+				key_deliveryValue = "${deliveryValue}",
+				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_DELIVERY",
+				value1 = "${deliveryValue}");
+		}
+
+		if (isSet(taxValue)) {
+			AssertTextEquals(
+				key_taxValue = "${taxValue}",
+				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_TAX",
+				value1 = "${taxValue}");
+		}
+
+		AssertTextEquals.assertPartialText(
+			key_totalValue = "${total}",
+			locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_TOTAL",
+			value1 = "${total}");
+
+		Click(locator1 = "Button#CONTINUE");
+	}
+
 }
