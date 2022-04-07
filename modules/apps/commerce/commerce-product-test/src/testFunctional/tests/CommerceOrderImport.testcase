@@ -312,14 +312,100 @@ definition {
 
 	}
 
-	@description = "[Please Update]"
-	@ignore = "Test Stub"
+	@description = "Verify the import status of the itens after editing the warehouse"
 	@priority = "4"
 	test VerifyPreviewModal {
 		property portal.acceptance = "false";
 
-		// TODO COMMERCE-7683 VerifyPreviewModal pending implementation
+		task ("Given a Minium site with a buyer user") {
+			User.logoutPG();
 
+			CommerceLogin.miniumLogin(
+				password = "test",
+				urlAppend = "web/minium",
+				userEmailAddress = "buyer@liferay.com");
+		}
+
+		task ("And given a completed order") {
+			for (var productName : list "U-Joint,Transmission Cooler Line Assembly,Torque Converters") {
+				FrontStore.addInitializerProductToCart(
+					productName = "${productName}",
+					productQuantity = "1");
+			}
+
+			WaitForElementPresent(locator1 = "CommerceEntry#ACTIVE_ORDER_ID");
+
+			var activeOrderId = selenium.getText("CommerceEntry#ACTIVE_ORDER_ID");
+
+			CommerceNavigator.gotoMiniCart();
+
+			Button.click(button = "View Details");
+
+			Button.click(button = "Checkout");
+
+			CommerceCheckout.initializersCheckoutForAllPurchase(
+				newAddressAddress = "Test Address",
+				newAddressCity = "Test City",
+				newAddressCountry = "United States",
+				newAddressName = "Address Name",
+				newAddressZipCode = "Test Zip Code",
+				purchasePrice = "73",
+				shippingMethod = "Standard");
+		}		
+
+		task ("When I edit to zero the warehouse of an item that I checked") {
+			User.logoutAndLoginPG(
+				userLoginEmailAddress = "test@liferay.com",
+				userLoginFullName = "test test");
+
+			CommerceNavigator.gotoPortlet(
+				category = "Product Management",
+				portlet = "Products");
+
+			CommerceEntry.editWarehousesQuantity(
+				productName = "U-Joint",
+				productSku = "MIN55861",
+				italyQuantity = "0",
+				northeastQuantity = "0",
+				southwestQuantity = "0");
+
+			User.logoutPG();
+		}
+
+		task ("And when I am creating a new order") {
+			CommerceLogin.miniumLogin(
+				password = "test",
+				urlAppend = "web/minium",
+				userEmailAddress = "buyer@liferay.com");
+
+			CommerceAcceleratorsInitializer.createNewOrderFromPendingOrders();
+		}
+
+		task ("Then i will be able to import only two items") {
+			CommerceOrders.importFromOrder(
+				orderId = "${activeOrderId}",
+				successMessage = "2 rows were imported successfully.");
+		
+			Refresh();
+
+			CommerceOrders.viewOrdersDetails(
+				productListPrice = "15.00",
+				productName = "Transmission Cooler Line Assembly",
+				productQuantity = "1",
+				productSku = "MIN55860",
+				productTotalPrice = "15.00");
+			
+			CommerceOrders.viewOrdersDetails(
+				productListPrice = "34.00",
+				productName = "Torque Converters",
+				productQuantity = "1",
+				productSku = "MIN55859",
+				productTotalPrice = "34.00");
+
+			AssertElementNotPresent(
+				key_productName = "U-Joint",
+				locator1 = "CommerceOrders#ORDER_DETAILS_PRODUCT_NAME");
+		}
 	}
 
 }
