@@ -136,13 +136,128 @@ definition {
 
 	}
 
-	@description = "[Please Update]"
-	@ignore = "Test Stub"
+	@description = "Verify users can create multiple orders and when import they are all visible"
 	@priority = "4"
 	test VerifyIfAllOrdersArePresent {
 		property portal.acceptance = "false";
 
-		// TODO COMMERCE-7680 VerifyIfAllOrdersArePresent pending implementation
+		task ("Given a Minium site with a buyer user") {
+			User.logoutPG();
+
+			CommerceLogin.miniumLogin(
+				password = "test",
+				urlAppend = "web/minium",
+				userEmailAddress = "buyer@liferay.com");
+		}
+
+		task ("When I add an item to the cart and complete the checkout") {	
+			FrontStore.addInitializerProductToCart(
+				productName = "U-Joint",
+				productQuantity = "1");
+
+			WaitForElementPresent(locator1 = "CommerceEntry#ACTIVE_ORDER_ID");
+
+			var uJointId = selenium.getText("CommerceEntry#ACTIVE_ORDER_ID");
+
+			CommerceNavigator.gotoMiniCart();
+
+			Button.click(button = "View Details");
+
+			Button.click(button = "Checkout");
+
+			CommerceCheckout.initializersCheckout(
+				newAddressAddress = "Test Address",
+				newAddressCity = "Test City",
+				newAddressCountry = "United States",
+				newAddressName = "Address Name",
+				newAddressZipCode = "Test Zip Code",
+				productName = "U-Joint",
+				productQuantity = "1",
+				productUnitPrice = "24",
+				shippingMethod = "Standard");
+
+			CommerceNavigator.gotoMiniumSidebarItem(menuItem = "Catalog");
+
+			FrontStore.addInitializerProductToCart(
+				productName = "Mount",
+				productQuantity = "1");
+
+			WaitForElementPresent(locator1 = "CommerceEntry#ACTIVE_ORDER_ID");
+
+			var mountId = selenium.getText("CommerceEntry#ACTIVE_ORDER_ID");
+
+			CommerceNavigator.gotoMiniCart();
+
+			Button.click(button = "View Details");
+
+			Button.click(button = "Checkout");
+
+			CommerceCheckout.initializersCheckout(
+				newAddressAddress = "Test Address",
+				newAddressCity = "Test City",
+				newAddressCountry = "United States",
+				newAddressName = "Address Name",
+				newAddressZipCode = "Test Zip Code",
+				productName = "Mount",
+				productQuantity = "1",
+				productUnitPrice = "3",
+				shippingMethod = "Standard");
+
+			CommerceNavigator.gotoMiniumSidebarItem(menuItem = "Catalog");
+
+			FrontStore.addInitializerProductToCart(
+				productName = "Torque Converters",
+				productQuantity = "1");
+
+			WaitForElementPresent(locator1 = "CommerceEntry#ACTIVE_ORDER_ID");
+
+			var torqueConvertersId = selenium.getText("CommerceEntry#ACTIVE_ORDER_ID");
+
+			CommerceNavigator.gotoMiniCart();
+
+			Button.click(button = "View Details");
+
+			Button.click(button = "Checkout");
+
+			CommerceCheckout.initializersCheckout(
+				newAddressAddress = "Test Address",
+				newAddressCity = "Test City",
+				newAddressCountry = "United States",
+				newAddressName = "Address Name",
+				newAddressZipCode = "Test Zip Code",
+				productName = "Torque Converters",
+				productQuantity = "1",
+				productUnitPrice = "34",
+				shippingMethod = "Standard");
+
+			CommerceNavigator.gotoMiniumSidebarItem(menuItem = "Catalog");			
+		}
+
+		task ("And when I create new order from pending orders") {
+			CommerceAcceleratorsInitializer.createNewOrderFromPendingOrders();
+
+			WaitForElementPresent(locator1 = "CommerceEntry#ACTIVE_ORDER_ID");
+
+			var createdOrderId = selenium.getText("CommerceEntry#ACTIVE_ORDER_ID");
+		}
+
+		task ("Then if I import orders they are all visible into the modal") {
+			Click(locator1 = "CommerceEntry#DROPDOWN");
+
+			MenuItem.click(menuItem = "Import from Orders");
+
+			IFrame.selectModalFrame();
+
+			for (var orderId : list "${uJointId},${mountId},${torqueConvertersId}") {
+				AssertElementPresent(
+					key_entryName = "${orderId}",
+					locator1 = "CommerceEntry#TABLE_LIST_TITLE");
+			}
+ 
+			AssertElementNotPresent(
+				key_entryName = "${createdOrderId}",
+				locator1 = "CommerceEntry#TABLE_LIST_TITLE");
+		}
 
 	}
 
