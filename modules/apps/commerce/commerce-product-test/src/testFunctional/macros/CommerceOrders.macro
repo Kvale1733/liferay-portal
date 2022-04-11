@@ -210,6 +210,22 @@ definition {
 		Alert.viewSuccessMessage();
 	}
 
+	macro importFromOrder {
+		Click(locator1 = "CommerceEntry#DROPDOWN");
+
+		MenuItem.click(menuItem = "Import from Orders");
+
+		IFrame.selectModalFrame();
+
+		Search.searchCP(searchTerm = "${orderId}");
+
+		Button.click(button = "Select");
+
+		Button.click(button = "Import");
+
+		IFrame.selectTopFrame();
+	}
+
 	macro openOrderTypesAdmin {
 		Navigator.openWithAppendToBaseURL(
 			baseURL = "${baseURL}",
