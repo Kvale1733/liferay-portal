@@ -16,7 +16,7 @@ definition {
 			User.firstLoginPG();
 		}
 
-		task ("Setup: Uncheck Require strangers to verify their email address") {
+		/*task ("Setup: Uncheck Require strangers to verify their email address") {
 			PortalSettings.gotoConfiguration(
 				configurationCategory = "User Authentication",
 				configurationName = "General",
@@ -49,7 +49,7 @@ definition {
 				newPassword = "test",
 				requirePasswordReset = "false",
 				userScreenName = "buyeruser");
-		}
+		}*/
 	}
 
 	tearDown {
@@ -187,7 +187,7 @@ definition {
 
 	}
 
-	@description = "Verify users can create multiple orders and when import they are all visible"
+	@description = "Verify existing orders are shown when importing an order."
 	@priority = "4"
 	test VerifyIfAllOrdersArePresent {
 		property portal.acceptance = "false";
@@ -201,112 +201,63 @@ definition {
 				userEmailAddress = "buyer@liferay.com");
 		}
 
-		task ("When I add an item to the cart and complete the checkout") {
-			FrontStore.addInitializerProductToCart(
-				productName = "U-Joint",
-				productQuantity = "1");
+		task ("And given 3 completed orders") {
+			for (var product : list "U-Joint:24,Mount:3,Torque Converters:34") {
+				var productName = StringUtil.extractFirst("${product}", ":");
+				var productUnitPrice = StringUtil.extractLast("${product}", ":");
 
-			WaitForElementPresent(locator1 = "CommerceEntry#ACTIVE_ORDER_ID");
+				FrontStore.addInitializerProductToCart(
+					productName = "${productName}",
+					productQuantity = "1");
 
-			var uJointId = selenium.getText("CommerceEntry#ACTIVE_ORDER_ID");
+				CommerceNavigator.gotoMiniCart();
 
-			CommerceNavigator.gotoMiniCart();
+				Button.click(button = "View Details");
 
-			Button.click(button = "View Details");
+				Button.click(button = "Checkout");
 
-			Button.click(button = "Checkout");
+				CommerceCheckout.initializersCheckout(
+					newAddressAddress = "Test Address",
+					newAddressCity = "Test City",
+					newAddressCountry = "United States",
+					newAddressName = "Address Name",
+					newAddressZipCode = "Test Zip Code",
+					productName = "${productName}",
+					productQuantity = "1",
+					productUnitPrice = "${productUnitPrice}",
+					shippingMethod = "Standard");
 
-			CommerceCheckout.initializersCheckout(
-				newAddressAddress = "Test Address",
-				newAddressCity = "Test City",
-				newAddressCountry = "United States",
-				newAddressName = "Address Name",
-				newAddressZipCode = "Test Zip Code",
-				productName = "U-Joint",
-				productQuantity = "1",
-				productUnitPrice = "24",
-				shippingMethod = "Standard");
-
-			CommerceNavigator.gotoMiniumSidebarItem(menuItem = "Catalog");
-
-			FrontStore.addInitializerProductToCart(
-				productName = "Mount",
-				productQuantity = "1");
-
-			WaitForElementPresent(locator1 = "CommerceEntry#ACTIVE_ORDER_ID");
-
-			var mountId = selenium.getText("CommerceEntry#ACTIVE_ORDER_ID");
-
-			CommerceNavigator.gotoMiniCart();
-
-			Button.click(button = "View Details");
-
-			Button.click(button = "Checkout");
-
-			CommerceCheckout.initializersCheckout(
-				newAddressAddress = "Test Address",
-				newAddressCity = "Test City",
-				newAddressCountry = "United States",
-				newAddressName = "Address Name",
-				newAddressZipCode = "Test Zip Code",
-				productName = "Mount",
-				productQuantity = "1",
-				productUnitPrice = "3",
-				shippingMethod = "Standard");
-
-			CommerceNavigator.gotoMiniumSidebarItem(menuItem = "Catalog");
-
-			FrontStore.addInitializerProductToCart(
-				productName = "Torque Converters",
-				productQuantity = "1");
-
-			WaitForElementPresent(locator1 = "CommerceEntry#ACTIVE_ORDER_ID");
-
-			var torqueConvertersId = selenium.getText("CommerceEntry#ACTIVE_ORDER_ID");
-
-			CommerceNavigator.gotoMiniCart();
-
-			Button.click(button = "View Details");
-
-			Button.click(button = "Checkout");
-
-			CommerceCheckout.initializersCheckout(
-				newAddressAddress = "Test Address",
-				newAddressCity = "Test City",
-				newAddressCountry = "United States",
-				newAddressName = "Address Name",
-				newAddressZipCode = "Test Zip Code",
-				productName = "Torque Converters",
-				productQuantity = "1",
-				productUnitPrice = "34",
-				shippingMethod = "Standard");
-
-			CommerceNavigator.gotoMiniumSidebarItem(menuItem = "Catalog");
+				CommerceNavigator.gotoMiniumSidebarItem(menuItem = "Catalog");
+			}
 		}
 
-		task ("And when I create new order from pending orders") {
+		task ("When I try to import an order") {
+			CommerceNavigator.gotoMiniumSidebarItem(menuItem = "Catalog");
+
 			CommerceAcceleratorsInitializer.createNewOrderFromPendingOrders();
 
 			WaitForElementPresent(locator1 = "CommerceEntry#ACTIVE_ORDER_ID");
 
-			var createdOrderId = selenium.getText("CommerceEntry#ACTIVE_ORDER_ID");
-		}
+			var currentOrderId = selenium.getText("CommerceEntry#ACTIVE_ORDER_ID");
 
-		task ("Then if I import orders they are all visible into the modal") {
 			Click(locator1 = "CommerceEntry#DROPDOWN");
 
 			MenuItem.click(menuItem = "Import from Orders");
+		}
 
+		task ("Then all 3 created orders should be available for import") {
 			IFrame.selectModalFrame();
 
-			for (var orderId : list "${uJointId},${mountId},${torqueConvertersId}") {
+			var orderIds = CommerceJSONOrdersAPI._getCommerceOrderIds(orderCount = "3");
+
+			for (var orderId : list "${orderIds}") {
 				AssertElementPresent(
 					key_entryName = "${orderId}",
 					locator1 = "CommerceEntry#TABLE_LIST_TITLE");
 			}
 
 			AssertElementNotPresent(
-				key_entryName = "${createdOrderId}",
+				key_entryName = "${currentOrderId}",
 				locator1 = "CommerceEntry#TABLE_LIST_TITLE");
 		}
 	}
@@ -316,7 +267,7 @@ definition {
 	test VerifyPreviewModal {
 		property portal.acceptance = "false";
 
-		task ("Given a Minium site with a buyer user") {
+		/*task ("Given a Minium site with a buyer user") {
 			User.logoutPG();
 
 			CommerceLogin.miniumLogin(
@@ -325,7 +276,7 @@ definition {
 				userEmailAddress = "buyer@liferay.com");
 		}
 
-		task ("And given a completed order") {
+		task ("And given a completed order with multiple products") {
 			for (var productName : list "U-Joint,Transmission Cooler Line Assembly,Torque Converters") {
 				FrontStore.addInitializerProductToCart(
 					productName = "${productName}",
@@ -342,24 +293,21 @@ definition {
 
 			Button.click(button = "Checkout");
 
-			CommerceCheckout.initializersCheckoutForAllPurchase(
+			CommerceCheckout.checkout(
 				newAddressAddress = "Test Address",
 				newAddressCity = "Test City",
 				newAddressCountry = "United States",
 				newAddressName = "Address Name",
 				newAddressZipCode = "Test Zip Code",
-				purchasePrice = "73",
 				shippingMethod = "Standard");
 		}
 
-		task ("When I edit to zero the warehouse of an item that I checked") {
+		task ("And given the warehouse quanitity for one of the ordered products is set to 0") {
 			User.logoutAndLoginPG(
 				userLoginEmailAddress = "test@liferay.com",
 				userLoginFullName = "test test");
 
-			CommerceNavigator.gotoPortlet(
-				category = "Product Management",
-				portlet = "Products");
+			CommerceProducts.openProductsAdmin();
 
 			CommerceEntry.editWarehousesQuantity(
 				italyQuantity = "0",
@@ -367,23 +315,35 @@ definition {
 				productName = "U-Joint",
 				productSku = "MIN55861",
 				southwestQuantity = "0");
+		}*/
 
+		task ("When the buyer imports the order") {
 			User.logoutPG();
-		}
 
-		task ("And when I am creating a new order") {
 			CommerceLogin.miniumLogin(
 				password = "test",
 				urlAppend = "web/minium",
 				userEmailAddress = "buyer@liferay.com");
 
 			CommerceAcceleratorsInitializer.createNewOrderFromPendingOrders();
+
+			Click(locator1 = "CommerceEntry#DROPDOWN");
+
+			MenuItem.click(menuItem = "Import from Orders");
+
+			IFrame.selectModalFrame();
+
+			Search.searchCP(searchTerm = "${orderId}");
+
+			Button.click(button = "Select");
+
+			// Todo
+			// add path for preview modal table and assert entries
+
 		}
 
-		task ("Then i will be able to import only two items") {
-			CommerceOrders.importFromOrder(
-				orderId = "${activeOrderId}",
-				successMessage = "2 rows were imported successfully.");
+		task ("Then only two products will be imported form the order") {
+			Alert.viewSuccessMessageText(successMessage = "2 rows were imported successfully.");
 
 			Refresh();
 
