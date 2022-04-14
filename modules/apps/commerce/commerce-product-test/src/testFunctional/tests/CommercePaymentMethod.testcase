@@ -36,7 +36,7 @@ definition {
 	@description = "Verify once created, users can navigate to the Payment Methods page where new Offline Payment Methods can be Edited and Activated."
 	@priority = "3"
 	test ActivateOfflinePaymentMethodsAndAddDescription {
-		property portal.acceptance = "false";
+		property portal.acceptance = "kvale17";
 		property test.name.skip.portal.instance = "CommercePaymentMethod#ActivateOfflinePaymentMethodsAndAddDescription";
 
 		task ("Given a Channel") {
@@ -78,7 +78,7 @@ definition {
 	@description = "Verify an offline payment method can be added, edited, and deleted from system settings"
 	@priority = "3"
 	test AddEditAndDeleteOfflinePaymentMethod {
-		property portal.acceptance = "false";
+		property portal.acceptance = "kvale17";
 		property test.name.skip.portal.instance = "CommercePaymentMethod#AddEditAndDeleteOfflinePaymentMethod";
 
 		task ("Given the System Integrator navigates to the Offline Payment Method Keys configuration under the Payment category in System Settings") {
@@ -142,7 +142,7 @@ definition {
 	@description = "Verify an activated offline payment method can be used for an order."
 	@priority = "3"
 	test AnOfflinePaymentMethodCanBeUsedForAnOrder {
-		property portal.acceptance = "false";
+		property portal.acceptance = "kvale17";
 		property test.name.skip.portal.instance = "CommercePaymentMethod#AnOfflinePaymentMethodCanBeUsedForAnOrder";
 
 		task ("Given a Minium site with a buyer user") {
@@ -209,7 +209,7 @@ definition {
 	@description = "Verify offline payment methods display in the orders page for orders placed with a new offline payment method. Verify this payment method can be changed to another offline payment method."
 	@priority = "3"
 	test AssertAndEditNewPaymentMethodInOrdersPage {
-		property portal.acceptance = "false";
+		property portal.acceptance = "kvale17";
 		property test.name.skip.portal.instance = "CommercePaymentMethod#AssertAndEditNewPaymentMethodInOrdersPage";
 
 		task ("Given a Minium site with a buyer user") {
@@ -309,7 +309,7 @@ definition {
 	@description = "Verify an activated offline payment method can be selected for an order when multiple payment methods are active."
 	@priority = "3"
 	test CreateOrderWithMultipleActivePaymentMethods {
-		property portal.acceptance = "false";
+		property portal.acceptance = "kvale17";
 		property test.name.skip.portal.instance = "CommercePaymentMethod#CreateOrderWithMultipleActivePaymentMethods";
 
 		task ("Given a Minium site with a buyer user") {
