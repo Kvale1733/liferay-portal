@@ -2217,6 +2217,61 @@ definition {
 		Alert.viewSuccessMessage();
 	}
 
+	@description = "This is a test for COMMERCE-8136. Verify users can set and edit payment term eligibility for payment methods"
+	@priority = "3"
+	test SetAndEditPaymentMethodTermElgibility {
+		property portal.acceptance = "false";
+
+		task ("Given a Minium site") {
+			CommerceAccelerators.initializeNewSiteViaAccelerator(siteName = "Minium");
+		}
+
+		task ("And given an active payment term") {
+			CommerceJSONTermsAndConditionsAPI._addTerm(
+				priority = "0",
+				termDescription = "Test Payment Term",
+				termName = "Test Payment Term");
+		}
+
+		task ("And given an active payment method") {
+			CommerceChannels.openChannelsAdmin();
+
+			CommerceNavigator.gotoEntry(entryName = "Minium Portal");
+
+			CommerceChannels.activatePaymentMethod(paymentMethod = "PayPal");
+		}
+
+		task ("When the user sets the payment method's eligibility specifically to a payment term") {
+			CommerceChannels.setPaymentMethodEligibility(
+				eligibility = "Specific Payment Terms",
+				paymentMethod = "PayPal",
+				paymentTerm = "Test Payment Term");
+		}
+
+		task ("Then the payment term should be shown under Payment Terms in the eligibility tab") {
+			CommerceEntry.clickTableEntryEditButton(
+				entryName = "PayPal",
+				table = "Payment Methods");
+
+			SelectFrame.selectFrameNoLoading(locator1 = "CommerceEntry#IFRAME_SIDE_PANEL");
+
+			CommerceEntry.gotoMenuTab(menuTab = "Eligibility");
+		}
+
+		task ("When the user changes the payment method's eligibility to No Payment Terms") {
+			Click(
+				key_radioOption = "No Payment Terms",
+				locator1 = "CommerceEntry#RADIO_BUTTON");
+		}
+
+		task ("Then no payment terms should be shown in the eligibility tab") {
+			AssertElementNotPresent(
+				key_entryName = "Test Payment Term",
+				key_table = "Payment Terms",
+				locator1 = "CommerceEntry#TABLE_ENTRY_NAME");
+		}
+	}
+
 	@description = "This is a test for COMMERCE-8326. Verify users can configure shipping option eligibility to all order types"
 	@priority = "3"
 	test ShippingOptionEligibleForAnyOrderType {
