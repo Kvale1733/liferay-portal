@@ -213,6 +213,13 @@ definition {
 				value1 = "${paymentMethod}");
 		}
 
+		if (isSet(paymentTerm)) {
+			AssertTextEquals(
+				key_paymentTerm = "${paymentTerm}",
+				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_PAYMENT_TERM",
+				value1 = "${paymentTerm}");
+		}
+
 		AssertTextEquals.assertPartialText(
 			key_productName = "${productName}",
 			locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_PRODUCT_TABLE_PRODUCT",
