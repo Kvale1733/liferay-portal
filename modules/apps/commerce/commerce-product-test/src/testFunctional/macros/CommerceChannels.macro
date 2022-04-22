@@ -357,6 +357,76 @@ definition {
 		AssertElementPresent(locator1 = "Message#SUCCESS");
 	}
 
+	macro setPaymentMethodEligibility {
+		CommerceEntry.clickTableEntryEditButton(
+			entryName = "${paymentMethod}",
+			table = "Payment Methods");
+
+		SelectFrame.selectFrameNoLoading(locator1 = "CommerceEntry#IFRAME_SIDE_PANEL");
+
+		CommerceEntry.gotoMenuTab(menuTab = "Eligibility");
+
+		if ("${eligibility}" == "All Order Types") {
+			Click(
+				key_radioOption = "All Order Types",
+				locator1 = "CommerceEntry#RADIO_BUTTON");
+		}
+
+		if ("${eligibility}" == "No Payment Terms") {
+			Click(
+				key_radioOption = "No Payment Terms",
+				locator1 = "CommerceEntry#RADIO_BUTTON");
+		}
+
+		if ("${eligibility}" == "Specific Order Types") {
+			Click(
+				key_radioOption = "Specific Order Types",
+				locator1 = "CommerceEntry#RADIO_BUTTON");
+
+			Type(
+				locator1 = "CommerceEntry#SEARCH_ORDER_TYPE",
+				value1 = "${orderType}");
+
+			Click(
+				key_entryName = "${orderType}",
+				locator1 = "CommerceEntry#SELECT_ENTRY_BUTTON");
+
+			WaitForElementPresent(
+				key_entryName = "${orderType}",
+				key_table = "Order Types",
+				locator1 = "CommerceEntry#TABLE_ENTRY_NAME");
+		}
+
+		if ("${eligibility}" == "Specific Payment Terms") {
+			var paymentTerm = StringUtil.lowerCase("${paymentTerm}");
+			var paymentTerm = StringUtil.replace("${paymentTerm}", " ", "-");
+
+			Click(
+				key_radioOption = "Specific Payment Terms",
+				locator1 = "CommerceEntry#RADIO_BUTTON");
+
+			Type(
+				key_placeHolder = "Find a Payment Term",
+				locator1 = "TextInput#ANY_PLACEHOLDER",
+				value1 = "${paymentTerm}");
+
+			Click(
+				key_entryName = "${paymentTerm}",
+				locator1 = "CommerceEntry#SELECT_ENTRY_BUTTON");
+
+			WaitForElementPresent(
+				key_entryName = "${paymentTerm}",
+				key_table = "Payment Terms",
+				locator1 = "CommerceEntry#TABLE_ENTRY_NAME");
+		}
+
+		Button.clickSave();
+
+		SelectFrame.selectFrameTop();
+
+		Refresh();
+	}
+
 	macro setShippingOptionOrderTypeEligibility {
 		CommerceEntry.clickTableEntryEditButton(
 			entryName = "${shippingMethod}",
