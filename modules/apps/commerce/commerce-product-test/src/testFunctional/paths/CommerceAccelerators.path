@@ -338,6 +338,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>CHECKOUT_SUMMARY_PAYMENT_TERM</td>
+	<td>//div[@class='shipping-description']/a[contains(text(),'${key_paymentTerm}')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>CHECKOUT_SUMMARY_PRODUCT_TABLE_PRICE</td>
 	<td>//td[contains(@class,'lfr-price-column')]//*/*[contains(.,'${key_productPrice}')]</td>
 	<td></td>
