@@ -357,14 +357,59 @@ definition {
 		}
 	}
 
-	@description = "[Please Update]"
+	@description = "COMMERCE-8280. The sales manager is able to change the status of terms and conditions."
 	@ignore = "Test Stub"
 	@priority = "4"
 	test ChangeTheStatus {
 		property portal.acceptance = "false";
 
-		// TODO COMMERCE-8280 ChangeTheStatus pending implementation
+		task ("Given a new entry into the "Terms and Conditions" with the status to "Active"") {
+			CommerceOrders.openTermsAndConditionsAdmin();
 
+			CommercePaymentTerms.addTermsAndCondition(
+				active = "true",
+				termsAndConditionName = "Test Terms and Condition",
+				termsAndConditionType = "Payment Terms",
+				valuePosition = "0");
+
+			CommerceOrders.openTermsAndConditionsAdmin();
+		}
+
+		task ("When a sales manager opens the entry and toggles the active switch and goes back to dashboard to assert entry is active.") {
+			CommerceNavigator.gotoEntry(entryName = "Test Terms and Condition");
+
+			Check.checkToggleSwitch(locator1 = "CommerceOrders#TERMS_AND_CONDITIONS_ACTIVE_SWITCH");
+
+			AssertClick(
+				locator1 = "CommerceOrders#TERMS_AND_CONDITIONS_PUBLISH_BUTTON",
+				value1 = "Publish");
+
+			CommerceNavigator.gotoPortlet(
+				category = "Order Management",
+				portlet = "Terms and Conditions");
+
+			AssertElementPresent(
+				key_active = "Yes",
+				locator1 = "CommerceOrders#TERMS_AND_CONDITIONS_ACTIVE_TEXT");
+		}
+
+		task ("Then a sales manager opens the entry and disables the active toggles and goes back to fashboard to assert entry is inactive.") {
+			CommerceNavigator.gotoEntry(entryName = "Test Terms and Condition");
+
+			Uncheck.uncheckToggleSwitch(locator1 = "CommerceOrders#TERMS_AND_CONDITIONS_ACTIVE_SWITCH");
+
+			AssertClick(
+				locator1 = "CommerceOrders#TERMS_AND_CONDITIONS_PUBLISH_BUTTON",
+				value1 = "Publish");
+
+			CommerceNavigator.gotoPortlet(
+				category = "Order Management",
+				portlet = "Terms and Conditions");
+
+			AssertElementPresent(
+				key_active = "No",
+				locator1 = "CommerceOrders#TERMS_AND_CONDITIONS_ACTIVE_TEXT");
+		}
 	}
 
 }
