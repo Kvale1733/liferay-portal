@@ -480,6 +480,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ACCOUNT_ORDER_DEFAULTS_ENTRY</td>
+	<td>//div[contains(.,'${key_defaultOption}')][@class='sheet-section'][@class='sheet-section']//div[@class='sheet-text']/following-sibling::span | //div[contains(.,'${key_defaultOption}')][@class='sheet-section'][@class='sheet-section']//div[@class='sheet-text']/following-sibling::h4</td>
+	<td></td>
+</tr>
+<tr>
 	<td>PARENT_PRICE_LIST_SELECT</td>
 	<td>//button[contains(@id,'setParentCommercePriceList')]</td>
 	<td></td>
