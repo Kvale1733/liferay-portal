@@ -155,6 +155,12 @@ definition {
 		}
 
 		if (isSet(paymentMethod) && (IsElementPresent(key_radioOption = "", locator1 = "CommerceEntry#RADIO_BUTTON"))) {
+			if (isSet(defaultPaymentMethod)) {
+				AssertChecked(
+					key_radioOption = "${defaultPaymentMethod}",
+					locator1 = "CommerceEntry#RADIO_BUTTON");
+			}
+
 			Click(
 				key_radioOption = "${paymentMethod}",
 				locator1 = "CommerceEntry#RADIO_BUTTON");
