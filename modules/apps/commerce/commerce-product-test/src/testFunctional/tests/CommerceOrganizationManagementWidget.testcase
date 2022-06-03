@@ -5,406 +5,345 @@ definition {
 	property portal.release = "true";
 	property portal.upstream = "true";
 	property release.feature.flags.disable.DISABLE_PRIVATE_LAYOUTS = "true";
-	property testray.main.component.name = "Commerce";
+	property testray.main.component.name = "Order Management";
 
 	setUp {
-		CommerceConfiguration.commerceSetUp();
+		CommerceConfiguration.commerceSetUp(minium = "true");
 
-        CommerceConfiguration.commerceSetUp(minium = "true");
+		task ("Setup: Add a Minium page with an Organization Management widget") {
+			JSONLayout.addPublicLayout(
+				groupName = "Minium",
+				layoutName = "Organization Management Widget Page");
 
-		CommerceEntry.addAccountEntryUser(
-			accountName = "Commerce Account",
-			accountType = "Business",
-			agreeToTermsAndAnswerReminderQuery = "true",
-			createNewAccount = "true",
-			requireReset = "false",
-			userEmailAddress = "buyer@liferay.com",
-			userFirstName = "Buyer",
-			userLastName = "User",
-			userRole = "Buyer",
-			userScreenName = "buyeruser",
-			userSiteMembership = "Minium");
+			JSONLayout.addWidgetToPublicLayout(
+				groupName = "Minium",
+				layoutName = "Organization Management Widget Page",
+				widgetName = "Organization Management");
+		}
 
-        ApplicationsMenu.gotoSite(site = "Minium");
-
-        JSONLayout.addPublicLayout(
-            groupName = "Minium",
-            layoutName = "Test Public Content Page",
-            type = "content");
-
-        ContentPagesNavigator.openEditContentPage(
-            pageName = "Test Public Content Page",
-            siteName = "Minium");
-
-        PageEditor.addWidget(portletName = "Organization Management");
-
-        Button.clickPublish();
-
-        JSONOrganization.addOrganization(
-            organizationName = "Organization 1",
-            organizationSite = "true");
+		task ("Setup: Add an organization") {
+			JSONOrganization.addOrganization(
+				organizationName = "Organization 1",
+				organizationSite = "false");
+		}
 	}
 
 	tearDown {
 		CommerceConfiguration.commerceTearDown();
 	}
 
-    @description = "COMMERCE-9399. Verify if organization is shown within the widget"
-	@priority = "3"
-	test CanViewOrganizationWidget {
-        task ("When the widget page is reached") {
-            Navigator.openSitePage(
-                pageName = "Test Public Content Page",
-                siteName = "Minium");
-        }
-
-        task ("Then the organization is shown within the widget") {
-            AssertElementPresent(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "Organization 1");
-        }
-    }
-
-    @description = "COMMERCE-9400. Verify if store admin can create organizations by using the widget"
-	@priority = "3"
-	test CanCreateOrganizationUsingWidget {
-        task ("When the widget page is reached") {
-            Navigator.openSitePage(
-                pageName = "Test Public Content Page",
-                siteName = "Minium");
-        }
-
-        task ("And when the organization svg node is clicked") {
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "Organization 1");
-        }
-
-        task ("And when the plus button is clicked") {
-           Click.clickNoWaitForVisible(locator1 = "CommerceOrganizationManagementWidget#PLUS_BUTTON");
-        }
-
-        task ("And the organization icon is clicked") {
-            WaitForElementPresent(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_ACTION",
-                key_orgType = "organization");
-
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_ACTION",
-                key_orgType = "organization");
-        }
-
-        task ("Then the admin is able to create a new organization") {
-            Type(
-                locator1 = "TextInput#NAME",
-                value1 = "Organization 1");
-            
-            Button.clickSave();
-        }
-
-        task ("And then the new organization is present in the admin console") {
-            AssertElementPresent(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "Organization 1");
-        }
-    }
-
-    @description = "COMMERCE-9401. Verify if store admin can create accounts by using the widget"
-	@priority = "3"
-	test CanCreateAccountUsingWidget {
-        task ("When the widget page is reached") {
-            Navigator.openSitePage(
-                pageName = "Test Public Content Page",
-                siteName = "Minium");
-        }
-
-        task ("And when the organization svg node is clicked") {
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "Organization 1");
-        }
-
-        task ("And when the plus button is clicked") {
-            Click.clickNoWaitForVisible(locator1 = "CommerceOrganizationManagementWidget#PLUS_BUTTON");
-        }
-
-        task ("And the account svg node is clicked") {
-            WaitForElementPresent(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_ACTION",
-                key_orgType = "account");
-
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_ACTION",
-                key_orgType = "account");
-        }   
-
-        task ("Then the admin is able to create a new account") {
-            SelectFrameTop();
-
-            Click.clickAtNotVisible(
-                key_radioOption = "Create New Account",
-                locator1 = "CommerceEntry#RADIO_BUTTON");
-
-            Type(
-                locator1 = "TextInput#NAME",
-                value1 = "Account 1");
-            
-            Button.clickSave();
-        }
-
-        task ("And then the new organization is present in the admin console") {
-            AssertElementPresent(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "Account 1");
-        }
-    }
-
-    @description = "COMMERCE-9402. Verify if store admin can associate existing accounts by using the widget  "
-	@priority = "3"
-	test CanAssociateExistingAccountUsingWidget {
-        task ("When the widget page is reached") {
-            Navigator.openSitePage(
-                pageName = "Test Public Content Page",
-                siteName = "Minium");
-        }
-
-        task ("And when the organization svg node is clicked") {
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "Organization 1");
-        }
-
-        task ("And when the plus button is clicked") {
-            Click.clickNoWaitForVisible(locator1 = "CommerceOrganizationManagementWidget#PLUS_BUTTON");
-        }
-
-        task ("And the account svg node is clicked") {
-            WaitForElementPresent(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_ACTION",
-                key_orgType = "account");
-
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_ACTION",
-                key_orgType = "account");
-        }   
-
-        task ("Then the admin is able to create a new account") {
-            SelectFrameTop();
-
-            Click.clickAtNotVisible(
-                key_radioOption = "Select Accounts",
-                locator1 = "CommerceEntry#RADIO_BUTTON");
-
-            Type(
-                locator1 = "CommerceOrganizationManagementWidget#SEARCH_ACCOUNT_INPUT",
-                value1 = "Commerce Account");
-
-            KeyPress(
-                locator1 = "CommerceOrganizationManagementWidget#SEARCH_ACCOUNT_INPUT",
-                value1 = "\ENTER");
-                
-            Button.clickSave();
-        }
-
-        task ("And then the new organization is present in the admin console") {
-            AssertElementPresent(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "Commerce Account");
-        }
-    }
-
-    @description = "COMMERCE-9403. Verify if store admin can add new users by using the widget"
+	@description = "COMMERCE-9403. Verify new users can be added using the Organization Management widget."
 	@priority = "3"
 	test CanAddNewUserUsingWidget {
-        task ("When the widget page is reached") {
-            Navigator.openSitePage(
-                pageName = "Test Public Content Page",
-                siteName = "Minium");
-        }
+		task ("When the Organization Management Widget Page is reached") {
+			Navigator.openSitePage(
+				pageName = "Organization Management Widget Page",
+				siteName = "Minium");
 
-        task ("And when the user svg node is clicked") {
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "Organization 1");
-        }
+			Click(locator1 = "Button#EXPAND");
+		}
 
-        task ("And when the plus button is clicked") {
-           Click.clickAtNotVisible(locator1 = "CommerceOrganizationManagementWidget#PLUS_BUTTON");
-        }
+		task ("And the organization svg node is clicked") {
+			Click(
+				key_nodeName = "Organization 1",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE");
+		}
 
-        task ("And the user svg node is clicked") {
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_ACTION",
-                key_orgType = "user");
-        }
+		task ("And the plus button is clicked") {
+			Click(locator1 = "CommerceOrganizationManagementWidget#PLUS_BUTTON");
+		}
 
-        task ("Then the admin is able to create a new user") {
-            Type(
-                locator1 = "CommerceOrganizationManagementWidget#INVITE_EMAIL_INPUT",
-                value1 = "user1@liferay.com");
+		task ("And the user svg node is clicked") {
+			Click.clickAtNotVisible(
+				key_orgType = "user",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_ACTION");
+		}
 
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#SELECT_ROLE",
-                key_roleOption = "Organization User");
-            
-            Button.clickSave();
-        }
+		task ("Then the admin is able to create and add a new user to the Organization by adding the user email and selecting the organization role") {
+			Type(
+				locator1 = "CommerceOrganizationManagementWidget#INVITE_EMAIL_INPUT",
+				value1 = "user@liferay.com");
 
-        task ("And then the new user is present in the admin console") {
-            AssertElementPresent(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "user1@");
-        }
-    }
+			Click(
+				key_roleOption = "Organization User",
+				locator1 = "CommerceOrganizationManagementWidget#SELECT_ROLE");
 
-    @description = "COMMERCE-9404. Verify if store admin can move accounts/organizations"
+			Button.clickSave();
+
+			Alert.viewSuccessMessage();
+		}
+
+		task ("And the user is present in the admin console") {
+			AssertElementPresent(
+				key_nodeName = "user@life",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE");
+		}
+	}
+
+	@description = "COMMERCE-9402. Verify the store admin can associate existing accounts to an organization by using the Organization Management widget."
+	@priority = "3"
+	test CanAssociateExistingAccountUsingWidget {
+		task ("Given an account") {
+			JSONAccountEntry.addAccountEntry(
+				accountEntryName = "Commerce Account",
+				accountEntryType = "Business");
+		}
+
+		task ("When the Organization Management Widget Page is reached") {
+			Navigator.openSitePage(
+				pageName = "Organization Management Widget Page",
+				siteName = "Minium");
+
+			Click(locator1 = "Button#EXPAND");
+		}
+
+		task ("And the organization svg node is clicked") {
+			Click(
+				key_nodeName = "Organization 1",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE");
+		}
+
+		task ("And the plus button is clicked") {
+			Click(locator1 = "CommerceOrganizationManagementWidget#PLUS_BUTTON");
+		}
+
+		task ("And the account svg node is clicked") {
+			Click.clickAtNotVisible(
+				key_orgType = "account",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_ACTION");
+		}
+
+		task ("Then the admin is able to select an existing account to be associated with the organization") {
+			Click.clickAtNotVisible(
+				key_radioOption = "Select Accounts",
+				locator1 = "CommerceEntry#RADIO_BUTTON");
+
+			Type(
+				locator1 = "CommerceOrganizationManagementWidget#SEARCH_ACCOUNT_INPUT",
+				value1 = "Commerce Account");
+
+			KeyPress(
+				locator1 = "CommerceOrganizationManagementWidget#SEARCH_ACCOUNT_INPUT",
+				value1 = "\ENTER");
+
+			Button.clickSave();
+
+			Alert.viewSuccessMessage();
+		}
+
+		task ("And the account is present in the admin console") {
+			AssertElementPresent(
+				key_nodeName = "Commerce Account",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE");
+		}
+	}
+
+	@description = "COMMERCE-9401. Verify new accounts can be created using the Organization Management widget."
+	@priority = "3"
+	test CanCreateAccountUsingWidget {
+		task ("When the Organization Management Widget Page is reached") {
+			Navigator.openSitePage(
+				pageName = "Organization Management Widget Page",
+				siteName = "Minium");
+
+			Click(locator1 = "Button#EXPAND");
+		}
+
+		task ("And the organization svg node is clicked") {
+			Click(
+				key_nodeName = "Organization 1",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE");
+		}
+
+		task ("And the plus button is clicked") {
+			Click(locator1 = "CommerceOrganizationManagementWidget#PLUS_BUTTON");
+		}
+
+		task ("And the account svg node is clicked") {
+			Click.clickAtNotVisible(
+				key_orgType = "account",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_ACTION");
+		}
+
+		task ("Then the admin is able to create a new account") {
+			Click.clickAtNotVisible(
+				key_radioOption = "Create New Account",
+				locator1 = "CommerceEntry#RADIO_BUTTON");
+
+			Type(
+				locator1 = "TextInput#NAME",
+				value1 = "Account 1");
+
+			Button.clickSave();
+
+			Alert.viewSuccessMessage();
+		}
+
+		task ("And the new account is present in the admin console") {
+			AssertElementPresent(
+				key_nodeName = "Account 1",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE");
+		}
+	}
+
+	@description = "COMMERCE-9400. Verify new child organizations can be created using the Organization Management widget."
+	@priority = "3"
+	test CanCreateOrganizationUsingWidget {
+		task ("When the Organization Management Widget Page is reached") {
+			Navigator.openSitePage(
+				pageName = "Organization Management Widget Page",
+				siteName = "Minium");
+
+			Click(locator1 = "Button#EXPAND");
+		}
+
+		task ("And the organization svg node is clicked") {
+			Click(
+				key_nodeName = "Organization 1",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE");
+		}
+
+		task ("And the plus button is clicked") {
+			Click(locator1 = "CommerceOrganizationManagementWidget#PLUS_BUTTON");
+		}
+
+		task ("And the organization icon is clicked") {
+			Click.clickAtNotVisible(
+				key_orgType = "organization",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_ACTION");
+		}
+
+		task ("Then the admin is able to create a new child organization") {
+			Type(
+				locator1 = "TextInput#NAME",
+				value1 = "Child Org 1");
+
+			Button.clickSave();
+
+			Alert.viewSuccessMessage();
+		}
+
+		task ("And then the new child organization is present in the admin console") {
+			AssertElementPresent(
+				key_nodeName = "Child Org 1",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE");
+		}
+	}
+
+	@description = "COMMERCE-9404. Verify accounts and organizations can be moved using the Organization Management widget."
 	@priority = "3"
 	test CanMoveAccountsAndOrganizationsInWidget {
-        task ("Given a new organization") {
-            JSONOrganization.addOrganization(
-            organizationName = "Organization 2",
-            organizationSite = "true");
+		task ("Given a new organization with a child organization") {
+			JSONOrganization.addOrganization(
+				organizationName = "Organization 2",
+				organizationSite = "false");
 
-           Refresh();
-        }
+			JSONOrganization.addOrganization(
+				organizationName = "Child Org 1",
+				organizationSite = "false",
+				parentOrganizationName = "Organization 2");
+		}
 
-        task ("When the widget page is reached") {
-            Navigator.openSitePage(
-                pageName = "Test Public Content Page",
-                siteName = "Minium");
-        }
+		task ("And given an account with a buyer user") {
+			CommerceEntry.addAccountEntryUser(
+				accountName = "Commerce Account",
+				accountType = "Business",
+				agreeToTermsAndAnswerReminderQuery = "true",
+				createNewAccount = "true",
+				requireReset = "false",
+				userEmailAddress = "buyer@liferay.com",
+				userFirstName = "Buyer",
+				userLastName = "User",
+				userRole = "Buyer",
+				userScreenName = "buyeruser",
+				userSiteMembership = "Minium");
+		}
 
-        task ("And when the organization svg node is clicked") {
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "Organization 1");
-        }
+		task ("And given the account belongs to Organization 2") {
+			Accounts.assignOrganizations(
+				accountName = "Commerce Account",
+				assigneeName = "Organization 2");
+		}
 
-        task ("And a child organization is created") {
-            WaitForElementPresent(locator1 = "CommerceOrganizationManagementWidget#PLUS_BUTTON");
+		task ("When the Organization Management Widget Page is reached") {
+			Navigator.openSitePage(
+				pageName = "Organization Management Widget Page",
+				siteName = "Minium");
 
-            Click.clickNoWaitForVisible(locator1 = "CommerceOrganizationManagementWidget#PLUS_BUTTON");
- 
-            WaitForElementPresent(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_ACTION",
-                key_orgType = "organization");
+			Click(locator1 = "Button#EXPAND");
+		}
 
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_ACTION",
-                key_orgType = "organization");
+		task ("Then the admin is able to drag and drop the account to Organization 1") {
+			Click(
+				key_nodeName = "Organization 2",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE");
 
-            Type(
-                locator1 = "TextInput#NAME",
-                value1 = "Organization 3");
-            
-            Button.clickSave();
-        }
+			DragAndDrop.dragAndDropPortletToPortletNoError(
+				key_nodeDestination = "Organization 1",
+				key_nodeOrigin = "Commerce Account",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_ORIGIN",
+				locator2 = "CommerceOrganizationManagementWidget#NODE_DESTINATION",
+				value1 = "Commerce Account");
 
-        task ("And when an account belongs to one organization ") {
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "Organization 3");
+			AssertConfirm(value1 = "Commerce Account will be moved into Organization 1.");
+		}
 
-            WaitForElementPresent(locator1 = "CommerceOrganizationManagementWidget#PLUS_BUTTON");
+		task ("And the admin is able to drag and drop the child organization to Organization 1") {
+			DragAndDrop.dragAndDropPortletToPortletNoError(
+				key_nodeDestination = "Organization 1",
+				key_nodeOrigin = "Child Org 1",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_ORIGIN",
+				locator2 = "CommerceOrganizationManagementWidget#NODE_DESTINATION",
+				value1 = "Child Org 1");
 
-            Click.clickNoWaitForVisible(locator1 = "CommerceOrganizationManagementWidget#PLUS_BUTTON");
+			AssertConfirm(value1 = "Child Org 1 will be moved into Organization 1.");
 
-            WaitForElementPresent(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_ACTION",
-                key_orgType = "account");
+			Refresh();
 
-            Click.clickAtNotVisible(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_ACTION",
-                key_orgType = "account");
+			Click(locator1 = "Button#EXPAND");
+		}
 
-            SelectFrameTop();
+		task ("And the admin is able to click on the child organization ellipses and click remove to move the child organization outside the parent organization") {
+			Click(
+				key_nodeName = "Organization 1",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE");
 
-            Click.clickAtNotVisible(
-                key_radioOption = "Create New Account",
-                locator1 = "CommerceEntry#RADIO_BUTTON");
+			Click(
+				key_nodeName = "Child Org 1",
+				locator1 = "CommerceOrganizationManagementWidget#VERTICAL_ELLIPSIS");
 
-            Type(
-                locator1 = "TextInput#NAME",
-                value1 = "Account 1");
-            
-            Button.clickSave();
-        }
+			ClickNoError(
+				key_menuItem = "Remove",
+				locator1 = "CommerceEntry#ANY_MENU_ITEM");
 
-        task ("And a user belongs to the account") {
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "Account 1");
+			AssertConfirm(value1 = "Child Org 1 will be removed from Organization 1.");
 
-            WaitForElementPresent(locator1 = "CommerceOrganizationManagementWidget#PLUS_BUTTON");
+			Refresh();
 
-            Click.clickAtNotVisible(locator1 = "CommerceOrganizationManagementWidget#PLUS_BUTTON");
+			Click(locator1 = "Button#EXPAND");
 
-            WaitForElementPresent(locator1 = "CommerceOrganizationManagementWidget#INVITE_EMAIL_INPUT");
+			AssertElementPresent(
+				key_nodeName = "Child Org 1",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE");
+		}
+	}
 
-            Type(
-                locator1 = "CommerceOrganizationManagementWidget#INVITE_EMAIL_INPUT",
-                value1 = "user1@liferay.com");
+	@description = "COMMERCE-9399. Verify organizations can be viewed in the Organization Management widget."
+	@priority = "3"
+	test CanViewOrganizationInWidget {
+		task ("When the Organization Management Widget Page is reached") {
+			Navigator.openSitePage(
+				pageName = "Organization Management Widget Page",
+				siteName = "Minium");
 
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#SELECT_ROLE",
-                key_roleOption = "Account Member");
-            
-            Button.clickSave();
+			Click(locator1 = "Button#EXPAND");
+		}
 
-            Refresh();
-        }
-
-        task ("Then the admin is able to drag and drop the account to the other parent organization") {
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "Organization 1");
-
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "Organization 3");
-
-            DragAndDrop.dragAndDropPortletToPortletNoError(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_ORIGIN",
-                locator2 = "CommerceOrganizationManagementWidget#NODE_DESTINATION",
-                key_nodeDestination = "Organization 2",
-                key_nodeOrigin = "Account 1",
-                value1 = "Account 1");
-
-            AssertConfirm(value1 = "Account 1 will be moved into Organization 2.");
-        }
-
-        task ("And then admin is able to drag and drop the child organization to the other parent organization") {
-            DragAndDrop.dragAndDropPortletToPortletNoError(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_ORIGIN",
-                locator2 = "CommerceOrganizationManagementWidget#NODE_DESTINATION",
-                key_nodeDestination = "Organization 2",
-                key_nodeOrigin = "Organization 1",
-                value1 = "Organization 1");
-
-            AssertConfirm(value1 = "Organization 1 will be moved into Organization 2.");
-        }
-
-        task ("And the admin is able to click on the child organization ellipses and click remote to move the child organization outside the parent organization (Requires a refresh to view the child as new parent)") {
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "Organization 2");
-
-            Click(
-                locator1 = "CommerceOrganizationManagementWidget#VERTICAL_ELLIPSIS",
-                key_nodeName = "Organization 1");
-
-            ClickNoError(
-                key_menuItem = "Remove",
-                locator1 = "CommerceEntry#ANY_MENU_ITEM");
-
-            AssertConfirm(value1 = "Organization 1 will be removed from Organization 2.");
-
-            Refresh();
-
-            AssertElementPresent(
-                locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE",
-                key_nodeName = "Organization 1");
-        }
-    }
+		task ("Then the organization is shown within the widget") {
+			AssertElementPresent(
+				key_nodeName = "Organization 1",
+				locator1 = "CommerceOrganizationManagementWidget#NODE_TITLE");
+		}
+	}
 
 }
