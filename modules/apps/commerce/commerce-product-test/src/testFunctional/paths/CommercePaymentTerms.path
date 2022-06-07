@@ -35,16 +35,6 @@
 	<td>//div[@class='dnd-td' and contains(.,'${key_termsAndConditionType}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td>ORDER_DETAILS_TERMS_CONDITIONS_DETAILS_PAGE_TITLE</td>
-	<td>//input[contains(@class,'form-control language-value field form-control') and @value='${key_testName}']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ORDER_DETAILS_TERMS_CONDITIONS_DETAILS_PAGE_PRIORITY</td>
-	<td>//input[contains(@class,'field form-control lfr-input-text') and @value='${key_testPriority}']</td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>
