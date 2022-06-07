@@ -294,7 +294,7 @@ definition {
 	macro openTermsAndConditionsAdmin {
 		Navigator.openWithAppendToBaseURL(
 			baseURL = "${baseURL}",
-			urlAppend = "group/guest/~/control_panel/manage?p_p_id=com_liferay_commerce_term_web_internal_portlet_CommerceTermEntryPortlet&p_p_lifecycle=0&p_p_state=maximized&p_v_l_s_g_id=20123&p_p_auth=2BGZR3nm");
+			urlAppend = "group/guest/~/control_panel/manage?p_p_id=com_liferay_commerce_term_web_internal_portlet_CommerceTermEntryPortlet");
 	}
 
 	macro viewOrdersDetails {
