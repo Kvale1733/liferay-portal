@@ -192,6 +192,10 @@ export default withRouter(
 					},
 				});
 
+				deleteCacheKey(getSubscriptionsQuery, {
+					contentType: 'MessageBoardThread',
+				});
+
 				setQuestion({...question, subscribed: true});
 			},
 			[allowSubscription, question, subscribe, setQuestion]
