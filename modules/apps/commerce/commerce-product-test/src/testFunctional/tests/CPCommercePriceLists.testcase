@@ -615,17 +615,15 @@ definition {
 
 		CommerceAccelerators.initializeNewSiteViaAccelerator(siteName = "Minium");
 
-		Accounts.openAccountsAdmin();
+		JSONAccountEntry.addAccountEntry(
+			accountEntryDescription = "This is an Account added for Account Group.",
+			accountEntryName = "Account1",
+			accountEntryType = "Business");
 
-		Accounts.addBusinessAccount(
-			accountDescription = "This is an Account added for Account Group.",
-			accountName = "Account1");
-
-		Navigator.gotoBack();
-
-		Accounts.addBusinessAccount(
-			accountDescription = "This is an Account added for Account Group.",
-			accountName = "Account2");
+		JSONAccountEntry.addAccountEntry(
+			accountEntryDescription = "This is an Account added for Account Group.",
+			accountEntryName = "Account2",
+			accountEntryType = "Business");
 
 		AccountGroups.openAccountGroupsAdmin();
 
@@ -645,10 +643,7 @@ definition {
 
 		Button.clickAssign();
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Pricing",
-			panel = "Commerce",
-			portlet = "Discounts");
+		CommerceNavigator.openDiscountsAdmin();
 
 		Click(locator1 = "Button#PLUS");
 
