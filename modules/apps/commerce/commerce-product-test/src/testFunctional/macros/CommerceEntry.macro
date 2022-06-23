@@ -1094,6 +1094,10 @@ definition {
 				Click(
 					key_title = "${title}",
 					locator1 = "CommerceEntry#ADD_RELATION_CLEAN_INPUT_BUTTON");
+
+				WaitForElementPresent(
+					key_entryName = "${accountGroup}",
+					locator1 = "CommerceEntry#TABLE_ELIGIBILITY_ACCOUNT_GROUPS");
 			}
 		}
 		else if (isSet(accountsEligibility)) {
@@ -1111,6 +1115,11 @@ definition {
 				Click(
 					key_title = "${title}",
 					locator1 = "CommerceEntry#ADD_RELATION_CLEAN_INPUT_BUTTON");
+
+				WaitForElementPresent(
+					key_entryName = "${account}",
+					key_table = "Accounts",
+					locator1 = "CommerceEntry#TABLE_ENTRY_NAME");
 			}
 		}
 
@@ -1129,6 +1138,11 @@ definition {
 				Click(
 					key_title = "${title}",
 					locator1 = "CommerceEntry#ADD_RELATION_CLEAN_INPUT_BUTTON");
+
+				WaitForElementPresent(
+					key_entryName = "${channel}",
+					key_table = "Channels",
+					locator1 = "CommerceEntry#TABLE_ENTRY_NAME");
 			}
 		}
 
