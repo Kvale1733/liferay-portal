@@ -156,6 +156,12 @@ definition {
 		Navigator.openWithAppendToBaseURL(urlAppend = "group/minium/lists");
 	}
 
+	macro openDiscountsAdmin {
+		Navigator.openWithAppendToBaseURL(
+			baseURL = "${baseURL}",
+			urlAppend = "group/guest/~/control_panel/manage?p_p_id=com_liferay_commerce_pricing_web_internal_portlet_CommerceDiscountPortlet");
+	}
+
 	macro searchCatalog {
 		Type(
 			locator1 = "AppBuilder#SEARCH_BAR_INPUT",
