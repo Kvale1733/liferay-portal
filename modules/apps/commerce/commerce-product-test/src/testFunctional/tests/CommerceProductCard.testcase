@@ -1233,6 +1233,12 @@ definition {
 
 			Button.click(button = "Compare");
 
+			WaitForElementPresent(
+				key_columnNumber = "1",
+				key_specification = "",
+				key_value = "",
+				locator1 = "CommerceFrontStore#PRODUCT_COMPARISON_TABLE_SPECIFICATION");
+
 			AssertElementNotPresent(
 				key_productName = "transmission-fluid",
 				locator1 = "CommerceFrontStore#PRODUCT_CARD_IMAGE");

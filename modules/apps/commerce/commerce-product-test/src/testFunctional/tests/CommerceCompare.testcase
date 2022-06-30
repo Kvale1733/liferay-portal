@@ -119,6 +119,12 @@ definition {
 				userEmailAddress = "buyer@liferay.com");
 
 			Button.click(button = "Compare");
+
+			WaitForElementPresent(
+				key_columnNumber = "1",
+				key_specification = "",
+				key_value = "",
+				locator1 = "CommerceFrontStore#PRODUCT_COMPARISON_TABLE_SPECIFICATION");
 		}
 
 		task ("Then the buyer cannot see the fourth product in the comparison table") {
@@ -217,6 +223,12 @@ definition {
 
 			Button.click(button = "Compare");
 
+			WaitForElementPresent(
+				key_columnNumber = "1",
+				key_specification = "",
+				key_value = "",
+				locator1 = "CommerceFrontStore#PRODUCT_COMPARISON_TABLE_SPECIFICATION");
+
 			AssertElementNotPresent(
 				key_productName = "transmission-fluid",
 				locator1 = "CommerceFrontStore#PRODUCT_CARD_IMAGE");
@@ -259,6 +271,12 @@ definition {
 				locator1 = "CommerceFrontStore#MINI_COMPARE_ITEM_CUSTOM_IMAGE");
 
 			Button.click(button = "Compare");
+
+			WaitForElementPresent(
+				key_columnNumber = "1",
+				key_specification = "",
+				key_value = "",
+				locator1 = "CommerceFrontStore#PRODUCT_COMPARISON_TABLE_SPECIFICATION");
 
 			AssertElementNotPresent(
 				key_productName = "transmission-fluid",
