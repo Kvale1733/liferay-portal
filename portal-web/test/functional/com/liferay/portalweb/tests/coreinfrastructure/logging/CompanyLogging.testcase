@@ -26,6 +26,9 @@ definition {
 	@description = "Any logs that would appear in specifically company A should never appear in the logs of company B"
 	@priority = "3"
 	test AssertCompanyLogsIsolated {
+		property portal.acceptance = "kvale17";
+		property test.name.skip.portal.instance = "CompanyLogging#AssertCompanyLogsIsolated";
+
 		task ("When two new virtual instances are created") {
 			HeadlessPortalInstanceAPI.addPortalInstanceWithVirtualInstanceInitializer(
 				domain = "www.able.com",
@@ -41,7 +44,9 @@ definition {
 		}
 
 		task ("Then the logs of one company should not appear in the logs of the other") {
-			Navigator.openWithAppendToBaseURL(urlAppend = "o/company-log");
+			var baseURL = PropsUtil.get("portal.url");
+
+			Open.openNoError(locator1 = "${baseURL}/o/company-log");
 
 			var logName = TestUtils.getElementTextContent(element = "//h1[text()='www.able.com']//following::a[1]");
 
@@ -105,6 +110,8 @@ definition {
 	@priority = "4"
 	test CompanyLoggingDisabled {
 		property company.log.enabled = "false";
+		property portal.acceptance = "kvale17";
+		property test.name.skip.portal.instance = "CompanyLogging#CompanyLoggingDisabled";
 
 		task ("When the user tries navigating to the company logging UI access point with company logs disabled") {
 			var baseURL = PropsUtil.get("portal.url");
@@ -143,6 +150,9 @@ definition {
 	@description = "An Omniadmin can get log names from all companies and download logs from all companies though the UI"
 	@priority = "4"
 	test GetAllCompanyLogs {
+		property portal.acceptance = "kvale17";
+		property test.name.skip.portal.instance = "CompanyLogging#GetAllCompanyLogs";
+
 		task ("Given two new virtual instances are created") {
 			HeadlessPortalInstanceAPI.addPortalInstanceWithVirtualInstanceInitializer(
 				domain = "www.able.com",
@@ -158,7 +168,9 @@ definition {
 		}
 
 		task ("When the Omniadmin navigates to the company logging UI access point") {
-			Navigator.openWithAppendToBaseURL(urlAppend = "o/company-log");
+			var baseURL = PropsUtil.get("portal.url");
+
+			Open.openNoError(locator1 = "${baseURL}/o/company-log");
 		}
 
 		task ("Then logs files are present for all companies") {
@@ -199,6 +211,9 @@ definition {
 	@description = "A company admin should only be able to see the logs from the company they are an admin of"
 	@priority = "5"
 	test GetCompanyAdminLogs {
+		property portal.acceptance = "kvale17";
+		property test.name.skip.portal.instance = "CompanyLogging#GetCompanyAdminLogs";
+
 		task ("Given a new instance is created") {
 			HeadlessPortalInstanceAPI.addPortalInstance(
 				domain = "www.able.com",
@@ -207,10 +222,10 @@ definition {
 		}
 
 		task ("And given a company admin user is added for that virtual instance") {
-			User.firstLoginPG(
+			User.firstLoginUI(
 				password = "test",
-				userEmailAddress = "test@www.able.com",
-				virtualHostsURL = "http://www.able.com:8080");
+				specificURL = "http://www.able.com:8080",
+				userEmailAddress = "test@www.able.com");
 
 			JSONUser.addUser(
 				creatorEmailAddress = "test@www.able.com",
@@ -232,10 +247,10 @@ definition {
 		}
 
 		task ("And given the company admin logs in to the virtual instance") {
-			User.firstLoginPG(
+			User.firstLoginUI(
 				password = "test",
-				userEmailAddress = "userea@www.able.com",
-				virtualHostsURL = "http://www.able.com:8080");
+				specificURL = "http://www.able.com:8080",
+				userEmailAddress = "userea@www.able.com");
 		}
 
 		task ("When the company admin navigates to the company logging UI access point") {
@@ -256,6 +271,9 @@ definition {
 	@description = "A company admin that tries to directly download the logs of a company they do not have access to should get a permissions error"
 	@priority = "4"
 	test GetCompanyAdminLogsFromDifferentCompany {
+		property portal.acceptance = "kvale17";
+		property test.name.skip.portal.instance = "CompanyLogging#GetCompanyAdminLogsFromDifferentCompany";
+
 		task ("Given a new instance is created") {
 			HeadlessPortalInstanceAPI.addPortalInstance(
 				domain = "www.able.com",
@@ -264,10 +282,10 @@ definition {
 		}
 
 		task ("And given a company admin user is added for that virtual instance") {
-			User.firstLoginPG(
+			User.firstLoginUI(
 				password = "test",
-				userEmailAddress = "test@www.able.com",
-				virtualHostsURL = "http://www.able.com:8080");
+				specificURL = "http://www.able.com:8080",
+				userEmailAddress = "test@www.able.com");
 
 			JSONUser.addUser(
 				creatorEmailAddress = "test@www.able.com",
@@ -289,10 +307,10 @@ definition {
 		}
 
 		task ("And given the company admin logs in to the virtual instance") {
-			User.firstLoginPG(
+			User.firstLoginUI(
 				password = "test",
-				userEmailAddress = "userea@www.able.com",
-				virtualHostsURL = "http://www.able.com:8080");
+				specificURL = "http://www.able.com:8080",
+				userEmailAddress = "test@www.able.com");
 		}
 
 		task ("When the company admin tries accessing the company logging UI to download a specific company log from a different company") {
@@ -311,8 +329,9 @@ definition {
 			var filePath = StringUtil.replace("${filePath}", "file:/", "");
 
 			var logName = FileUtil.getFileName("${filePath}");
+			var baseURL = PropsUtil.get("portal.url");
 
-			Navigator.openWithAppendToBaseURL(urlAppend = "o/company-log/${companyId}/${logName}?download=true");
+			Open.openNoError(locator1 = "${baseURL}/o/company-log/${companyId}/${logName}?download=true");
 		}
 
 		task ("Then a permissions error is shown and no log is downloaded") {
@@ -330,6 +349,7 @@ definition {
 	@priority = "4"
 	test GetCompanyLogsAsGuest {
 		property custom.properties = "jsonws.web.service.paths.excludes=${line.separator}company.security.strangers.verify=false";
+		property portal.acceptance = "kvale17";
 
 		task ("Given a non-administrative company user") {
 			JSONUser.addUser(
@@ -364,8 +384,9 @@ definition {
 			var filePath = StringUtil.replace("${filePath}", "file:/", "");
 
 			var logName = FileUtil.getFileName("${filePath}");
+			var baseURL = PropsUtil.get("portal.url");
 
-			Navigator.openWithAppendToBaseURL(urlAppend = "o/company-log/${companyId}/${logName}?download=true");
+			Open.openNoError(locator1 = "${baseURL}/o/company-log/${companyId}/${logName}?download=true");
 		}
 
 		task ("Then a permissions error is shown and no log is downloaded") {
@@ -386,6 +407,7 @@ definition {
 	@description = "If there are no logs available for a company, there should be some kind of message to notify the user when they try to check the available log names"
 	@priority = "4"
 	test GetEmptyCompanyLogs {
+		property portal.acceptance = "kvale17";
 		property test.name.skip.portal.instance = "CompanyLogging#GetEmptyCompanyLogs";
 
 		task ("Given all company logs are deleted") {
@@ -397,7 +419,9 @@ definition {
 		}
 
 		task ("When the user navigates to the company logging UI access point") {
-			Navigator.openWithAppendToBaseURL(urlAppend = "o/company-log");
+			var baseURL = PropsUtil.get("portal.url");
+
+			Open.openNoError(locator1 = "${baseURL}/o/company-log");
 		}
 
 		task ("Then a message is shown that indicates no logs are available") {
@@ -410,6 +434,8 @@ definition {
 	@description = "If a user tries to download a logging file or company that doesn’t exist it should fail and throw a suitable error message"
 	@priority = "4"
 	test GetInvalidCompanyLogs {
+		property portal.acceptance = "kvale17";
+
 		task ("When the user tries to download a log via an http request where the log name is invalid") {
 			var companyId = JSONCompany.getCompanyId();
 			var baseURL = PropsUtil.get("portal.url");
@@ -418,11 +444,7 @@ definition {
 		}
 
 		task ("Then an error message is shown which indicates the log was not found and no log is downloaded") {
-			AssertTextPresent(
-				locator1 = "//body",
-				value1 = "No webpage was found for the web address");
-
-			AssertConsoleTextPresent(value1 = "java.io.FileNotFoundException: Unable to find log file invalidLog.log for company ${companyId}");
+			AssertConsoleTextPresent.assertConsoleTextPresentNoError(value1 = "java.io.FileNotFoundException: Unable to find log file invalidLog.log for company ${companyId}");
 
 			DownloadTempFile();
 

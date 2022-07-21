@@ -11,4 +11,10 @@ definition {
 		selenium.assertLiferayErrors();
 	}
 
+	function assertConsoleTextPresentNoError {
+		WaitForSPARefresh();
+
+		selenium.assertConsoleTextPresent();
+	}
+
 }
