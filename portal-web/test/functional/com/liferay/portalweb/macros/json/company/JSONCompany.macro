@@ -74,6 +74,23 @@ definition {
 		return "${companyId}";
 	}
 
+	@summary = "Get the default groupId for a given company"
+	macro getDefaultCompanyGroupId {
+		Variables.assertDefined(parameterList = "${companyId}");
+
+		var portalURL = JSONCompany.getDefaultPortalURL();
+
+		var curl = '''
+			${portalURL}/api/jsonws/group/get-company-group \
+			-u test@liferay.com:test \
+			-d companyId=${companyId}
+		''';
+
+		var groupId = JSONCurlUtil.post("${curl}", "$..['groupId']");
+
+		return "${groupId}";
+	}
+
 	macro getDefaultPortalURL {
 		var portalURL = PropsUtil.get("default.portal.url");
 
