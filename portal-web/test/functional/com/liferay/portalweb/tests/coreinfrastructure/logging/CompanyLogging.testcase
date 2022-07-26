@@ -25,6 +25,7 @@ definition {
 	@description = "Any logs that would appear in specifically company A should never appear in the logs of company B"
 	@priority = "3"
 	test AssertCompanyLogsIsolated {
+		property portal.acceptance = "kvale17";
 		property test.assert.warning.exceptions = "true";
 		property test.name.skip.portal.instance = "CompanyLogging#AssertCompanyLogsIsolated";
 
@@ -116,6 +117,7 @@ definition {
 	@priority = "4"
 	test CompanyLoggingDisabled {
 		property custom.properties = "company.log.enabled=false";
+		property portal.acceptance = "kvale17";
 
 		task ("When the user tries navigating to the company logging UI access point with company logs disabled") {
 			var baseURL = PropsUtil.get("portal.url");
@@ -154,6 +156,7 @@ definition {
 	@description = "An Omniadmin can get log names from all companies and download logs from all companies though the UI"
 	@priority = "4"
 	test GetAllCompanyLogs {
+		property portal.acceptance = "kvale17";
 		property test.assert.warning.exceptions = "true";
 		property test.name.skip.portal.instance = "CompanyLogging#GetAllCompanyLogs";
 
@@ -228,6 +231,7 @@ definition {
 	@description = "A company admin should only be able to see the logs from the company they are an admin of"
 	@priority = "5"
 	test GetCompanyAdminLogs {
+		property portal.acceptance = "kvale17";
 		property test.assert.warning.exceptions = "true";
 		property test.name.skip.portal.instance = "CompanyLogging#GetCompanyAdminLogs";
 
@@ -289,6 +293,7 @@ definition {
 	@description = "A company admin that tries to directly download the logs of a company they do not have access to should get a permissions error"
 	@priority = "4"
 	test GetCompanyAdminLogsFromDifferentCompany {
+		property portal.acceptance = "kvale17";
 		property test.assert.warning.exceptions = "true";
 		property test.name.skip.portal.instance = "CompanyLogging#GetCompanyAdminLogsFromDifferentCompany";
 
@@ -366,8 +371,9 @@ definition {
 	@description = "A non-administrative user should get a permissions denied error when trying to access the UI to get company logging information"
 	@priority = "4"
 	test GetCompanyLogsAsGuest {
-		property test.assert.warning.exceptions = "true";
 		property custom.properties = "jsonws.web.service.paths.excludes=${line.separator}company.security.strangers.verify=false";
+		property portal.acceptance = "kvale17";
+		property test.assert.warning.exceptions = "true";
 
 		task ("Given a non-administrative company user") {
 			JSONUser.addUser(
@@ -424,6 +430,7 @@ definition {
 	@description = "If there are no logs available for a company, there should be some kind of message to notify the user when they try to check the available log names"
 	@priority = "4"
 	test GetEmptyCompanyLogs {
+		property portal.acceptance = "kvale17";
 		property test.assert.warning.exceptions = "true";
 		property test.name.skip.portal.instance = "CompanyLogging#GetEmptyCompanyLogs";
 
@@ -449,6 +456,8 @@ definition {
 	@description = "If a user tries to download a logging file or company that doesn’t exist it should fail and throw a suitable error message"
 	@priority = "4"
 	test GetInvalidCompanyLogs {
+		property portal.acceptance = "kvale17";
+
 		task ("When the user tries to download a log via an http request where the log name is invalid") {
 			var companyId = JSONCompany.getCompanyId();
 			var baseURL = PropsUtil.get("portal.url");
