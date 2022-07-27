@@ -10,4 +10,8 @@ definition {
 		selenium.assertLiferayErrors();
 	}
 
+	function antCommandNoError {
+		selenium.antCommand();
+	}
+
 }
