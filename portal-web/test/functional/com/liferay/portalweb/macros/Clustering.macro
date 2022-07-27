@@ -201,7 +201,7 @@ definition {
 
 		var bundleIndex = ${leadingPortNumber} - 8;
 
-		AntCommand(
+		AntCommand.antCommandNoError(
 			locator1 = "build-test.xml",
 			value1 = "stop-app-server -Dapp.server.bundle.index=${bundleIndex}");
 	}
