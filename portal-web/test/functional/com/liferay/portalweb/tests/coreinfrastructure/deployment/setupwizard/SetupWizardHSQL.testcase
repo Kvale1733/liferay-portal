@@ -105,6 +105,26 @@ definition {
 		Smoke.runSmoke();
 	}
 
+	@priority = "3"
+	test HSQLtoMySQL {
+		property database.types = "mysql";
+		property test.name.skip.portal.instance = "SetupWizardHSQL#HSQLtoMySQL";
+
+		SetupWizard.configurePG(
+			administratorEmail = "test@liferay.com",
+			administratorFirstName = "Test",
+			administratorLastName = "Test",
+			databasePassword = PropsUtil.get("database.mysql.password"),
+			databaseType = "MySQL",
+			databaseUserName = PropsUtil.get("database.mysql.username"),
+			jdbcDriverClassName = PropsUtil.get("database.mysql.driver"),
+			jdbcURL = PropsUtil.get("database.mysql.url"));
+
+		Smoke.viewWelcomeContentPage();
+
+		Smoke.runSmoke();
+	}
+
 	@priority = "4"
 	test HSQLtoMySQLSampleDataEnabled {
 		property database.types = "mysql";
