@@ -1,5 +1,11 @@
 definition {
 
+	macro assertCompanyLogContent {
+		if (!(contains("${logContent}", "companyId=${companyId}"))) {
+			fail("The ${companyTitle} company log file content does not match the expected log content.");
+		}
+	}
+
 	macro assertNoLogDownloaded {
 		DownloadTempFile();
 
