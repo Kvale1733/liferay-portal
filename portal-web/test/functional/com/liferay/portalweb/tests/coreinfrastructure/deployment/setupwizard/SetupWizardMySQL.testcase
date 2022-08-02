@@ -9,6 +9,7 @@ definition {
 
 	@priority = "3"
 	test MySQLtoHSQL {
+		property portal.acceptance = "kvale17";
 		property database.types = "hypersonic";
 		property test.name.skip.portal.instance = "SetupWizardMySQL#MySQLtoHSQL";
 
@@ -24,15 +25,12 @@ definition {
 
 		Smoke.viewWelcomeContentPage();
 
-		SetupWizard.viewSampleDataEnabledInPropertiesFile();
-
-		SetupWizard.viewPopulatedSampleData();
-
 		Smoke.runSmoke();
 	}
 
 	@priority = "3"
 	test MySQLtoHSQLDeleteLiferayHome {
+		property portal.acceptance = "kvale17";
 		property database.types = "hypersonic";
 		property test.name.skip.portal.instance = "SetupWizardMySQL#MySQLtoHSQLDeleteLiferayHome";
 
@@ -128,6 +126,7 @@ definition {
 
 	@priority = "3"
 	test MySQLtoMySQLportal1 {
+		property portal.acceptance = "kvale17";
 		property databases.size = "1";
 		property test.name.skip.portal.instance = "SetupWizardMySQL#MySQLtoMySQLportal1";
 
