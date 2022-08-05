@@ -57,8 +57,8 @@
 			<matches></matches>
 		</ignore-error>
 		<ignore-error description="">
-			<contains>Email test@.* will be ignored because it is included in mail.send.blacklist</contains>
-			<matches></matches>
+			<contains></contains>
+			<matches>Email .* will be ignored because it is included in mail.send.blacklist</matches>
 		</ignore-error>
 		<ignore-error description="">
 			<contains>INFO:</contains>
