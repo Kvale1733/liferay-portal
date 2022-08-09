@@ -30,6 +30,7 @@ definition {
 	@priority = "3"
 	test DoNotRedirectToDefaultInstanceWithNoCompany {
 		property custom.properties = "virtual.hosts.strict.access=true";
+		property portal.acceptance = "kvale17";
 
 		Navigator.openSpecificURL(url = "http://www.able.com:8080");
 
@@ -41,6 +42,8 @@ definition {
 	@description = "If virtual.hosts.strict.access=true is not set, redirect to a default instance even if there is no associated company"
 	@priority = "3"
 	test RedirectToDefaultInstanceWithNoCompany {
+		property portal.acceptance = "kvale17";
+
 		Navigator.openSpecificURL(url = "http://www.able.com:8080");
 
 		AssertTextNotPresent(
