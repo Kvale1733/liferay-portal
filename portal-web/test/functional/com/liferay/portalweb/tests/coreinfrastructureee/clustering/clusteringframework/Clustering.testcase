@@ -187,6 +187,7 @@ definition {
 
 	@priority = "4"
 	test CanInvokeMethods {
+		property portal.acceptance = "kvale17";
 		property test.name.skip.portal.instance = "Clustering#CanInvokeMethods";
 
 		Clustering.runGroovyScript(
