@@ -87,7 +87,8 @@ definition {
 		property app.server.types = "tomcat,wildfly,weblogic,websphere";
 		property database.jndi.enabled = "true";
 		property database.types = "mariadb,mysql";
-		property portal.smoke = "false";
+		property portal.acceptance = "kvale17";
+		property portal.smoke = "true";
 
 		SignIn.signInTestSetup();
 
