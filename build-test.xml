@@ -2483,6 +2483,20 @@ sendPasswordCaptchaEnabled=&quot;false&quot;</echo>
 												]]>
 											</replacevalue>
 										</replace>
+
+										<replace
+											file="${app.server.dir}/standalone/configuration/standalone.xml"
+										>
+											<replacetoken><![CDATA[<drivers>]]></replacetoken>
+											<replacevalue expandproperties="true">
+										<![CDATA[
+											<drivers>
+            									<driver name="mysql" module="com.liferay.portal">
+                									 <xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
+            									</driver>
+										]]>
+											</replacevalue>
+										</replace>
 									</then>
 									<elseif>
 										<equals arg1="${database.type}" arg2="mariadb" />
@@ -2505,23 +2519,24 @@ sendPasswordCaptchaEnabled=&quot;false&quot;</echo>
 													]]>
 												</replacevalue>
 											</replace>
+
+											<replace
+												file="${app.server.dir}/standalone/configuration/standalone.xml"
+											>
+												<replacetoken><![CDATA[<drivers>]]></replacetoken>
+												<replacevalue expandproperties="true">
+										<![CDATA[
+											<drivers>
+            									<driver name="mariadb" module="com.liferay.portal">
+                									 <xa-datasource-class>org.mariadb.jdbc.MySQLDataSource</xa-datasource-class>
+            									</driver>
+										]]>
+												</replacevalue>
+											</replace>
 										</then>
 									</elseif>
 								</if>
 
-								<replace
-									file="${app.server.dir}/standalone/configuration/standalone.xml"
-								>
-									<replacetoken><![CDATA[<drivers>]]></replacetoken>
-									<replacevalue expandproperties="true">
-										<![CDATA[
-											<drivers>
-            									<driver name="${database.type}" module="com.liferay.portal">
-                									<driver-class>${database.driver}</driver-class>
-            									</driver>
-										]]>
-									</replacevalue>
-								</replace>
 								<replace
 									file="${app.server.dir}/standalone/configuration/standalone.xml"
 								>
@@ -2550,7 +2565,7 @@ sendPasswordCaptchaEnabled=&quot;false&quot;</echo>
 									<name>Liferay Data Source</name>
 									<datasource-type>GENERIC</datasource-type>
 									<jdbc-driver-params>
-										<url>jdbc:mysql://${database.host}/${database.schema}?useUnicode=true&amp;characterEncoding=UTF-8&amp;useFastDateParsing=false&amp;serverTimezone=GMT&amp;dontTrackOpenResources=true&amp;holdResultsOpenOverStatementClose=true</url>
+										<url>jdbc:mysql://${database.host}/${database.schema}?useUnicode=true&amp;characterEncoding=UTF-8&amp;useFastDateParsing=false&amp;serverTimezone=GMT&amp;dontTrackOpenResources=true&amp;holdResultsOpenOverStatementClose=true&amp;connectTimeout=5?useSSL=false&amp;allowPublicKeyRetrieval=true</url>
 										<driver-name>${database.driver}</driver-name>
 										<properties>
 											<property>
@@ -2613,7 +2628,7 @@ sendPasswordCaptchaEnabled=&quot;false&quot;</echo>
 											<propertySet xmi:id="J2EEResourcePropertySet_1">
 												<resourceProperties xmi:id="J2EEResourceProperty_1" name="user" type="java.lang.String" value="${database.username}" required="false" />
 												<resourceProperties xmi:id="J2EEResourceProperty_2" name="password" type="java.lang.String" value="${database.password}" required="false" />
-												<resourceProperties xmi:id="J2EEResourceProperty_3" name="url" type="java.lang.String" value="jdbc:mysql://${database.host}/${database.schema}?useUnicode=true&amp;characterEncoding=UTF-8&amp;useFastDateParsing=false&amp;serverTimezone=GMT&amp;dontTrackOpenResources=true&amp;holdResultsOpenOverStatementClose=true" required="false" />
+												<resourceProperties xmi:id="J2EEResourceProperty_3" name="url" type="java.lang.String" value="jdbc:mysql://${database.host}/${database.schema}?useUnicode=true&amp;characterEncoding=UTF-8&amp;useFastDateParsing=false&amp;serverTimezone=GMT&amp;dontTrackOpenResources=true&amp;holdResultsOpenOverStatementClose=true&amp;connectTimeout=5?useSSL=false&amp;allowPublicKeyRetrieval=true" required="false" />
 											</propertySet>
 											<connectionPool xmi:id="ConnectionPool_1" connectionTimeout="1800" maxConnections="100" minConnections="5" reapTime="180" unusedTimeout="1800" agedTimeout="180" purgePolicy="EntirePool" />
 										</factories>
