@@ -1,0 +1,113 @@
+@component-name = "antivirus"
+definition {
+
+	property portal.release = "true";
+	property portal.upstream = "true";
+	property testray.main.component.name = "Antivirus";
+
+	setUp {
+		TestCase.setUpPortalInstance();
+
+		User.firstLoginPG();
+	}
+
+	tearDown {
+		var testPortalInstance = PropsUtil.get("test.portal.instance");
+
+		if ("${testPortalInstance}" == "true") {
+			PortalInstances.tearDownCP();
+		}
+		else {
+			DMDocument.tearDownCP();
+		}
+	}
+
+	@description = "LPS-157927 Verify Clamd Antivirus will block a document that contains a virus even if the document is submitted twice."
+	@priority = "3"
+	test ClamdAntivirusSmoke {
+		property custom.properties = "dl.store.antivirus.enabled=true";
+		property test.name.skip.portal.instance = "ClamdScanner#ClamdAntivirusSmoke";
+
+		task ("Given a Clamd server is configured to the portal") {
+			Navigator.openWithAppendToBaseURL(
+				baseURL = "${baseURL}",
+				urlAppend = "group/control_panel/manage?p_p_id=com_liferay_configuration_admin_web_portlet_SystemSettingsPortlet&p_p_lifecycle=0&p_p_mode=view&_com_liferay_configuration_admin_web_portlet_SystemSettingsPortlet_factoryPid=com.liferay.antivirus.clamd.scanner.internal.configuration.ClamdAntivirusScannerConfiguration&_com_liferay_configuration_admin_web_portlet_SystemSettingsPortlet_mvcRenderCommandName=%2Fconfiguration_admin%2Fedit_configuration&_com_liferay_configuration_admin_web_portlet_SystemSettingsPortlet_pid=com.liferay.antivirus.clamd.scanner.internal.configuration.ClamdAntivirusScannerConfiguration");
+
+			var portalHostname = PropsUtil.get("portal.hostname");
+
+			Type(
+				locator1 = "//textarea",
+				value1 = "${portalHostname}");
+
+			Type(
+				key_text = "Port",
+				locator1 = "TextInput#ANY",
+				value1 = "3310");
+
+			Button.clickSave();
+
+			Alert.viewSuccessMessage();
+		}
+
+		task ("When the user tries uploading a normal document") {
+			DMNavigator.openDocumentsAndMediaAdmin(siteURLKey = "guest");
+
+			DMDocument.addCP(
+				dmDocumentFile = "Commerce_Blue.jpg",
+				dmDocumentTitle = "Commerce_Blue.jpg");
+		}
+
+		task ("Then the document is uploaded without issue") {
+			Alert.viewSuccessMessage();
+
+			AssertElementNotPresent(locator1 = "Message#ERROR");
+
+			DMNavigator.openToEntryInAdmin(
+				dmDocumentTitle = "Commerce_Blue.jpg",
+				groupName = "Guest",
+				siteURLKey = "guest");
+
+			DMDocument.viewCP(dmDocumentTitle = "Commerce_Blue.jpg");
+		}
+
+		task ("When the user tries uploading a document that contains a virus") {
+			DMNavigator.openDocumentsAndMediaAdmin(siteURLKey = "guest");
+
+			DMDocument.addCP(
+				dmDocumentFile = "eicar.com",
+				dmDocumentTitle = "eicar.com");
+		}
+
+		task ("Then the document upload is blocked") {
+			Alert.viewErrorMessage(errorMessage = "A virus was detected in the file.");
+
+			AssertTextEquals.assertPartialText(
+				locator1 = "Message#ERROR_2",
+				value1 = "Please select the file again.");
+		}
+
+		task ("When the user clicks Publish again after the blocked upload") {
+			Button.clickPublish();
+		}
+
+		task ("Then an empty document of the same name is uploaded") {
+			Alert.viewSuccessMessage();
+
+			DMNavigator.openToEntryInAdmin(
+				dmDocumentTitle = "eicar.com",
+				groupName = "Guest",
+				siteURLKey = "guest");
+
+			Button.click(button = "Download");
+
+			DownloadTempFile();
+
+			var fileContent = TestCase.getTempFileContent(fileName = "eicar.com");
+
+			TestUtils.assertEquals(
+				actual = "${fileContent}",
+				expected = "");
+		}
+	}
+
+}
