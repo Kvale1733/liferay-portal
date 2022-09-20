@@ -48,11 +48,6 @@ definition {
 				locator1 = "//textarea",
 				value1 = "${portalHostname}");
 
-			Type(
-				key_text = "Port",
-				locator1 = "TextInput#ANY",
-				value1 = "3311");
-
 			Button.clickSave();
 
 			Alert.viewSuccessMessage();

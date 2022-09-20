@@ -6943,7 +6943,7 @@ org.apache.catalina.startup.ClassLoaderFactory.level=INFO]]>
 					<retry retrycount="2">
 						<sequential>
 							<start-docker-container image="clamav/clamav:${clamav.version}" name="localhost_clamav" options="">\
-				-d -p 3311:3310 \
+				-d -p 3310:3310 \
 							</start-docker-container>
 
 							<wait-for-docker-clamav
