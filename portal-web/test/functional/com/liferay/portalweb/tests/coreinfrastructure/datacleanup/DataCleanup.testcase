@@ -17,6 +17,7 @@ definition {
 
 	@priority = "3"
 	test CanCleanupOpensocialDataAfterUpgrade {
+        property portal.acceptance = "kvale17"; 
 		property data.archive.type = "data-archive-opensocial";
 		property database.types = "mysql";
 		property portal.version = "6.2.10.21";
