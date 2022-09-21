@@ -2338,7 +2338,7 @@ sendPasswordCaptchaEnabled=&quot;false&quot;</echo>
 		<sequential>
 			<echo file="${liferay.home}/osgi/configs/com.liferay.antivirus.clamd.scanner.internal.configuration.ClamdAntivirusScannerConfiguration.config">
 hostname=&quot;${env.HOSTNAME}&quot;
-port=I&quot;3311&quot;</echo>
+port=I&quot;3310&quot;</echo>
 		</sequential>
 	</macrodef>
 
@@ -7002,6 +7002,8 @@ org.apache.catalina.startup.ClassLoaderFactory.level=INFO]]>
 						@{options}
 
 					docker ps --filter "name=@{name}" --format "Started container [ID: '{{.ID}}', name: '{{.Names}}'] from image '{{.Image}}'"
+
+					docker ps
 				]]>
 			</echo>
 

@@ -9,10 +9,6 @@ definition {
 		TestCase.setUpPortalInstance();
 
 		User.firstLoginPG();
-
-		AntCommand(
-			locator1 = "build-test.xml",
-			value1 = "start-docker-clamav");
 	}
 
 	tearDown {
@@ -24,10 +20,6 @@ definition {
 		else {
 			DMDocument.tearDownCP();
 		}
-
-		AntCommand(
-			locator1 = "build-test.xml",
-			value1 = "stop-docker-clamav");
 	}
 
 	@description = "LPS-157927 Verify Clamd Antivirus will block a document that contains a virus even if the document is submitted twice."
