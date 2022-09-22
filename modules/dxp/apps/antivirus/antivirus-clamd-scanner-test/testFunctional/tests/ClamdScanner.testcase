@@ -25,6 +25,7 @@ definition {
 	@description = "LPS-157927 Verify Clamd Antivirus will block a document that contains a virus even if the document is submitted twice."
 	@priority = "3"
 	test ClamdAntivirusSmoke {
+        property portal.acceptance = "kvale17"; 
 		property clamd.enabled = "true";
 		property custom.properties = "dl.store.antivirus.enabled=true";
 		property test.name.skip.portal.instance = "ClamdScanner#ClamdAntivirusSmoke";
