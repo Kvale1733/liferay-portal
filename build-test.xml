@@ -14966,7 +14966,14 @@ url=${short.hostname}:8080</echo>
 				</trycatch>
 			</then>
 			<else>
-				<antcall target="run-selenium-test" />
+				<if>
+					<not>
+						<equals arg1="${startup.testing}" arg2="true" />
+					</not>
+					<then>
+						<antcall target="run-selenium-test" />
+					</then>
+				</if>
 			</else>
 		</if>
 
