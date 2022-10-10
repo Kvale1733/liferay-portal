@@ -22,6 +22,7 @@ definition {
 	@description = "Verify custom code in a deployed OSGI fragments is executed"
 	@priority = "3"
 	test OSGIFragmentsAreDetectedAsOutdated {
+		property portal.acceptance = "kvale17";
 		property test.name.skip.portal.instance = "JSPCompiler#OSGIFragmentsAreDetectedAsOutdated";
 
 		task ("Given an OSGI fragment with custom code is deployed") {
