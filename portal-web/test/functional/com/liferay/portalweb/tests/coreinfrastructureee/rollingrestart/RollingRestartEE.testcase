@@ -865,6 +865,7 @@ definition {
 
 	@priority = "5"
 	test UpdatePortalPropertiesWithMultipleClusters {
+        property portal.acceptance = "kvale17"; 
 		property app.server.bundles.size = "1";
 		property custom.properties = "company.security.auth.type=emailAddress";
 		property portal.release = "true";
