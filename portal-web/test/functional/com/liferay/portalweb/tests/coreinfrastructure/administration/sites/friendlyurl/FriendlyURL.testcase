@@ -45,6 +45,7 @@ definition {
 	@description = "Verify no error message is shown when navigating from a page with a missing image to another page."
 	@priority = "3"
 	test NavigateFromPageWithMissingImageWithoutError {
+        property portal.acceptance = "kvale17"; 
 		task ("Given an image is saved in Documents & Media") {
 			JSONDocument.addFileWithUploadedFile(
 				dmDocumentTitle = "Document_1.jpg",
