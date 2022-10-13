@@ -20,6 +20,7 @@ definition {
 	@description = "Verify a module can be deployed after adding a hotfix qualifier to its build version"
 	@priority = "3"
 	test HotfixQualifierSmoke {
+		property portal.acceptance = "kvale17";
 		property test.name.skip.portal.instance = "GradleTools#HotfixQualifierSmoke";
 
 		task ("Given a hotfix qualifier is added to a module's build version") {
