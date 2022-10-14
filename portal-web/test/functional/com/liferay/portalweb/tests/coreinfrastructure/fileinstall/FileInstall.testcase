@@ -190,6 +190,52 @@ definition {
 	}
 
 	@priority = "3"
+	@description = "Verify the default factory config created by the OSGI configurator can be overriden."
+	test OverrideDefaultFactoryConfig {
+		task ("Given the default factory config created by the OSGI configurator is deleted") {
+			SystemSettings.openSystemSettingsAdmin();
+
+			SystemSettings.gotoConfiguration(
+				configurationCategory = "API Authentication",
+				configurationName = "Tunnel Authentication",
+				configurationScope = "System Scope");
+
+			LexiconEntry.gotoEntryMenuItemNoError(
+				menuItem = "Delete",
+				rowEntry = "/api/liferay/do");
+
+			LexiconEntry.viewNoEntry(rowEntry = "/api/liferay/do");
+		}
+
+		task ("When the default factory config is recreated via an OSGI config file") {
+			OSGiConfig.deployOSGiConfigFile(
+				osgiConfigFileName = "com.liferay.portal.security.auth.verifier.internal.tunnel.configuration.TunnelAuthVerifierConfiguration~default.config",
+				osgiConfigs = "enabled=&quot;false&quot;,hostsAllowed=&quot;127.0.0.1&quot;,serviceAccessPolicyName=&quot;SYSTEM_USER_PASSWORD_2&quot;,urlsIncludes=&quot;/api/liferay/test&quot;");
+		}
+
+		task ("Then the default factory configuration should be successfully re-added") {
+			Portlet.shutdownServer();
+
+			Portlet.startServer();
+
+			SystemSettings.openSystemSettingsAdmin();
+
+			SystemSettings.gotoConfiguration(
+				configurationCategory = "API Authentication",
+				configurationName = "Tunnel Authentication",
+				configurationScope = "System Scope");
+
+			LexiconEntry.gotoEntry(rowEntry = "/api/liferay/test");
+
+			APIAuthentication.assertConfigInSystemSettings(
+				enabled = "false",
+				hostsAllowed = "127.0.0.1",
+				serviceAccessPolicyName = "SYSTEM_USER_PASSWORD_2",
+				urlsInclude = "/api/liferay/test");
+		}
+	}
+
+	@priority = "3"
 	@description = "Verify when an existing factory config is renamed, the old entry is removed and the new one is added."
 	test RenameFactoryConfig {
 		property osgi.module.configuration.file.names = "com.liferay.portal.security.auth.verifier.internal.tunnel.configuration.TunnelAuthVerifierConfiguration~test.config";
