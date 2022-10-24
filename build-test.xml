@@ -15672,6 +15672,54 @@ url=${short.hostname}:8080</echo>
 		<stop-docker-database />
 	</target>
 
+	<target name="test-build">
+		<property name="n" value="26" />
+		<property name="num" value="0" />
+		<script language="javascript">
+   	 	var list="", n=parseInt(project.getProperty("n"),10);
+   	 	for (var i = 0; i &lt; n; i++) list += i + ",";
+    	project.setProperty("list", list);
+		</script>
+		<foreach list="${list}" param="num" target="test-build-run" />
+	</target>
+
+	<target name="test-build-run">
+		<execute failonerror="false">
+    	git clean -fdxq
+		</execute>
+
+		<execute failonerror="false">
+    	ant all > /home/kevin/Desktop/master/results/results_${num}.log
+		</execute>
+
+		<execute dir="/home/kevin/Desktop/master/bundles/osgi/modules" failonerror="false">
+				<![CDATA[
+					unzip -q -n com.liferay.commerce.service.jar && cat META-INF/MANIFEST.MF | grep com.liferay.commerce.product.service.impl > ${project.dir}/result.log
+				]]>
+		</execute>
+
+		<loadfile
+			property="exec.result"
+			srcfile="result.log"
+		/>
+
+		<if>
+			<isset property="exec.result" />
+
+			<then>
+				<copy
+					file="/home/kevin/Desktop/master/bundles/osgi/modules/com.liferay.commerce.service.jar"
+					tofile="/home/kevin/Desktop/master/resultsClass/results_${num}/com.liferay.commerce.service.jar"
+				/>
+
+				<copy
+					file="/home/kevin/Desktop/master/master-portal/modules/apps/commerce/commerce-service/build/tmp/jar/classpath"
+					tofile="/home/kevin/Desktop/master/resultsClassPath/results_${num}/classpath"
+				/>
+			</then>
+		</if>
+	</target>
+
 	<target name="test-package">
 		<ant dir="portal-kernel" inheritAll="false" target="test-package" />
 
