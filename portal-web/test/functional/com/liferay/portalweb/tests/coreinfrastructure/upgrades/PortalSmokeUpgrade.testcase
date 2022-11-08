@@ -71,9 +71,10 @@ definition {
 	@priority = "4"
 	test ViewPortalSmokeArchive740 {
 		property data.archive.type = "data-archive-portal";
-		property database.types = "mariadb,mysql,postgresql";
+		property database.types = "mysql";
 		property portal.upgrades = "true";
 		property portal.version = "7.4.0";
+		property portal.acceptance = "kvale17";
 		property test.assert.warning.exceptions = "true";
 
 		Upgrade.viewUpgrade();
