@@ -163,6 +163,8 @@ definition {
 	test OSGIConfigsInOSGIClientExtensionsNotRead {
 		property test.name.skip.portal.instance = "OSGiConfiguration#OSGIConfigsInOSGIClientExtensionsNotRead";
 
+		// TODO Un-ignore test when LPS-167572 is fixed
+
 		task ("When an OSGI config file is added to osgi/osgi/client-extensions") {
 			var config = "checkInterval=I\"44\"";
 
@@ -189,6 +191,8 @@ definition {
 	@priority = "3"
 	test OSGIConfigsInOSGIMarketplaceNotRead {
 		property test.name.skip.portal.instance = "OSGiConfiguration#OSGIConfigsInOSGIMarketplaceNotRead";
+
+		// TODO Un-ignore test when LPS-167572 is fixed
 
 		task ("When an OSGI config file is added to osgi/marketplace") {
 			var config = "checkInterval=I\"44\"";
@@ -217,6 +221,8 @@ definition {
 	test OSGIConfigsInOSGIModulesNotRead {
 		property test.name.skip.portal.instance = "OSGiConfiguration#OSGIConfigsInOSGIModulesNotRead";
 
+		// TODO Un-ignore test when LPS-167572 is fixed
+
 		task ("When an OSGI config file is added to osgi/modules") {
 			var config = "checkInterval=I\"44\"";
 
@@ -244,6 +250,8 @@ definition {
 	test OSGIConfigsInOSGIPortalNotRead {
 		property test.name.skip.portal.instance = "OSGiConfiguration#OSGIConfigsInOSGIPortalNotRead";
 
+		// TODO Un-ignore test when LPS-167572 is fixed
+
 		task ("When an OSGI config file is added to osgi/portal") {
 			var config = "checkInterval=I\"44\"";
 
@@ -270,6 +278,8 @@ definition {
 	@priority = "3"
 	test OSGIConfigsInOSGIWarNotRead {
 		property test.name.skip.portal.instance = "OSGiConfiguration#OSGIConfigsInOSGIWarNotRead";
+
+		// TODO Un-ignore test when LPS-167572 is fixed
 
 		task ("When an OSGI config file is added to osgi/war") {
 			var config = "checkInterval=I\"44\"";
