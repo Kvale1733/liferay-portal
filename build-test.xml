@@ -2330,6 +2330,14 @@ sendPasswordCaptchaEnabled=&quot;false&quot;</echo>
 		</sequential>
 	</macrodef>
 
+	<macrodef name="prepare-clamd-configuration">
+		<sequential>
+			<echo file="${liferay.home}/osgi/configs/com.liferay.antivirus.clamd.scanner.internal.configuration.ClamdAntivirusScannerConfiguration.config">
+hostname=&quot;clamd&quot;
+port=I&quot;3310&quot;</echo>
+		</sequential>
+	</macrodef>
+
 	<macrodef name="prepare-custom-properties">
 		<attribute name="custom.properties" />
 		<attribute default="portal-impl/src/portal-ext.properties" name="properties.file" />
@@ -6989,6 +6997,46 @@ org.apache.catalina.startup.ClassLoaderFactory.level=INFO]]>
 		</sequential>
 	</macrodef>
 
+	<macrodef name="start-docker-clamav">
+		<sequential>
+			<property name="docker.clamav.wait.condition">[[ "$(clamd --version)" =~ "ClamAV" ]]</property>
+
+			<var name="docker.shell.path" value="/bin/sh" />
+
+			<if>
+				<not>
+					<isset property="clamav.version" />
+				</not>
+				<then>
+					<var name="clamav.version" value="latest" />
+				</then>
+			</if>
+
+			<stop-docker-container name="${env.HOSTNAME}_clamav" />
+
+			<trycatch property="start.docker.clamav.error">
+				<try>
+					<retry retrycount="2">
+						<sequential>
+							<start-docker-container image="clamav/clamav:${clamav.version}" name="${env.HOSTNAME}_clamav" options="">\
+				-p 3311:3310 \
+							</start-docker-container>
+
+							<wait-for-docker-clamav
+				shell.condition="${docker.clamav.wait.condition}" clamav.version="${clamav.version}"
+							/>
+						</sequential>
+					</retry>
+				</try>
+				<catch>
+					<echo>Unable to start the Docker ClamAV container.</echo>
+
+					<fail>${start.docker.clamav.error}</fail>
+				</catch>
+			</trycatch>
+		</sequential>
+	</macrodef>
+
 	<macrodef name="start-docker-container">
 		<attribute name="image" />
 		<attribute default="" name="name" />
@@ -7022,6 +7070,8 @@ org.apache.catalina.startup.ClassLoaderFactory.level=INFO]]>
 						@{options}
 
 					docker ps --filter "name=@{name}" --format "Started container [ID: '{{.ID}}', name: '{{.Names}}'] from image '{{.Image}}'"
+
+					docker ps
 				]]>
 			</echo>
 
@@ -7483,6 +7533,31 @@ org.apache.catalina.startup.ClassLoaderFactory.level=INFO]]>
 			<get-browser-property property.name="browser.host" />
 
 			<stop-docker-container name="${browser.host}" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="stop-docker-clamav">
+		<sequential>
+			<trycatch property="stop.docker.clamav.error">
+				<try>
+					<retry retrycount="2">
+						<sequential>
+							<stop-docker-clamav-cmd />
+						</sequential>
+					</retry>
+				</try>
+				<catch>
+					<echo>Unable to stop the Docker ClamAV container.</echo>
+
+					<fail>${stop.docker.clamav.error}</fail>
+				</catch>
+			</trycatch>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="stop-docker-clamav-cmd">
+		<sequential>
+			<stop-docker-container name="${env.HOSTNAME|_clamav" />
 		</sequential>
 	</macrodef>
 
@@ -8242,6 +8317,29 @@ war.path=${app.server.portal.dir}/</echo>
 					<fail message="${timed.out.message}" />
 				</then>
 			</if>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wait-for-docker-clamav">
+		<attribute name="shell.condition" />
+		<attribute name="clamav.version" />
+
+		<sequential>
+			<property location="setup.sh" name="setup.sh.file" />
+
+			<docker-execute container="${env.HOSTNAME}_clamav">
+				<![CDATA[
+					#!/bin/bash
+
+					until @{shell.condition}
+
+					do
+						echo "Waiting for ClamAV ${clamav.version} to be ready"
+
+						sleep 10
+					done
+				]]>
+			</docker-execute>
 		</sequential>
 	</macrodef>
 
@@ -14671,6 +14769,15 @@ mail.send.blacklist=</echo>
 			</then>
 		</if>
 
+		<get-testcase-property property.name="clamd.enabled" />
+
+		<if>
+			<equals arg1="${clamd.enabled}" arg2="true" />
+			<then>
+				<prepare-clamd-configuration />
+			</then>
+		</if>
+
 		<get-testcase-property property.name="liferay.faces" />
 
 		<if>
@@ -15357,6 +15464,10 @@ url=${short.hostname}:8080</echo>
 		/>
 	</target>
 
+	<target name="start-docker-clamav">
+		<start-docker-clamav />
+	</target>
+
 	<target name="start-docker-containers">
 		<get-database-property property.name="database.docker.image" />
 
@@ -15846,6 +15957,10 @@ url=${short.hostname}:8080</echo>
 		<stop-app-server
 			app.server.bundle.index="${app.server.bundle.index}"
 		/>
+	</target>
+
+	<target name="stop-docker-clamav">
+		<stop-docker-clamav />
 	</target>
 
 	<target name="stop-docker-containers">
