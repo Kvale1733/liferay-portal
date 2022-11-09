@@ -22,7 +22,7 @@ definition {
 	@description = "Verify if no osgi config file exists, when a config is updated via UI, then the config is added to the database and a config file is not created."
 	@priority = "3"
 	test ConfigAddedViaUIDoesNotCreateNewConfigFile {
-		property test.name.skip.portal.instance = "OSGiConfiguration#ConfigAddedViaUIDoesNotCreateNewConfigFile";
+		property test.name.skip.portal.instance = "OSGIConfiguration#ConfigAddedViaUIDoesNotCreateNewConfigFile";
 
 		task ("Given no osgi config file exists for a specific config") {
 			var configName = "com.liferay.commerce.product.definitions.web.internal.configuration.CPInstanceConfiguration";
@@ -62,7 +62,7 @@ definition {
 	test ConfigAddedViaUIUpdatesExistingOSGIConfigFile {
 		property osgi.module.configuration.file.names = "com.liferay.commerce.product.definitions.web.internal.configuration.CPInstanceConfiguration.config";
 		property osgi.module.configurations = "checkInterval=I\"33\"";
-		property test.name.skip.portal.instance = "OSGiConfiguration#ConfigAddedViaUIUpdatesExistingOSGIConfigFile";
+		property test.name.skip.portal.instance = "OSGIConfiguration#ConfigAddedViaUIUpdatesExistingOSGIConfigFile";
 
 		task ("Given an osgi config file exists for a specific config") {
 			var configName = "com.liferay.commerce.product.definitions.web.internal.configuration.CPInstanceConfiguration";
@@ -104,7 +104,7 @@ definition {
 	@description = "Verify if a config exists only in the database, when a OSGI config file is added, the databse entry is updated."
 	@priority = "3"
 	test OSGIConfigFileUpdatesExistingConfigInDatabase {
-		property test.name.skip.portal.instance = "OSGiConfiguration#OSGIConfigFileUpdatesExistingConfigInDatabase";
+		property test.name.skip.portal.instance = "OSGIConfiguration#OSGIConfigFileUpdatesExistingConfigInDatabase";
 
 		task ("Given no osgi config file exists for a specific config") {
 			var configName = "com.liferay.commerce.product.definitions.web.internal.configuration.CPInstanceConfiguration";
@@ -161,7 +161,7 @@ definition {
 	@ignore = "true"
 	@priority = "3"
 	test OSGIConfigsInOSGIClientExtensionsNotRead {
-		property test.name.skip.portal.instance = "OSGiConfiguration#OSGIConfigsInOSGIClientExtensionsNotRead";
+		property test.name.skip.portal.instance = "OSGIConfiguration#OSGIConfigsInOSGIClientExtensionsNotRead";
 
 		// TODO Un-ignore test when LPS-167572 is fixed
 
@@ -190,7 +190,7 @@ definition {
 	@ignore = "true"
 	@priority = "3"
 	test OSGIConfigsInOSGIMarketplaceNotRead {
-		property test.name.skip.portal.instance = "OSGiConfiguration#OSGIConfigsInOSGIMarketplaceNotRead";
+		property test.name.skip.portal.instance = "OSGIConfiguration#OSGIConfigsInOSGIMarketplaceNotRead";
 
 		// TODO Un-ignore test when LPS-167572 is fixed
 
@@ -219,7 +219,7 @@ definition {
 	@ignore = "true"
 	@priority = "3"
 	test OSGIConfigsInOSGIModulesNotRead {
-		property test.name.skip.portal.instance = "OSGiConfiguration#OSGIConfigsInOSGIModulesNotRead";
+		property test.name.skip.portal.instance = "OSGIConfiguration#OSGIConfigsInOSGIModulesNotRead";
 
 		// TODO Un-ignore test when LPS-167572 is fixed
 
@@ -248,7 +248,7 @@ definition {
 	@ignore = "true"
 	@priority = "3"
 	test OSGIConfigsInOSGIPortalNotRead {
-		property test.name.skip.portal.instance = "OSGiConfiguration#OSGIConfigsInOSGIPortalNotRead";
+		property test.name.skip.portal.instance = "OSGIConfiguration#OSGIConfigsInOSGIPortalNotRead";
 
 		// TODO Un-ignore test when LPS-167572 is fixed
 
@@ -277,7 +277,7 @@ definition {
 	@ignore = "true"
 	@priority = "3"
 	test OSGIConfigsInOSGIWarNotRead {
-		property test.name.skip.portal.instance = "OSGiConfiguration#OSGIConfigsInOSGIWarNotRead";
+		property test.name.skip.portal.instance = "OSGIConfiguration#OSGIConfigsInOSGIWarNotRead";
 
 		// TODO Un-ignore test when LPS-167572 is fixed
 
