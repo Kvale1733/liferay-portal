@@ -22,6 +22,7 @@ definition {
 	@description = "Verify if no osgi config file exists, when a config is updated via UI, then the config is added to the database and a config file is not created."
 	@priority = "3"
 	test ConfigAddedViaUIDoesNotCreateNewConfigFile {
+        property portal.acceptance = "kvale17"; 
 		property test.name.skip.portal.instance = "OSGIConfiguration#ConfigAddedViaUIDoesNotCreateNewConfigFile";
 
 		task ("Given no osgi config file exists for a specific config") {
@@ -60,6 +61,7 @@ definition {
 	@description = "Verify if an osgi config file exists, when a config is updated via UI, then the config file is updated along with the database entry."
 	@priority = "3"
 	test ConfigAddedViaUIUpdatesExistingOSGIConfigFile {
+        property portal.acceptance = "kvale17"; 
 		property osgi.module.configuration.file.names = "com.liferay.commerce.product.definitions.web.internal.configuration.CPInstanceConfiguration.config";
 		property osgi.module.configurations = "checkInterval=I\"33\"";
 		property test.name.skip.portal.instance = "OSGIConfiguration#ConfigAddedViaUIUpdatesExistingOSGIConfigFile";
@@ -104,6 +106,7 @@ definition {
 	@description = "Verify if a config exists only in the database, when a OSGI config file is added, the databse entry is updated."
 	@priority = "3"
 	test OSGIConfigFileUpdatesExistingConfigInDatabase {
+        property portal.acceptance = "kvale17"; 
 		property test.name.skip.portal.instance = "OSGIConfiguration#OSGIConfigFileUpdatesExistingConfigInDatabase";
 
 		task ("Given no osgi config file exists for a specific config") {
@@ -161,6 +164,7 @@ definition {
 	@ignore = "true"
 	@priority = "3"
 	test OSGIConfigsInOSGIClientExtensionsNotRead {
+        property portal.acceptance = "kvale17"; 
 		property test.name.skip.portal.instance = "OSGIConfiguration#OSGIConfigsInOSGIClientExtensionsNotRead";
 
 		// TODO Un-ignore test when LPS-167572 is fixed
@@ -190,6 +194,7 @@ definition {
 	@ignore = "true"
 	@priority = "3"
 	test OSGIConfigsInOSGIMarketplaceNotRead {
+        property portal.acceptance = "kvale17"; 
 		property test.name.skip.portal.instance = "OSGIConfiguration#OSGIConfigsInOSGIMarketplaceNotRead";
 
 		// TODO Un-ignore test when LPS-167572 is fixed
@@ -219,6 +224,7 @@ definition {
 	@ignore = "true"
 	@priority = "3"
 	test OSGIConfigsInOSGIModulesNotRead {
+        property portal.acceptance = "kvale17"; 
 		property test.name.skip.portal.instance = "OSGIConfiguration#OSGIConfigsInOSGIModulesNotRead";
 
 		// TODO Un-ignore test when LPS-167572 is fixed
@@ -248,6 +254,7 @@ definition {
 	@ignore = "true"
 	@priority = "3"
 	test OSGIConfigsInOSGIPortalNotRead {
+        property portal.acceptance = "kvale17"; 
 		property test.name.skip.portal.instance = "OSGIConfiguration#OSGIConfigsInOSGIPortalNotRead";
 
 		// TODO Un-ignore test when LPS-167572 is fixed
@@ -277,6 +284,7 @@ definition {
 	@ignore = "true"
 	@priority = "3"
 	test OSGIConfigsInOSGIWarNotRead {
+        property portal.acceptance = "kvale17"; 
 		property test.name.skip.portal.instance = "OSGIConfiguration#OSGIConfigsInOSGIWarNotRead";
 
 		// TODO Un-ignore test when LPS-167572 is fixed
