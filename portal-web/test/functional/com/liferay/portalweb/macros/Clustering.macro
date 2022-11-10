@@ -286,6 +286,7 @@ definition {
 				}
 
 				var iterator = ${iterator} + 1;
+				var nodeLog = Clustering.getLogFileSpecificServer(nodePort = "${nodePort}");
 			}
 		}
 	}
