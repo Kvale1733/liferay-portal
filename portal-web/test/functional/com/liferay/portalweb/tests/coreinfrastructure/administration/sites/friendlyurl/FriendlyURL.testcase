@@ -94,6 +94,7 @@ definition {
 	@description = "Verify navigating to the URL of an uncreated portlet does not throw errors."
 	@priority = "3"
 	test NavigatingToURLOfUncreatedPortletDoesNotThrowError {
+        property portal.acceptance = "kvale17"; 
 		property test.assert.warning.exceptions = "true";
 
 		Navigator.openWithAppendToBaseURL(urlAppend = "web/guest/home/-/testportlet");
