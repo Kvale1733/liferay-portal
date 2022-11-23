@@ -141,6 +141,7 @@ definition {
 	@description = "Verify multiple factory configurations can be created."
 	@priority = "3"
 	test DeployFactoryConfigs {
+        property portal.acceptance = "kvale17"; 
 		property osgi.module.configuration.file.names = "com.liferay.portal.security.auth.verifier.internal.tunnel.configuration.TunnelAuthVerifierConfiguration~test1.config:com.liferay.portal.security.auth.verifier.internal.tunnel.configuration.TunnelAuthVerifierConfiguration~test2.config";
 		property osgi.module.configurations = "urlsIncludes=\"/api/liferay/test1\":urlsIncludes=\"/api/liferay/test2\"";
 		property test.name.skip.portal.instance = "OSGIConfiguration#DeployFactoryConfigs";
@@ -159,6 +160,7 @@ definition {
 	@description = "Verify an existing factory config can be modified."
 	@priority = "3"
 	test ModifyFactoryConfig {
+        property portal.acceptance = "kvale17"; 
 		property osgi.module.configuration.file.names = "com.liferay.portal.security.auth.verifier.internal.tunnel.configuration.TunnelAuthVerifierConfiguration~test.config";
 		property osgi.module.configurations = "urlsIncludes=\"/api/liferay/original\"";
 		property test.name.skip.portal.instance = "OSGIConfiguration#ModifyFactoryConfig";
@@ -241,6 +243,7 @@ definition {
 	@description = "LPS-132645 Verify the default factory config created by the OSGI configurator can be overriden by an OSGI config file."
 	@priority = "3"
 	test OverrideDefaultFactoryConfig {
+        property portal.acceptance = "kvale17"; 
 		property osgi.module.configuration.file.names = "com.liferay.portal.security.auth.verifier.internal.tunnel.configuration.TunnelAuthVerifierConfiguration~default.config";
 		property osgi.module.configurations = "urlsIncludes=\"/api/liferay/new\"";
 		property test.name.skip.portal.instance = "OSGIConfiguration#OverrideDefaultFactoryConfig";
@@ -259,6 +262,7 @@ definition {
 	@description = "LPS-132645 Verify the default factory config created by the OSGI configurator can be recreated using an OSGI config file if it is deleted."
 	@priority = "3"
 	test RecreateDefaultFactoryConfig {
+        property portal.acceptance = "kvale17"; 
 		property test.name.skip.portal.instance = "FileInstall#OverrideDefaultFactoryConfig";
 
 		task ("Given the default factory config created by the OSGI configurator is deleted") {
@@ -304,6 +308,7 @@ definition {
 	@description = "Verify when an existing factory config is renamed, the old entry is removed and the new one is added."
 	@priority = "3"
 	test RenameFactoryConfig {
+        property portal.acceptance = "kvale17"; 
 		property osgi.module.configuration.file.names = "com.liferay.portal.security.auth.verifier.internal.tunnel.configuration.TunnelAuthVerifierConfiguration~original.config";
 		property osgi.module.configurations = "enabled=\"true\"";
 		property test.name.skip.portal.instance = "OSGIConfiguration#RenameFactoryConfig";
