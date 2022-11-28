@@ -288,6 +288,10 @@
 			<contains>java.sql.SQLIntegrityConstraintViolationException</contains>
 			<matches></matches>
 		</ignore-error>
+		<ignore-error description="LPS-163136">
+			<contains>Nested exception: An invalid XML character (Unicode: 0x5) was found in the CDATA section.</contains>
+			<matches></matches>
+		</ignore-error>
 		<ignore-error description="LPS-163680">
 			<contains>The iframe tag contained an attribute that we could not process</contains>
 			<matches></matches>
