@@ -472,6 +472,7 @@ definition {
 
 	@priority = "4"
 	test DownloadReportXLS {
+        property portal.acceptance = "kvale17"; 
 		Navigator.openURL();
 
 		ProductMenu.gotoPortlet(
