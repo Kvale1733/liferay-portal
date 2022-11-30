@@ -26,6 +26,7 @@ definition {
 		property test.name.skip.portal.instance = "ClusteringLicense#ClusterCanRecoverByShuttingDownAnyNodeWithManualRecovery";
 
 		WaitForConsoleTextPresent(value1 = "Spring Extender Unavailable Component Checker check result");
+		
 
 		User.loginPG(
 			nodePort = "9080",
