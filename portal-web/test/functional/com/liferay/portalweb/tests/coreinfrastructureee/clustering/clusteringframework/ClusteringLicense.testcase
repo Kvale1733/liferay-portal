@@ -23,6 +23,7 @@ definition {
 	test ClusterCanRecoverByShuttingDownAnyNodeWithManualRecovery {
 		property custom.properties = "license.cluster.overload.node.auto.shut.down=false";
 		property dxp.license.file = "dxp-license-virtual-cluster.xml";
+		property portal.acceptance = "kvale17";
 		property test.name.skip.portal.instance = "ClusteringLicense#ClusterCanRecoverByShuttingDownAnyNodeWithManualRecovery";
 
 		WaitForConsoleTextPresent(value1 = "Spring Extender Unavailable Component Checker check result");
