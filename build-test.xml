@@ -11444,6 +11444,7 @@ database.partition.enabled=true</echo>
 		</if>
 
 		<get-testcase-property property.name="liferay.online.properties" />
+		
 
 		<if>
 			<isset property="liferay.online.properties" />
