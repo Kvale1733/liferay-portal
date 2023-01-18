@@ -113,6 +113,7 @@ definition {
 
 	@priority = "3"
 	test SmokeWithReadWriteDatabaseConfigurationJDBC {
+        property portal.acceptance = "kvale17"; 
 		property app.server.types = "tomcat";
 		property configure.read.write.database = "jdbc";
 		property database.types = "mysql";
@@ -138,6 +139,7 @@ definition {
 
 	@priority = "3"
 	test SmokeWithReadWriteDatabaseConfigurationJNDI {
+        property portal.acceptance = "kvale17"; 
 		property app.server.types = "tomcat";
 		property configure.read.write.database = "jndi";
 		property database.types = "mysql";
