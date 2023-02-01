@@ -163,6 +163,7 @@ definition {
 
 	@priority = "5"
 	test SmokeWithRewriteBatchedStatements {
+        property portal.acceptance = "kvale17"; 
 		property database.types = "mariadb,mysql,postgresql,sqlserver";
 		property portal.smoke = "false";
 		property rewrite.batch.statements = "true";
