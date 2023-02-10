@@ -8,6 +8,7 @@ definition {
 	property portal.upstream = "true";
 	property test.assert.warning.exceptions = "true";
 	property testray.main.component.name = "Deployment";
+	property portal.acceptance = "kvale17";
 
 	setUp {
 		SignIn.signInTestSetup();
