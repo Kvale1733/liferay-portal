@@ -78,5 +78,6 @@ public class CalendarFactoryUtil_IW {
 	private CalendarFactoryUtil_IW() {
 	}
 
-	private static CalendarFactoryUtil_IW _instance = new CalendarFactoryUtil_IW();
+	private static CalendarFactoryUtil_IW 
+			_instance = new CalendarFactoryUtil_IW();
 }
