@@ -191,6 +191,8 @@ public class BundleBlacklistTest {
 		Assert.assertFalse(
 			_SYMBOLIC_NAME + " should not be blacklisted",
 			blacklistBundleSymbolicNames.contains(_SYMBOLIC_NAME));
+
+		System.out.println("Testing Testing");
 	}
 
 	@Ignore
