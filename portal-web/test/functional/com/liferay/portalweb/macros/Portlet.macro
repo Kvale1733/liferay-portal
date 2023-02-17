@@ -604,9 +604,9 @@ definition {
 
 	@summary = "Shutdown the current Liferay Portal instance."
 	macro shutdownServer {
-		AntCommand(
-			locator1 = "build-test.xml",
-			value1 = "stop-app-server");
+		AntCommands.runCommand("build-test.xml", "stop-app-server");
+
+		AntCommands.runCommand("build-test.xml", "wait-for-server-shutdown");
 	}
 
 	@summary = "Start the current Liferay Portal instance."
