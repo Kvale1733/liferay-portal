@@ -271,6 +271,7 @@ definition {
 
 	@priority = 3
 	test InstanceCreatedOnRestartPickUpNewCompanyLocale {
+        property portal.acceptance = "kvale17"; 
 		property test.name.skip.portal.instance = "Locale#InstanceCreatedOnRestartPickUpNewCompanyLocale";
 
 		User.firstLoginPG();
