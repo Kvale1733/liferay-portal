@@ -50,12 +50,13 @@ public class FragmentEntryLinkCTDisplayRender
 	public String getTitle(Locale locale, FragmentEntryLink fragmentEntryLink)
 		throws PortalException {
 
-		Layout layout = _layoutLocalService.fetchLayout(
-			fragmentEntryLink.getPlid());
 		String name = _fragmentEntryLinkHelper.getFragmentEntryName(
 			fragmentEntryLink, locale);
 
-		if ((layout != null) && !name.equals(StringPool.BLANK)) {
+		Layout layout = _layoutLocalService.fetchLayout(
+			fragmentEntryLink.getPlid());
+
+		if (!name.equals(StringPool.BLANK) && (layout != null)) {
 			return _language.format(
 				locale, "x-for-x", new String[] {name, layout.getName(locale)});
 		}
