@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Change Tracking SPI
 Bundle-SymbolicName: com.liferay.change.tracking.spi
+<<<<<<< HEAD
 Bundle-Version: 3.0.1
+=======
+Bundle-Version: 2.5.1
+>>>>>>> parent of 8c2aed975a68... LPS-176197 baseline
 Export-Package:\
 	com.liferay.change.tracking.spi.display,\
 	com.liferay.change.tracking.spi.display.context,\
