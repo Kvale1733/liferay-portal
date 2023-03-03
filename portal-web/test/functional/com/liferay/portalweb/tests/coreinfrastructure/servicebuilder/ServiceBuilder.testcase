@@ -54,9 +54,20 @@ definition {
 
 	@priority = 4
 	test RenameFinderColumn {
-        property portal.acceptance = "kvale17"; 
+		property portal.acceptance = "kvale17";
 		property test.assert.warning.exceptions = "true";
 		property test.name.skip.portal.instance = "ServiceBuilder#RenameFinderColumn";
+
+		ApplicationsMenu.gotoPortlet(
+			category = "System",
+			panel = "Control Panel",
+			portlet = "Gogo Shell");
+
+		GogoShell.executeCommand(commandName = "stop com.liferay.portal.tools.service.builder.test.api");
+
+		GogoShell.executeCommand(commandName = "stop com.liferay.portal.tools.service.builder.test.service");
+
+		WaitForConsoleTextPresent(value1 = "STOPPED com.liferay.portal.tools.service.builder.test.service_");
 
 		AntCommand(
 			locator1 = "build-test.xml",
