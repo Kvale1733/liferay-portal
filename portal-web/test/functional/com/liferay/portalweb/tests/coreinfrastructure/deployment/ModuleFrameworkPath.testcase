@@ -13,6 +13,7 @@ definition {
 	@description = "LPS-157580. Verify users can deploy to custom module framework paths."
 	@priority = 4
 	test CustomPathDeploy {
+		property portal.acceptance = "kvale17";
 		property test.name.skip.portal.instance = "ModuleFrameworkPath#CustomPathDeploy";
 
 		task ("Given a custom path is set for module.framework.configs.dir") {
