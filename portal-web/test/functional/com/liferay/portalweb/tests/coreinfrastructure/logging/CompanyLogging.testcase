@@ -5,6 +5,7 @@ definition {
 	property custom.properties = "feature.flag.LPS-170670=true";
 	property database.partition.enabled = "true";
 	property database.types = "mysql";
+	property portal.acceptance = "kvale17";
 	property portal.release = "true";
 	property portal.upstream = "true";
 	property test.run.environment = "EE";
@@ -27,7 +28,6 @@ definition {
 	@description = "Any logs that would appear specifically in company A should never appear in the logs of company B"
 	@priority = 5
 	test AssertCompanyLogsIsolated {
-		property portal.acceptance = "true";
 		property test.assert.warning.exceptions = "true";
 		property test.name.skip.portal.instance = "CompanyLogging#AssertCompanyLogsIsolated";
 
@@ -168,7 +168,6 @@ definition {
 	@description = "A company admin should only be able to see the logs from the company they are an admin of"
 	@priority = 5
 	test GetCompanyAdminLogs {
-		property portal.acceptance = "true";
 		property test.assert.warning.exceptions = "true";
 		property test.name.skip.portal.instance = "CompanyLogging#GetCompanyAdminLogs";
 
