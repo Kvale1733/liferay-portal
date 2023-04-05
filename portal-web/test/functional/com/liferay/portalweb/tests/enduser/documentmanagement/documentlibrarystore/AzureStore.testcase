@@ -31,6 +31,7 @@ definition {
 	@description = "This is a use case for LPS-129271."
 	@priority = 4
 	test AssertNoErrorMessageAfterExportAndImportSiteLAR {
+        property portal.acceptance = "kvale17"; 
 		property test.name.skip.portal.instance = "AzureStore#AssertNoErrorMessageAfterExportAndImportSiteLAR";
 
 		var containerId = PropsUtil.get("azure.container.id");
