@@ -35,6 +35,7 @@ definition {
 	@description = "This is a use case for LPS-167717. Verify triggering one scheduled job does not trigger all jobs."
 	@priority = 4
 	test TriggeringOneJobDoesNotTriggerAllJobs {
+		property portal.acceptance = "kvale17";
 		property test.assert.warning.exceptions = "true";
 
 		task ("Given several job triggers") {
