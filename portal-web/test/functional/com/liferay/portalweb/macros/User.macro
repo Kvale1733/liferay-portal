@@ -1950,6 +1950,8 @@ definition {
 		}
 
 		WaitForLiferayEvent.initializeLiferayEventLog();
+
+		WaitForElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE");
 	}
 
 	macro forgotPasswordSendResetLink {
