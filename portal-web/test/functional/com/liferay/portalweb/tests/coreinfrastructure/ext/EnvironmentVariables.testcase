@@ -120,6 +120,7 @@ export LIFERAY_PROPS_BY_COMPANY_${companyId}=feature.flag.COMMERCE-8087=true
 	@description = "This is a usecase for LPS-168123. Verify properties which are supported for overriding via hook can be overriden by environment variable."
 	@priority = 3
 	test SetDefaultTheme {
+        property portal.acceptance = "kvale17"; 
 		property custom.system.properties = "company-id-properties=true";
 		property test.name.skip.portal.instance = "EnvironmentVariables#SetDefaultTheme";
 
