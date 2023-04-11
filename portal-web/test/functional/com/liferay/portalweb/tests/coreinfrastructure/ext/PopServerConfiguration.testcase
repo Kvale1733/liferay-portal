@@ -23,6 +23,7 @@ definition {
 	@description = "Verify pop server notifications can be enabled per instance"
 	@priority = 3
 	test CanEnablePopServerNotificationsPerInstance {
+        property portal.acceptance = "kvale17"; 
 		property database.types = "mysql";
 		property test.name.skip.portal.instance = "PopServerConfiguration#CanEnablePopServerNotificationsPerInstance";
 
