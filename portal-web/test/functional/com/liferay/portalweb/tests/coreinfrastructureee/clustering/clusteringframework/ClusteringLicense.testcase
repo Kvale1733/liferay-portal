@@ -33,9 +33,7 @@ definition {
 				specificURL = "http://localhost:${nodeNumber}080",
 				userEmailAddress = "test@liferay.com");
 
-			// Pausing 10 seconds due to LRQA-75909
-
-			Pause(locator1 = 10000);
+			WaitForElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE");
 
 			Refresh();
 
@@ -49,9 +47,7 @@ definition {
 			specificURL = "http://localhost:10080",
 			userEmailAddress = "test@liferay.com");
 
-		// Pausing 10 seconds due to LRQA-75909
-
-		Pause(locator1 = 10000);
+		WaitForElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE");
 
 		Refresh();
 
@@ -318,9 +314,7 @@ definition {
 
 			Page.assertNodePortPG(nodePort = "${nodeNumber}080");
 
-			// Pausing 10 seconds due to LRQA-75909
-
-			Pause(locator1 = 10000);
+			WaitForElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE");
 
 			Refresh();
 
@@ -369,9 +363,7 @@ definition {
 
 			Page.assertNodePortPG(nodePort = "${nodeNumber}080");
 
-			// Pausing 10 seconds due to LRQA-75909
-
-			Pause(locator1 = 10000);
+			WaitForElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE");
 
 			Refresh();
 
