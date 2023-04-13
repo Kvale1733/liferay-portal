@@ -274,7 +274,9 @@ definition {
 				nodePort = "${nodeNumber}080");
 		}
 
-		User.firstLoginPG();
+		User.firstLoginUI();
+
+		WaitForElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE");
 
 		JSONUser.addUser(
 			userEmailAddress = "userea@liferay.com",
@@ -297,9 +299,11 @@ definition {
 
 		Navigator.openSpecificURL(url = "http://localhost:8080/c/portal/logout");
 
-		User.loginPG(
+		User.firstLoginUI(
 			password = "test",
 			userEmailAddress = "userea@liferay.com");
+
+		WaitForElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE");
 
 		AssertElementNotPresent(locator1 = "Message#ERROR");
 
