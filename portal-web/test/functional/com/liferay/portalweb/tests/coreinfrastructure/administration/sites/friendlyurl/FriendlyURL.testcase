@@ -68,6 +68,7 @@ definition {
 	@description = "This is a use case for LPS-163426. Verify redirection to localized friendly URL's when using a virtual host."
 	@priority = 4
 	test RedirectToLocalizedFriendlyURLWithVirtualHost {
+        property portal.acceptance = "kvale17"; 
 		task ("Given two pages on a site") {
 			JSONLayout.addPublicLayout(
 				groupName = "Test Site Name",
