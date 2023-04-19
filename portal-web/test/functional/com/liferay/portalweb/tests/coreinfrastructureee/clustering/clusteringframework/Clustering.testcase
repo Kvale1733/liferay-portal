@@ -422,6 +422,7 @@ definition {
 	@priority = 4
 	test CanUpdateLogLevelsForAllNodesFromSlave {
 		property app.server.bundles.size = "2";
+		property portal.acceptance = "kvale17";
 		property test.name.skip.portal.instance = "Clustering#CanUpdateLogLevelsForAllNodesFromSlave";
 
 		User.logoutPG(
