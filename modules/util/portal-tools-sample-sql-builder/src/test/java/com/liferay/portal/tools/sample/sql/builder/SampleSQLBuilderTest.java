@@ -16,7 +16,9 @@ package com.liferay.portal.tools.sample.sql.builder;
 
 import com.liferay.petra.string.StringBundler;
 import com.liferay.petra.string.StringPool;
+import com.liferay.portal.dao.db.DBManagerImpl;
 import com.liferay.portal.kernel.dao.db.DB;
+import com.liferay.portal.kernel.dao.db.DBManager;
 import com.liferay.portal.kernel.dao.db.DBManagerUtil;
 import com.liferay.portal.kernel.dao.db.DBType;
 import com.liferay.portal.kernel.util.FileUtil;
@@ -198,7 +200,9 @@ public class SampleSQLBuilderTest {
 	private void _loadHypersonic(Connection connection, String fileName)
 		throws Exception {
 
-		DB db = DBManagerUtil.getDB();
+		DBManager dbManager = new DBManagerImpl();
+
+		DB db = dbManager.getDB(DBType.HYPERSONIC, null);
 
 		List<String> lines = Files.readAllLines(
 			Paths.get(fileName), StandardCharsets.UTF_8);
