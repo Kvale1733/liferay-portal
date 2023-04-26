@@ -269,7 +269,7 @@ definition {
 	@description = "This ensures that the translation files contians multiple web contents can be imported from a zip."
 	@priority = 5
 	test CanImportMultipleWCs {
-		property portal.acceptance = "false";
+		property portal.acceptance = "kvale17";
 
 		for (var i : list "1,2,3") {
 			JSONWebcontent.addWebContent(
@@ -698,7 +698,7 @@ definition {
 	@description = "This ensures that only the valid translation files can be imported from zip and xlf files."
 	@priority = 5
 	test CanPartiallyImportMultipleFiles {
-		property portal.acceptance = "false";
+		property portal.acceptance = "kvale17";
 
 		for (var i : list "1,2") {
 			JSONWebcontent.addWebContent(

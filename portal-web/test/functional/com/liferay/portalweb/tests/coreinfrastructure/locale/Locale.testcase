@@ -605,6 +605,8 @@ definition {
 	@description = "This is a use case for LRQA-79868. Verify the default title is used for a portlet if there is no translation for a locale."
 	@priority = 3
 	test UseDefaultPortetTitleWithoutTranslation {
+		property portal.acceptance = "kvale17";
+
 		task ("Given a page with language selector widget and a portlet") {
 			User.firstLoginPG();
 
@@ -629,7 +631,6 @@ definition {
 				siteName = "Test Site Name");
 
 			Portlet.configureCustomTitlePG(portletTitleName = "Breadcrumb");
-
 		}
 
 		task ("And given there is no Spanish translation for the title") {
