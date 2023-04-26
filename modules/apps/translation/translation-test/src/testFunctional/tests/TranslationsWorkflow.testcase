@@ -450,6 +450,8 @@ definition {
 	@priority = 4
 	@refactordone
 	test CanDeletePendingTranslation {
+		property portal.acceptance = "kvale17";
+
 		JSONWebcontent.addWebContent(
 			content = "WC WebContent Content",
 			description = "Description",
