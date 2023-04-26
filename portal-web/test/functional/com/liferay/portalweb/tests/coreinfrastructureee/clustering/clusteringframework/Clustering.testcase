@@ -4,6 +4,7 @@ definition {
 	property app.server.bundles.size = "1";
 	property cluster.enabled = "true";
 	property minimum.slave.ram = "24";
+	property portal.acceptance = "kvale17";
 	property portal.release = "true";
 	property portal.upstream = "true";
 	property remote.elasticsearch.enabled = "true";
@@ -236,7 +237,6 @@ definition {
 	@priority = 5
 	test CanCreateVirtualInstanceWithClustering {
 		property custom.properties = "virtual.hosts.valid.hosts=localhost,127.0.0.1,www.able.com";
-		property portal.acceptance = "true";
 		property test.name.skip.portal.instance = "Clustering#CanCreateVirtualInstanceWithClustering";
 
 		Clustering.viewClusterStatusInConsole();
@@ -281,7 +281,6 @@ definition {
 	@priority = 5
 	test CanCreateVirtualInstanceWithClusteringSecondNode {
 		property custom.properties = "virtual.hosts.valid.hosts=localhost,127.0.0.1,www.able.com";
-		property portal.acceptance = "true";
 		property test.name.skip.portal.instance = "Clustering#CanCreateVirtualInstanceWithClusteringSecondNode";
 
 		Clustering.viewClusterStatusInConsole();

@@ -2,6 +2,7 @@
 definition {
 
 	property ci.retries.disabled = "true";
+	property portal.acceptance = "kvale17";
 	property portal.release = "true";
 	property portal.upstream = "true";
 	property testray.main.component.name = "Locale";
@@ -130,7 +131,6 @@ definition {
 	@priority = 4
 	test ChangesToInstanceTimeZoneDoNotPropagateToExistingUsers {
 		property custom.properties = "company.default.time.zone=America/Los_Angeles";
-		property portal.acceptance = "true";
 
 		User.firstLoginPG();
 
@@ -236,8 +236,6 @@ definition {
 	@ignore = "true"
 	@priority = 5
 	test GuestUserViewSiteChangedLocalePersistsFriendlyURL {
-		property portal.acceptance = "true";
-
 		User.firstLoginPG();
 
 		JSONLayout.addPublicLayout(
@@ -272,7 +270,6 @@ definition {
 
 	@priority = 4
 	test InstanceCreatedOnRestartPickUpNewCompanyLocale {
-		property portal.acceptance = "true";
 		property test.name.skip.portal.instance = "Locale#InstanceCreatedOnRestartPickUpNewCompanyLocale";
 
 		User.firstLoginPG();
@@ -468,7 +465,6 @@ definition {
 	@priority = 5
 	test RestrictDefaultLocale {
 		property custom.properties = "company.default.locale=es_ES";
-		property portal.acceptance = "true";
 		property test.name.skip.portal.instance = "Locale#RestrictDefaultLocale";
 
 		task ("Sign in via UI") {
@@ -737,7 +733,6 @@ definition {
 
 	@priority = 5
 	test ViewLocaleInNewVirtualInstance {
-		property portal.acceptance = "true";
 		property test.assert.warning.exceptions = "true";
 		property test.name.skip.portal.instance = "Locale#ViewLocaleInNewVirtualInstance";
 
@@ -776,8 +771,6 @@ definition {
 
 	@priority = 5
 	test ViewSiteLocaleWithoutUserPreferredLocale {
-		property portal.acceptance = "true";
-
 		User.firstLoginPG();
 
 		JSONLayout.addPublicLayout(
@@ -847,8 +840,6 @@ definition {
 
 	@priority = 5
 	test ViewUserPreferredLocale {
-		property portal.acceptance = "true";
-
 		User.firstLoginPG();
 
 		HeadlessSite.addSite(siteName = "Site Name");
@@ -920,8 +911,6 @@ definition {
 	@ignore = "true"
 	@priority = 5
 	test ViewUserPreferredLocalePersistsFriendlyURL {
-		property portal.acceptance = "true";
-
 		User.firstLoginPG();
 
 		JSONLayout.addPublicLayout(
