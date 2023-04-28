@@ -241,11 +241,11 @@ definition {
 			locator1 = "WorkflowMetrics#SEARCH_FIELD_MAPPINGS_METRICS_INDEXES");
 
 		AssertElementPresent(
-			key_index = "liferay-${companyId}-workflow-metrics-sla-instance-results",
+			key_index = "liferay-${companyId}-workflow-sla-instance-results",
 			locator1 = "WorkflowMetrics#SEARCH_FIELD_MAPPINGS_METRICS_INDEXES");
 
 		AssertElementPresent(
-			key_index = "liferay-${companyId}-workflow-metrics-sla-task-results",
+			key_index = "liferay-${companyId}-workflow-sla-task-results",
 			locator1 = "WorkflowMetrics#SEARCH_FIELD_MAPPINGS_METRICS_INDEXES");
 
 		AssertElementPresent(
