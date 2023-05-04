@@ -156,6 +156,7 @@ definition {
 
 	@priority = 5
 	test ViewConfiguredSetupWizardValue {
+        property portal.acceptance = "kvale17"; 
 		property database.types = "mysql";
 		property test.name.skip.portal.instance = "SetupWizard#ViewConfiguredSetupWizardValue";
 
