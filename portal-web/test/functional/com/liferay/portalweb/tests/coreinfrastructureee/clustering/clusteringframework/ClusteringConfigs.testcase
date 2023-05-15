@@ -62,7 +62,7 @@ definition {
 		property cluster.enabled = "true";
 		property cluster.tcp.jdbc.ping = "true";
 		property database.types = "mysql";
-		property portal.acceptance = "true";
+		property portal.acceptance = "kvale17";
 		property test.name.skip.portal.instance = "ClusteringConfigs#StartupJDBCPINGWithZombieEntries";
 
 		Clustering.viewTextPresentOnSpecificNode(
