@@ -5092,7 +5092,7 @@ definition {
 
 	@priority = 5
 	test WithdrawProcess {
-		property portal.acceptance = "true";
+		property portal.acceptance = "kvale17";
 
 		Navigator.openURL();
 
