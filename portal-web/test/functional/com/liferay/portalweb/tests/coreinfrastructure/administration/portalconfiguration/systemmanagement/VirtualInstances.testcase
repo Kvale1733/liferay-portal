@@ -90,6 +90,7 @@ definition {
 	@description = "This is a use case for LPS-161481. Verify a non-omniadmin user can create a user in a user-limited virtual instance"
 	@priority = 3
 	test NonAdminUserCanCreateUserInUserLimitedVirtualInstance {
+		property portal.acceptance = "kvale17";
 		property test.assert.warning.exceptions = "true";
 		property test.name.skip.portal.instance = "VirtualInstances#NonAdminUserCanCreateUserInUserLimitedVirtualInstance";
 
