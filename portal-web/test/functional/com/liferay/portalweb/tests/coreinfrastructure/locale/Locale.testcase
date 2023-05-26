@@ -1149,6 +1149,7 @@ definition {
 	test WarningGeneratedWhenUsingNonStandardTimezone {
 		property skip.start.app.server = "true";
 		property test.name.skip.portal.instance = "Locale#WarningGeneratedWhenUsingNonStandardTimezone";
+		property testcase.url = "file:///opt/dev/projects/github/liferay-portal/";
 
 		var tomcatBinDir = PropsUtil.get("app.server.bin.dir");
 
