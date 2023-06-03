@@ -25,11 +25,13 @@ definition {
 		task ("When the portal starts up") {
 			Portlet.startServer(keepOSGiState = "true");
 
-			User.firstLoginPG();
+			User.firstLoginPG(virtualHostsURL = "http://localhost:8080");
 		}
 
 		task ("Then the file is deployed correctly") {
-			FragmentsAdminNavigator.openFragmentsAdmin(siteURLKey = "global");
+			FragmentsAdminNavigator.openFragmentsAdmin(
+				baseURL = "http://localhost:8080",
+				siteURLKey = "global");
 
 			FragmentsAdminNavigator.gotoSpecificScopeCollection(
 				collectionName = "Imported",

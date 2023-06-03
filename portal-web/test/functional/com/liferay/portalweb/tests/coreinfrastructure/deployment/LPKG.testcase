@@ -55,7 +55,7 @@ definition {
 
 		WaitForConsoleTextPresent(value1 = "The portal instance needs to be restarted to complete the installation");
 
-		User.firstLoginPG();
+		User.firstLoginPG(virtualHostsURL = "http://localhost:8080");
 
 		ApplicationsMenuHelper.openApplicationsMenu();
 
@@ -70,7 +70,7 @@ definition {
 
 		Portlet.startServer(deleteLiferayHome = "false");
 
-		User.firstLoginPG();
+		User.firstLoginPG(virtualHostsURL = "http://localhost:8080");
 
 		ApplicationsMenuHelper.openApplicationsMenu();
 
