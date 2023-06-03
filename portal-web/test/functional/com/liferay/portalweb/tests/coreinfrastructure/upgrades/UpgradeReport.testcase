@@ -12,6 +12,7 @@ definition {
 	property testcase.url = "http://www.example.com";
 	property testray.main.component.name = "Database Upgrade Tool";
 	property upgrade.reports.enabled = "true";
+	property portal.acceptance = "kvale17"; 
 
 	@description = "LPS-158741: Upgrade Report provides the initial, final, and expected portal build number"
 	@priority = 3

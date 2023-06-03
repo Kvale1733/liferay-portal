@@ -1232,6 +1232,7 @@ definition {
 
 	@priority = 3
 	test WarningGeneratedWhenUsingNonStandardTimezone {
+        property portal.acceptance = "kvale17"; 
 		property skip.start.app.server = "true";
 		property test.name.skip.portal.instance = "Locale#WarningGeneratedWhenUsingNonStandardTimezone";
 

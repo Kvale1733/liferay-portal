@@ -11,6 +11,7 @@ definition {
 
 	@priority = 4
 	test AutoUpgradeFromLatest7413Update {
+        property portal.acceptance = "kvale17"; 
 		property database.bare.enabled = "true";
 		property skip.start.app.server = "true";
 		property test.assert.warning.exceptions = "true";
@@ -75,6 +76,7 @@ definition {
 
 	@priority = 4
 	test AutoUpgradeFromLatest7413UpdateWithDBPartitionEnabled {
+        property portal.acceptance = "kvale17"; 
 		property custom.properties = "virtual.hosts.valid.hosts=localhost,127.0.0.1,www.able.com";
 		property database.bare.enabled = "true";
 		property database.partition.enabled = "true";
@@ -153,6 +155,7 @@ definition {
 
 	@priority = 4
 	test AutoUpgradeFromLatest7413UpdateWithDBPartitionEnabledAndHeadlessAPI {
+        property portal.acceptance = "kvale17"; 
 		property database.bare.enabled = "true";
 		property database.partition.enabled = "true";
 		property database.types = "mysql";
