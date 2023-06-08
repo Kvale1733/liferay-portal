@@ -343,8 +343,6 @@ definition {
 				orgName = "Liferay DXP, Inc.",
 				orgType = "Organization");
 
-			Navigator.gotoBack();
-
 			Organization.gotoCP(orgName = "Liferay DXP, Inc.");
 
 			User.searchCP(searchTerm = "Test DLC 1");
@@ -377,8 +375,6 @@ definition {
 			Organization.viewCP(
 				orgName = "Liferay, Inc.",
 				orgType = "Organization");
-
-			Navigator.gotoBack();
 
 			Organization.gotoCP(orgName = "Liferay, Inc.");
 
