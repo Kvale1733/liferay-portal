@@ -129,14 +129,7 @@ definition {
 			base_branch = ${base_branch},
 			deleteLiferayHome = "false");
 
-		SetupWizard.viewConfiguredDatabaseInConsole(databaseType = ${databaseType});
-
-		if (isSet(virtualHostsURL)) {
-			Navigator.openSpecificURL(url = ${virtualHostsURL});
-		}
-		else {
-			Refresh();
-		}
+		Refresh();
 
 		User.acceptEndUserLicenseAgreement();
 
@@ -150,6 +143,13 @@ definition {
 
 		if (IsElementPresent(locator1 = "Button#DONE")) {
 			Click(locator1 = "Button#DONE");
+		}
+
+		if (isSet(virtualHostsURL)) {
+			Navigator.openSpecificURL(url = ${virtualHostsURL});
+		}
+		else {
+			Navigator.openURL();
 		}
 
 		User.viewLoggedInPG();
