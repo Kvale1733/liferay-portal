@@ -5158,7 +5158,7 @@ information. Make sure to commit in all format-javadoc results.
 	</target>
 
 	<target name="functional-tomcat90-mysql57-jdk8">
-		<run-functional-test app.server.type="tomcat" database.type="mysql" database.version="5.7" />
+		<run-functional-test app.server.type="tomcat" database.type="mysql" database.version="5.7" test.portal.log.assert="true" />
 	</target>
 
 	<target name="functional-tomcat90-mysql57-jdk8-quarantine">
