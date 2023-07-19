@@ -592,6 +592,7 @@ definition {
 
 	@priority = 3
 	test EnableAndDisableFeatureFlagOnMasterNode {
+        property portal.acceptance = "kvale17"; 
 		property custom.properties = "feature.flag.ui.visible[dev]=true";
 		property test.liferay.virtual.instance = "false";
 
@@ -674,6 +675,7 @@ definition {
 
 	@priority = 3
 	test EnableAndDisableFeatureFlagOnSlaveNode {
+        property portal.acceptance = "kvale17"; 
 		property custom.properties = "feature.flag.ui.visible[dev]=true";
 		property test.liferay.virtual.instance = "false";
 
