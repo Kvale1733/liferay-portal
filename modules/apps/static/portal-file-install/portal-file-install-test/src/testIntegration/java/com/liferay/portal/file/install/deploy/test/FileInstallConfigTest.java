@@ -427,7 +427,7 @@ public class FileInstallConfigTest {
 				factoryPid, separator, factoryConfigurationName, ".config"));
 
 		String testKey = "testKey";
-		String testValue = "testValue";
+		String testValue = StringUtil.randomString();
 
 		_createFactoryConfiguration(
 			factoryPid,
@@ -450,7 +450,7 @@ public class FileInstallConfigTest {
 
 		Dictionary<String, Object> dictionary = _configuration.getProperties();
 
-		Assert.assertEquals("testValue", dictionary.get(testKey));
+		Assert.assertEquals(testValue, dictionary.get(testKey));
 	}
 
 	private static final String _CONFIGURATION_PID_PREFIX =
