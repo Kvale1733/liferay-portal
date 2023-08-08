@@ -10,6 +10,7 @@ definition {
 	@description = "This is a usecase for LPS-100962. Verify no exception is thrown when starting up without a temp folder."
 	@priority = 4
 	test StartupWithoutTempDir {
+        property portal.acceptance = "kvale17"; 
 		property delete.temp.dir = "true";
 		property test.assert.warning.exceptions = "true";
 		property test.liferay.virtual.instance = "false";
