@@ -47,6 +47,7 @@ definition {
 	@description = "This is a usecase for LPS-172690. Verify an UploadServletRequestConfiguration config can be deployed without explicit max size."
 	@priority = 2
 	test CanDeployUploadServletRequestConfigWithoutMaxSize {
+        property portal.acceptance = "kvale17"; 
 		property database.types = "mysql";
 		property osgi.module.configuration.file.names = "com.liferay.portal.upload.internal.configuration.UploadServletRequestConfiguration.config";
 		property osgi.module.configurations = "maxTries=\"50\"${line.separator}tempDir=\"\"";
