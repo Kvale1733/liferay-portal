@@ -75,6 +75,7 @@ definition {
 	@description = "Verify a data migration can be executed from the default store to IBM S3 store."
 	@priority = 3
 	test IBMS3StoreDataMigration {
+        property portal.acceptance = "kvale17"; 
 		property store.migration.test = "true";
 		property test.liferay.virtual.instance = "false";
 		property test.run.type = "single";
