@@ -184,6 +184,7 @@ definition {
 	@description = "This is a usecase for LPS-151178. Verify a category can be added to a document on a slave node."
 	@priority = 3
 	test CanAddCategoryToDocumentOnSlaveNode {
+        property portal.acceptance = "kvale17"; 
 		property test.liferay.virtual.instance = "false";
 		property test.run.type = "single";
 
