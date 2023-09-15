@@ -11553,6 +11553,12 @@ admin.email.from.address=test@liferay.com
 announcements.email.to.address=noreply@liferay.com
 login.secure.forgot.password=false</echo>
 
+		<replace
+			file="portal-impl/src/portal-ext.properties"
+			token="${database.mysql.driver}"
+			value="${database.mariadb.driver}"
+		/>
+
 		<if>
 			<equals arg1="${database.type}" arg2="oracle" />
 			<then>
