@@ -3,9 +3,9 @@ definition {
 	macro activateStagingCP {
 		ProductMenuHelper.openProductMenu();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ProductMenu#PRODUCT_MENU_PANEL_SITE_ADMINISTRATION_SITE_NAME",
-			value1 = ${siteName});
+			value1 = ".*${siteName}.*");
 
 		if (isSet(remoteStaging)) {
 			WaitForElementPresent(locator1 = "SiteSettingsStaging#STAGING_REMOTE_LIVE");
@@ -183,9 +183,9 @@ definition {
 		if (isSet(failureExpected)) {
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "A wrong start date was specified, the scheduled process cannot start in the past.");
+				value1 = ".*A wrong start date was specified, the scheduled process cannot start in the past\..*");
 		}
 		else {
 			Alert.viewSuccessMessage();
@@ -337,9 +337,9 @@ definition {
 
 		Click(locator1 = "Staging#SITE_PAGES_VARIATION_MENULIST_NAME");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Staging#SITE_PAGES_VARIATION_MENULIST_ACTIVE",
-			value1 = ${sitePagesVariationName});
+			value1 = ".*${sitePagesVariationName}.*");
 	}
 
 	macro changeSitePageVariationPG {
@@ -431,9 +431,9 @@ definition {
 		}
 
 		if (${includeThumbnailsAndPreviewsDuringStaging} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Staging#STAGING_CONTENT_INFO",
-				value1 = "Previews and Thumbnails");
+				value1 = ".*Previews and Thumbnails.*");
 
 			WaitForElementPresent(
 				key_contentName = ${checkContentNameList},
@@ -592,9 +592,9 @@ definition {
 
 			AssertConfirm(value1 = "Are you sure you want to deactivate staging for ${siteName}?");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#SUCCESS",
-				value1 = "Staging is successfully disabled.");
+				value1 = ".*Staging is successfully disabled\..*");
 		}
 
 		AssertNotVisible(
@@ -758,9 +758,9 @@ definition {
 	}
 
 	macro enablePageInSitePagesVariation {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Staging#STAGING_BAR_PAGE_VARIATIONS_ALERT",
-			value1 = "The page ${pageName} is not enabled in ${sitePagesVariationName}, but is available for other pages variations.");
+			value1 = ".*The page ${pageName} is not enabled in ${sitePagesVariationName}, but is available for other pages variations\..*");
 
 		AssertClick(
 			locator1 = "Staging#STAGING_MENU_ENABLE_PAGE_BUTTON",
@@ -1292,9 +1292,9 @@ definition {
 
 		var key_publishTemplateName = ${searchTerm};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "StagingPublishToLive#PUBLISH_TEMPLATES_TABLE_NAME",
-			value1 = ${searchTerm});
+			value1 = ".*${searchTerm}.*");
 	}
 
 	macro setStartDateTomorrow {
@@ -1400,9 +1400,9 @@ definition {
 	macro viewEditedSitePagesVariationPG {
 		var key_sitePagesVariationName = ${sitePagesVariationName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Staging#SITE_PAGES_VARIATION",
-			value1 = ${sitePagesVariationName});
+			value1 = ".*${sitePagesVariationName}.*");
 	}
 
 	macro viewHistoryVersionPG {
@@ -1418,9 +1418,9 @@ definition {
 		else if (isSet(historyVersionName)) {
 			var key_historyVersionName = ${historyVersionName};
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Staging#HISTORY_VERSION_NAME",
-				value1 = ${historyVersionName});
+				value1 = ".*${historyVersionName}.*");
 		}
 		else if (IsElementPresent(locator1 = "Staging#HISTORY_VERSION_2")) {
 			AssertTextEquals(
@@ -1433,9 +1433,9 @@ definition {
 				value1 = ${historyVersion});
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Staging#HISTORY_VERSION_ANCHOR",
-				value1 = ${historyVersion});
+				value1 = ".*${historyVersion}.*");
 		}
 
 		IFrame.closeFrame();
@@ -1608,17 +1608,17 @@ definition {
 			locator1 = "Staging#STAGING_CONTENT_COUNT",
 			value1 = ${contentCount});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Staging#STAGING_CONTENT_INFO",
-			value1 = ${contentInformation});
+			value1 = ".*${contentInformation}.*");
 
 		IFrame.closeFrame();
 	}
 
 	macro viewPublishTask {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Staging#PROCESS_TITLE",
-			value1 = ${publicationTitle});
+			value1 = ".*${publicationTitle}.*");
 	}
 
 	macro viewPublishTemplate {
@@ -1670,17 +1670,17 @@ definition {
 	macro viewSitePagesVariationActiveCP {
 		var key_sitePagesVariationName = ${sitePagesVariationName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Staging#SITE_PAGES_VARIATION_MENULIST_ACTIVE",
-			value1 = ${sitePagesVariationName});
+			value1 = ".*${sitePagesVariationName}.*");
 	}
 
 	macro viewSitePagesVariationPG {
 		var key_sitePagesVariationName = ${sitePagesVariationName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Staging#SITE_PAGES_VARIATION",
-			value1 = ${sitePagesVariationName});
+			value1 = ".*${sitePagesVariationName}.*");
 	}
 
 	macro viewStagingLocalLivePG {
@@ -1694,14 +1694,14 @@ definition {
 				value1 = "Live");
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Staging#LIVE_MENU_MESSAGE",
-			value1 = "Page ${pageName} was last published from ${sitePagesVariationName}.");
+			value1 = ".*Page ${pageName} was last published from ${sitePagesVariationName}\..*");
 
 		if (isSet(pagesVariationName)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Staging#LIVE_MENU_MESSAGE_DETAILS",
-				value1 = "Variation: ${pagesVariationName}");
+				value1 = ".*Variation: ${pagesVariationName}.*");
 		}
 	}
 
@@ -1743,9 +1743,9 @@ definition {
 
 		SelectFrameTop();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = ${validateErrorMessage});
+			value1 = ".*${validateErrorMessage}.*");
 	}
 
 	macro viewVariationSuccessMessage {

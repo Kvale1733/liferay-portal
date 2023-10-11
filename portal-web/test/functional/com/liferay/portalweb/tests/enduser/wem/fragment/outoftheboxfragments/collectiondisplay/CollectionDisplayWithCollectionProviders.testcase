@@ -2519,10 +2519,10 @@ definition {
 			var n = 1;
 
 			for (var averageStarCount : list "5.0,3.0,1.0") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					index = ${n},
 					locator1 = "Fragment#CONTENT_RATINGS_AVERAGE_STAR_RESULT",
-					value1 = ${averageStarCount});
+					value1 = ".*${averageStarCount}.*");
 
 				var n = ${n} + 1;
 			}

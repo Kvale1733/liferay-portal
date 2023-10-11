@@ -60,9 +60,9 @@ definition {
 	macro viewSearchBarWidgetTemplate {
 		Navigator.openURL();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "//label[@class='control-label']",
-			value1 = "Start filtering");
+			value1 = ".*Start filtering.*");
 
 		Portlet.gotoPortletOptions(
 			portletName = "Search",

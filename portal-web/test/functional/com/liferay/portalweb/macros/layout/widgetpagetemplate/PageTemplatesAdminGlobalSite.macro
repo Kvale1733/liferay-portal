@@ -113,10 +113,10 @@ definition {
 	}
 
 	macro viewCP {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_pageTemplateName = ${pageTemplateName},
 			locator1 = "PageTemplates#PAGE_TEMPLATE_TABLE_NAME",
-			value1 = ${pageTemplateName});
+			value1 = ".*${pageTemplateName}.*");
 	}
 
 	macro viewDefaultCP {
@@ -131,9 +131,9 @@ definition {
 		for (var pageTemplateNameTranslation : list ${pageTemplateNameList}) {
 			var key_pageTemplateName = ${pageTemplateNameTranslation};
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "PageTemplates#PAGE_TEMPLATE_TABLE_NAME",
-				value1 = ${pageTemplateNameTranslation});
+				value1 = ".*${pageTemplateNameTranslation}.*");
 		}
 
 		SiteAdmin.viewPortletTitle(portletTitle = ${portletTitle});

@@ -954,15 +954,15 @@ definition {
 
 		Search.searchCP(searchTerm = "Depot");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ManagementBar#SEARCH_RESULT_SUMMARY",
-			value1 = "1 Result for \"Depot\"");
+			value1 = ".*1 Result for \"Depot\".*");
 
 		Search.searchCP(searchTerm = "No View Permissions");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ManagementBar#SEARCH_RESULT_SUMMARY",
-			value1 = "0 Results for \"No View Permissions\"");
+			value1 = ".*0 Results for \"No View Permissions\".*");
 	}
 
 	@description = "This ensures that assets stored in the asset library folder cannot be viewed without permissions Via DM on a connected site."

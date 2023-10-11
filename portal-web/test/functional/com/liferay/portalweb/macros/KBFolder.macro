@@ -27,9 +27,9 @@ definition {
 		if (isSet(kbAddDuplicate)) {
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_ENTER_A_UNIQUE_FOLDER",
-				value1 = "Please enter a unique folder name.");
+				value1 = ".*Please enter a unique folder name\..*");
 		}
 		else {
 			Alert.viewSuccessMessage();

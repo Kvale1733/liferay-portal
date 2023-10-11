@@ -717,15 +717,15 @@ definition {
 			key_filterOption = "Go to Order Details",
 			locator1 = "AppBuilder#CHOOSE_APP_SEARCH_FILTER_BY_OPTION");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_priceName = "Tax",
 			locator1 = "CommerceOrders#ORDER_PRICES_SEPARETED",
-			value1 = "7.00");
+			value1 = ".*7.00.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_priceName = "Total",
 			locator1 = "CommerceOrders#ORDER_PRICES_SEPARETED",
-			value1 = "46.00");
+			value1 = ".*46.00.*");
 	}
 
 	@description = "This is a test for COMMERCE-6260. Test tax calculation"

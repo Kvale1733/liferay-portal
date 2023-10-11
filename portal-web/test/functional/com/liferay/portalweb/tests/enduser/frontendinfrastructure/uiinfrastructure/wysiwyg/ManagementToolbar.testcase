@@ -455,9 +455,9 @@ definition {
 		}
 
 		task ("Assert tooltip message is displayed") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#TOOLTIP",
-				value1 = "Select View");
+				value1 = ".*Select View.*");
 		}
 	}
 

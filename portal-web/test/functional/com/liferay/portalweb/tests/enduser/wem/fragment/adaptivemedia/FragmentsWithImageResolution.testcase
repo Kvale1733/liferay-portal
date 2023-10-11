@@ -808,10 +808,10 @@ definition {
 		}
 
 		task ("Assert the File Size of image resolution shown") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_resolutionLabel = "File Size",
 				locator1 = "PageEditor#IMAGE_RESOLUTION_VALUE",
-				value1 = ${fileSizeLandscapePhone});
+				value1 = ".*${fileSizeLandscapePhone}.*");
 		}
 	}
 
@@ -871,10 +871,10 @@ definition {
 		}
 
 		task ("Assert the File Size of image resolution shown") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_resolutionLabel = "File Size",
 				locator1 = "PageEditor#IMAGE_RESOLUTION_VALUE",
-				value1 = ${fileSizeTablet});
+				value1 = ".*${fileSizeTablet}.*");
 		}
 	}
 
@@ -1069,10 +1069,10 @@ definition {
 		}
 
 		task ("Assert the File Size of image resolution shown") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_resolutionLabel = "File Size",
 				locator1 = "PageEditor#IMAGE_RESOLUTION_VALUE",
-				value1 = ${fileSizeTablet});
+				value1 = ".*${fileSizeTablet}.*");
 		}
 	}
 
@@ -1145,10 +1145,10 @@ definition {
 		}
 
 		task ("Assert the File Size of image resolution shown") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_resolutionLabel = "File Size",
 				locator1 = "PageEditor#IMAGE_RESOLUTION_VALUE",
-				value1 = ${fileSizeTablet});
+				value1 = ".*${fileSizeTablet}.*");
 		}
 	}
 

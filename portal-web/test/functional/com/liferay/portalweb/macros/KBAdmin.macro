@@ -19,11 +19,11 @@ definition {
 			var tableColumnName = ListUtil.get(${list1}, ${i});
 			var tableColumnContent = ListUtil.get(${list2}, ${i});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnName = ${tableColumnName},
 				key_tableEntry = ${tableEntry},
 				locator1 = "LexiconTable#TABLE_ENTRY_INFO",
-				value1 = ${tableColumnContent});
+				value1 = ".*${tableColumnContent}.*");
 
 			var i = ${i} + 1;
 

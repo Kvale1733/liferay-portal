@@ -77,9 +77,9 @@ definition {
 			key_type = "Modal Dialog",
 			locator1 = "AlloyShowcase#SHOW_RESULT_TYPE_BUTTON");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AlloyShowcase#MODAL_DIALOG",
-			value1 = ${modalDialogResult});
+			value1 = ".*${modalDialogResult}.*");
 
 		Button.clickCancel();
 	}
@@ -109,9 +109,9 @@ definition {
 			key_type = "Modal Dialog",
 			locator1 = "AlloyShowcase#SHOW_RESULT_TYPE_BUTTON");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AlloyShowcase#MODAL_DIALOG",
-			value1 = ${modalDialogResult});
+			value1 = ".*${modalDialogResult}.*");
 
 		Button.clickCancel();
 	}

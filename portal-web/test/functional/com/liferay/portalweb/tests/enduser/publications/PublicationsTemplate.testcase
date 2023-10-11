@@ -301,9 +301,9 @@ definition {
 		task ("Assert that the template is set as default") {
 			Click(locator1 = "Button#PLUS");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Publications#TEMPLATE_OPTION",
-				value1 = "Template Name 1");
+				value1 = ".*Template Name 1.*");
 
 			AssertTextEquals(
 				locator1 = "Publications#PUBLICATION_NAME",
@@ -323,9 +323,9 @@ definition {
 
 			Click(locator1 = "Button#PLUS");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Publications#TEMPLATE_OPTION",
-				value1 = "Template Name 1");
+				value1 = ".*Template Name 1.*");
 
 			AssertTextEquals(
 				locator1 = "Publications#PUBLICATION_NAME",

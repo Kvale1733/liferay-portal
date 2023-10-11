@@ -25,9 +25,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "TextInput#REQUIRED_ALERT",
-			value1 = "The Name field is required.");
+			value1 = ".*The Name field is required\..*");
 	}
 
 	macro addNullSubfolderCP {
@@ -48,9 +48,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "TextInput#REQUIRED_ALERT",
-			value1 = "The Name field is required.");
+			value1 = ".*The Name field is required\..*");
 	}
 
 	macro addPG {

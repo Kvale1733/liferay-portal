@@ -86,9 +86,9 @@ definition {
 		task ("Assert alert message when duplicate Container") {
 			PageEditor.gotoDuplicate(fragmentName = "Container");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "The layout could not be duplicated because it contains a widget (Language Selector) that can only appear once in the page.");
+				value1 = ".*The layout could not be duplicated because it contains a widget (Language Selector) that can only appear once in the page\..*");
 		}
 	}
 

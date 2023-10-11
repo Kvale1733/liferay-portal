@@ -178,10 +178,10 @@ definition {
 
 		Button.clickPublish();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_warningMessage = "This publication contains unapproved changes.",
 			locator1 = "Message#WARNING_SPECIFIC",
-			value1 = "This publication contains unapproved changes.");
+			value1 = ".*This publication contains unapproved changes\..*");
 
 		Publications.publishPublication(publicationName = "Publication Name");
 	}

@@ -271,9 +271,9 @@ definition {
 			panel = "Applications",
 			portlet = "Metrics");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "Once there are active processes, metrics will appear here.");
+			value1 = ".*Once there are active processes, metrics will appear here\..*");
 
 		WorkflowMetrics.executeIndexActions(actionDescription = "Workflow Metrics Processes");
 
@@ -607,15 +607,15 @@ definition {
 			locator1 = "Portlet#HEADER",
 			value1 = "Search");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_connectionId = "__REMOTE__",
 			locator1 = "SearchAdmin#CLUSTER_NAME",
-			value1 = "LiferayElasticsearchCluster");
+			value1 = ".*LiferayElasticsearchCluster.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_connectionId = "localcluster",
 			locator1 = "SearchAdmin#CLUSTER_NAME",
-			value1 = "LiferayElasticsearchClusterTwo");
+			value1 = ".*LiferayElasticsearchClusterTwo.*");
 
 		Navigator.openURL();
 
@@ -633,14 +633,14 @@ definition {
 			locator1 = "Portlet#HEADER",
 			value1 = "Search");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_connectionId = "localcluster",
 			locator1 = "SearchAdmin#CLUSTER_NAME",
-			value1 = "LiferayElasticsearchClusterTwo");
+			value1 = ".*LiferayElasticsearchClusterTwo.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "Connection refused");
+			value1 = ".*Connection refused.*");
 
 		AssertElementNotPresent(
 			key_connectionId = "__REMOTE__",
@@ -664,14 +664,14 @@ definition {
 			locator1 = "Portlet#HEADER",
 			value1 = "Search");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_connectionId = "__REMOTE__",
 			locator1 = "SearchAdmin#CLUSTER_NAME",
-			value1 = "LiferayElasticsearchCluster");
+			value1 = ".*LiferayElasticsearchCluster.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "Connection refused");
+			value1 = ".*Connection refused.*");
 
 		AssertElementNotPresent(
 			key_connectionId = "localcluster",

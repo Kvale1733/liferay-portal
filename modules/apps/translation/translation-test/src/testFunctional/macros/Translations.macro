@@ -695,27 +695,27 @@ definition {
 		}
 
 		if (isSet(webContentContent)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_content = ${webContentContent},
 				key_fieldName = "Content",
 				locator1 = "Translation#BASE_LANGUAGE_CONTENT_FIELD",
-				value1 = ${webContentContent});
+				value1 = ".*${webContentContent}.*");
 		}
 
 		if (isSet(webContentDescription)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_content = ${webContentDescription},
 				key_fieldName = "Description",
 				locator1 = "Translation#BASE_LANGUAGE_CONTENT_FIELD",
-				value1 = ${webContentDescription});
+				value1 = ".*${webContentDescription}.*");
 		}
 
 		if (isSet(webContentRichText)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_content = ${webContentRichText},
 				key_fieldName = "HTML",
 				locator1 = "Translation#BASE_LANGUAGE_CONTENT_FIELD",
-				value1 = ${webContentRichText});
+				value1 = ".*${webContentRichText}.*");
 		}
 
 		if (isSet(webContentText)) {
@@ -800,13 +800,13 @@ definition {
 	}
 
 	macro viewErrorMessages {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_IMPORT_TRANSLATIONS",
-			value1 = ${errorMessage});
+			value1 = ".*${errorMessage}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_IMPORT_TRANSLATIONS_ITEM_MESSAGE",
-			value1 = ${errorMessageItem});
+			value1 = ".*${errorMessageItem}.*");
 	}
 
 	macro viewImportResult {
@@ -841,9 +841,9 @@ definition {
 				errorMessage = ${errorMessage},
 				errorMessageItem = ${errorMessageItem});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_IMPORT_TRANSLATIONS_ITEM",
-				value1 = ${failFileName});
+				value1 = ".*${failFileName}.*");
 
 			if (isSet(zipFileName)) {
 				AssertTextEquals(
@@ -853,15 +853,15 @@ definition {
 		}
 
 		if (isSet(failFileName2)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_indexNumber = 2,
 				locator1 = "Message#ERROR_IMPORT_TRANSLATIONS_ITEM_MESSAGE_N",
-				value1 = ${errorMessageItem});
+				value1 = ".*${errorMessageItem}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_indexNumber = 2,
 				locator1 = "Message#ERROR_IMPORT_TRANSLATIONS_ITEM_N",
-				value1 = ${failFileName2});
+				value1 = ".*${failFileName2}.*");
 		}
 	}
 
@@ -927,9 +927,9 @@ definition {
 		if (isSet(webContentHtml)) {
 			SelectFrame.selectFrameNoLoading(locator1 = "CKEditor#BODY_FIELD_IFRAME_2");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CKEditor#BODY",
-				value1 = ${webContentHtml});
+				value1 = ".*${webContentHtml}.*");
 
 			SelectFrame(value1 = "relative=top");
 		}
@@ -1011,10 +1011,10 @@ definition {
 			locator1 = "ContentRow#ENTRY_CONTENT_ENTRY_NAME",
 			value1 = ${title});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_rowEntry = ${language},
 			locator1 = "ContentRow#ENTRY_CONTENT_ENTRY_DESCRIPTION_TD3",
-			value1 = ${language});
+			value1 = ".*${language}.*");
 
 		if (isSet(status)) {
 			LexiconEntry.viewEntryStatus(

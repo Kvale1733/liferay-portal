@@ -436,11 +436,11 @@ definition {
 
 			LexiconEntry.gotoEntry(rowEntry = "MB Thread Message Subject");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_threadSubject = "MB Thread Message Subject",
 				key_userName = "userfn userln",
 				locator1 = "MessageBoardsThread#THREAD_USERNAME",
-				value1 = "userfn userln");
+				value1 = ".*userfn userln.*");
 
 			Click(
 				key_relatedAssetTitle = "DM Document Title",
@@ -1157,9 +1157,9 @@ definition {
 		task ("Delete all export processes and assert no processes can be found or listed") {
 			GDPR.deleteExportedPersonalData(applications = "Web Content,Wiki,Message Boards,Blogs,Documents and Media");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No personal data export processes were found. Please create a data export process.");
+				value1 = ".*No personal data export processes were found. Please create a data export process\..*");
 		}
 	}
 
@@ -1669,20 +1669,20 @@ definition {
 
 			ManagementBar.setFilterAndOrder(orderBy = "Name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 1,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "Message Boards");
+				value1 = ".*Message Boards.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 2,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "Documents and Media");
+				value1 = ".*Documents and Media.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 3,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "Blogs");
+				value1 = ".*Blogs.*");
 		}
 	}
 
@@ -1852,27 +1852,27 @@ definition {
 
 			ManagementBar.toggleViewOrder(order = "list-up");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 1,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "Document_3.txt");
+				value1 = ".*Document_3.txt.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 3,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "Document_1.jpeg");
+				value1 = ".*Document_1.jpeg.*");
 
 			ManagementBar.toggleViewOrder(order = "list-down");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 1,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "Document_1.jpeg");
+				value1 = ".*Document_1.jpeg.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 3,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "Document_3.txt");
+				value1 = ".*Document_3.txt.*");
 		}
 	}
 
@@ -2074,9 +2074,9 @@ definition {
 		Click.clickAt(locator1 = "Icon#INFO");
 
 		for (var infoPanel : list "Folder_1,Folder_1 Description") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "DocumentsAndMedia#SIDEBAR_INFO_ACTIVE",
-				value1 = ${infoPanel});
+				value1 = ".*${infoPanel}.*");
 		}
 
 		LexiconEntry.selectEntry(rowEntry = "Document_1.txt");
@@ -2086,9 +2086,9 @@ definition {
 			locator1 = "ContentRow#ENTRY_CONTENT_ENTRY_CHECKBOX");
 
 		for (var infoPanel : list "Document_1 Title,Document_1 Description,txt") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "DocumentsAndMedia#SIDEBAR_INFO_ACTIVE",
-				value1 = ${infoPanel});
+				value1 = ".*${infoPanel}.*");
 		}
 	}
 

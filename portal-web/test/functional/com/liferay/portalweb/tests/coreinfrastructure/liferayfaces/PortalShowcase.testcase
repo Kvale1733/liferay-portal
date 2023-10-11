@@ -117,9 +117,9 @@ definition {
 			locator1 = "PortalShowcase#TEXT_FEEDBACK",
 			value1 = "onfocus onchange onblur");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PortalShowcase#MODAL_VALUE",
-			value1 = "<p>Hello world!</p>");
+			value1 = ".*<p>Hello world!</p>.*");
 
 		Click(locator1 = "PortalShowcase#WRITEABLE_FIELD");
 

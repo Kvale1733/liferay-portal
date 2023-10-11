@@ -50,9 +50,9 @@ definition {
 			value1 = "Save");
 
 		if (${categoryWithoutName} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "TextInput#REQUIRED_ALERT",
-				value1 = "The Name field is required.");
+				value1 = ".*The Name field is required\..*");
 		}
 		else {
 			Alert.viewSuccessMessage();
@@ -240,13 +240,13 @@ definition {
 		var key_categoryCount = ${categoryCount};
 		var key_threadCount = ${threadCount};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#CATEGORY_LIST_CATEGORY_COUNT",
-			value1 = "0 Categories");
+			value1 = ".*0 Categories.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#CATEGORY_LIST_THREAD_COUNT",
-			value1 = "0 Threads");
+			value1 = ".*0 Threads.*");
 
 		Click(locator1 = "MessageBoards#CATEGORY_LIST_CATEGORY");
 
@@ -303,15 +303,15 @@ definition {
 
 		var key_categoryCount = ${categoryCount};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#CATEGORY_LIST_CATEGORY_COUNT",
-			value1 = ${categoryCount});
+			value1 = ".*${categoryCount}.*");
 
 		var key_threadCount = ${threadCount};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#CATEGORY_LIST_THREAD_COUNT",
-			value1 = ${threadCount});
+			value1 = ".*${threadCount}.*");
 
 		AssertElementPresent(locator1 = "MessageBoards#CATEGORY_LIST_ACTIONS");
 
@@ -332,9 +332,9 @@ definition {
 	}
 
 	macro viewDefault {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no threads or categories.");
+			value1 = ".*There are no threads or categories\..*");
 	}
 
 	macro viewMySubscriptionsPG {
@@ -352,10 +352,10 @@ definition {
 			locator1 = "MessageBoardsMySubscriptions#CATEGORY_TABLE_CATEGORY_BREADCRUMB_2",
 			value1 = ${parentcategory2});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_subscribedThread = ${subscribedThread},
 			locator1 = "MessageBoardsMySubscriptions#CATEGORY_TABLE_CATEGORY_BREADCRUMB_3",
-			value1 = ${subscribedThread});
+			value1 = ".*${subscribedThread}.*");
 	}
 
 	macro viewNoPG {

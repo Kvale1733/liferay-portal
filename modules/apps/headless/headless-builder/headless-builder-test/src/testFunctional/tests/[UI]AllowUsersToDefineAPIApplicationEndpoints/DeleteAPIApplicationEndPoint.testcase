@@ -184,9 +184,9 @@ definition {
 		}
 
 		task ("Then I can see the Delete API Endpoint dialog with warning message") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Modal#BODY",
-				value1 = "This action cannot be undone and will delete all the endpoint information. Applications or systems consuming this endpoint might stop working.");
+				value1 = ".*This action cannot be undone and will delete all the endpoint information. Applications or systems consuming this endpoint might stop working\..*");
 		}
 	}
 

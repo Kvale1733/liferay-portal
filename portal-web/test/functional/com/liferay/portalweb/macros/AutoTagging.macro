@@ -88,9 +88,9 @@ definition {
 
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_1",
-				value1 = ${validationError});
+				value1 = ".*${validationError}.*");
 		}
 		else {
 			if (IsElementPresent(locator1 = "Button#UPDATE")) {

@@ -101,10 +101,10 @@ definition {
 		}
 
 		task ("Then in items of the page I can see name and id values only") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getManagersPage",
-				value1 = "\"items\": [     {       \"id\": ${staticManagerId},       \"name\": \"Jane\"     }   ]");
+				value1 = ".*\"items\": [     {       \"id\": ${staticManagerId},       \"name\": \"Jane\"     }   ].*");
 		}
 	}
 
@@ -121,10 +121,10 @@ definition {
 		}
 
 		task ("Then the items node will be returned empty") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getDepartmentsPage",
-				value1 = "\"items\": [     {}   ]");
+				value1 = ".*\"items\": [     {}   ].*");
 		}
 	}
 
@@ -141,10 +141,10 @@ definition {
 		}
 
 		task ("Then in items of the page I can see name value only") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getEmployeesPage",
-				value1 = "\"items\": [     {       \"name\": \"John\"     }   ]");
+				value1 = ".*\"items\": [     {       \"name\": \"John\"     }   ].*");
 		}
 	}
 
@@ -163,15 +163,15 @@ definition {
 		}
 
 		task ("Then I can see Jane's details nested in the response") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getEmployee",
-				value1 = "\"managersEmployees\"");
+				value1 = ".*\"managersEmployees\".*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getEmployee",
-				value1 = "\"name\": \"Jane\"");
+				value1 = ".*\"name\": \"Jane\".*");
 		}
 	}
 
@@ -188,15 +188,15 @@ definition {
 		}
 
 		task ("Then I can see Jane's details nested in Financial department") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getDepartmentsPage",
-				value1 = "\"departmentManagers\"");
+				value1 = ".*\"departmentManagers\".*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getDepartmentsPage",
-				value1 = "\"name\": \"Jane\"");
+				value1 = ".*\"name\": \"Jane\".*");
 		}
 	}
 
@@ -240,45 +240,45 @@ definition {
 		}
 
 		task ("Then the entry in items node will contain all fields values of the employee") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getEmployee",
-				value1 = "\"dateCreated\"");
+				value1 = ".*\"dateCreated\".*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getEmployee",
-				value1 = "\"dateModified\"");
+				value1 = ".*\"dateModified\".*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getEmployee",
-				value1 = "\"externalReferenceCode\": \"${staticEmployeeErc}\"");
+				value1 = ".*\"externalReferenceCode\": \"${staticEmployeeErc}\".*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getEmployee",
-				value1 = "\"id\": ${staticEmployeeId}");
+				value1 = ".*\"id\": ${staticEmployeeId}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getEmployee",
-				value1 = "\"keywords\"");
+				value1 = ".*\"keywords\".*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getEmployee",
-				value1 = "\"name\": \"John\"");
+				value1 = ".*\"name\": \"John\".*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getEmployee",
-				value1 = "\"status\"");
+				value1 = ".*\"status\".*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getEmployee",
-				value1 = "\"taxonomyCategoryBriefs\"");
+				value1 = ".*\"taxonomyCategoryBriefs\".*");
 		}
 	}
 

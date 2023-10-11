@@ -11,14 +11,14 @@ definition {
 		LexiconEntry.changeDisplayStyle(displayStyle = "list");
 
 		if (${liveSite} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "WC#ENTRY_LIST_TITLE_ON_LIVE",
-				value1 = ${webContentTitle});
+				value1 = ".*${webContentTitle}.*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "WC#ENTRY_LIST_TITLE",
-				value1 = ${webContentTitle});
+				value1 = ".*${webContentTitle}.*");
 		}
 
 		Click.waitForMenuToggleJSClick(locator1 = "WC#ENTRY_LIST_MENULIST_ICON");

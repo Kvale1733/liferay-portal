@@ -171,9 +171,9 @@ definition {
 			}
 
 			task ("Assert upload is successful") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "TextInput#FILE_PRESENT",
-					value1 = "Document_1.jpg");
+					value1 = ".*Document_1.jpg.*");
 			}
 		}
 	}
@@ -251,9 +251,9 @@ definition {
 
 				UploadDependencyFile.uploadFile(fileName = "Document_1.jpg");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "TextInput#FILE_PRESENT",
-					value1 = "Document_1.jpg");
+					value1 = ".*Document_1.jpg.*");
 			}
 
 			task ("Assert "Show Supported File Info" toggle displayed and is set to "ON" by default") {
@@ -320,9 +320,9 @@ definition {
 
 				SelectFrameTop(value1 = "relative=top");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "TextInput#FILE_PRESENT",
-					value1 = "Document_2.jpg");
+					value1 = ".*Document_2.jpg.*");
 			}
 
 			task ("Assert "Show Supported File Info" toggle displayed and is set to "ON" by default") {
@@ -402,9 +402,9 @@ definition {
 
 			UploadDependencyFile.uploadFile(fileName = "Document_1.jpg");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "TextInput#FILE_PRESENT",
-				value1 = "Document_1.jpg");
+				value1 = ".*Document_1.jpg.*");
 
 			Button.clickSubmitButton();
 		}

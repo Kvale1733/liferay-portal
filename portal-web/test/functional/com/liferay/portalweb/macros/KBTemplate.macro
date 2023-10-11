@@ -159,13 +159,13 @@ definition {
 			MenuItem.click(menuItem = "View");
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KnowledgeBaseTemplate#TEMPLATE_TITLE",
-			value1 = ${kbTemplateTitle});
+			value1 = ".*${kbTemplateTitle}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KnowledgeBaseTemplate#TEMPLATE_CONTENT",
-			value1 = ${kbTemplateContent});
+			value1 = ".*${kbTemplateContent}.*");
 
 		if (isSet(embedImage)) {
 			KBArticle.viewImageViaContentCmd();
@@ -261,9 +261,9 @@ definition {
 	}
 
 	macro viewNoTemplates {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO_TAGLIB_TITLE",
-			value1 = "There are no article templates.");
+			value1 = ".*There are no article templates\..*");
 
 		if (isSet(disabledActionToolbar)) {
 			AssertElementPresent(locator1 = "TextInput#SEARCH_DISABLED");

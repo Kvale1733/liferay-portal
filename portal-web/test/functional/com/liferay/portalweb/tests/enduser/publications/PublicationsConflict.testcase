@@ -593,9 +593,9 @@ definition {
 
 		WebContentNavigator.openWebContentAdmin(siteURLKey = "guest");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No web content was found.");
+			value1 = ".*No web content was found\..*");
 
 		RecycleBin.openRecycleBinAdmin(siteURLKey = "guest");
 

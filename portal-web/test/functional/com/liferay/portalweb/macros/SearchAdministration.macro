@@ -1,19 +1,19 @@
 definition {
 
 	macro assertEngineVendorAndVersions {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SearchAdmin#SEARCH_ENGINE_VENDOR",
-			value1 = ${engineVendor});
+			value1 = ".*${engineVendor}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SearchAdmin#CLIENT_VERSION",
-			value1 = ${clientVersion});
+			value1 = ".*${clientVersion}.*");
 
 		Panel.expandPanel(panel = "Nodes (1)");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SearchAdmin#SERVER_VERSION",
-			value1 = ${serverVersion});
+			value1 = ".*${serverVersion}.*");
 	}
 
 	macro executeReindex {

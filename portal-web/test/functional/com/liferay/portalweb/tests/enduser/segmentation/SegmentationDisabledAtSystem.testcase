@@ -46,9 +46,9 @@ definition {
 		}
 
 		task ("Then should see an alert informing that is disabled and how to re-enable it") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Assign roles by segment is disabled in System Settings. To enable, go to System Settings.");
+				value1 = ".*Assign roles by segment is disabled in System Settings. To enable, go to System Settings\..*");
 
 			AssertElementPresent(
 				key_fieldLabel = "Enable Assign Roles by Segment",
@@ -72,9 +72,9 @@ definition {
 		}
 
 		task ("Then should see an alert informing that is disabled and how to re-enable it") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Segmentation is disabled in System Settings. To enable, go to System Settings.");
+				value1 = ".*Segmentation is disabled in System Settings. To enable, go to System Settings\..*");
 
 			AssertElementPresent(
 				key_fieldLabel = "Enable Segmentation",
@@ -113,13 +113,13 @@ definition {
 		}
 
 		task ("Then the warning informs to contact system administrator") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Assign roles by segment is disabled in System Settings.");
+				value1 = ".*Assign roles by segment is disabled in System Settings\..*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "administrator to enable it.");
+				value1 = ".*administrator to enable it\..*");
 		}
 
 		task ("Return to first Instance") {
@@ -160,9 +160,9 @@ definition {
 		}
 
 		task ("Then the warning informs to contact system administrator") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "administrator to enable it.");
+				value1 = ".*administrator to enable it\..*");
 		}
 
 		task ("Return to first Instance") {

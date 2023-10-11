@@ -891,10 +891,10 @@ definition {
 			locator1 = "Search#EMBEDDED_SEARCH_BAR",
 			value1 = "test");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_suggestionContributorDisplayGroupName = "Top Search Keywords",
 			locator1 = "SearchBarSuggestions#RESULTS_LIST_SUGGESTION_CONTRIBUTOR_DISPLAY_GROUP_NAME",
-			value1 = "TOP SEARCH KEYWORDS");
+			value1 = ".*TOP SEARCH KEYWORDS.*");
 	}
 
 }

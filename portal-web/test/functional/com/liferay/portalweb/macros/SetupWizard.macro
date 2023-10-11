@@ -188,26 +188,26 @@ definition {
 		if (isSet(localization) && (${localization} == "ES")) {
 			Alert.viewSuccessMessageText(successMessage = "La configuración fue guardada con éxito.");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SetupWizard#CONFIGURATION_SAVE_MESSAGE",
-				value1 = "Se ha guardado la configuración en");
+				value1 = ".*Se ha guardado la configuración en.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SetupWizard#CONFIGURATION_SAVE_LOCATION",
-				value1 = "portal-setup-wizard.properties");
+				value1 = ".*portal-setup-wizard.properties.*");
 
 			Alert.viewInfoMessageSpecific(infoMessage = "Los cambios surtirán efecto en cuanto el portal sea reiniciado. Por favor, reinicie el portal ahora.");
 		}
 		else {
 			Alert.viewSuccessMessageText(successMessage = "Your configuration was saved successfully.");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SetupWizard#CONFIGURATION_SAVE_MESSAGE",
-				value1 = "The configuration was saved in");
+				value1 = ".*The configuration was saved in.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SetupWizard#CONFIGURATION_SAVE_LOCATION",
-				value1 = "portal-setup-wizard.properties");
+				value1 = ".*portal-setup-wizard.properties.*");
 
 			Alert.viewInfoMessageSpecific(infoMessage = "Changes will take effect once the portal is restarted. Please restart the portal now.");
 		}
@@ -261,9 +261,9 @@ definition {
 				locator1 = "SetupWizard#DATABASE_DEFAULT_LABEL",
 				value1 = "Default Database (Hypersonic)");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SetupWizard#DATABASE_DEFAULT_DESCRIPTION",
-				value1 = "This database is useful for development and demo'ing purposes, but it is not recommended for production use.");
+				value1 = ".*This database is useful for development and demo'ing purposes, but it is not recommended for production use\..*");
 
 			AssertTextEquals.assertText(
 				locator1 = "SetupWizard#DATABASE_CHANGE_LINK",
@@ -367,10 +367,10 @@ definition {
 				panel = "Control Panel",
 				portlet = "Sites");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_siteName = "Liferay DXP, Inc.",
 				locator1 = "Sites#SITE_TABLE_NAME",
-				value1 = "Liferay DXP, Inc.");
+				value1 = ".*Liferay DXP, Inc\..*");
 		}
 		else {
 			Organization.viewCP(
@@ -400,10 +400,10 @@ definition {
 				panel = "Control Panel",
 				portlet = "Sites");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_siteName = "Liferay, Inc.",
 				locator1 = "Sites#SITE_TABLE_NAME",
-				value1 = "Liferay, Inc.");
+				value1 = ".*Liferay, Inc\..*");
 		}
 	}
 

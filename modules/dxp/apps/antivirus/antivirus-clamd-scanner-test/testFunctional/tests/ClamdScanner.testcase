@@ -91,9 +91,9 @@ definition {
 
 		Alert.viewErrorMessage(errorMessage = "A virus was detected in the file.");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_2",
-			value1 = "Please select the file again.");
+			value1 = ".*Please select the file again\..*");
 	}
 
 	@description = "Verify Clamd Antivirus will block a document that contains a virus uploaded to an image fragment."
@@ -192,9 +192,9 @@ definition {
 		task ("Then the document upload is blocked") {
 			Alert.viewErrorMessage(errorMessage = "A virus was detected in the file.");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_2",
-				value1 = "Please select the file again.");
+				value1 = ".*Please select the file again\..*");
 		}
 
 		task ("When the user clicks Publish again after the blocked upload") {
@@ -238,9 +238,9 @@ definition {
 
 		Alert.viewErrorMessage(errorMessage = "A virus was detected in the file.");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_2",
-			value1 = "Please select the file again.");
+			value1 = ".*Please select the file again\..*");
 
 		Button.clickPublish();
 

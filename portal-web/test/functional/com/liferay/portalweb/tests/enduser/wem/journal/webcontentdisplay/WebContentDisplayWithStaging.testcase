@@ -227,10 +227,10 @@ definition {
 		}
 
 		task ("View comments are unavailable in staging") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_portletName = "Web Content Display",
 				locator1 = "Portlet#BODY",
-				value1 = "Comments are unavailable in staged sites.");
+				value1 = ".*Comments are unavailable in staged sites\..*");
 		}
 
 		task ("Publish to live") {

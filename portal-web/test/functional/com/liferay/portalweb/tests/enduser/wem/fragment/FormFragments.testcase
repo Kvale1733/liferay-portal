@@ -705,10 +705,10 @@ definition {
 				locator1 = "Message#WARNING_IMPORT",
 				value1 = "1 item was imported with warnings.");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				itemName = "Fragment Example",
 				locator1 = "Message#WARNING_IMPORT_SUBTEXT",
-				value1 = "Fragment type input must have at least one field type");
+				value1 = ".*Fragment type input must have at least one field type.*");
 
 			Button.clickDone();
 		}

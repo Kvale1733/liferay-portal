@@ -93,9 +93,9 @@ definition {
 			locator1 = "ClassicSearch#ASSET_TYPE_FACET_ANY_ASSET",
 			value1 = "Any Asset");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ClassicSearch#ASSET_TYPE_FACET_FREQUENCY",
-			value1 = ${facetFrequency});
+			value1 = ".*${facetFrequency}.*");
 
 		AssertClick.assertPartialTextClickAt(
 			locator1 = "ClassicSearch#ASSET_TYPE_FACET_ASSET",
@@ -125,9 +125,9 @@ definition {
 		}
 
 		if (${searchNoResults} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No results were found that matched the keywords: ${searchTerm}.");
+				value1 = ".*No results were found that matched the keywords: ${searchTerm}\..*");
 		}
 	}
 
@@ -135,18 +135,18 @@ definition {
 		var key_searchAssetTitle = ${searchAssetTitle};
 		var key_searchAssetType = ${searchAssetType};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ClassicSearch#CLASSIC_ASSET_ENTRY_TABLE_TITLE_SPECIFIC",
-			value1 = ${searchAssetTitle});
+			value1 = ".*${searchAssetTitle}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ClassicSearch#CLASSIC_ASSET_ENTRY_TABLE_TYPE_SPECIFIC",
-			value1 = ${searchAssetType});
+			value1 = ".*${searchAssetType}.*");
 
 		if (isSet(searchAssetSummary)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ClassicSearch#CLASSIC_ASSET_ENTRY_TABLE_SUMMARY_SPECIFIC",
-				value1 = ${searchAssetSummary});
+				value1 = ".*${searchAssetSummary}.*");
 		}
 	}
 
@@ -155,10 +155,10 @@ definition {
 			key_term = "Any User",
 			locator1 = "SearchPage#USER_FACET_TERM");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_term = ${userLoginFullName},
 			locator1 = "ClassicSearch#USER_FACET_TERM_FREQUENCY",
-			value1 = ${facetFrequency});
+			value1 = ".*${facetFrequency}.*");
 
 		Click(
 			key_term = ${userLoginFullName},

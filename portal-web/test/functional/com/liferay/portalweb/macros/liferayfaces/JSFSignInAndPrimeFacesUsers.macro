@@ -53,23 +53,23 @@ definition {
 				value1 = ${filterName});
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_row = 1,
 			locator1 = "JSFSignInAndPrimeFacesUsers#SCREEN_NAME",
-			value1 = ${screenName1});
+			value1 = ".*${screenName1}.*");
 
 		if (isSet(screenName2)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_row = 2,
 				locator1 = "JSFSignInAndPrimeFacesUsers#SCREEN_NAME",
-				value1 = ${screenName2});
+				value1 = ".*${screenName2}.*");
 		}
 
 		if (isSet(screenName3)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_row = 3,
 				locator1 = "JSFSignInAndPrimeFacesUsers#SCREEN_NAME",
-				value1 = ${screenName3});
+				value1 = ".*${screenName3}.*");
 		}
 	}
 
@@ -106,29 +106,29 @@ definition {
 			AssertElementPresent(locator1 = "JSFSignInAndPrimeFacesUsers#SORTED_DESCENDING_ICON_");
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_row = 1,
 			locator1 = "JSFSignInAndPrimeFacesUsers#SCREEN_NAME",
-			value1 = ${screenName1});
+			value1 = ".*${screenName1}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_row = 2,
 			locator1 = "JSFSignInAndPrimeFacesUsers#SCREEN_NAME",
-			value1 = ${screenName2});
+			value1 = ".*${screenName2}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_row = 3,
 			locator1 = "JSFSignInAndPrimeFacesUsers#SCREEN_NAME",
-			value1 = ${screenName3});
+			value1 = ".*${screenName3}.*");
 
 		Click(
 			key_buttonLabel = "Last Page",
 			locator1 = "JSFSignInAndPrimeFacesUsers#PAGINATOR_BUTTON");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_row = 1,
 			locator1 = "JSFSignInAndPrimeFacesUsers#SCREEN_NAME",
-			value1 = ${screenName4});
+			value1 = ".*${screenName4}.*");
 	}
 
 	macro uploadPortrait {

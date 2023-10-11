@@ -963,9 +963,9 @@ definition {
 
 			CommerceEntry.gotoMenuTab(menuTab = "Virtual Settings");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_ITEMS_FILE_NAME",
-				value1 = "Commerce_White");
+				value1 = ".*Commerce_White.*");
 		}
 
 		task ("When the admin enables the override for the SKU") {
@@ -1057,9 +1057,9 @@ definition {
 
 			CommerceEntry.gotoMenuTab(menuTab = "Virtual Settings");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_ITEMS_FILE_NAME",
-				value1 = "Commerce_Black");
+				value1 = ".*Commerce_Black.*");
 
 			var duration = selenium.getAttribute("//div[label[contains(.,'Duration')]]//input[not(contains(@type,'checkbox'))]@value");
 			var maxDownload = selenium.getAttribute("//div[label[contains(.,'Max Number of Downloads')]]//input[@type='text']@value");
@@ -1167,9 +1167,9 @@ definition {
 
 			CommerceEntry.gotoMenuTab(menuTab = "Virtual Settings");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_ITEMS_FILE_NAME",
-				value1 = "Commerce_White");
+				value1 = ".*Commerce_White.*");
 		}
 	}
 

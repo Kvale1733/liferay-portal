@@ -87,7 +87,7 @@ definition {
 			Refresh();
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_title = "Click to jump to a page.",
 			locator1 = "Button#ANY_TITLE",
 			value1 = 30);
@@ -161,7 +161,7 @@ definition {
 			Refresh();
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_title = "Click to jump to a page.",
 			locator1 = "Button#ANY_TITLE",
 			value1 = 30);
@@ -194,7 +194,7 @@ definition {
 			key_dmDocumentFileName = "large_file.pdf",
 			locator1 = "DocumentsAndMediaDocument#DOCUMENT_DETAILS_IMAGE_PREVIEW");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_title = "Click to jump to a page.",
 			locator1 = "Button#ANY_TITLE",
 			value1 = 120);
@@ -228,7 +228,7 @@ definition {
 			Refresh();
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_title = "Click to jump to a page.",
 			locator1 = "Button#ANY_TITLE",
 			value1 = 60);

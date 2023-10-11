@@ -184,9 +184,9 @@ definition {
 
 			Panel.expandPanel(panel = "Default Template");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "WCEditWebContent#SELECTED_STRUCTURE",
-				value1 = ${structureName});
+				value1 = ".*${structureName}.*");
 
 			ClickNoError(locator1 = "WCEditWebContent#EDIT_TEMPLATE");
 
@@ -340,9 +340,9 @@ definition {
 						locator1 = "ItemSelector#SELECT_FILE_WEB_CONTENT");
 				}
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "Message#INFO",
-					value1 = ${errorMessage});
+					value1 = ".*${errorMessage}.*");
 			}
 			else {
 				Search.searchCP(searchTerm = ${searchTerm});
@@ -431,18 +431,18 @@ definition {
 			locator1 = "WCD#WEB_CONTENT_TITLE",
 			value1 = ${webContentTitleLocalized});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 1,
 			locator1 = "WCD#WEB_CONTENT_CONTENT",
-			value1 = ${webContentContentLocalized});
+			value1 = ".*${webContentContentLocalized}.*");
 
 		AssertElementPresent(
 			key_text = "print",
 			locator1 = "Icon#ANY");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Button#SUBSCRIBE",
-			value1 = "Subscribe");
+			value1 = ".*Subscribe.*");
 
 		AssertTextEquals(
 			key_relatedAssetTitle = ${relatedAssetTitle},
@@ -555,10 +555,10 @@ definition {
 					value1 = ${webContentTitle});
 			}
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = ${index},
 				locator1 = "WCD#WEB_CONTENT_CONTENT",
-				value1 = ${webContentContent});
+				value1 = ".*${webContentContent}.*");
 		}
 	}
 
@@ -577,20 +577,20 @@ definition {
 			key_pageNumber = 2,
 			locator1 = "Pagination#ANY_PAGE");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 1,
 			locator1 = "WCD#WEB_CONTENT_CONTENT",
-			value1 = ${webContentContent});
+			value1 = ".*${webContentContent}.*");
 
 		Click(locator1 = "Pagination#PREVIOUS_LINK");
 	}
 
 	macro viewEnabledFileTypes {
 		for (var fileType : list ${fileTypeList}) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fileType = ${fileType},
 				locator1 = "WCD#DOCUMENT_CONVERSION_TYPE",
-				value1 = ${fileType});
+				value1 = ".*${fileType}.*");
 		}
 	}
 
@@ -604,9 +604,9 @@ definition {
 
 	macro viewMessage {
 		if (isSet(recycleBinWebContentTitle)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "The web content article ${recycleBinWebContentTitle} was moved to the Recycle Bin");
+				value1 = ".*The web content article ${recycleBinWebContentTitle} was moved to the Recycle Bin.*");
 		}
 		else if (isSet(draftWebContentTitle)) {
 			AssertTextEquals(

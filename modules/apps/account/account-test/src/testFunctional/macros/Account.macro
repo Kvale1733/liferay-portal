@@ -179,9 +179,9 @@ definition {
 	macro addAssigneeToRole {
 		Navigator.gotoNavTab(navTab = "Assignees");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no users associated with this role.");
+			value1 = ".*There are no users associated with this role\..*");
 
 		LexiconEntry.gotoAdd();
 
@@ -1068,9 +1068,9 @@ definition {
 			locator1 = "Button#SAVE",
 			value1 = "Save");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "Your request failed to complete.");
+			value1 = ".*Your request failed to complete\..*");
 	}
 
 	// Add new macro to avoid failure addressed in LRQA-74074, and that's why we not using the exist macro in LexiconEntry.macro.
@@ -1536,10 +1536,10 @@ definition {
 	}
 
 	macro viewAssignee {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_tableEntry = ${assigneeName},
 			locator1 = "LexiconTable#TABLE_ENTRY",
-			value1 = ${assigneeName});
+			value1 = ".*${assigneeName}.*");
 	}
 
 	macro viewAssigneeTab {
@@ -1551,48 +1551,48 @@ definition {
 	macro viewDefaultBillingAddress {
 		AssertElementPresent(locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_BILLING_TEXT");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_BILLING_ADDRESS",
-			value1 = ${addressName});
+			value1 = ".*${addressName}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_BILLING_ADDRESS",
-			value1 = ${addressStreet1});
+			value1 = ".*${addressStreet1}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_BILLING_ADDRESS",
-			value1 = ${addressCountry});
+			value1 = ".*${addressCountry}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_BILLING_ADDRESS",
-			value1 = ${addressCity});
+			value1 = ".*${addressCity}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_BILLING_ADDRESS",
-			value1 = ${addressPostalCode});
+			value1 = ".*${addressPostalCode}.*");
 
 		if (isSet(addressRegion)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_BILLING_ADDRESS",
-				value1 = ${addressRegion});
+				value1 = ".*${addressRegion}.*");
 		}
 
 		if (isSet(addressStreet2)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_BILLING_ADDRESS",
-				value1 = ${addressStreet2});
+				value1 = ".*${addressStreet2}.*");
 		}
 
 		if (isSet(addressStreet3)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_BILLING_ADDRESS",
-				value1 = ${addressStreet3});
+				value1 = ".*${addressStreet3}.*");
 		}
 
 		if (isSet(phoneNumber)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_BILLING_ADDRESS",
-				value1 = ${phoneNumber});
+				value1 = ".*${phoneNumber}.*");
 		}
 	}
 
@@ -1645,48 +1645,48 @@ definition {
 	macro viewDefaultShippingAddress {
 		AssertElementPresent(locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_SHIPPING_TEXT");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_SHIPPING_ADDRESS",
-			value1 = ${addressName});
+			value1 = ".*${addressName}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_SHIPPING_ADDRESS",
-			value1 = ${addressStreet1});
+			value1 = ".*${addressStreet1}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_SHIPPING_ADDRESS",
-			value1 = ${addressCountry});
+			value1 = ".*${addressCountry}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_SHIPPING_ADDRESS",
-			value1 = ${addressCity});
+			value1 = ".*${addressCity}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_SHIPPING_ADDRESS",
-			value1 = ${addressPostalCode});
+			value1 = ".*${addressPostalCode}.*");
 
 		if (isSet(addressRegion)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_SHIPPING_ADDRESS",
-				value1 = ${addressRegion});
+				value1 = ".*${addressRegion}.*");
 		}
 
 		if (isSet(addressStreet2)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_SHIPPING_ADDRESS",
-				value1 = ${addressStreet2});
+				value1 = ".*${addressStreet2}.*");
 		}
 
 		if (isSet(addressStreet3)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_SHIPPING_ADDRESS",
-				value1 = ${addressStreet3});
+				value1 = ".*${addressStreet3}.*");
 		}
 
 		if (isSet(phoneNumber)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Account#DEFAULT_ACCOUNT_ADDRESSES_DEFAULT_SHIPPING_ADDRESS",
-				value1 = ${phoneNumber});
+				value1 = ".*${phoneNumber}.*");
 		}
 	}
 
@@ -1720,9 +1720,9 @@ definition {
 			locator1 = "Button#SAVE",
 			value1 = "Save");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "Your request failed to complete.");
+			value1 = ".*Your request failed to complete\..*");
 	}
 
 	macro viewInactiveAccount {
@@ -1740,9 +1740,9 @@ definition {
 
 		var assigneeType = StringUtil.lowerCase(${assigneeType});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no ${assigneeType} associated with this account.");
+			value1 = ".*There are no ${assigneeType} associated with this account\..*");
 	}
 
 	macro viewNoAssigneeTab {

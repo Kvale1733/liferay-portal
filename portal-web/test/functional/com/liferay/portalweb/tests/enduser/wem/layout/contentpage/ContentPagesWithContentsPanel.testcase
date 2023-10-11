@@ -278,10 +278,10 @@ definition {
 				locator1 = "AP#ASSET_ABSTRACT_TITLE",
 				value1 = "WC WebContent Title Edit");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_assetTitle = "WC WebContent Title Edit",
 				locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-				value1 = "WC WebContent Content Edit");
+				value1 = ".*WC WebContent Content Edit.*");
 
 			PageEditor.publish();
 		}

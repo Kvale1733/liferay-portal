@@ -204,9 +204,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_1",
-			value1 = "The given external reference code belongs to another account.");
+			value1 = ".*The given external reference code belongs to another account\..*");
 
 		Account.openAccountsAdmin();
 
@@ -290,9 +290,9 @@ definition {
 
 		Account.gotoAssigneeTab(assigneeTab = "Addresses");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No addresses were found.");
+			value1 = ".*No addresses were found\..*");
 	}
 
 	@description = "This test asserts that only the chosen address type displays when setting default shipping and billing addresses"
@@ -682,9 +682,9 @@ definition {
 
 		Alert.viewSuccessMessage();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no users associated with this role.");
+			value1 = ".*There are no users associated with this role\..*");
 	}
 
 	@description = "This test adds and removes multiple organizations from an account via management toolbar."
@@ -1567,9 +1567,9 @@ definition {
 			key_text = "undo",
 			locator1 = "Icon#ANY");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No accounts were found.");
+			value1 = ".*No accounts were found\..*");
 
 		ManagementBar.setFilterAndOrder(filterBy = "Active");
 
@@ -2253,73 +2253,73 @@ definition {
 		task ("Assert users can be ordered by First Name and are in correct order") {
 			ManagementBar.setFilterAndOrder(orderBy = "First Name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 1,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "A-user");
+				value1 = ".*A-user.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 2,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "B-user");
+				value1 = ".*B-user.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 3,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "C-user");
+				value1 = ".*C-user.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 4,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "Test");
+				value1 = ".*Test.*");
 		}
 
 		task ("Assert users can be ordered by Last Name and are in correct order") {
 			ManagementBar.setFilterAndOrder(orderBy = "Last Name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 1,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "Test");
+				value1 = ".*Test.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 2,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "userln1");
+				value1 = ".*userln1.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 3,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "userln2");
+				value1 = ".*userln2.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 4,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "userln3");
+				value1 = ".*userln3.*");
 		}
 
 		task ("Assert users can be ordered by Email Address and are in correct order") {
 			ManagementBar.setFilterAndOrder(orderBy = "Email Address");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 1,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "test@liferay.com");
+				value1 = ".*test@liferay.com.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 2,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "x-ea@liferay.com");
+				value1 = ".*x-ea@liferay.com.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 3,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "y-ea@liferay.com");
+				value1 = ".*y-ea@liferay.com.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 4,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "z-ea@liferay.com");
+				value1 = ".*z-ea@liferay.com.*");
 		}
 	}
 
@@ -2425,15 +2425,15 @@ definition {
 			key_title = "Set Default Shipping Address",
 			locator1 = "IFrame#MODAL_ANY");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No addresses were found.");
+			value1 = ".*No addresses were found\..*");
 
 		Search.searchCP(searchTerm = "Diamond Bar");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No addresses were found.");
+			value1 = ".*No addresses were found\..*");
 	}
 
 	@description = "This asserts that filter in setting default billing will not change to shipping and that shipping addresses do not display as options."
@@ -2475,15 +2475,15 @@ definition {
 			key_title = "Set Default Billing Address",
 			locator1 = "IFrame#MODAL_ANY");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No addresses were found.");
+			value1 = ".*No addresses were found\..*");
 
 		Search.searchCP(searchTerm = "China");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No addresses were found.");
+			value1 = ".*No addresses were found\..*");
 	}
 
 	@description = "This test adds a blocked domain in instance settings and asserts that a user with a blocked domain cannot be added to an account."
@@ -3060,9 +3060,9 @@ definition {
 		}
 
 		task ("Then the entry does not display in the results") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No accounts were found.");
+				value1 = ".*No accounts were found\..*");
 		}
 	}
 
@@ -3234,9 +3234,9 @@ definition {
 				menuItem = "Manage Organizations",
 				rowEntry = "Account Name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "There are no organizations associated with this account.");
+				value1 = ".*There are no organizations associated with this account\..*");
 
 			LexiconEntry.gotoAdd();
 
@@ -3282,9 +3282,9 @@ definition {
 				menuItem = "Manage Users",
 				rowEntry = "Account Name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "There are no users associated with this account.");
+				value1 = ".*There are no users associated with this account\..*");
 
 			LexiconEntry.gotoAdd();
 
@@ -3346,9 +3346,9 @@ definition {
 				menuItem = "Assign Users",
 				rowEntry = "Account Administrator");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "There are no users associated with this role.");
+				value1 = ".*There are no users associated with this role\..*");
 
 			LexiconEntry.gotoAdd();
 
@@ -3366,9 +3366,9 @@ definition {
 		task ("and cannot search for users that are not member of the account") {
 			Search.searchCP(searchTerm = "first@liferay.com");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No users were found.");
+				value1 = ".*No users were found\..*");
 		}
 	}
 

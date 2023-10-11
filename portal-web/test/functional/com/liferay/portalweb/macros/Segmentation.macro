@@ -95,9 +95,9 @@ definition {
 			var textValue = "Segmentation is disabled";
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_3",
-			value1 = ${textValue});
+			value1 = ".*${textValue}.*");
 	}
 
 	macro clickToReEnableSegmentsWarningLink {

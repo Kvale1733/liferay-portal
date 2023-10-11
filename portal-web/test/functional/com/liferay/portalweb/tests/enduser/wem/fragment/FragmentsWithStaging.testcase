@@ -288,9 +288,9 @@ definition {
 
 			var htmlContent = '''<div class="fragment_1">Fragment Name</div>''';
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "FragmentEditor#HTML_EDITOR_CONTENT",
-				value1 = ${htmlContent});
+				value1 = ".*${htmlContent}.*");
 		}
 	}
 

@@ -45,9 +45,9 @@ definition {
 
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_1",
-				value1 = ${viewWarningMessage});
+				value1 = ".*${viewWarningMessage}.*");
 		}
 		else {
 			PortletEntry.save();
@@ -103,9 +103,9 @@ definition {
 				key_buttonRowIndexNumber = ${buttonRowIndexNumber},
 				locator1 = "RSSFeed#FEEDS_DELETE_ROW_BUTTON");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "RSSFeed#UNDO_LINK",
-				value1 = "Undo");
+				value1 = ".*Undo.*");
 		}
 
 		PortletEntry.save();
@@ -158,9 +158,9 @@ definition {
 	macro viewCustomADT {
 		var key_feedContentTitle = ${feedContentTitle};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "RSSFeed#FEEDS_CUSTOM_ADT_TITLE",
-			value1 = ${feedContentTitle});
+			value1 = ".*${feedContentTitle}.*");
 	}
 
 	macro viewDeleteFeed {
@@ -174,17 +174,17 @@ definition {
 	macro viewDisplayFeedTitle {
 		var key_feedTitle = ${feedTitle};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "RSSFeed#FEEDS_TITLE",
-			value1 = ${feedTitle});
+			value1 = ".*${feedTitle}.*");
 	}
 
 	macro viewFeedContent {
 		Panel.expandPanel(panel = ${feedEntryTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "RSSFeed#FEEDS_CONTENT",
-			value1 = ${feedEntryContent});
+			value1 = ".*${feedEntryContent}.*");
 	}
 
 	macro viewNavigationDisplayFeedTitle {

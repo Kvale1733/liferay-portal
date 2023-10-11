@@ -279,9 +279,9 @@ definition {
 		}
 
 		task ("Then both itens should still be selected and be displayed at the top of both pages.") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ManagementBar#NAVBAR_TEXT",
-				value1 = "1 of 6 Items Selected");
+				value1 = ".*1 of 6 Items Selected.*");
 		}
 	}
 
@@ -311,9 +311,9 @@ definition {
 				key_title = "WebContentTitle6",
 				locator1 = "WCEditWebContent#SELECT_CHECKBOX_WC");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ManagementBar#NAVBAR_TEXT",
-				value1 = "1 of 6 Items Selected");
+				value1 = ".*1 of 6 Items Selected.*");
 		}
 
 		task ("And navigate to the second page") {
@@ -325,9 +325,9 @@ definition {
 		}
 
 		task ("Then the first selection should be displayed at the top of the second page.") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ManagementBar#NAVBAR_TEXT",
-				value1 = "2 of 6 Items Selected");
+				value1 = ".*2 of 6 Items Selected.*");
 		}
 	}
 

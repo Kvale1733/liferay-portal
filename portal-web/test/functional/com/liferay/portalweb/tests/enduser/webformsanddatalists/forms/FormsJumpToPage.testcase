@@ -582,9 +582,9 @@ definition {
 		var key_conditionRowNumber = 1;
 		var key_fieldColumnNumber = 1;
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "FormRules#RULE_BUILDER_CONDITION_FIELD",
-			value1 = "Edit Label");
+			value1 = ".*Edit Label.*");
 	}
 
 	@description = "This is a use case for LPS-68227."
@@ -724,9 +724,9 @@ definition {
 		var key_conditionRowNumber = 1;
 		var key_fieldColumnNumber = 4;
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "FormRules#RULE_BUILDER_CONDITION_VALUE_FIELD",
-			value1 = "Edited Destiny");
+			value1 = ".*Edited Destiny.*");
 	}
 
 	@description = "This is a use case for LPS-68227."
@@ -860,9 +860,9 @@ definition {
 		var key_actionRowNumber = 1;
 		var key_fieldColumnNumber = 2;
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "FormRules#RULE_BUILDER_ACTION_FIELD",
-			value1 = "3 Renamed Page");
+			value1 = ".*3 Renamed Page.*");
 	}
 
 }

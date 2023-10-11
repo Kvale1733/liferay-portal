@@ -113,9 +113,9 @@ definition {
 		}
 
 		task ("Then the Web Content admin should see an error message") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "Error:The structure cannot be deleted because it is required by one or more structure links.");
+				value1 = ".*Error:The structure cannot be deleted because it is required by one or more structure links\..*");
 
 			WebContentStructures.viewCP(
 				structureDescription = "WC Structure Description",
@@ -328,9 +328,9 @@ definition {
 		}
 
 		task ("Then the user should see warning message") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Modal#HEADER",
-				value1 = "Structure Key Changes");
+				value1 = ".*Structure Key Changes.*");
 
 			AssertTextEquals(
 				index = 1,

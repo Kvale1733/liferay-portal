@@ -239,34 +239,34 @@ definition {
 			locator1 = "PublicationsChanges#PUBLICATIONS_CHANGE_USER",
 			value1 = ${changeUser});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PublicationsChanges#PUBLICATIONS_CHANGE_SITE",
-			value1 = ${changeSite});
+			value1 = ".*${changeSite}.*");
 
 		if (isSet(changeStatus)) {
 			var key_changeStatus = ${changeStatus};
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "PublicationsChanges#PUBLICATIONS_CHANGE_STATUS",
-				value1 = ${changeStatus});
+				value1 = ".*${changeStatus}.*");
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PublicationsChanges#PUBLICATIONS_CHANGE_TITLE",
-			value1 = ${changeTitle});
+			value1 = ".*${changeTitle}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PublicationsChanges#PUBLICATIONS_CHANGE_TYPE",
-			value1 = ${changeType});
+			value1 = ".*${changeType}.*");
 	}
 
 	macro viewChangesInRelationships {
 		PublicationsNavigator.gotoNavbar(navBarTitle = "Relationships");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_changeTitle = ${changeTitle},
 			locator1 = "PublicationsChanges#RELATIONSHIPS_CHANGE_TITLE",
-			value1 = ${changeTitle});
+			value1 = ".*${changeTitle}.*");
 	}
 
 	macro viewChangesResultNotPresent {

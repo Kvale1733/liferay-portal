@@ -14,10 +14,10 @@ definition {
 		for (var searchAssetTitle : list ${resultsList}) {
 			var resultOrder = ${resultOrder} + 1;
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ProcessBuilderConfiguration#ASSET_TYPE",
 				resultOrder = ${resultOrder},
-				value1 = ${searchAssetTitle});
+				value1 = ".*${searchAssetTitle}.*");
 		}
 	}
 

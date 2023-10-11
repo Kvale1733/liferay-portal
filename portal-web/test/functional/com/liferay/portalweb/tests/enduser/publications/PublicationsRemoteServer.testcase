@@ -51,9 +51,9 @@ definition {
 
 		PublicationsRemoteServer.deleteRemoteServer(remoteServerName = "Remote Server Name Edit");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_STATE_TEXT",
-			value1 = "no results were found");
+			value1 = ".*no results were found.*");
 	}
 
 	@description = "This is use case for LPS-193854. Assert we can enable and disable Manage Remotely with the related assets being created or deleted accordingly."

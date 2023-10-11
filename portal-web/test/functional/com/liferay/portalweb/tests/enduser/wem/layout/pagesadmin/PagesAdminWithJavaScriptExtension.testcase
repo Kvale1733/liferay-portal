@@ -1042,9 +1042,9 @@ definition {
 			var n = 1;
 
 			for (var extensionName : list "font-family,font-size,font-weight,text-color,inner-text,margin-top") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "xpath=(//a[contains(@class,'html-resource-link')][contains(@href,'documents/d/${siteURLKey}')])[${n}]",
-					value1 = ${extensionName});
+					value1 = ".*${extensionName}.*");
 
 				var n = ${n} + 1;
 			}

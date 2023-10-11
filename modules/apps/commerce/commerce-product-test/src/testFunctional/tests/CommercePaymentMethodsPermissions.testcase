@@ -218,18 +218,18 @@ definition {
 		}
 
 		task ("Then the preset payment method 'Money Order' can be updated to 'Paypal'") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_DETAILS_PAYMENT_METHOD_NAME",
-				value1 = "Money Order");
+				value1 = ".*Money Order.*");
 
 			CommerceOrders.editPaymentMethod(
 				eligiblePaymentMethods = "Money Order,PayPal",
 				notEligiblePaymentMethods = "Authorize.Net",
 				paymentMethod = "PayPal");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_DETAILS_PAYMENT_METHOD_NAME",
-				value1 = "PayPal");
+				value1 = ".*PayPal.*");
 		}
 	}
 
@@ -426,9 +426,9 @@ definition {
 				key_menuTab = "Payments",
 				locator1 = "CommerceEntry#MENU_TAB");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_DETAILS_PAYMENT_METHOD_NAME",
-				value1 = "PayPal");
+				value1 = ".*PayPal.*");
 		}
 
 		task ("Then the Operations Manager edits the payment method: Money Order and Authorize.Net are eligible while PayPal is not") {
@@ -437,9 +437,9 @@ definition {
 				notEligiblePaymentMethods = "PayPal",
 				paymentMethod = "Money Order");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_DETAILS_PAYMENT_METHOD_NAME",
-				value1 = "Money Order");
+				value1 = ".*Money Order.*");
 		}
 	}
 
@@ -520,15 +520,15 @@ definition {
 				key_menuTab = "Payments",
 				locator1 = "CommerceEntry#MENU_TAB");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_DETAILS_PAYMENT_METHOD_NAME",
-				value1 = "Money Order");
+				value1 = ".*Money Order.*");
 
 			CommerceOrders.editPaymentMethod(paymentMethod = "PayPal");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_DETAILS_PAYMENT_METHOD_NAME",
-				value1 = "PayPal");
+				value1 = ".*PayPal.*");
 		}
 	}
 
@@ -671,9 +671,9 @@ definition {
 				key_menuTab = "Payments",
 				locator1 = "CommerceEntry#MENU_TAB");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_DETAILS_PAYMENT_METHOD_NAME",
-				value1 = "Money Order");
+				value1 = ".*Money Order.*");
 
 			AssertElementNotPresent(
 				key_titleName = "Payment Method",

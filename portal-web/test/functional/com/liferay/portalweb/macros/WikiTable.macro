@@ -24,12 +24,12 @@ definition {
 			value1 = ${entryStatus});
 
 		if (isSet(revision)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_wikiPageRevision = ${revision},
 				key_wikiPageTitle = ${wikiPageTitle},
 				key_wikiVersionSummary = ${revision},
 				locator1 = "Wiki#HISTORY_VERSIONS_SUMMARY",
-				value1 = ${revision});
+				value1 = ".*${revision}.*");
 		}
 	}
 

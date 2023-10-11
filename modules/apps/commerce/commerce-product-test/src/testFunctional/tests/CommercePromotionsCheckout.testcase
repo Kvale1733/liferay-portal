@@ -90,10 +90,10 @@ definition {
 		}
 
 		task ("And the U-Joint price is the new price list(40.00)") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceAccelerators#PRODUCT_CARD_PRICE",
-				value1 = "40.00");
+				value1 = ".*40.00.*");
 		}
 
 		task ("And buyer user add a product to the cart") {
@@ -258,10 +258,10 @@ definition {
 		}
 
 		task ("And the U-Joint price is the new price list(50.00)") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceAccelerators#PRODUCT_CARD_PRICE",
-				value1 = "50.00");
+				value1 = ".*50.00.*");
 		}
 
 		task ("And buyer user add a product to the cart") {
@@ -354,10 +354,10 @@ definition {
 		}
 
 		task ("And the U-Joint price is the new price list(50.00)") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceAccelerators#PRODUCT_CARD_PRICE",
-				value1 = "50.00");
+				value1 = ".*50.00.*");
 		}
 
 		task ("And buyer user add a product to the cart") {
@@ -450,10 +450,10 @@ definition {
 		}
 
 		task ("And the U-Joint price is the new price list(50.00)") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceAccelerators#PRODUCT_CARD_PRICE",
-				value1 = "50.00");
+				value1 = ".*50.00.*");
 		}
 
 		task ("And buyer user add a product to the cart") {

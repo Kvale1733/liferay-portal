@@ -69,9 +69,9 @@ definition {
 			pageName = "Test Page Name",
 			siteName = "Site Name");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Staging#STAGING_BAR_PAGE_VARIATIONS_ALERT",
-			value1 = "The page Test Page Name is not enabled in Main Variation, but is available for other pages variations.");
+			value1 = ".*The page Test Page Name is not enabled in Main Variation, but is available for other pages variations\..*");
 	}
 
 	@priority = 3

@@ -162,10 +162,10 @@ definition {
 	macro viewPublicationTemplate {
 		PublicationsTemplate.gotoPublicationTemplate();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_templateName = ${templateName},
 			locator1 = "PublicationsTemplate#TEMPLATE_NAME_IN_PUBLICATION_TEMPLATE",
-			value1 = ${templateName});
+			value1 = ".*${templateName}.*");
 	}
 
 	macro viewPublicationTemplateNotPresent {

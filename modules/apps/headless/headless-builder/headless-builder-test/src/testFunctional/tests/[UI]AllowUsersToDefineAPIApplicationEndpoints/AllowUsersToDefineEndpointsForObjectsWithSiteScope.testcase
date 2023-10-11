@@ -127,19 +127,19 @@ definition {
 		}
 
 		task ("Then getScopes{siteScopeEndpointPath}Page is present under default") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#API_METHOD",
 				method = "getScopeScopeKeyTestEndpointPage",
 				service = "default",
-				value1 = "/testEndpoint");
+				value1 = ".*/testEndpoint.*");
 		}
 
 		task ("And Then get{companyScopeEndpointPath}Page is present under default") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#API_METHOD",
 				method = "getMyEndpointPage",
 				service = "default",
-				value1 = "/myEndpoint");
+				value1 = ".*/myEndpoint.*");
 		}
 	}
 
@@ -192,19 +192,19 @@ definition {
 		}
 
 		task ("Then getScopeScopeKey{siteScopeEndpointPath}Page is present under {schemaName}") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#API_METHOD",
 				method = "getScopeScopeKeyTestEndpointPage",
 				service = "testSchema",
-				value1 = "/testEndpoint");
+				value1 = ".*/testEndpoint.*");
 		}
 
 		task ("And Then get{companyScopeEndpointPath}Page is present under {schemaName}") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#API_METHOD",
 				method = "getMyEndpointPage",
 				service = "testSchema",
-				value1 = "/myEndpoint");
+				value1 = ".*/myEndpoint.*");
 		}
 	}
 

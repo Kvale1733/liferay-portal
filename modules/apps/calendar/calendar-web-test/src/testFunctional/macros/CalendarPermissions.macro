@@ -7,9 +7,9 @@ definition {
 
 		MenuItem.click(menuItem = ${itemsPerPage});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Pagination#ITEMS_PER_PAGE_SELECT",
-			value1 = "${itemsPerPage} Entries");
+			value1 = ".*${itemsPerPage} Entries.*");
 	}
 
 	macro gotoPermissions {

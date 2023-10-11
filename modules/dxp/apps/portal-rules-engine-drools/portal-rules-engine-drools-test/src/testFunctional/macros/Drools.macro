@@ -1,23 +1,23 @@
 definition {
 
 	macro viewContentPG {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Drools#DROOLS_CONTENT",
-			value1 = ${welcomeMessage});
+			value1 = ".*${welcomeMessage}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Drools#DROOLS_CONTENT",
-			value1 = ${droolsContent});
+			value1 = ".*${droolsContent}.*");
 	}
 
 	macro viewDefaultPG {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Drools#DROOLS_CONTENT",
-			value1 = ${welcomeMessage});
+			value1 = ".*${welcomeMessage}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Drools#DROOLS_CONTENT",
-			value1 = "There are no results.");
+			value1 = ".*There are no results\..*");
 	}
 
 }

@@ -27,9 +27,9 @@ definition {
 	}
 
 	macro addFavoriteStructure {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#INFO_1",
-			value1 = "You can add as many as 7 favorites in your quick menu.");
+			value1 = ".*You can add as many as 7 favorites in your quick menu\..*");
 
 		Click(
 			key_rowEntry = ${structureName},
@@ -176,9 +176,9 @@ definition {
 		if (${webContentHasReference} == "true") {
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_1",
-				value1 = "The structure cannot be deleted because it is required by one or more structure links.");
+				value1 = ".*The structure cannot be deleted because it is required by one or more structure links\..*");
 		}
 		else {
 			Alert.viewSuccessMessage();
@@ -247,9 +247,9 @@ definition {
 			if (isSet(assetTitle)) {
 				var key_assetTitle = ${assetTitle};
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "AssetRelatedAssets#RELATED_ASSETS_TABLE_TITLE",
-					value1 = ${assetTitle});
+					value1 = ".*${assetTitle}.*");
 			}
 		}
 		else {

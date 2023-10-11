@@ -46,9 +46,9 @@ definition {
 
 		MenuItem.click(menuItem = ${paginationItem});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Pagination#CURRENT_PAGE_MENU",
-			value1 = "Page ${currentPageNumber}");
+			value1 = ".*Page ${currentPageNumber}.*");
 	}
 
 	macro clickAssetTitle {
@@ -315,9 +315,9 @@ definition {
 
 				Click(locator1 = "Button#MOVE_AVAILABLE_TO_CURRENT");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "SocialBookmarks#ENABLE_SOCIAL_BOOKMARK_CURRENT_SELECT",
-					value1 = ${socialBookmarkSite});
+					value1 = ".*${socialBookmarkSite}.*");
 			}
 		}
 
@@ -438,9 +438,9 @@ definition {
 			Navigator.gotoNavTab(navTab = "Asset Libraries");
 
 			if (isSet(noConnectedDepot)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "Message#EMPTY_INFO",
-					value1 = "No asset libraries were found.");
+					value1 = ".*No asset libraries were found\..*");
 			}
 			else {
 				SiteSelector.selectSite(site = ${depotName});
@@ -703,9 +703,9 @@ definition {
 
 		Panel.expandPanel(panel = "Scope");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "APConfiguration#SOURCE_SCOPE_NAME",
-			value1 = ${siteName});
+			value1 = ".*${siteName}.*");
 
 		AssertTextEquals(
 			locator1 = "APConfiguration#SOURCE_SCOPE_TYPE",
@@ -713,9 +713,9 @@ definition {
 
 		PortletEntry.save();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "APConfiguration#SOURCE_SCOPE_NAME",
-			value1 = ${siteName});
+			value1 = ".*${siteName}.*");
 
 		AssertTextEquals(
 			locator1 = "APConfiguration#SOURCE_SCOPE_TYPE",
@@ -1082,24 +1082,24 @@ definition {
 		}
 
 		if (${assetType} == "Web Content Folder") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_position = 1,
 				locator1 = "AP#ASSET_ABSTRACT_DETAIL_WEB_CONTENT_FOLDER_CONTENT",
-				value1 = ${assetSubfolderDetails});
+				value1 = ".*${assetSubfolderDetails}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_position = 2,
 				locator1 = "AP#ASSET_ABSTRACT_DETAIL_WEB_CONTENT_FOLDER_CONTENT",
-				value1 = ${assetArticleDetails});
+				value1 = ".*${assetArticleDetails}.*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "AP#ASSET_ABSTRACT_TITLE",
-				value1 = ${assetTitle});
+				value1 = ".*${assetTitle}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "AP#ASSET_ABSTRACT_DETAIL_CONTENT",
-				value1 = ${assetContent});
+				value1 = ".*${assetContent}.*");
 
 			if (isSet(imageThumbnailName)) {
 				AssertVisible(
@@ -1112,9 +1112,9 @@ definition {
 	macro viewAssetMetadataPG {
 		var key_categoryName = ${categoryName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#METADATA_CATEGORY",
-			value1 = ${categoryName});
+			value1 = ".*${categoryName}.*");
 	}
 
 	macro viewAssetNotPresentPG {
@@ -1146,10 +1146,10 @@ definition {
 		var key_assetTitle = ${assetTitle};
 
 		if (isSet(filteredByCategory)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_categoryName = ${categoryName},
 				locator1 = "AP#CATEGORIES_FILTER_CATEGORY",
-				value1 = ${categoryName});
+				value1 = ".*${categoryName}.*");
 		}
 
 		AssertTextEquals(
@@ -1157,9 +1157,9 @@ definition {
 			value1 = ${assetTitle});
 
 		if (isSet(assetContent)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-				value1 = ${assetContent});
+				value1 = ".*${assetContent}.*");
 		}
 	}
 
@@ -1189,11 +1189,11 @@ definition {
 	}
 
 	macro viewAssetViewCount {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_assetTitle = ${assetTitle},
 			key_viewCount = ${viewCount},
 			locator1 = "APAsset#ASSET_VIEW_COUNT",
-			value1 = ${viewCount});
+			value1 = ".*${viewCount}.*");
 	}
 
 	macro viewConfigureAPDisplayTemplateFullContentBookmarksPG {
@@ -1264,9 +1264,9 @@ definition {
 
 		Panel.expandPanel(panel = "Scope");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "APConfiguration#SOURCE_SCOPE_NAME",
-			value1 = ${siteName});
+			value1 = ".*${siteName}.*");
 	}
 
 	macro viewConfigureSiteScopeContentSharingPG {
@@ -1373,9 +1373,9 @@ definition {
 			value1 = ${assetTitle});
 
 		if (isSet(assetDescription)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "AP#CUSTOM_ASSET_ABSTRACT_DESCRIPTION",
-				value1 = ${assetDescription});
+				value1 = ".*${assetDescription}.*");
 		}
 
 		AssertElementPresent(locator1 = "Link#READ_MORE");
@@ -1398,9 +1398,9 @@ definition {
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
 			value1 = ${assetTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = ${assetContent});
+			value1 = ".*${assetContent}.*");
 	}
 
 	macro viewDefaultWithAllDisplaySettingsCheckboxesPG {
@@ -1412,9 +1412,9 @@ definition {
 
 		AssertElementPresent(locator1 = "AP#ASSET_ABSTRACT_EDIT");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = ${assetDescription});
+			value1 = ".*${assetDescription}.*");
 	}
 
 	macro viewDisplayOrderPG {
@@ -1470,9 +1470,9 @@ definition {
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
 			value1 = ${entryTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = ${entryContent});
+			value1 = ".*${entryContent}.*");
 
 		AssertElementPresent(locator1 = "AP#ASSET_ABSTRACT_EDIT");
 	}
@@ -1553,10 +1553,10 @@ definition {
 		Click(locator1 = "APConfiguration#ASSET_SELECTION_MANUAL_ASSET_ENTRIES_SELECT_BUTTON");
 
 		for (var assetEntryType : list ${assetEntryTypes}) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_menuItem = ${assetEntryType},
 				locator1 = "MenuItem#ANY_MENU_ITEM",
-				value1 = ${assetEntryType});
+				value1 = ".*${assetEntryType}.*");
 		}
 
 		IFrame.selectTopFrame();
@@ -1570,17 +1570,17 @@ definition {
 	}
 
 	macro viewMultipleDDLRecordsViaAP {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DDL_RECORD_1",
-			value1 = ${ddlRecordFieldData1});
+			value1 = ".*${ddlRecordFieldData1}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DDL_RECORD_2",
-			value1 = ${ddlRecordFieldData2});
+			value1 = ".*${ddlRecordFieldData2}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DDL_RECORD_3",
-			value1 = ${ddlRecordFieldData3});
+			value1 = ".*${ddlRecordFieldData3}.*");
 	}
 
 	macro viewMultipleSiteScopesAddDropdowns {
@@ -1618,9 +1618,9 @@ definition {
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
 			value1 = ${entryTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = ${entryContent});
+			value1 = ".*${entryContent}.*");
 
 		Click(locator1 = "AP#ASSET_ABSTRACT_EDIT");
 
@@ -1636,9 +1636,9 @@ definition {
 			locator1 = "Pagination#PARTICULAR_PAGE",
 			value1 = "Page ${pageNumber}");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Pagination#VARIABLE_ITEMS_PER_PAGE",
-			value1 = "${paginationNumber} Items per Page");
+			value1 = ".*${paginationNumber} Items per Page.*");
 
 		AssertTextEquals(
 			locator1 = "Pagination#VARIABLE_TOTAL_ITEMS",
@@ -1659,13 +1659,13 @@ definition {
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
 			value1 = ${assetTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = ${assetContent});
+			value1 = ".*${assetContent}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "APAsset#ASSET_CONTENT",
-			value1 = ${assetContent});
+			value1 = ".*${assetContent}.*");
 
 		AssertClick(
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
@@ -1674,9 +1674,9 @@ definition {
 		if (isSet(assetPriority)) {
 			var key_assetPriority = ${assetPriority};
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "AP#METADATA_PRIORITY",
-				value1 = ${assetPriority});
+				value1 = ".*${assetPriority}.*");
 		}
 
 		if (isSet(relatedAssetTitles)) {

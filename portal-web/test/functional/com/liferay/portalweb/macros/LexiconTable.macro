@@ -66,11 +66,11 @@ definition {
 	}
 
 	macro viewTableEntryPartialText {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_tableEntry = ${tableEntry},
 			key_tableEntryPartialText = ${tableEntryPartialText},
 			locator1 = "LexiconTable#TABLE_ENTRY_PARTIAL_TEXT",
-			value1 = ${tableEntryPartialText});
+			value1 = ".*${tableEntryPartialText}.*");
 	}
 
 	macro viewTableEntryText {

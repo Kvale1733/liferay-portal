@@ -47,9 +47,9 @@ definition {
 			AssertNotVisible(locator1 = "Message#EMPTY_INFO");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "The Recycle Bin is empty.");
+				value1 = ".*The Recycle Bin is empty\..*");
 		}
 
 		LexiconTable.viewTableEntryNotPresent(tableEntry = ${assetName});
@@ -76,9 +76,9 @@ definition {
 
 		AssertConfirm.waitForConfirmation(value1 = "Are you sure you want to empty the Recycle Bin?");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "The Recycle Bin is empty.");
+			value1 = ".*The Recycle Bin is empty\..*");
 	}
 
 	macro gotoEntryViaSuccessMessage {
@@ -128,9 +128,9 @@ definition {
 
 			SelectFrameTop(value1 = "relative=top");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#RECYCLE_BIN_RESTORE_SUCCESS",
-				value1 = "The ${assetType2} ${documentName} was restored to Home.");
+				value1 = ".*The ${assetType2} ${documentName} was restored to Home\..*");
 		}
 		else {
 			Click(
@@ -140,9 +140,9 @@ definition {
 
 			SelectFrameTop(value1 = "relative=top");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#RECYCLE_BIN_RESTORE_SUCCESS",
-				value1 = "The ${assetType2} ${documentName} was restored to Home » ${assetRestoreLocation}.");
+				value1 = ".*The ${assetType2} ${documentName} was restored to Home » ${assetRestoreLocation}\..*");
 		}
 	}
 
@@ -163,9 +163,9 @@ definition {
 
 		SelectFrameTop();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#RECYCLE_BIN_RESTORE_SUCCESS",
-			value1 = "The ${assetType} ${assetName} was restored to ${assetRestoreLocation}.");
+			value1 = ".*The ${assetType} ${assetName} was restored to ${assetRestoreLocation}\..*");
 	}
 
 	macro restoreCP {
@@ -178,29 +178,29 @@ definition {
 			item = "Restore");
 
 		if (isSet(assetType)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#RECYCLE_BIN_RESTORE_SUCCESS",
-				value1 = ${assetType});
+				value1 = ".*${assetType}.*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#RECYCLE_BIN_RESTORE_SUCCESS",
-				value1 = "The item was restored.");
+				value1 = ".*The item was restored\..*");
 		}
 
 		if (isSet(assetRestoreLocation)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#RECYCLE_BIN_RESTORE_SUCCESS",
-				value1 = ${assetRestoreLocation});
+				value1 = ".*${assetRestoreLocation}.*");
 		}
 
 		if (${multipleAssets} == "true") {
 			AssertNotVisible(locator1 = "Message#EMPTY_INFO");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "The Recycle Bin is empty.");
+				value1 = ".*The Recycle Bin is empty\..*");
 		}
 
 		LexiconTable.viewTableEntryNotPresent(tableEntry = ${assetName});
@@ -265,9 +265,9 @@ definition {
 	}
 
 	macro viewDefaultCP {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "The Recycle Bin is empty.");
+			value1 = ".*The Recycle Bin is empty\..*");
 
 		LexiconTable.viewTableEntryNotPresent(tableEntry = ${assetName});
 	}

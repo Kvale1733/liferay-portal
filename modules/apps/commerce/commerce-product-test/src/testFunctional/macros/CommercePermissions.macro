@@ -135,9 +135,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 
 		for (var roleTitle : list ${roleTitles}) {
 			var key_roleTitle = StringUtil.replace(${roleTitle}, " ", "-");
@@ -206,9 +206,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 
 		for (var permission : list ${permissions}) {
 			var permission = StringUtil.upperCase(${permission});
@@ -252,9 +252,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 
 		for (var roleTitle : list ${roleTitles}) {
 			var key_roleTitle = StringUtil.replace(${roleTitle}, " ", "-");

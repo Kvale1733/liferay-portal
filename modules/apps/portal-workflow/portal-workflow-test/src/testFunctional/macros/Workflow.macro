@@ -73,9 +73,9 @@ definition {
 			locator1 = "MyWorkflowTasksTask#ACTIVITIES",
 			value1 = "Activities");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MyWorkflowTasksTask#ACTIVITIES_LINE",
-			value1 = ${workflowActivityComment});
+			value1 = ".*${workflowActivityComment}.*");
 	}
 
 	macro addNewDefinition {
@@ -1018,9 +1018,9 @@ definition {
 			workflowAssetType = ${workflowAssetType},
 			workflowTask = ${workflowTask});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MyWorkflowTasks#ASSIGNED_TO_MY_ROLES_TABLE_DUE_DATE",
-			value1 = "Within");
+			value1 = ".*Within.*");
 	}
 
 	macro updateDueDateTaskByActions {
@@ -1097,9 +1097,9 @@ definition {
 		else {
 			PortletEntry.publish();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Portlet#HEADER",
-				value1 = ${workflowDefinitionTitle});
+				value1 = ".*${workflowDefinitionTitle}.*");
 
 			Navigator.gotoBack();
 		}
@@ -1119,9 +1119,9 @@ definition {
 
 		var key_workflowAssetTitle = ${workflowAssetTitle};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MyWorkflowTasks#ASSIGNED_TO_MY_ROLES_TABLE_ASSET_TITLE",
-			value1 = ${workflowAssetTitle});
+			value1 = ".*${workflowAssetTitle}.*");
 
 		var key_workflowAssetType = ${workflowAssetType};
 
@@ -1179,9 +1179,9 @@ definition {
 
 		var key_workflowAssetTitle = ${workflowAssetTitle};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "WorkflowSubmissions#MY_SUBMISSIONS_TABLE_TITLE",
-			value1 = ${workflowAssetTitle});
+			value1 = ".*${workflowAssetTitle}.*");
 
 		AssertTextEquals(
 			locator1 = "WorkflowSubmissions#MY_SUBMISSIONS_TABLE_TYPE",
@@ -1217,14 +1217,14 @@ definition {
 			value1 = ${workflowTask});
 
 		if (${workflowAssetType} == "Translation") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MyWorkflowTasks#COMPLETED_TABLE_ASSET_TITLE",
-				value1 = "Translation");
+				value1 = ".*Translation.*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MyWorkflowTasks#COMPLETED_TABLE_ASSET_TITLE",
-				value1 = ${workflowAssetTitle});
+				value1 = ".*${workflowAssetTitle}.*");
 		}
 
 		if (${multipleTasks} == "true") {
@@ -1249,9 +1249,9 @@ definition {
 				locator1 = "MyWorkflowTasks#COMPLETED_TABLE_ASSET_TITLE",
 				value1 = ${workflowAssetTitle});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MyWorkflowTasksTask#PREVIEW_TITLE",
-				value1 = ${workflowAssetTitle});
+				value1 = ".*${workflowAssetTitle}.*");
 		}
 	}
 
@@ -1369,13 +1369,13 @@ definition {
 			locator1 = "WorkflowSubmissionsTask#PREVIEW",
 			value1 = "Preview of ${workflowAssetType}");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "WorkflowSubmissionsTask#PREVIEW_CONTENT_TITLE",
-			value1 = ${workflowAssetTitle});
+			value1 = ".*${workflowAssetTitle}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "WorkflowSubmissionsTask#PREVIEW_CONTENT_BODY",
-			value1 = ${workflowAssetContent});
+			value1 = ".*${workflowAssetContent}.*");
 
 		Portlet.viewTitle(portletName = ${workflowSubmissionTitle});
 	}
@@ -1411,9 +1411,9 @@ definition {
 			locator1 = "MyWorkflowTasks#ASSIGNED_TO_MY_ROLES_TABLE_TASK",
 			value1 = ${workflowTask});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MyWorkflowTasks#COMPLETED_TABLE_ASSET_TITLE",
-			value1 = ${workflowAssetTitle});
+			value1 = ".*${workflowAssetTitle}.*");
 
 		AssertTextEquals(
 			locator1 = "MyWorkflowTasks#ASSIGNED_TO_ME_TABLE_ASSET_TYPE",
@@ -1434,9 +1434,9 @@ definition {
 			locator1 = "MyWorkflowTasks#ASSIGNED_TO_ME_TABLE_TASK",
 			value1 = "Update");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MyWorkflowTasks#TABLE_GENERIC_ASSET_TITLE",
-			value1 = ${workflowAssetTitle});
+			value1 = ".*${workflowAssetTitle}.*");
 
 		AssertTextEquals(
 			locator1 = "MyWorkflowTasks#ASSIGNED_TO_ME_TABLE_ASSET_TYPE",
@@ -1504,9 +1504,9 @@ definition {
 				value1 = ${workflowAssetType});
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MyWorkflowTasks#TABLE_GENERIC_ASSET_TITLE",
-			value1 = ${workflowAssetTitle});
+			value1 = ".*${workflowAssetTitle}.*");
 
 		AssertElementPresent(locator1 = "MyWorkflowTasks#ASSIGNED_TO_ME_TABLE_LAST_ACTIVITY_DATE");
 
@@ -1541,13 +1541,13 @@ definition {
 			locator1 = "MyWorkflowTasksTask#TASK_NAME",
 			value1 = ${workflowTask});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MyWorkflowTasksTask#PREVIEW_TITLE",
-			value1 = ${workflowAssetTitle});
+			value1 = ".*${workflowAssetTitle}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MyWorkflowTasksTask#PREVIEW_CONTENT",
-			value1 = ${workflowAssetContent});
+			value1 = ".*${workflowAssetContent}.*");
 	}
 
 	macro viewTaskAssignedToMyRoles {
@@ -1566,9 +1566,9 @@ definition {
 			locator1 = "MyWorkflowTasks#ASSIGNED_TO_MY_ROLES_TABLE_TASK",
 			value1 = ${workflowTask});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MyWorkflowTasks#ASSIGNED_TO_MY_ROLES_TABLE_ASSET_TITLE",
-			value1 = ${workflowAssetTitle});
+			value1 = ".*${workflowAssetTitle}.*");
 
 		AssertTextEquals(
 			locator1 = "MyWorkflowTasks#ASSIGNED_TO_MY_ROLES_TABLE_ASSET_TYPE",
@@ -1597,9 +1597,9 @@ definition {
 			locator1 = "MyWorkflowTasksTask#TASK_NAME",
 			value1 = ${workflowTask});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MyWorkflowTasksTask#PREVIEW_TITLE",
-			value1 = ${workflowAssetTitle});
+			value1 = ".*${workflowAssetTitle}.*");
 	}
 
 	macro viewTaskHeaderTitle {

@@ -526,9 +526,9 @@ definition {
 			locator1 = "Treeview#NODE_UNSELECTED",
 			value1 = ${categoryName});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#CATEGORIES_FILTER_CATEGORY",
-			value1 = ${categoryName});
+			value1 = ".*${categoryName}.*");
 	}
 
 	macro viewNavigationCP {
@@ -559,9 +559,9 @@ definition {
 		var key_categoryName = ${categoryName};
 		var key_nodeListName = ${vocabularyName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Treeview#NODE_LIST",
-			value1 = ${vocabularyName});
+			value1 = ".*${vocabularyName}.*");
 
 		Click(locator1 = "AP#CATEGORIES_FILTER_CATEGORY_REMOVE");
 

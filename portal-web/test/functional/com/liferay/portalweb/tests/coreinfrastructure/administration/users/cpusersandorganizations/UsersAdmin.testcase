@@ -2095,9 +2095,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_1",
-			value1 = "The screen name cannot contain only numeric values.");
+			value1 = ".*The screen name cannot contain only numeric values\..*");
 
 		ApplicationsMenu.gotoPortlet(
 			category = "Users",
@@ -2287,9 +2287,9 @@ definition {
 			newPassword1 = "Password1",
 			newPassword2 = "Password2");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "TextInput#ALERT",
-			value1 = "Please enter the same value again.");
+			value1 = ".*Please enter the same value again\..*");
 	}
 
 	@priority = 4
@@ -2332,9 +2332,9 @@ definition {
 		var companyId = JSONCompany.getCompanyId();
 		var userId = JSONUserSetter.setUserId(userEmailAddress = "test@liferay.com");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ServerAdministrationScript#OUTPUT_FIELD",
-			value1 = "exception.UserEmailAddressException$MustNotBeDuplicate: User ${userId} cannot be created or updated because a user with company ${companyId} and email address userea@liferay.com is already in use");
+			value1 = ".*exception.UserEmailAddressException$MustNotBeDuplicate: User ${userId} cannot be created or updated because a user with company ${companyId} and email address userea@liferay.com is already in use.*");
 	}
 
 	@description = "This is a use case for LPS-120825."
@@ -2350,9 +2350,9 @@ definition {
 
 		UserNavigator.gotoUser(userScreenName = "test");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Portlet#HEADER",
-			value1 = "Edit User");
+			value1 = ".*Edit User.*");
 
 		User.editUserInformation(
 			userEmailAddressEdit = "testadmin@liferay.com",
@@ -2638,15 +2638,15 @@ definition {
 				asset = "${portalURL}: Email Address Verification For userfn",
 				recipient = "userfn userln");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_asset = "${portalURL}: Email Address Verification For userfn",
 				locator1 = "MockMock#MOCKMOCK_MESSAGE_BODY",
-				value1 = "Dear userfn,");
+				value1 = ".*Dear userfn,.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_asset = "${portalURL}: Email Address Verification For userfn",
 				locator1 = "MockMock#MOCKMOCK_MESSAGE_BODY",
-				value1 = "Please verify your(userfn) email address");
+				value1 = ".*Please verify your(userfn) email address.*");
 		}
 	}
 
@@ -2712,15 +2712,15 @@ definition {
 				asset = "${portalURL}: Your New Account userfn",
 				recipient = "userfn userln");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_asset = "${portalURL}: Your New Account userfn",
 				locator1 = "MockMock#MOCKMOCK_MESSAGE_BODY",
-				value1 = "Dear userfn,");
+				value1 = ".*Dear userfn,.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_asset = "${portalURL}: Your New Account userfn",
 				locator1 = "MockMock#MOCKMOCK_MESSAGE_BODY",
-				value1 = "You recently created an account named userfn");
+				value1 = ".*You recently created an account named userfn.*");
 		}
 	}
 

@@ -441,15 +441,15 @@ definition {
 		task ("Assert the correct asset is shown") {
 			Navigator.openWithAppendToBaseURL(urlAppend = "web/test-site-name/test-page-name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_assetTitle = "Blogs Entry Title",
 				locator1 = "AP#ASSET_ABSTRACT_TITLE",
-				value1 = "Blogs Entry Title");
+				value1 = ".*Blogs Entry Title.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_assetContent = "Blogs Entry Content",
 				locator1 = "APAsset#ASSET_CONTENT",
-				value1 = "Blogs Entry Content");
+				value1 = ".*Blogs Entry Content.*");
 		}
 	}
 
@@ -578,9 +578,9 @@ definition {
 		}
 
 		task ("Assert the correct asset is shown") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Fragment#CONTENT_DISPLAY_ASSET_BULLET_LIST_TEXT",
-				value1 = "Blogs Entry");
+				value1 = ".*Blogs Entry.*");
 		}
 	}
 

@@ -65,10 +65,10 @@ definition {
 
 			Panel.expandPanel(panel = "Document Type");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_toggleButtonName = ${documentType},
 				locator1 = "Dropdown#DROPDOWN_TOGGLE_BUTTON",
-				value1 = ${documentType});
+				value1 = ".*${documentType}.*");
 
 			if (isSet(dateValue)) {
 				if (!(isSet(dateFieldLabel))) {

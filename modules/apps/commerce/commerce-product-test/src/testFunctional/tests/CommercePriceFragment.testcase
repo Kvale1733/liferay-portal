@@ -116,13 +116,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-					value1 = ${netPrice});
+					value1 = ".*${netPrice}.*");
 			}
 		}
 	}
@@ -207,13 +207,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-					value1 = ${netPrice});
+					value1 = ".*${netPrice}.*");
 			}
 		}
 
@@ -241,13 +241,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-					value1 = ${netPrice});
+					value1 = ".*${netPrice}.*");
 			}
 		}
 	}
@@ -336,13 +336,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-					value1 = ${netPrice});
+					value1 = ".*${netPrice}.*");
 			}
 		}
 
@@ -370,13 +370,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-					value1 = ${netPrice});
+					value1 = ".*${netPrice}.*");
 			}
 		}
 	}
@@ -459,13 +459,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-					value1 = ${netPrice});
+					value1 = ".*${netPrice}.*");
 			}
 		}
 
@@ -493,13 +493,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-					value1 = ${netPrice});
+					value1 = ".*${netPrice}.*");
 			}
 		}
 	}
@@ -594,13 +594,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-					value1 = ${netPrice});
+					value1 = ".*${netPrice}.*");
 			}
 		}
 	}
@@ -684,18 +684,18 @@ definition {
 					fsOptionValue = ${option});
 
 				if (${netPrice} != "") {
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-						value1 = ${price});
+						value1 = ".*${price}.*");
 
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-						value1 = ${netPrice});
+						value1 = ".*${netPrice}.*");
 				}
 				else {
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-						value1 = ${price});
+						value1 = ".*${price}.*");
 				}
 			}
 		}
@@ -723,18 +723,18 @@ definition {
 					fsOptionValue = ${option});
 
 				if (${netPrice} != "") {
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-						value1 = ${price});
+						value1 = ".*${price}.*");
 
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-						value1 = ${netPrice});
+						value1 = ".*${netPrice}.*");
 				}
 				else {
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-						value1 = ${price});
+						value1 = ".*${price}.*");
 				}
 			}
 		}
@@ -851,26 +851,26 @@ definition {
 
 				if (${netPrice} != "") {
 					for (var discountLevel : list "90,0,0,0") {
-						AssertTextEquals.assertPartialText(
+						AssertTextMatches(
 							key_index = ${index},
 							locator1 = "CommerceAccelerators#MINI_CART_DISCOUNT_LEVELS",
-							value1 = ${discountLevel});
+							value1 = ".*${discountLevel}.*");
 
 						var index = ${index} + 1;
 					}
 
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-						value1 = ${price});
+						value1 = ".*${price}.*");
 
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-						value1 = ${netPrice});
+						value1 = ".*${netPrice}.*");
 				}
 				else {
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-						value1 = ${price});
+						value1 = ".*${price}.*");
 				}
 			}
 		}
@@ -976,26 +976,26 @@ definition {
 
 				if (${netPrice} != "") {
 					for (var discountLevel : list "10,20,30,40") {
-						AssertTextEquals.assertPartialText(
+						AssertTextMatches(
 							key_index = ${index},
 							locator1 = "CommerceAccelerators#MINI_CART_DISCOUNT_LEVELS",
-							value1 = ${discountLevel});
+							value1 = ".*${discountLevel}.*");
 
 						var index = ${index} + 1;
 					}
 
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-						value1 = ${price});
+						value1 = ".*${price}.*");
 
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-						value1 = ${netPrice});
+						value1 = ".*${netPrice}.*");
 				}
 				else {
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-						value1 = ${price});
+						value1 = ".*${price}.*");
 				}
 			}
 		}
@@ -1078,9 +1078,9 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-					value1 = ${price});
+					value1 = ".*${price}.*");
 			}
 		}
 
@@ -1103,7 +1103,7 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
 					value1 = 50);
 			}
@@ -1131,9 +1131,9 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-					value1 = ${price});
+					value1 = ".*${price}.*");
 			}
 		}
 	}
@@ -1220,9 +1220,9 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-					value1 = ${price});
+					value1 = ".*${price}.*");
 			}
 		}
 
@@ -1245,7 +1245,7 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
 					value1 = 50);
 			}
@@ -1273,9 +1273,9 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-					value1 = ${price});
+					value1 = ".*${price}.*");
 			}
 		}
 	}
@@ -1368,9 +1368,9 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-					value1 = ${price});
+					value1 = ".*${price}.*");
 			}
 		}
 
@@ -1393,7 +1393,7 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
 					value1 = 50);
 			}
@@ -1421,9 +1421,9 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-					value1 = ${price});
+					value1 = ".*${price}.*");
 			}
 		}
 	}
@@ -1510,9 +1510,9 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-					value1 = ${price});
+					value1 = ".*${price}.*");
 			}
 		}
 
@@ -1535,7 +1535,7 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
 					value1 = 50);
 			}
@@ -1563,9 +1563,9 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-					value1 = ${price});
+					value1 = ".*${price}.*");
 			}
 		}
 	}
@@ -1665,13 +1665,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
-					value1 = ${promoPrice});
+					value1 = ".*${promoPrice}.*");
 			}
 		}
 	}
@@ -1776,30 +1776,30 @@ definition {
 
 				if (${netPrice} != "") {
 					for (var discountLevel : list "10,20,30,40") {
-						AssertTextEquals.assertPartialText(
+						AssertTextMatches(
 							key_index = ${index},
 							locator1 = "CommerceAccelerators#MINI_CART_DISCOUNT_LEVELS",
-							value1 = ${discountLevel});
+							value1 = ".*${discountLevel}.*");
 
 						var index = ${index} + 1;
 					}
 
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-						value1 = ${price});
+						value1 = ".*${price}.*");
 
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_PROMO_PRICE_INACTIVE",
 						value1 = 90);
 
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-						value1 = ${netPrice});
+						value1 = ".*${netPrice}.*");
 				}
 				else {
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-						value1 = ${price});
+						value1 = ".*${price}.*");
 				}
 			}
 		}
@@ -1886,13 +1886,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
-					value1 = ${promoPrice});
+					value1 = ".*${promoPrice}.*");
 			}
 		}
 
@@ -1922,13 +1922,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
-					value1 = ${promoPrice});
+					value1 = ".*${promoPrice}.*");
 			}
 		}
 
@@ -1958,13 +1958,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
-					value1 = ${promoPrice});
+					value1 = ".*${promoPrice}.*");
 			}
 		}
 	}
@@ -2055,13 +2055,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
-					value1 = ${promoPrice});
+					value1 = ".*${promoPrice}.*");
 			}
 		}
 
@@ -2091,13 +2091,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
-					value1 = ${promoPrice});
+					value1 = ".*${promoPrice}.*");
 			}
 		}
 
@@ -2127,13 +2127,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
-					value1 = ${promoPrice});
+					value1 = ".*${promoPrice}.*");
 			}
 		}
 	}
@@ -2230,13 +2230,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
-					value1 = ${promoPrice});
+					value1 = ".*${promoPrice}.*");
 			}
 		}
 
@@ -2266,13 +2266,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
-					value1 = ${promoPrice});
+					value1 = ".*${promoPrice}.*");
 			}
 		}
 
@@ -2302,13 +2302,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
-					value1 = ${promoPrice});
+					value1 = ".*${promoPrice}.*");
 			}
 		}
 	}
@@ -2399,13 +2399,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
-					value1 = ${promoPrice});
+					value1 = ".*${promoPrice}.*");
 			}
 		}
 
@@ -2435,13 +2435,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
-					value1 = ${promoPrice});
+					value1 = ".*${promoPrice}.*");
 			}
 		}
 
@@ -2471,13 +2471,13 @@ definition {
 					fsOptionName = "Package Quantity",
 					fsOptionValue = ${option});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-					value1 = ${inactivePrice});
+					value1 = ".*${inactivePrice}.*");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
-					value1 = ${promoPrice});
+					value1 = ".*${promoPrice}.*");
 			}
 		}
 	}

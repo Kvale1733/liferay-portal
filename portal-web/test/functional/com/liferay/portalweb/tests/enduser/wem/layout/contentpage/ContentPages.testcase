@@ -829,9 +829,9 @@ definition {
 		}
 
 		task ("Assert the four fragments are shown") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No entries were found.");
+				value1 = ".*No entries were found\..*");
 
 			ContentPages.viewFragmentText(
 				fragmentName = "heading",

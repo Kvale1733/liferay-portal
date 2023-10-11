@@ -326,13 +326,13 @@ definition {
 	}
 
 	macro viewEventTimesViaDialogBox {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Calendar#SCHEDULER_EVENT_DIALOG_BOX_WHEN_FIELD",
-			value1 = ${startDateTime});
+			value1 = ".*${startDateTime}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Calendar#SCHEDULER_EVENT_DIALOG_BOX_WHEN_FIELD",
-			value1 = ${endDateTime});
+			value1 = ".*${endDateTime}.*");
 	}
 
 	macro viewEventTitleViaDialogBox {
@@ -354,9 +354,9 @@ definition {
 			value1 = "Users:");
 
 		for (var user : list ${usersList}) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Calendar#SCHEDULER_EVENT_DIALOG_BOX_USERS_FIELD",
-				value1 = ${user});
+				value1 = ".*${user}.*");
 		}
 	}
 
@@ -587,9 +587,9 @@ definition {
 	macro viewWeekStartDayViaWeekView {
 		CalendarNavigator.gotoView(viewType = "Week");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Calendar#SCHEDULER_VIEW_WEEK_WEEK_START_DAY",
-			value1 = ${weekStartDay});
+			value1 = ".*${weekStartDay}.*");
 	}
 
 }

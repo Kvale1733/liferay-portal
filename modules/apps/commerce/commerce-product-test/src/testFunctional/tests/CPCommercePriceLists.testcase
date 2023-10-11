@@ -60,9 +60,9 @@ definition {
 
 		CommerceAcceleratorsInitializer.gotoMiniumProductDetailsPage(productName = "U-Joint");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "100.00");
+			value1 = ".*100.00.*");
 
 		CommerceNavigator.gotoPortlet(
 			category = "Pricing",
@@ -82,9 +82,9 @@ definition {
 
 		CommerceAcceleratorsInitializer.gotoMiniumProductDetailsPage(productName = "U-Joint");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "80.00");
+			value1 = ".*80.00.*");
 
 		CommerceNavigator.gotoPortlet(
 			category = "Pricing",
@@ -106,9 +106,9 @@ definition {
 
 		CommerceAcceleratorsInitializer.gotoMiniumProductDetailsPage(productName = "U-Joint");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "24.00");
+			value1 = ".*24.00.*");
 	}
 
 	@description = "This is a test for COMMERCE-6227. Tier Price Entry lifecycle"
@@ -484,9 +484,9 @@ definition {
 
 		CommerceAcceleratorsInitializer.viewMiniumSelectedAccount(selectedAccount = "Account1");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "12.71");
+			value1 = ".*12.71.*");
 
 		CommerceAcceleratorsInitializer.selectAccountFromAccountSelector(accountName = "Account2");
 
@@ -496,9 +496,9 @@ definition {
 
 		Refresh();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "24.00");
+			value1 = ".*24.00.*");
 
 		ApplicationsMenu.gotoSite(site = "Site2");
 
@@ -516,9 +516,9 @@ definition {
 
 		CommerceAcceleratorsInitializer.viewMiniumSelectedAccount(selectedAccount = "Account1");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "24.00");
+			value1 = ".*24.00.*");
 
 		CommerceAcceleratorsInitializer.selectAccountFromAccountSelector(accountName = "Account2");
 
@@ -528,9 +528,9 @@ definition {
 
 		Refresh();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "7.45");
+			value1 = ".*7.45.*");
 
 		CommerceNavigator.gotoPortlet(
 			category = "Pricing",
@@ -570,9 +570,9 @@ definition {
 
 		CommerceAcceleratorsInitializer.viewMiniumSelectedAccount(selectedAccount = "Account1");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "12.71");
+			value1 = ".*12.71.*");
 
 		CommerceAcceleratorsInitializer.selectAccountFromAccountSelector(accountName = "Account2");
 
@@ -580,9 +580,9 @@ definition {
 
 		CommerceAcceleratorsInitializer.viewMiniumSelectedAccount(selectedAccount = "Account2");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "12.71");
+			value1 = ".*12.71.*");
 
 		ApplicationsMenu.gotoSite(site = "Site2");
 
@@ -594,9 +594,9 @@ definition {
 
 		CommerceAcceleratorsInitializer.viewMiniumSelectedAccount(selectedAccount = "Account1");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "7.45");
+			value1 = ".*7.45.*");
 
 		CommerceAcceleratorsInitializer.selectAccountFromAccountSelector(accountName = "Account2");
 
@@ -604,9 +604,9 @@ definition {
 
 		CommerceAcceleratorsInitializer.viewMiniumSelectedAccount(selectedAccount = "Account2");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "7.45");
+			value1 = ".*7.45.*");
 	}
 
 	@description = "This is a test for COMMERCE-8568. Verify multiple Price Entries can be set on the same Price List for the same SKU"
@@ -698,10 +698,10 @@ definition {
 		}
 
 		task ("Then the U-Joint price is the first price entry price (20.00)") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceAccelerators#PRODUCT_CARD_PRICE",
-				value1 = "20.00");
+				value1 = ".*20.00.*");
 		}
 
 		task ("When the first price entry expires and the buyer views the U-Joint product") {
@@ -716,10 +716,10 @@ definition {
 		}
 
 		task ("Then the U-Joint price is the base price (24.00)") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceAccelerators#PRODUCT_CARD_PRICE",
-				value1 = "24.00");
+				value1 = ".*24.00.*");
 		}
 
 		task ("When the second price entry is published and the buyer views the U-Joint product") {
@@ -734,10 +734,10 @@ definition {
 		}
 
 		task ("Then the U-Joint price is the second price entry price (10.00)") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceAccelerators#PRODUCT_CARD_PRICE",
-				value1 = "10.00");
+				value1 = ".*10.00.*");
 		}
 	}
 
@@ -1089,25 +1089,25 @@ definition {
 
 		CommerceAcceleratorsInitializer.viewMiniumSelectedAccount(selectedAccount = "Commerce Account 1");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "45.00");
+			value1 = ".*45.00.*");
 
 		CommerceAcceleratorsInitializer.selectAccountFromAccountSelector(accountName = "Commerce Account 2");
 
 		Refresh();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "45.00");
+			value1 = ".*45.00.*");
 
 		CommerceAcceleratorsInitializer.selectAccountFromAccountSelector(accountName = "Commerce Account 3");
 
 		Refresh();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "50.00");
+			value1 = ".*50.00.*");
 	}
 
 	@description = "This is a test for COMMERCE-9409. As an admin, I can add an SKU to the price list when the product for the SKU is in draft status"
@@ -2005,10 +2005,10 @@ definition {
 				locator1 = "CommerceAccelerators#PRODUCT_CARD_NAME_BY_INDEX",
 				value1 = "Cams");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "Cams",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-				value1 = "150.00");
+				value1 = ".*150.00.*");
 		}
 	}
 
@@ -2719,10 +2719,10 @@ definition {
 
 		CommerceNavigator.gotoMiniCart();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_cartItemSku = "MIN55861",
 			locator1 = "CommerceAccelerators#MINI_CART_ITEM_PRICE_VALUE",
-			value1 = "$ 10.00");
+			value1 = ".*\$ 10.00.*");
 
 		while ((IsElementPresent(key_cartItemSku = "MIN55861", key_productPrice = "10.00", locator1 = "CommerceAccelerators#MINI_CART_ITEM_LIST_PRICE_VALUE")) && (maxIterations = "40")) {
 			Button.click(button = "Remove All Items");
@@ -2742,10 +2742,10 @@ definition {
 			CommerceNavigator.gotoMiniCart();
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_cartItemSku = "MIN55861",
 			locator1 = "CommerceAccelerators#MINI_CART_ITEM_PRICE_VALUE",
-			value1 = "$ 30.00");
+			value1 = ".*\$ 30.00.*");
 	}
 
 	@description = "This is a test for COMMERCE-6228. Check that an expired entity is not considered in the price calculation"

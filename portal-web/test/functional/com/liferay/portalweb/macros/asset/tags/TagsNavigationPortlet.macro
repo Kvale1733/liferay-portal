@@ -4,9 +4,9 @@ definition {
 		var key_tagName = ${tagName};
 
 		if (isSet(tagAssetCount)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "TagsNavigation#TAG_NAME",
-				value1 = ${tagAssetCount});
+				value1 = ".*${tagAssetCount}.*");
 		}
 
 		AssertClick.assertPartialTextClickAt(

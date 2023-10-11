@@ -401,9 +401,9 @@ definition {
 	}
 
 	macro viewViaKBDisplayPG {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KnowledgeBase#DISPLAY_TITLE",
-			value1 = ${kbArticleTitle});
+			value1 = ".*${kbArticleTitle}.*");
 
 		AssertTextEquals(
 			locator1 = "KnowledgeBase#DISPLAY_CONTENT",

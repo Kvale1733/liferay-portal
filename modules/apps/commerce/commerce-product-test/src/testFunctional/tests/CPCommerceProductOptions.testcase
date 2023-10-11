@@ -1019,11 +1019,11 @@ definition {
 			var currentDate = DateUtil.format(${currentDate}, "MM/dd/yyyy", "yyyy-MM-dd");
 
 			for (var optionValue : list "9876543210,option-boolean,Value Multiple Selection,Value Select from List,Value Single Selection,abc@#^,${currentDate}") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_columnNumber = 2,
 					key_entryName = "MIN93015",
 					locator1 = "CommerceEntry#TABLE_CELL_BY_COLUMN_ORDER",
-					value1 = ${optionValue});
+					value1 = ".*${optionValue}.*");
 			}
 		}
 
@@ -1170,9 +1170,9 @@ definition {
 				key_productSku = "BLACK",
 				locator1 = "CommerceFrontStore#FS_PRODUCT_SKU");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-				value1 = "20.00");
+				value1 = ".*20.00.*");
 
 			AssertElementPresent(
 				key_filterOption = "20 in Stock",
@@ -1196,9 +1196,9 @@ definition {
 				key_productSku = "WHITE",
 				locator1 = "CommerceFrontStore#FS_PRODUCT_SKU");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-				value1 = "40.00");
+				value1 = ".*40.00.*");
 
 			AssertElementPresent(
 				key_filterOption = "40 in Stock",
@@ -1217,9 +1217,9 @@ definition {
 				cartItemQuantity = 1,
 				cartItemSku = "WHITE");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#MINI_CART_ITEM_BUNDLED_ITEMS",
-				value1 = "1 × Test Simple Product 2");
+				value1 = ".*1 × Test Simple Product 2.*");
 		}
 	}
 
@@ -1683,11 +1683,11 @@ definition {
 			AssertElementNotPresent(locator1 = "Message#SUCCESS_DISMISSIBLE");
 
 			for (var valueName : list "Minimum,Maximum,Multiple") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_alertMessage = "Please enter a value greater than 0.",
 					key_fieldLabel = ${valueName},
 					locator1 = "Message#ERROR_WITH_SPECIFIC_ENTRY",
-					value1 = "Please enter a value greater than 0.");
+					value1 = ".*Please enter a value greater than 0\..*");
 			}
 		}
 	}
@@ -1825,9 +1825,9 @@ definition {
 				key_value = "value2 + $ 10.00",
 				locator1 = "Select#GENERIC_SELECT_VALUE");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-				value1 = "120.00");
+				value1 = ".*120.00.*");
 
 			AssertElementPresent(
 				key_fieldLabel = "B",
@@ -1839,9 +1839,9 @@ definition {
 				locator1 = "CommerceFrontStore#FS_PRODUCT_OPTIONS_SELECT",
 				value1 = "value2 + $ 10.00");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-				value1 = "130.00");
+				value1 = ".*130.00.*");
 
 			Select(
 				key_optionName = "A",

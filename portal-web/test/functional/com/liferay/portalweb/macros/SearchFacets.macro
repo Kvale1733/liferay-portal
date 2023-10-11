@@ -331,9 +331,9 @@ definition {
 
 			Click(locator1 = "Button#MOVE_CURRENT_TO_AVAILABLE");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Search#TYPE_FACET_AVAILABLE_ASSET_TYPE",
-				value1 = ${assetType});
+				value1 = ".*${assetType}.*");
 		}
 
 		PortletEntry.save();
@@ -424,11 +424,11 @@ definition {
 		for (var termItem : list ${termList}) {
 			var termOrder = ${termOrder} + 1;
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_facetName = ${facetName},
 				key_termOrderNumber = ${termOrder},
 				locator1 = "SearchPage#FACET_ITEMS_SPECIFIC_ORDER",
-				value1 = ${termItem});
+				value1 = ".*${termItem}.*");
 		}
 	}
 

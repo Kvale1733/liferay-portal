@@ -203,19 +203,19 @@ definition {
 		}
 
 		task ("Assert custom title configuration") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fieldName = "openGraphTitleEnabled",
 				locator1 = "FormFields#CHECKBOX_LABEL",
-				value1 = "Use Custom Title");
+				value1 = ".*Use Custom Title.*");
 
 			AssertElementPresent(locator1 = "TextInput#OPEN_GRAPH_CUSTOM_TITLE");
 		}
 
 		task ("Assert custom description configuration") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fieldName = "openGraphDescriptionEnabled",
 				locator1 = "FormFields#CHECKBOX_LABEL",
-				value1 = "Use Custom Description");
+				value1 = ".*Use Custom Description.*");
 
 			AssertElementPresent(
 				key_text = "openGraphDescription",
@@ -223,15 +223,15 @@ definition {
 		}
 
 		task ("Assert image configuration") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fieldLabel = "Image",
 				locator1 = "FormFields#OPEN_GRAPH_LABEL",
-				value1 = "Image");
+				value1 = ".*Image.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fieldLabel = "Image Alt Description",
 				locator1 = "FormFields#OPEN_GRAPH_LABEL",
-				value1 = "Image Alt Description");
+				value1 = ".*Image Alt Description.*");
 
 			AssertElementPresent(
 				key_fieldLabel = "Image",

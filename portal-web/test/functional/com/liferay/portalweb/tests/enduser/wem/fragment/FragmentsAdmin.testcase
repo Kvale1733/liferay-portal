@@ -351,9 +351,9 @@ definition {
 		task ("Assert the fragment cannot be deleted because it is used in the page template") {
 			FragmentsAdmin.deleteEntry(entry = "Fragment Name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "Error:The fragment entry cannot be deleted because it is required by one or more page templates.");
+				value1 = ".*Error:The fragment entry cannot be deleted because it is required by one or more page templates\..*");
 		}
 	}
 

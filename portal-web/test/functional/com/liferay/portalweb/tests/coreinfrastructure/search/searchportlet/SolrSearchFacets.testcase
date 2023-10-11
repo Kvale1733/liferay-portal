@@ -308,10 +308,10 @@ definition {
 
 		Refresh();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Search#MODIFIED_FACET_SELECTION",
 			range = "Past 23 Hours",
-			value1 = "Past 23 Hours");
+			value1 = ".*Past 23 Hours.*");
 
 		Click(
 			locator1 = "Search#MODIFIED_FACET_SELECTION",

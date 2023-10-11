@@ -41,9 +41,9 @@ definition {
 	macro viewCurrentMonthByMiniCalendar {
 		var currentMonth = selenium.getText("CalendarPage#CURRENT_MONTH_BY_MINI_CALENDAR");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CalendarPage#CURRENT_MONTH_BY_BASE_NAV",
-			value1 = ${currentMonth});
+			value1 = ".*${currentMonth}.*");
 	}
 
 	macro viewMiniCalendarOnSideBar {

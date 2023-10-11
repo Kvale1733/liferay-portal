@@ -214,19 +214,19 @@ definition {
 			var suggestionContributorDisplayGroupName = "Suggestions";
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_searchAssetTitle = ${searchAssetTitle},
 			key_suggestionContributorDisplayGroupName = ${suggestionContributorDisplayGroupName},
 			locator1 = "SearchBarSuggestions#RESULTS_LIST_ITEM_TITLE",
-			value1 = ${searchAssetTitle});
+			value1 = ".*${searchAssetTitle}.*");
 
 		if (isSet(searchAssetDescription)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_searchAssetDescription = ${searchAssetDescription},
 				key_searchAssetTitle = ${searchAssetTitle},
 				key_suggestionContributorDisplayGroupName = ${suggestionContributorDisplayGroupName},
 				locator1 = "SearchBarSuggestions#RESULTS_LIST_ITEM_DESCRIPTION",
-				value1 = ${searchAssetDescription});
+				value1 = ".*${searchAssetDescription}.*");
 		}
 	}
 

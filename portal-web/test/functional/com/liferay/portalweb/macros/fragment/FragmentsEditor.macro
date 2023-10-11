@@ -26,9 +26,9 @@ definition {
 			autocompleteField = ${autocompleteField},
 			locator1 = "FragmentEditor#AUTOCOMPLETE_FIELD");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "FragmentEditor#HTML_EDITOR_CONTENT",
-			value1 = ${fragmentHtml});
+			value1 = ".*${fragmentHtml}.*");
 	}
 
 	macro gotoCodeTab {

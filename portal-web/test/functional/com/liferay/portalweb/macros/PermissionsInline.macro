@@ -22,9 +22,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 	}
 
 	macro addOrRemoveAnyPermissionsFromSpecificRole {
@@ -72,9 +72,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 	}
 
 	macro addOrRemoveEntryPermissionsFromAllRoles {
@@ -120,9 +120,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 	}
 
 	macro addOrRemoveSubscribePermissionFromAllRoles {
@@ -143,9 +143,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 	}
 
 	macro addOrRemoveViewPermissionFromAllRoles {
@@ -170,9 +170,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 	}
 
 	macro assertDefaultPG {

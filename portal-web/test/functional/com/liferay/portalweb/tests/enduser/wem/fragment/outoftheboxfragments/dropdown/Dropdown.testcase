@@ -458,10 +458,10 @@ definition {
 				key_fragmentName = "dropdown",
 				locator1 = "PageEditor#FRAGMENT_INHERITED_FROM_CUSTOM_MASTERS");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fragmentName = "dropdown",
 				locator1 = "PageEditor#FRAGMENT_INHERITED_FROM_CUSTOM_MASTERS",
-				value1 = "Mega Menu");
+				value1 = ".*Mega Menu.*");
 		}
 	}
 

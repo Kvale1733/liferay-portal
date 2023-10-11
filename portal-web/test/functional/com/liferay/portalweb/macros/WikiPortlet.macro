@@ -106,9 +106,9 @@ definition {
 
 			SelectFrame.selectFrameNoLoading(locator1 = "CKEditor#BODY_FIELD_IFRAME");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CKEditor#BODY",
-				value1 = ${bodyContent});
+				value1 = ".*${bodyContent}.*");
 
 			SelectFrame(value1 = "relative=top");
 		}

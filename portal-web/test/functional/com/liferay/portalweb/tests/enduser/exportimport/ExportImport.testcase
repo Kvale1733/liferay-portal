@@ -257,9 +257,9 @@ definition {
 				locator1 = "Message#ERROR",
 				value1 = "Your request failed to complete.");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_DISMISSIBLE",
-				value1 = "Unable to validate referenced document because it cannot be found with the following parameters");
+				value1 = ".*Unable to validate referenced document because it cannot be found with the following parameters.*");
 		}
 	}
 

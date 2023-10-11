@@ -96,9 +96,9 @@ definition {
 
 		AssertElementNotPresent(locator1 = "Message#SUCCESS");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "TextInput#REQUIRED_ALERT",
-			value1 = "At least one value is required.");
+			value1 = ".*At least one value is required\..*");
 	}
 
 	macro deleteImageResolution {
@@ -247,9 +247,9 @@ definition {
 	macro viewImageResolutionTableEntry {
 		var key_imageName = ${imageName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AdaptiveMediaTable#NAME",
-			value1 = ${imageName});
+			value1 = ".*${imageName}.*");
 
 		var key_imageState = ${imageState};
 
@@ -260,18 +260,18 @@ definition {
 		}
 
 		if (isSet(percentAdapted)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "AdaptiveMediaTable#PROGRESS",
-				value1 = ${percentAdapted});
+				value1 = ".*${percentAdapted}.*");
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AdaptiveMediaTable#MAX_WIDTH",
-			value1 = ${maxWidth});
+			value1 = ".*${maxWidth}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AdaptiveMediaTable#MAX_HEIGHT",
-			value1 = ${maxHeight});
+			value1 = ".*${maxHeight}.*");
 	}
 
 	macro viewImageVariantDescription {

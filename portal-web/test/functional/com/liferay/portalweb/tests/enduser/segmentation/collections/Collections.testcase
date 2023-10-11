@@ -48,27 +48,27 @@ definition {
 		task ("Assert Asset List Entry names and types") {
 			AssetListsAdmin.openAssetListsAdmin(siteURLKey = "test-site-name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_title = "Manual Asset List Test",
 				locator1 = "AssetLists#ASSET_LIST_ENTRY_TITLE",
-				value1 = "Manual Asset List Test");
+				value1 = ".*Manual Asset List Test.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnName = "lfr-type",
 				key_tableEntry = "Manual",
 				locator1 = "LexiconTable#TABLE_ENTRY_INFO",
-				value1 = "Manual");
+				value1 = ".*Manual.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_title = "Dynamic Asset List Test",
 				locator1 = "AssetLists#ASSET_LIST_ENTRY_TITLE",
-				value1 = "Dynamic Asset List Test");
+				value1 = ".*Dynamic Asset List Test.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnName = "lfr-type",
 				key_tableEntry = "Dynamic",
 				locator1 = "LexiconTable#TABLE_ENTRY_INFO",
-				value1 = "Dynamic");
+				value1 = ".*Dynamic.*");
 		}
 	}
 
@@ -94,9 +94,9 @@ definition {
 		}
 
 		task ("Assert an error displays notifying that the user is not allowed to create a duplicate asset list") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_MODAL_CONTENT",
-				value1 = "A collection with that title already exists.");
+				value1 = ".*A collection with that title already exists\..*");
 		}
 	}
 
@@ -721,19 +721,19 @@ definition {
 		}
 
 		task ("Assert the selected info is shown above the Select button") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_text = "Select from List: Option 2",
 				locator1 = "APConfiguration#SOURCE_SCOPE_FIELD_FILTER_AND_VALUE",
-				value1 = "Select from List: Option 2");
+				value1 = ".*Select from List: Option 2.*");
 		}
 
 		task ("Assert the selected info is still shown above the Select button") {
 			PortletEntry.save();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_text = "Select from List: Option 2",
 				locator1 = "APConfiguration#SOURCE_SCOPE_FIELD_FILTER_AND_VALUE",
-				value1 = "Select from List: Option 2");
+				value1 = ".*Select from List: Option 2.*");
 		}
 	}
 
@@ -3145,16 +3145,16 @@ definition {
 		}
 
 		task ("Assert that the name of the asset list changed correctly") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_title = "Manual Asset List Edit",
 				locator1 = "AssetLists#ASSET_LIST_ENTRY_TITLE",
-				value1 = "Manual Asset List Edit");
+				value1 = ".*Manual Asset List Edit.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnName = "lfr-type",
 				key_tableEntry = "Manual",
 				locator1 = "LexiconTable#TABLE_ENTRY_INFO",
-				value1 = "Manual");
+				value1 = ".*Manual.*");
 		}
 	}
 
@@ -3200,29 +3200,29 @@ definition {
 		task ("Order segments") {
 			ManagementBar.setFilterAndOrder(orderBy = "Name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Segment One");
+				value1 = ".*Segment One.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 2,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Segment Two");
+				value1 = ".*Segment Two.*");
 		}
 
 		task ("Sort segments") {
 			ManagementBar.toggleViewOrder(order = "up");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Segment Two");
+				value1 = ".*Segment Two.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 2,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Segment One");
+				value1 = ".*Segment One.*");
 		}
 
 		task ("Search segments") {
@@ -4661,11 +4661,11 @@ definition {
 					tableEntry = ${collectionName},
 					tableEntryInfo = 0);
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_columnName = "modified",
 					key_tableEntry = ${collectionName},
 					locator1 = "LexiconTable#TABLE_ENTRY_INFO",
-					value1 = "Ago");
+					value1 = ".*Ago.*");
 			}
 		}
 	}

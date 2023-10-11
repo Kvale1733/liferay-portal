@@ -109,7 +109,7 @@ definition {
 		}
 
 		task ("Assert the widget's increment button works") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ClientExtension#SAMPLE_CUSTOM_ELEMENT_1_COUNTER",
 				value1 = 0);
 
@@ -119,7 +119,7 @@ definition {
 
 			Click(locator1 = "ClientExtension#SAMPLE_CUSTOM_ELEMENT_1_INCREMENT_BUTTON");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ClientExtension#SAMPLE_CUSTOM_ELEMENT_1_COUNTER",
 				value1 = 3);
 		}
@@ -133,9 +133,9 @@ definition {
 
 			Click(locator1 = "ClientExtension#SAMPLE_CUSTOM_ELEMENT_1_DECREMENT_BUTTON");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ClientExtension#SAMPLE_CUSTOM_ELEMENT_1_COUNTER",
-				value1 = "-1");
+				value1 = ".*-1.*");
 		}
 	}
 
@@ -161,10 +161,10 @@ definition {
 		}
 
 		task ("Then: Sample element greets the user by name") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_portletName = "Liferay Sample Custom Element 2",
 				locator1 = "Portlet#SPECIFIC_PORTLET_SECTION",
-				value1 = "Hello Test");
+				value1 = ".*Hello Test.*");
 		}
 
 		task ("When: User logs out") {
@@ -178,10 +178,10 @@ definition {
 		}
 
 		task ("Then: Sample element says 'Hello World'") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_portletName = "Liferay Sample Custom Element 2",
 				locator1 = "Portlet#BODY",
-				value1 = "Hello World");
+				value1 = ".*Hello World.*");
 		}
 	}
 
@@ -288,9 +288,9 @@ definition {
 		}
 
 		task ("Then: Sample element displays a dad joke") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ClientExtension#SAMPLE_CUSTOM_ELEMENT_2_DAD_JOKE",
-				value1 = ${dadJoke});
+				value1 = ".*${dadJoke}.*");
 		}
 	}
 
@@ -415,7 +415,7 @@ definition {
 				key_row = 1,
 				locator1 = "ClientExtension#SAMPLE_IFRAME_1_COUNTER_INCREMENT_BUTTON");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ClientExtension#SAMPLE_IFRAME_1_COUNTER_CART_TOTAL",
 				value1 = 1);
 		}

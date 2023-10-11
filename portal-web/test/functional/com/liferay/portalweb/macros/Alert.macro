@@ -57,22 +57,22 @@ definition {
 	}
 
 	macro viewDuplicateErrorMessage {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_1",
-			value1 = "Please enter a unique name.");
+			value1 = ".*Please enter a unique name\..*");
 	}
 
 	macro viewErrorMessage {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = ${errorMessage});
+			value1 = ".*${errorMessage}.*");
 	}
 
 	macro viewExpireContentFailedMessage {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_alertMessage = "Please enter a valid expiration date.",
 			locator1 = "Message#ERROR_ENTER_A_VALID_VALUE",
-			value1 = "Please enter a valid expiration date.");
+			value1 = ".*Please enter a valid expiration date\..*");
 	}
 
 	macro viewFieldErrorMessage {
@@ -95,17 +95,17 @@ definition {
 	}
 
 	macro viewLengthValidationField {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "TextInput#REQUIRED_ALERT",
-			value1 = "Please enter no more than");
+			value1 = ".*Please enter no more than.*");
 	}
 
 	macro viewLocalizationMessage {
 		WaitForElementPresent(locator1 = "Home#PORTAL_LOCALIZATION_TRANSLATION_LANGUAGE_MESSAGE");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Home#PORTAL_LOCALIZATION_TRANSLATION_LANGUAGE_MESSAGE",
-			value1 = ${translationLanguageLocalizationMessage});
+			value1 = ".*${translationLanguageLocalizationMessage}.*");
 
 		AssertTextEquals(
 			locator1 = "Home#PORTAL_LOCALIZATION_PREFERRED_LANGUAGE_MESSAGE",
@@ -122,9 +122,9 @@ definition {
 	}
 
 	macro viewMutedMessage {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUBTITLE",
-			value1 = ${muteMessage});
+			value1 = ".*${muteMessage}.*");
 	}
 
 	macro viewRequestFailedToComplete {
@@ -136,9 +136,9 @@ definition {
 	}
 
 	macro viewRequiredField {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "TextInput#REQUIRED_ALERT",
-			value1 = "This field is required.");
+			value1 = ".*This field is required\..*");
 	}
 
 	macro viewSpecificRequiredField {
@@ -152,9 +152,9 @@ definition {
 	}
 
 	macro viewSuccessMessageText {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = ${successMessage});
+			value1 = ".*${successMessage}.*");
 
 		VerifyVisible(locator1 = "Message#SUCCESS");
 	}

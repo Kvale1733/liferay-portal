@@ -228,9 +228,9 @@ definition {
 		}
 
 		task ("Then an error message is displayed") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#WARNING_FEEDBACK",
-				value1 = "Only one value is allowed");
+				value1 = ".*Only one value is allowed.*");
 		}
 
 		task ("And the user cant save the change") {
@@ -421,9 +421,9 @@ definition {
 		}
 
 		task ("And a successful message is displayed") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#SUCCESS",
-				value1 = "Your request completed successfully.");
+				value1 = ".*Your request completed successfully\..*");
 		}
 	}
 
@@ -945,9 +945,9 @@ definition {
 		}
 
 		task ("Then the changes are saved and a success message is displayed") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#SUCCESS",
-				value1 = "Your request completed successfully.");
+				value1 = ".*Your request completed successfully\..*");
 		}
 	}
 
@@ -1538,9 +1538,9 @@ definition {
 		}
 
 		task ("Then an error message is displayed") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#WARNING_FEEDBACK",
-				value1 = "Only one value is allowed");
+				value1 = ".*Only one value is allowed.*");
 		}
 
 		task ("And the user cant save the change") {
@@ -1641,9 +1641,9 @@ definition {
 				key_text = "Save",
 				locator1 = "CP2ActivationKeys#KEY_DEACTIVATION_TERMS");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#SUCCESS",
-				value1 = "Your request completed successfully.");
+				value1 = ".*Your request completed successfully\..*");
 		}
 	}
 
@@ -1728,9 +1728,9 @@ definition {
 				key_text = "Save",
 				locator1 = "CP2ActivationKeys#KEY_DEACTIVATION_TERMS");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#SUCCESS",
-				value1 = "Your request completed successfully.");
+				value1 = ".*Your request completed successfully\..*");
 		}
 	}
 
@@ -1827,9 +1827,9 @@ definition {
 				key_text = "Save",
 				locator1 = "CP2ActivationKeys#KEY_DEACTIVATION_TERMS");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#SUCCESS",
-				value1 = "Your request completed successfully.");
+				value1 = ".*Your request completed successfully\..*");
 		}
 	}
 
@@ -1907,9 +1907,9 @@ definition {
 		}
 
 		task ("Then an error message is displayed") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#WARNING_FEEDBACK",
-				value1 = "Only one value is allowed");
+				value1 = ".*Only one value is allowed.*");
 		}
 
 		task ("And the user cant save the change") {

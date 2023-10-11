@@ -536,9 +536,9 @@ definition {
 			var itemValue = ListUtil.get(${itemValueList}, ${i});
 			var index = ListUtil.get(${indexList}, ${i});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ACDXPSettings#ASSIGN_MODAL_VIEW_LIST_ITEM_ORDER",
-				value1 = ${itemValue});
+				value1 = ".*${itemValue}.*");
 
 			var i = ${i} + 1;
 

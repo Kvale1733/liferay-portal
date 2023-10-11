@@ -59,9 +59,9 @@ definition {
 	macro assertNewCreatedProperty {
 		WaitForElementPresent(locator1 = "ACSettings#PROPERTY_NAME");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ACSettings#PROPERTY_NAME",
-			value1 = ${propertyName});
+			value1 = ".*${propertyName}.*");
 	}
 
 	macro assertNoProperties {

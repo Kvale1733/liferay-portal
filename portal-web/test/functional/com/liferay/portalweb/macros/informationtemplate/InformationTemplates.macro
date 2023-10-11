@@ -121,9 +121,9 @@ definition {
 	}
 
 	macro viewScriptContent {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "DDMEditTemplate#CODE_MIRROR_EDITOR_CONTENT",
-			value1 = ${scriptContent});
+			value1 = ".*${scriptContent}.*");
 	}
 
 	macro viewTemplate {

@@ -283,9 +283,9 @@ definition {
 	}
 
 	macro viewNoPG {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Comments#ENTRY_COUNT_PANEL",
-			value1 = "0 COMMENTS");
+			value1 = ".*0 COMMENTS.*");
 
 		AssertElementNotPresent(
 			key_userFullName = ${userFullName},
@@ -307,23 +307,23 @@ definition {
 				value1 = "${commentCount} COMMENT");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Comments#ENTRY_COUNT_PANEL",
-				value1 = "${commentCount} COMMENT");
+				value1 = ".*${commentCount} COMMENT.*");
 		}
 
 		if (isSet(importedComment)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_userFullName = ${userFullName},
 				locator1 = "Comments#USER_NAME_2",
-				value1 = ${userFullName});
+				value1 = ".*${userFullName}.*");
 		}
 		else {
 			var key_userFullName = ${userFullName};
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Comments#USER_NAME",
-				value1 = ${userFullName});
+				value1 = ".*${userFullName}.*");
 
 			AssertTextEquals(
 				locator1 = "Comments#COMMENT_BODY_SPECIFIC",

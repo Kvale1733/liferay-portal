@@ -112,10 +112,10 @@ definition {
 			key_tab = "Accounts",
 			locator1 = "NavTab#ACTIVE_TAB_LINK");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_tableEntry = ${assigneeName},
 			locator1 = "LexiconTable#TABLE_ENTRY",
-			value1 = ${assigneeName});
+			value1 = ".*${assigneeName}.*");
 	}
 
 	macro viewDefault {
@@ -127,9 +127,9 @@ definition {
 
 		var tabName = StringUtil.toLowerCase(${tabName});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No ${tabName} were found.");
+			value1 = ".*No ${tabName} were found\..*");
 	}
 
 	macro viewEntry {

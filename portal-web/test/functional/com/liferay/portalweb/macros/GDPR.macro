@@ -294,15 +294,15 @@ definition {
 			key_dataSelected = ${applications},
 			locator1 = "DataErasure#REVIEW_DATA_SELECTED");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_applications = ${applications},
 			locator1 = "DataErasure#APPLICATIONS_COUNT",
-			value1 = "${applications} (${applicationItemsCount})");
+			value1 = ".*${applications} (${applicationItemsCount}).*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_itemsCount = ${totalItemsCount},
 			locator1 = "DataErasure#REMAINING_ITEMS_COUNT",
-			value1 = "Remaining Items: ${totalItemsCount}");
+			value1 = ".*Remaining Items: ${totalItemsCount}.*");
 	}
 
 	macro filterByScope {
@@ -328,15 +328,15 @@ definition {
 			Navigator.gotoNavTab(navTab = "Review Data");
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_applications = ${applications},
 			locator1 = "DataErasure#APPLICATIONS_COUNT",
-			value1 = "${applications} (0)");
+			value1 = ".*${applications} (0).*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_itemsCount = 0,
 			locator1 = "DataErasure#REMAINING_ITEMS_COUNT",
-			value1 = "Remaining Items: 0");
+			value1 = ".*Remaining Items: 0.*");
 
 		Portlet.viewEmptyMessage(message = "All data that requires review has been anonymized.");
 	}

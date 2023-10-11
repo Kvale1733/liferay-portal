@@ -12,14 +12,14 @@ definition {
 			MenuItem.click(menuItem = ${menuItem});
 
 			if (${menuItem} == "View Page without my customizations") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "Home#PAGE_CUSTOMIZATION_MESSAGE_INFO",
-					value1 = "This is the default page without your customizations.");
+					value1 = ".*This is the default page without your customizations\..*");
 			}
 			else {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "Home#PAGE_CUSTOMIZATION_MESSAGE_INFO",
-					value1 = "You can customize this page.");
+					value1 = ".*You can customize this page\..*");
 			}
 		}
 	}
@@ -50,9 +50,9 @@ definition {
 	}
 
 	macro viewCustomizablePagePG {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Home#PAGE_CUSTOMIZATION_MESSAGE_INFO",
-			value1 = "You can customize this page.");
+			value1 = ".*You can customize this page\..*");
 
 		Click(locator1 = "Icon#CONTROL_MENU_VERTICAL_ELLIPSIS");
 

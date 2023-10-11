@@ -390,9 +390,9 @@ definition {
 		}
 
 		task ("Then can verify the error alert on the modal") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "There is another unit of measure with the same key.");
+				value1 = ".*There is another unit of measure with the same key\..*");
 		}
 
 		task ("When enters the Conversion Rate as 0 for the second Unit of Measure") {
@@ -721,9 +721,9 @@ definition {
 		}
 
 		task ("Then an error alert is shown to enter the valid value for Decimal Allowed field") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "Error:Decimals Allowed cannot be less than the number of decimals in the Base Unit Quantity.");
+				value1 = ".*Error:Decimals Allowed cannot be less than the number of decimals in the Base Unit Quantity\..*");
 
 			Click(locator1 = "Icon#CLOSE");
 

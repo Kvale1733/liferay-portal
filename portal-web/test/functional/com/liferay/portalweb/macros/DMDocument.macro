@@ -227,10 +227,10 @@ definition {
 		if (isSet(validationError)) {
 			Button.clickPublish();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_alertMessage = ${validationError},
 				locator1 = "Message#ERROR_ENTER_A_VALID_VALUE",
-				value1 = ${validationError});
+				value1 = ".*${validationError}.*");
 		}
 		else if (isSet(validateFileNameRestriction)) {
 			AssertElementPresent(locator1 = "TextInput#FILE_PRESENT");
@@ -239,15 +239,15 @@ definition {
 
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_alertMessage = "Please enter a file with a valid file name.",
 				locator1 = "Message#ERROR_ENTER_A_VALID_VALUE",
-				value1 = "Please enter a file with a valid file name.");
+				value1 = ".*Please enter a file with a valid file name\..*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_alertMessage = "Please select the file again.",
 				locator1 = "Message#ERROR_ENTER_A_VALID_VALUE",
-				value1 = "Please select the file again.");
+				value1 = ".*Please select the file again\..*");
 
 			AssertElementNotPresent(locator1 = "TextInput#FILE_PRESENT");
 		}
@@ -256,15 +256,15 @@ definition {
 
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_alertMessage = "The file name cannot be empty or without extension.",
 				locator1 = "Message#ERROR_ENTER_A_VALID_VALUE",
-				value1 = "The file name cannot be empty or without extension.");
+				value1 = ".*The file name cannot be empty or without extension\..*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_alertMessage = "Please select the file again.",
 				locator1 = "Message#ERROR_ENTER_A_VALID_VALUE",
-				value1 = "Please select the file again.");
+				value1 = ".*Please select the file again\..*");
 
 			AssertElementNotPresent(locator1 = "TextInput#FILE_PRESENT");
 		}
@@ -273,15 +273,15 @@ definition {
 
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_alertMessage = "You have exceeded the ${storageQuota} storage quota for this instance.",
 				locator1 = "Message#ERROR_ENTER_A_VALID_VALUE",
-				value1 = "You have exceeded the ${storageQuota} storage quota for this instance.");
+				value1 = ".*You have exceeded the ${storageQuota} storage quota for this instance\..*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_alertMessage = "Please select the file again.",
 				locator1 = "Message#ERROR_ENTER_A_VALID_VALUE",
-				value1 = "Please select the file again.");
+				value1 = ".*Please select the file again\..*");
 		}
 		else if (isSet(requiredFieldValidation)) {
 			Button.clickPublish();
@@ -292,9 +292,9 @@ definition {
 				value1 = "This field is required.");
 		}
 		else if (isSet(warningForSizeLimits)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#WARNING_FEEDBACK",
-				value1 = ${warningForSizeLimits});
+				value1 = ".*${warningForSizeLimits}.*");
 
 			PortletEntry.publish();
 		}
@@ -510,10 +510,10 @@ definition {
 
 			Panel.expandPanel(panel = "Document Type");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_toggleButtonName = ${documentType},
 				locator1 = "Dropdown#DROPDOWN_TOGGLE_BUTTON",
-				value1 = ${documentType});
+				value1 = ".*${documentType}.*");
 
 			if (isSet(dateValue)) {
 				if (!(isSet(dateFieldLabel))) {
@@ -551,11 +551,11 @@ definition {
 				var dmDocumentFileFailed = ListUtil.get(${list1}, ${i});
 				var validationError = ListUtil.get(${list2}, ${i});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					dmDocumentFile = ${dmDocumentFileFailed},
 					key_alertMessage = ${validationError},
 					locator1 = "Message#ERROR_MULTIPLE_UPLOAD_INVALID",
-					value1 = ${validationError});
+					value1 = ".*${validationError}.*");
 
 				var i = ${i} + 1;
 
@@ -611,9 +611,9 @@ definition {
 		}
 
 		if (isSet(validateStorageQuota)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "DocumentsAndMediaDocument#DOCUMENT_EXCEED_STORAGE_QUOTA_ERROR",
-				value1 = "You have exceeded the ${storageQuota} storage quota for this instance.");
+				value1 = ".*You have exceeded the ${storageQuota} storage quota for this instance\..*");
 		}
 
 		AssertClick(
@@ -699,16 +699,16 @@ definition {
 		if (${dmDocument} == "Duplicate") {
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "DocumentsAndMediaEditDocument#UNIQUE_DOCUMENT_ERROR_MESSAGE",
-				value1 = "Please enter a unique document name.");
+				value1 = ".*Please enter a unique document name\..*");
 		}
 		else if (${dmDocument} == "Invalid") {
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_2",
-				value1 = "Please enter a file with a valid file name.");
+				value1 = ".*Please enter a file with a valid file name\..*");
 		}
 		else {
 			Alert.viewSuccessMessage();
@@ -780,10 +780,10 @@ definition {
 		if (isSet(validationError)) {
 			Button.clickPublish();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_alertMessage = ${validationError},
 				locator1 = "Message#ERROR_ENTER_A_VALID_VALUE",
-				value1 = ${validationError});
+				value1 = ".*${validationError}.*");
 		}
 		else {
 			PortletEntry.publish();
@@ -908,9 +908,9 @@ definition {
 		var key_dmDocumentTitle = ${dmDocumentTitle};
 
 		if (${dmRepositoryName} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#INFO",
-				value1 = "You now have an indefinite lock on this document. No one else can edit this document until you unlock it. This lock will never expire.");
+				value1 = ".*You now have an indefinite lock on this document. No one else can edit this document until you unlock it. This lock will never expire\..*");
 
 			LexiconEntry.gotoHeaderMenuItem(menuItem = "Cancel Checkout");
 		}
@@ -919,9 +919,9 @@ definition {
 
 			DMNavigator.gotoDocumentCP(dmDocumentTitle = ${dmDocumentTitle});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#CHECKOUT_SUCCESS",
-				value1 = "Info:You now have a lock on this document. No one else can edit this document until you unlock it. This lock will automatically expire in 1 day.");
+				value1 = ".*Info:You now have a lock on this document. No one else can edit this document until you unlock it. This lock will automatically expire in 1 day\..*");
 
 			DMNavigator.openDocumentsAndMediaAdmin(siteURLKey = "guest");
 
@@ -984,14 +984,14 @@ definition {
 
 	macro checkinCP {
 		if (${dmRepositoryName} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#CHECKOUT_SUCCESS",
-				value1 = "Info:You now have an indefinite lock on this document. No one else can edit this document until you unlock it. This lock will never expire.");
+				value1 = ".*Info:You now have an indefinite lock on this document. No one else can edit this document until you unlock it. This lock will never expire\..*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#CHECKOUT_SUCCESS",
-				value1 = "Info:You now have a lock on this document. No one else can edit this document until you unlock it. This lock will automatically expire in 1 day.");
+				value1 = ".*Info:You now have a lock on this document. No one else can edit this document until you unlock it. This lock will automatically expire in 1 day\..*");
 		}
 
 		Click(locator1 = "Icon#TOOLBAR_ELLIPSIS");
@@ -1120,23 +1120,23 @@ definition {
 		}
 
 		if (${dmRepositoryName} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#CHECKOUT_SUCCESS",
-				value1 = "Info:You now have an indefinite lock on this document. No one else can edit this document until you unlock it. This lock will never expire.");
+				value1 = ".*Info:You now have an indefinite lock on this document. No one else can edit this document until you unlock it. This lock will never expire\..*");
 		}
 		else if (isSet(editStatus)) {
 			AssertClick(
 				locator1 = "DocumentsAndMedia#DESCRIPTIVE_LIST_DOCUMENT_TITLE",
 				value1 = ${dmDocumentTitle});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#CHECKOUT_SUCCESS",
-				value1 = "Info:You now have a lock on this document. No one else can edit this document until you unlock it. This lock will automatically expire in 1 day.");
+				value1 = ".*Info:You now have a lock on this document. No one else can edit this document until you unlock it. This lock will automatically expire in 1 day\..*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#CHECKOUT_SUCCESS",
-				value1 = "Info:You now have a lock on this document. No one else can edit this document until you unlock it. This lock will automatically expire in 1 day.");
+				value1 = ".*Info:You now have a lock on this document. No one else can edit this document until you unlock it. This lock will automatically expire in 1 day\..*");
 		}
 	}
 
@@ -1151,9 +1151,9 @@ definition {
 
 		Alert.viewSuccessMessage();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#CHECKOUT_SUCCESS",
-			value1 = "Info:You now have a lock on this document. No one else can edit this document until you unlock it. This lock will automatically expire in 1 day.");
+			value1 = ".*Info:You now have a lock on this document. No one else can edit this document until you unlock it. This lock will automatically expire in 1 day\..*");
 	}
 
 	macro checkoutViaManagementBar {
@@ -1382,9 +1382,9 @@ definition {
 
 			Button.click(button = "Select All");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ManagementBar#NAVBAR_TEXT",
-				value1 = "All Selected");
+				value1 = ".*All Selected.*");
 
 			Click(locator1 = "Icon#DELETE");
 
@@ -1565,9 +1565,9 @@ definition {
 			value1 = "Edit Categories");
 
 		if (${multipleDocuments} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Modal#BODY",
-				value1 = "You are editing the common categories for ${itemNumber} items. Select edit or replace current categories.");
+				value1 = ".*You are editing the common categories for ${itemNumber} items. Select edit or replace current categories\..*");
 
 			Click(locator1 = "Modal#BODY");
 
@@ -1583,9 +1583,9 @@ definition {
 			}
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Modal#BODY",
-				value1 = "You are editing the categories for the selected item.");
+				value1 = ".*You are editing the categories for the selected item\..*");
 		}
 
 		for (var categoryName : list ${categoryNameList}) {
@@ -1654,9 +1654,9 @@ definition {
 			value1 = ${dmDocumentTitle});
 
 		if (${checkedOut} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_2",
-				value1 = "You cannot modify this document because it was locked by ${userName}");
+				value1 = ".*You cannot modify this document because it was locked by ${userName}.*");
 		}
 		else {
 			DMNavigator.gotoVerticalEllipsisMenuItem(menuItem = "Edit");
@@ -2022,9 +2022,9 @@ definition {
 			value1 = "Edit Tags");
 
 		if (${multipleDocuments} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Modal#BODY",
-				value1 = "You are editing the common tags for ${itemNumber} items. Select edit or replace current tags.");
+				value1 = ".*You are editing the common tags for ${itemNumber} items. Select edit or replace current tags\..*");
 
 			Click(locator1 = "Modal#BODY");
 
@@ -2040,9 +2040,9 @@ definition {
 			}
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Modal#BODY",
-				value1 = "You are editing the tags for the selected item.");
+				value1 = ".*You are editing the tags for the selected item\..*");
 		}
 
 		if (isSet(autocomplete)) {
@@ -2206,9 +2206,9 @@ definition {
 
 		Alert.viewSuccessMessage();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no documents or media files in this folder.");
+			value1 = ".*There are no documents or media files in this folder\..*");
 	}
 
 	macro moveToFolderCP {
@@ -2275,9 +2275,9 @@ definition {
 		WaitForLiferayEvent.initializeLiferayEventLog();
 
 		if (isSet(bulkSelection)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ManagementBar#NAVBAR_TEXT",
-				value1 = ${bulkSelection});
+				value1 = ".*${bulkSelection}.*");
 
 			Click(locator1 = "Icon#MOVE");
 		}
@@ -2307,9 +2307,9 @@ definition {
 		if (isSet(dmDuplicateDocument)) {
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_MOVE_DUPLICATE_CONTENT",
-				value1 = "The folder you selected already has an entry with this name. Please select a different folder.");
+				value1 = ".*The folder you selected already has an entry with this name. Please select a different folder\..*");
 		}
 		else {
 			Alert.viewSuccessMessage();
@@ -2332,9 +2332,9 @@ definition {
 		VerifyElementPresent(locator1 = "Message#SUCCESS");
 
 		if (IsElementNotPresent(locator1 = "DocumentsAndMedia#ICON_DOCUMENT_GENERIC")) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "There are no documents or media files in this folder.");
+				value1 = ".*There are no documents or media files in this folder\..*");
 		}
 	}
 
@@ -2490,7 +2490,7 @@ definition {
 		var key_dmDocumentVersionNumber = ${dmDocumentVersionNumber};
 		var documentCreationDate = DateUtil.getFormattedCurrentDate("M/d/yy");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "DocumentsAndMediaDocument#DOCUMENT_VERSIONS_CREATION_DATE",
 			value1 = ${documentCreationDate},
 			versionNumber = ${key_dmDocumentVersionNumber});
@@ -2661,10 +2661,10 @@ definition {
 		Button.clickPublish();
 
 		if (${invalidExpirationDate} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_alertMessage = "Please enter a valid expiration date.",
 				locator1 = "Message#ERROR_ENTER_A_VALID_VALUE",
-				value1 = "Please enter a valid expiration date.");
+				value1 = ".*Please enter a valid expiration date\..*");
 		}
 		else {
 			Alert.viewSuccessMessage();
@@ -3043,16 +3043,16 @@ definition {
 		if (isSet(validateInvalidValue)) {
 			Button.clickSave();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_alertMessage = "Your request failed to complete.",
 				locator1 = "Message#ERROR_ENTER_A_VALID_VALUE",
-				value1 = "Your request failed to complete.");
+				value1 = ".*Your request failed to complete\..*");
 
 			if (isSet(viewErrorAlert)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_alertMessage = "Error:Mime type or size limit is not valid.",
 					locator1 = "Message#ERROR_ENTER_A_VALID_VALUE",
-					value1 = "Error:Mime type or size limit is not valid.");
+					value1 = ".*Error:Mime type or size limit is not valid\..*");
 			}
 		}
 		else {
@@ -3151,15 +3151,15 @@ definition {
 
 	macro viewAudioPreviewGeneratingInfo {
 		if (isSet(disabled)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "DocumentsAndMediaDocument#DOCUMENT_DETAILS_EMPTY_STATE_PREVIEW",
-				value1 = "No preview available");
+				value1 = ".*No preview available.*");
 		}
 		else {
 			while ((IsElementPresent(locator1 = "Message#INFO")) && (maxIterations = "20")) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "Message#INFO",
-					value1 = "Generating preview will take a few minutes.");
+					value1 = ".*Generating preview will take a few minutes\..*");
 
 				Refresh.pauseRefresh();
 
@@ -3251,9 +3251,9 @@ definition {
 
 	macro viewCheckedoutCP {
 		if (${dmRepositoryName} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#INFO",
-				value1 = "You now have an indefinite lock on this document. No one else can edit this document until you unlock it. This lock will never expire.");
+				value1 = ".*You now have an indefinite lock on this document. No one else can edit this document until you unlock it. This lock will never expire\..*");
 		}
 		else {
 			AssertVisible(locator1 = "DocumentsAndMediaDocument#DOCUMENT_DETAILS_VERSION_LOCKED");
@@ -3379,9 +3379,9 @@ definition {
 	macro viewDefault {
 		AssertElementNotPresent(locator1 = "DocumentsAndMedia#ICON_DOCUMENT_GENERIC");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no documents or media files in this folder.");
+			value1 = ".*There are no documents or media files in this folder\..*");
 	}
 
 	macro viewDMMarketingBannerPG {
@@ -3393,33 +3393,33 @@ definition {
 
 		var key_marketingSelect = ${marketingSelect};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "DocumentsAndMediaDocument#MARKETING_SELECT",
-			value1 = ${marketingSelect});
+			value1 = ".*${marketingSelect}.*");
 
 		var key_campaignTheme = ${campaignTheme};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "DocumentsAndMediaDocument#MARKETING_CAMPAIGN_THEME",
-			value1 = ${campaignTheme});
+			value1 = ".*${campaignTheme}.*");
 
 		var key_legalReview = ${legalReview};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "DocumentsAndMediaDocument#MARKETING_NEEDS_LEGAL_REVIEW",
-			value1 = ${legalReview});
+			value1 = ".*${legalReview}.*");
 
 		var key_bannerName = ${bannerName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "DocumentsAndMediaDocument#MARKETING_BANNER_NAME",
-			value1 = ${bannerName});
+			value1 = ".*${bannerName}.*");
 
 		var key_bannerDescription = ${bannerDescription};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "DocumentsAndMediaDocument#MARKETING_BANNER_DESCRIPTION",
-			value1 = ${bannerDescription});
+			value1 = ".*${bannerDescription}.*");
 	}
 
 	macro viewDocumentAuthorCmdPG {
@@ -3546,9 +3546,9 @@ definition {
 
 		DMDocument.expandInfo();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Link#DOWNLOAD",
-			value1 = "Download");
+			value1 = ".*Download.*");
 
 		AssertElementNotPresent(locator1 = "Button#EDIT");
 
@@ -3564,10 +3564,10 @@ definition {
 	macro viewDocumentToolbarCmdPG {
 		Click(locator1 = "Icon#TOOLBAR_ELLIPSIS");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_item = "Download",
 			locator1 = "ManagementBar#ACTIVE_DROPDOWN_ITEM",
-			value1 = "Download");
+			value1 = ".*Download.*");
 
 		MenuItem.viewVisible(menuItem = "Edit");
 
@@ -3627,17 +3627,17 @@ definition {
 		if (isSet(selectOption)) {
 			var key_selectOption = ${selectOption};
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "DocumentsAndMediaDocument#METADATA_PANEL_SELECT",
-				value1 = ${selectOption});
+				value1 = ".*${selectOption}.*");
 		}
 
 		if (isSet(radioOption)) {
 			var key_radioOption = ${radioOption};
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "DocumentsAndMediaDocument#METADATA_PANEL_RADIO",
-				value1 = ${radioOption});
+				value1 = ".*${radioOption}.*");
 		}
 
 		if (isSet(textContent)) {
@@ -3772,10 +3772,10 @@ definition {
 
 	macro viewFieldLabels {
 		for (var fieldFieldLabels : list ${labels}) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fieldFieldLabel = ${fieldFieldLabels},
 				locator1 = "DDMEditStructure#FORM_FIELD_CONTAINER_LABEL",
-				value1 = ${fieldFieldLabels});
+				value1 = ".*${fieldFieldLabels}.*");
 		}
 	}
 
@@ -3786,10 +3786,10 @@ definition {
 			key_dmDocumentVersionNumber = "Version ${dmDocumentVersionNumber}",
 			locator1 = "DocumentsAndMedia#DOCUMENT_VERSION_VERTICAL_ELLIPSIS");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_menuItem = "Download (${dmDocumentSize})",
 			locator1 = "MenuItem#DROPDOWN_MENU_ITEM",
-			value1 = "Download (${dmDocumentSize})");
+			value1 = ".*Download (${dmDocumentSize}).*");
 
 		Click(
 			key_menuItem = "View",
@@ -3802,10 +3802,10 @@ definition {
 
 		Click(locator1 = "DocumentsAndMediaDocument#DOCUMENT_TOOLBAR_VERTICAL_ELLIPSIS");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_menuItem = "Download (${dmDocumentSize})",
 			locator1 = "MenuItem#DROPDOWN_MENU_ITEM",
-			value1 = "Download (${dmDocumentSize})");
+			value1 = ".*Download (${dmDocumentSize}).*");
 
 		DMDocument.expandInfo();
 
@@ -3824,10 +3824,10 @@ definition {
 
 		if (isSet(tagNames)) {
 			for (var tagName : list ${tagNames}) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_tableEntry = ${tagName},
 					locator1 = "LexiconTable#TABLE_ENTRY",
-					value1 = ${tagName});
+					value1 = ".*${tagName}.*");
 			}
 		}
 		else {
@@ -3876,9 +3876,9 @@ definition {
 	}
 
 	macro viewFilterSummaryResults {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ManagementBar#SEARCH_RESULT_SUMMARY",
-			value1 = ${searchResults});
+			value1 = ".*${searchResults}.*");
 
 		for (var filterScope : list ${filterScope}) {
 			AssertTextEquals(
@@ -4143,10 +4143,10 @@ definition {
 		}
 
 		if (isSet(dmDocumentUploader)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_dmDocumentUploader = ${dmDocumentUploader},
 				locator1 = "DocumentsAndMediaDocument#DOCUMENT_DETAILS_UPLOADER",
-				value1 = "by ${dmDocumentUploader}");
+				value1 = ".*by ${dmDocumentUploader}.*");
 		}
 
 		if (isSet(locationFieldName)) {
@@ -4161,9 +4161,9 @@ definition {
 
 		if (isSet(tagNameList)) {
 			for (var tagName : list ${tagNameList}) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "DocumentsAndMediaDocument#DOCUMENT_INFO_TAGS",
-					value1 = ${tagName});
+					value1 = ".*${tagName}.*");
 			}
 		}
 
@@ -4183,9 +4183,9 @@ definition {
 		}
 
 		if (isSet(averageRatingStarCount)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Ratings#AVERAGE_STAR_RESULT",
-				value1 = ${averageRatingStarCount});
+				value1 = ".*${averageRatingStarCount}.*");
 		}
 	}
 
@@ -4238,9 +4238,9 @@ definition {
 			locator1 = "DocumentsAndMediaDocument#DOCUMENT_DETAILS_VERSION",
 			value1 = "VERSION ${dmDocumentVersionNumber}");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "DocumentsAndMediaDocument#DOCUMENT_DETAILS_UPLOADER",
-			value1 = "by ${dmDocumentUploader}");
+			value1 = ".*by ${dmDocumentUploader}.*");
 
 		AssertTextEquals(
 			locator1 = "DocumentsAndMediaDocument#DOCUMENT_DETAILS_WORKFLOW",
@@ -4250,9 +4250,9 @@ definition {
 			locator1 = "DocumentsAndMediaDocument#DOCUMENT_DETAILS_DOWNLOAD",
 			value1 = "Download");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "DocumentsAndMediaDocument#DOCUMENT_DETAILS_WEBDAV_URL",
-			value1 = "WebDAV URL");
+			value1 = ".*WebDAV URL.*");
 
 		AssertTextEquals(
 			locator1 = "DocumentsAndMediaDocument#DOCUMENT_DETAILS_URL",
@@ -4267,9 +4267,9 @@ definition {
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
 			value1 = ${dmDocumentTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = ${dmDocumentDescription});
+			value1 = ".*${dmDocumentDescription}.*");
 
 		if (IsElementPresent(locator1 = "Link#READ_MORE")) {
 			AssertClick.assertPartialTextClickAt(
@@ -4280,9 +4280,9 @@ definition {
 				locator1 = "AP#ASSET_ABSTRACT_TITLE",
 				value1 = ${dmDocumentTitle});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "APAsset#ASSET_CONTENT",
-				value1 = ${dmDocumentDescription});
+				value1 = ".*${dmDocumentDescription}.*");
 		}
 
 		if (isSet(customFieldName)) {
@@ -4372,22 +4372,22 @@ definition {
 
 			LexiconCard.viewCardNotPresent(card = ${dmDocumentTitle});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "There are no documents or media files in this folder.");
+				value1 = ".*There are no documents or media files in this folder\..*");
 		}
 		else if (${documentAdded} == "false") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "There are no documents or media files in this folder.");
+				value1 = ".*There are no documents or media files in this folder\..*");
 
 			AssertClick.assertPartialTextClickAt(
 				locator1 = "Staging#LIVE_BUTTON",
 				value1 = "Live");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "There are no documents or media files in this folder.");
+				value1 = ".*There are no documents or media files in this folder\..*");
 		}
 	}
 
@@ -4405,16 +4405,16 @@ definition {
 			}
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "DocumentsAndMedia#SEARCH_TITLE",
-			value1 = ${dmDocumentTitle});
+			value1 = ".*${dmDocumentTitle}.*");
 	}
 
 	macro viewSearchResultsPG {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_dmDocumentTitle = ${dmDocumentTitle},
 			locator1 = "DocumentsAndMedia#SEARCH_TITLE",
-			value1 = ${dmDocumentTitle});
+			value1 = ".*${dmDocumentTitle}.*");
 	}
 
 	macro ViewSelectedTags {
@@ -4556,9 +4556,9 @@ definition {
 
 			var tagName = StringUtil.lowerCase(${tagName});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "DocumentsAndMediaDocument#DOCUMENT_INFO_TAGS",
-				value1 = ${tagName});
+				value1 = ".*${tagName}.*");
 		}
 	}
 
@@ -4580,10 +4580,10 @@ definition {
 		SelectFrame.selectFrameNoLoading(locator1 = "IFrame#EMBEDDED_VIDEO_IFRAME");
 
 		if (isSet(disabled)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_text = "No video preview available.",
 				locator1 = "DocumentsAndMediaDocument#VIDEO_GENERATION_INFO",
-				value1 = "No video preview available.");
+				value1 = ".*No video preview available\..*");
 		}
 		else {
 			VerifyElementPresent(
@@ -4605,9 +4605,9 @@ definition {
 	macro viewWebDAVURL {
 		DMDocument.expandInfo();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "DocumentsAndMediaDocument#DOCUMENT_DETAILS_WEBDAV_URL",
-			value1 = "WebDAV URL");
+			value1 = ".*WebDAV URL.*");
 
 		var portalURL = PropsUtil.get("portal.url");
 

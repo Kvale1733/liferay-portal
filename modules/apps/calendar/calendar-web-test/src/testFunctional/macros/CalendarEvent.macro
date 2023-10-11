@@ -1275,9 +1275,9 @@ definition {
 		Click(locator1 = "CalendarEditEvent#REPEAT_DIALOG_SUMMARY");
 
 		if (${frequency} == "Monthly") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarEditEvent#REPEAT_DIALOG_SUMMARY",
-				value1 = ${frequency});
+				value1 = ".*${frequency}.*");
 
 			var currentDay = selenium.getElementValue("CalendarEditEvent#REPEAT_MONTHLY_CURRENT_DAY");
 
@@ -1285,13 +1285,13 @@ definition {
 
 			var currentDay = StringUtil.upperCaseFirstLetter(${currentDay});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarEditEvent#REPEAT_DIALOG_SUMMARY",
-				value1 = ${currentDay});
+				value1 = ".*${currentDay}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarEditEvent#REPEAT_DIALOG_SUMMARY",
-				value1 = "${numberOfOccurrences} Times");
+				value1 = ".*${numberOfOccurrences} Times.*");
 
 			CalendarEvent.viewRepeatingMonthPosition();
 
@@ -1300,9 +1300,9 @@ definition {
 				value1 = "Done");
 		}
 		else if (${frequency} == "Weekly") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarEditEvent#REPEAT_DIALOG_SUMMARY",
-				value1 = ${frequency});
+				value1 = ".*${frequency}.*");
 
 			var currentDay = selenium.getElementValue("CalendarEditEvent#REPEAT_WEEKLY_CURRENT_DAY");
 
@@ -1310,13 +1310,13 @@ definition {
 
 			var currentDay = StringUtil.upperCaseFirstLetter(${currentDay});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarEditEvent#REPEAT_DIALOG_SUMMARY",
-				value1 = ${currentDay});
+				value1 = ".*${currentDay}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarEditEvent#REPEAT_DIALOG_SUMMARY",
-				value1 = "${numberOfOccurrences} Times");
+				value1 = ".*${numberOfOccurrences} Times.*");
 
 			AssertClick(
 				locator1 = "CalendarEditEvent#REPEAT_DONE_BUTTON",
@@ -1584,9 +1584,9 @@ definition {
 			key_ratingStarCount = ${ratingStarCount},
 			locator1 = "CalendarEditEvent#RATING_STAR_RESULT_COUNT");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Ratings#AVERAGE_STAR_RESULT",
-			value1 = ${averageRatingStarCount});
+			value1 = ".*${averageRatingStarCount}.*");
 
 		MouseOver(locator1 = "CalendarEditEvent#RATING_STAR");
 
@@ -1868,9 +1868,9 @@ definition {
 
 		Alert.viewRequestFailedToComplete();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_1",
-			value1 = "The last repeating date should come after the event start date.");
+			value1 = ".*The last repeating date should come after the event start date\..*");
 	}
 
 	macro viewRepeatingEventViaViewDetails {
@@ -1884,13 +1884,13 @@ definition {
 				value1 = "Daily, ${numberOfOccurrences} Times");
 		}
 		else if (${frequency} == "Weekly") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarViewEventDetails#REPEAT_OCCURRENCE_SUMMARY",
-				value1 = "Weekly, on ");
+				value1 = ".*Weekly, on .*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarViewEventDetails#REPEAT_OCCURRENCE_SUMMARY",
-				value1 = ", ${numberOfOccurrences} Times");
+				value1 = ".*, ${numberOfOccurrences} Times.*");
 		}
 		else if (${frequency} == "Yearly") {
 			AssertTextEquals(
@@ -1900,17 +1900,17 @@ definition {
 		else if (${frequency} == "Monthly") {
 			var today = DateUtil.getCurrentDayOfWeek();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarViewEventDetails#REPEAT_OCCURRENCE_SUMMARY",
-				value1 = "Monthly");
+				value1 = ".*Monthly.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarViewEventDetails#REPEAT_OCCURRENCE_SUMMARY",
-				value1 = "${numberOfOccurrences} Times");
+				value1 = ".*${numberOfOccurrences} Times.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarViewEventDetails#REPEAT_OCCURRENCE_SUMMARY",
-				value1 = ${today});
+				value1 = ".*${today}.*");
 		}
 	}
 
@@ -1918,29 +1918,29 @@ definition {
 		var repeatingMonthPosition = selenium.getElementValue("CalendarEditEvent#REPEAT_MONTHLY_CURRENT_MONTH_POSITION");
 
 		if (${repeatingMonthPosition} == 1) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarEditEvent#REPEAT_DIALOG_SUMMARY",
-				value1 = "First");
+				value1 = ".*First.*");
 		}
 		else if (${repeatingMonthPosition} == 2) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarEditEvent#REPEAT_DIALOG_SUMMARY",
-				value1 = "Second");
+				value1 = ".*Second.*");
 		}
 		else if (${repeatingMonthPosition} == 3) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarEditEvent#REPEAT_DIALOG_SUMMARY",
-				value1 = "Third");
+				value1 = ".*Third.*");
 		}
 		else if (${repeatingMonthPosition} == 4) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarEditEvent#REPEAT_DIALOG_SUMMARY",
-				value1 = "Fourth");
+				value1 = ".*Fourth.*");
 		}
 		else if (${repeatingMonthPosition} == "-1") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CalendarEditEvent#REPEAT_DIALOG_SUMMARY",
-				value1 = "Last");
+				value1 = ".*Last.*");
 		}
 	}
 
@@ -2063,9 +2063,9 @@ definition {
 	}
 
 	macro viewStatusViaDetails {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CalendarViewEventDetails#STATUS",
-			value1 = ${status});
+			value1 = ".*${status}.*");
 	}
 
 	macro viewTimes {
@@ -2092,13 +2092,13 @@ definition {
 	}
 
 	macro viewTimesViaDetails {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CalendarViewEventDetails#START_DATE_FIELD",
-			value1 = ${startDateTime});
+			value1 = ".*${startDateTime}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CalendarViewEventDetails#END_DATE_FIELD",
-			value1 = ${endDateTime});
+			value1 = ".*${endDateTime}.*");
 	}
 
 	macro viewTitle {
@@ -2172,21 +2172,21 @@ definition {
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
 			value1 = ${eventTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = ${calendarName});
+			value1 = ".*${calendarName}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = "Resources:");
+			value1 = ".*Resources:.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = "Starts:");
+			value1 = ".*Starts:.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = "Ends:");
+			value1 = ".*Ends:.*");
 	}
 
 	macro viewYearly {

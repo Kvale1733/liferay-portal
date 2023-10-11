@@ -627,9 +627,9 @@ definition {
 			index = 1,
 			locator1 = "ACSegments#TEXT_INPUT");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ACSegments#SEGMENT_AUTOCOMPLETE_DROPDOWN",
-			value1 = ${autocompleteText});
+			value1 = ".*${autocompleteText}.*");
 
 		if (isSet(notPresent)) {
 			AssertTextNotEquals.assertNotPartialText(
@@ -639,9 +639,9 @@ definition {
 	}
 
 	macro viewBreakdownChartsEntry {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ACSegments#BREAKDOWN_CHART",
-			value1 = ${key_entry});
+			value1 = ".*${key_entry}.*");
 	}
 
 	macro viewConjunction {
@@ -886,10 +886,10 @@ definition {
 	}
 
 	macro viewSegmentMembershipChartRowNumbers {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_row = ${row},
 			locator1 = "ACSegments#SEGMENT_MEMBERSHIP_CHART_HOVER_DATA_ROW",
-			value1 = ${value});
+			value1 = ".*${value}.*");
 	}
 
 	macro viewSegmentMembershipLegendNumbers {

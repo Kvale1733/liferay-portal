@@ -5,19 +5,19 @@ definition {
 
 		MenuItem.click(menuItem = ${displayItem});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_displayItem = ${displayItem},
 			locator1 = "PublicationsChangeDetails#CURRENT_DISPLAY_ITEM",
-			value1 = ${displayItem});
+			value1 = ".*${displayItem}.*");
 	}
 
 	macro viewChangeDetailsInChildren {
 		var key_changeChildrenCategory = ${changeChildrenCategory};
 		var key_changeChildrenTitle = ${changeChildrenTitle};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PublicationsChangeDetails#CHANGE_CHILDREN_TITLE",
-			value1 = ${changeChildrenTitle});
+			value1 = ".*${changeChildrenTitle}.*");
 	}
 
 	macro viewChangeDetailsInData {
@@ -30,9 +30,9 @@ definition {
 
 			var key_columnValueInPublication = ${columnValueInPublication};
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "PublicationsChangeDetails#DATA_COLUMN_VALUE_IN_PUBLICATION",
-				value1 = ${columnValueInPublication});
+				value1 = ".*${columnValueInPublication}.*");
 		}
 
 		if (${changeType} == "Deleted") {
@@ -42,9 +42,9 @@ definition {
 
 			var key_columnValueInPublication = ${columnValueInProduction};
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "PublicationsChangeDetails#DATA_COLUMN_VALUE_IN_PRODUCTION",
-				value1 = ${columnValueInProduction});
+				value1 = ".*${columnValueInProduction}.*");
 		}
 
 		if (${changeType} == "Modified") {
@@ -53,15 +53,15 @@ definition {
 			}
 
 			if (isSet(diffAddedValue)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DATA_COLUMN_ADDED_VALUE",
-					value1 = ${diffAddedValue});
+					value1 = ".*${diffAddedValue}.*");
 			}
 
 			if (isSet(diffRemovedValue)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DATA_COLUMN_REMOVED_VALUE",
-					value1 = ${diffRemovedValue});
+					value1 = ".*${diffRemovedValue}.*");
 			}
 
 			PublicationsChangeDetails.changeDisplayItem(displayItem = "Split View");
@@ -69,17 +69,17 @@ definition {
 			if (isSet(columnValueInProduction)) {
 				var key_columnValueInProduction = ${columnValueInProduction};
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DATA_COLUMN_VALUE_IN_PRODUCTION",
-					value1 = ${columnValueInProduction});
+					value1 = ".*${columnValueInProduction}.*");
 			}
 
 			if (isSet(columnValueInPublication)) {
 				var key_columnValueInPublication = ${columnValueInPublication};
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DATA_COLUMN_VALUE_IN_PUBLICATION",
-					value1 = ${columnValueInPublication});
+					value1 = ".*${columnValueInPublication}.*");
 			}
 
 			PublicationsChangeDetails.changeDisplayItem(displayItem = "Version: 1.0 (Production)");
@@ -87,9 +87,9 @@ definition {
 			if (isSet(columnValueInProduction)) {
 				var key_columnValueInProduction = ${columnValueInProduction};
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DATA_COLUMN_VALUE_IN_PRODUCTION",
-					value1 = ${columnValueInProduction});
+					value1 = ".*${columnValueInProduction}.*");
 			}
 
 			PublicationsChangeDetails.changeDisplayItem(displayItem = "Version: 1.1 (${publicationName})");
@@ -97,9 +97,9 @@ definition {
 			if (isSet(columnValueInPublication)) {
 				var key_columnValueInPublication = ${columnValueInPublication};
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DATA_COLUMN_VALUE_IN_PUBLICATION",
-					value1 = ${columnValueInPublication});
+					value1 = ".*${columnValueInPublication}.*");
 			}
 		}
 	}
@@ -112,9 +112,9 @@ definition {
 
 			var key_contentValueInPublication = ${contentValueInPublication};
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "PublicationsChangeDetails#DISPLAY_CONTENT_VALUE_IN_PUBLICATION",
-				value1 = ${contentValueInPublication});
+				value1 = ".*${contentValueInPublication}.*");
 		}
 
 		if (${changeType} == "Deleted") {
@@ -124,9 +124,9 @@ definition {
 
 			var key_contentValueInPublication = ${contentValueInProduction};
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "PublicationsChangeDetails#DISPLAY_CONTENT_VALUE_IN_PRODUCTION",
-				value1 = ${contentValueInProduction});
+				value1 = ".*${contentValueInProduction}.*");
 		}
 
 		if (${changeType} == "Modified") {
@@ -135,17 +135,17 @@ definition {
 			}
 
 			if (isSet(diffAddedValue)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_diffAddedValue = ${diffAddedValue},
 					locator1 = "PublicationsChangeDetails#DIFF_ADDED_VALUE",
-					value1 = ${diffAddedValue});
+					value1 = ".*${diffAddedValue}.*");
 			}
 
 			if (isSet(diffRemovedValue)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_diffRemovedValue = ${diffRemovedValue},
 					locator1 = "PublicationsChangeDetails#DIFF_REMOVED_VALUE",
-					value1 = ${diffRemovedValue});
+					value1 = ".*${diffRemovedValue}.*");
 			}
 
 			PublicationsChangeDetails.changeDisplayItem(displayItem = "Split View");
@@ -153,17 +153,17 @@ definition {
 			if (isSet(contentValueInProduction)) {
 				var key_contentValueInProduction = ${contentValueInProduction};
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DISPLAY_CONTENT_VALUE_IN_PRODUCTION",
-					value1 = ${contentValueInProduction});
+					value1 = ".*${contentValueInProduction}.*");
 			}
 
 			if (isSet(contentValueInPublication)) {
 				var key_contentValueInPublication = ${contentValueInPublication};
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DISPLAY_CONTENT_VALUE_IN_PUBLICATION",
-					value1 = ${contentValueInPublication});
+					value1 = ".*${contentValueInPublication}.*");
 			}
 
 			PublicationsChangeDetails.changeDisplayItem(displayItem = "Version: 1.0 (Production)");
@@ -171,9 +171,9 @@ definition {
 			if (isSet(contentValueInProduction)) {
 				var key_contentValueInProduction = ${contentValueInProduction};
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DISPLAY_CONTENT_VALUE_IN_PRODUCTION",
-					value1 = ${contentValueInProduction});
+					value1 = ".*${contentValueInProduction}.*");
 			}
 
 			PublicationsChangeDetails.changeDisplayItem(displayItem = "Version: 1.1 (${publicationName})");
@@ -181,9 +181,9 @@ definition {
 			if (isSet(contentValueInPublication)) {
 				var key_contentValueInPublication = ${contentValueInPublication};
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DISPLAY_CONTENT_VALUE_IN_PUBLICATION",
-					value1 = ${contentValueInPublication});
+					value1 = ".*${contentValueInPublication}.*");
 			}
 		}
 	}
@@ -211,9 +211,9 @@ definition {
 				var key_columnName = ${columnName};
 				var key_columnValueInPublication = ${columnValueInPublication};
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DATA_COLUMN_VALUE_IN_PUBLICATION",
-					value1 = ${columnValueInPublication});
+					value1 = ".*${columnValueInPublication}.*");
 			}
 		}
 
@@ -226,9 +226,9 @@ definition {
 				var key_columnName = ${columnName};
 				var key_columnValueInProduction = ${columnValueInProduction};
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DATA_COLUMN_VALUE_IN_PRODUCTION",
-					value1 = ${columnValueInProduction});
+					value1 = ".*${columnValueInProduction}.*");
 			}
 		}
 
@@ -240,15 +240,15 @@ definition {
 			var key_columnName = ${columnName};
 
 			if (isSet(diffAddedValue)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DATA_COLUMN_ADDED_VALUE",
-					value1 = ${diffAddedValue});
+					value1 = ".*${diffAddedValue}.*");
 			}
 
 			if (isSet(diffRemovedValue)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DATA_COLUMN_REMOVED_VALUE",
-					value1 = ${diffRemovedValue});
+					value1 = ".*${diffRemovedValue}.*");
 			}
 
 			PublicationsChangeDetails.changeDisplayItem(displayItem = "Split View");
@@ -256,17 +256,17 @@ definition {
 			if (isSet(columnValueInProduction)) {
 				var key_columnValueInProduction = ${columnValueInProduction};
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DATA_COLUMN_VALUE_IN_PRODUCTION",
-					value1 = ${columnValueInProduction});
+					value1 = ".*${columnValueInProduction}.*");
 			}
 
 			if (isSet(columnValueInPublication)) {
 				var key_columnValueInPublication = ${columnValueInPublication};
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DATA_COLUMN_VALUE_IN_PUBLICATION",
-					value1 = ${columnValueInPublication});
+					value1 = ".*${columnValueInPublication}.*");
 			}
 
 			PublicationsChangeDetails.changeDisplayItem(displayItem = "Production");
@@ -274,9 +274,9 @@ definition {
 			if (isSet(columnValueInProduction)) {
 				var key_columnValueInProduction = ${columnValueInProduction};
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DATA_COLUMN_VALUE_IN_PRODUCTION",
-					value1 = ${columnValueInProduction});
+					value1 = ".*${columnValueInProduction}.*");
 			}
 
 			PublicationsChangeDetails.changeDisplayItem(displayItem = ${publicationName});
@@ -284,9 +284,9 @@ definition {
 			if (isSet(columnValueInPublication)) {
 				var key_columnValueInPublication = ${columnValueInPublication};
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PublicationsChangeDetails#DATA_COLUMN_VALUE_IN_PUBLICATION",
-					value1 = ${columnValueInPublication});
+					value1 = ".*${columnValueInPublication}.*");
 			}
 		}
 	}
@@ -324,10 +324,10 @@ definition {
 
 			PublicationsChangeDetails.changeDisplayItem(displayItem = ${publicationName});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_displayItem = "Publication",
 				locator1 = "PublicationsChangeDetails#CURRENT_DISPLAY_ITEM",
-				value1 = "Publication");
+				value1 = ".*Publication.*");
 
 			if (isSet(fieldValueInPublication)) {
 				var key_fieldValueInPublication = ${fieldValueInPublication};

@@ -200,7 +200,7 @@ definition {
 		task ("Then the tier price is successfully added") {
 			Navigator.openWithAppendToBaseURL(urlAppend = "web/minium/catalog");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "Test Simple Product",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
 				value1 = 10);
@@ -251,7 +251,7 @@ definition {
 		task ("Then the price list is successfully deleted") {
 			Navigator.openWithAppendToBaseURL(urlAppend = "web/minium/catalog");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "Test Simple Product",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
 				value1 = 00);
@@ -320,7 +320,7 @@ definition {
 		task ("Then the tier price is not applied anymore") {
 			Navigator.openWithAppendToBaseURL(urlAppend = "web/minium/catalog");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "Test Simple Product",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
 				value1 = 00);
@@ -364,10 +364,10 @@ definition {
 		task ("Then the price list is edited successfully") {
 			Navigator.openWithAppendToBaseURL(urlAppend = "web/minium/catalog");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "Test Simple Product",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-				value1 = "25.00");
+				value1 = ".*25.00.*");
 		}
 	}
 
@@ -511,7 +511,7 @@ definition {
 		task ("Then the tier price is edited successfully") {
 			Navigator.openWithAppendToBaseURL(urlAppend = "web/minium/catalog");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "Test Simple Product",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
 				value1 = 20);
@@ -982,10 +982,10 @@ definition {
 		task ("And the currency on the catalogue is updated") {
 			Navigator.openWithAppendToBaseURL(urlAppend = "web/minium/catalog");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "Test Simple Product",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-				value1 = "€ 0.00");
+				value1 = ".*€ 0.00.*");
 		}
 	}
 

@@ -242,14 +242,14 @@ definition {
 			var key_fieldFieldLabel = ${fieldFieldLabel};
 			var fieldReference = StringUtil.replace(${fieldFieldLabel}, " ", "");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "DDMEditTemplate#CODE_MIRROR_EDITOR_CONTENT",
-				value1 = "${fieldReference}.getData()");
+				value1 = ".*${fieldReference}.getData().*");
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "DDMEditTemplate#CODE_MIRROR_EDITOR_CONTENT",
-			value1 = "LinktoPage.getFriendlyUrl()");
+			value1 = ".*LinktoPage.getFriendlyUrl().*");
 
 		PortletEntry.save();
 

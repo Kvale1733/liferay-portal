@@ -36,10 +36,10 @@ definition {
 	}
 
 	macro viewAnyList {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_listEntry = ${listEntry},
 			locator1 = "LexiconList#ANY_LIST",
-			value1 = ${listEntry});
+			value1 = ".*${listEntry}.*");
 	}
 
 	macro viewListEntryLabel {
@@ -63,11 +63,11 @@ definition {
 	}
 
 	macro viewListEntrySpecific {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_listEntry = ${listEntry},
 			key_position = ${position},
 			locator1 = "LexiconList#LIST_ENTRY_SPECIFIC",
-			value1 = ${listEntry});
+			value1 = ".*${listEntry}.*");
 	}
 
 	macro viewListEntrySubtitle {
@@ -93,11 +93,11 @@ definition {
 	}
 
 	macro viewListEntryTitleLinkSpecific {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_listEntry = ${listEntry},
 			key_position = ${position},
 			locator1 = "LexiconList#LIST_ENTRY_TITLE_LINK_SPECIFIC",
-			value1 = ${listEntry});
+			value1 = ".*${listEntry}.*");
 	}
 
 }

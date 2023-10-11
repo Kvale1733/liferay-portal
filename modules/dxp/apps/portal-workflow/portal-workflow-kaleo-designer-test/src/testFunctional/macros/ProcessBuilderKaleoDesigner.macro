@@ -34,9 +34,9 @@ definition {
 			key_workflowStatus = ${workflowStatus},
 			locator1 = "ProcessBuilderKaleoDesigner#WORKFLOW_STATUS");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Portlet#HEADER",
-			value1 = ${workflowDefinitionTitle});
+			value1 = ".*${workflowDefinitionTitle}.*");
 	}
 
 }

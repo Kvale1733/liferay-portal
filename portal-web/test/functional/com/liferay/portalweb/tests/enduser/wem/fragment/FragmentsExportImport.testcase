@@ -1552,9 +1552,9 @@ definition {
 				key_title = "Import File",
 				locator1 = "Header#H2_TITLE");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#SUBTITLE",
-				value1 = "Select a ZIP file containing one or multiple entries.");
+				value1 = ".*Select a ZIP file containing one or multiple entries\..*");
 
 			UploadDependencyFile.uploadArchiveFile(fileName = "fragments-plant.zip");
 

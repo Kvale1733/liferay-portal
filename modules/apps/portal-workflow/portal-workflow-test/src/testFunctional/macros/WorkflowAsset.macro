@@ -140,9 +140,9 @@ definition {
 			locator1 = "AssetWorkflow#DETAILS_WORKFLOW_STATUS",
 			value1 = ${workflowStatus});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AssetWorkflow#DETAILS_WORKFLOW_CREATED_BY",
-			value1 = ${userName});
+			value1 = ".*${userName}.*");
 	}
 
 	macro viewFormEntryTable {
@@ -160,9 +160,9 @@ definition {
 	}
 
 	macro viewFormTemplateLabel {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MyWorkflowTasksTask#PREVIEW_CONTENT",
-			value1 = ${workflowFormsTemplateLabel});
+			value1 = ".*${workflowFormsTemplateLabel}.*");
 	}
 
 	macro viewNotification {
@@ -172,9 +172,9 @@ definition {
 	}
 
 	macro viewUserDetails {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "WorkflowSubmissionsTask#PREVIEW_USER",
-			value1 = ${userEmailAddress});
+			value1 = ".*${userEmailAddress}.*");
 	}
 
 }

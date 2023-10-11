@@ -328,9 +328,9 @@ definition {
 		task ("Enter wrong password to reached the maximum allowed failed attempt") {
 			MultiFactorAuthentication.verifyOTP(validOtp = "false");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_2",
-				value1 = "You have reached the maximum allowed failed attempts. Please retry again in 10 seconds.");
+				value1 = ".*You have reached the maximum allowed failed attempts. Please retry again in 10 seconds\..*");
 		}
 
 		task ("Assert user cannot login portal before retry time out") {

@@ -141,9 +141,9 @@ definition {
 
 		Button.clickInstall();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "The plugin was uploaded successfully and is now being installed.");
+			value1 = ".*The plugin was uploaded successfully and is now being installed\..*");
 
 		SelectFrame.selectFrameTop();
 
@@ -168,16 +168,16 @@ definition {
 			Search.searchCP(searchTerm = ${appName});
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AppManager#APP_NAME",
-			value1 = ${appName});
+			value1 = ".*${appName}.*");
 
 		if (isSet(appStatus)) {
 			var key_appStatus = ${appStatus};
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "AppManager#APP_STATUS",
-				value1 = ${appStatus});
+				value1 = ".*${appStatus}.*");
 		}
 	}
 

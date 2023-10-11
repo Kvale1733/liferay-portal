@@ -21,9 +21,9 @@ definition {
 	}
 
 	macro viewDefaultPG {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No subscriptions were found.");
+			value1 = ".*No subscriptions were found\..*");
 	}
 
 	macro viewSubscription {

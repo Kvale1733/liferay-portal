@@ -34,9 +34,9 @@ definition {
 		}
 
 		if (isSet(errorMessage)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_DISMISSIBLE",
-				value1 = ${errorMessage});
+				value1 = ".*${errorMessage}.*");
 		}
 		else {
 			Alert.viewSuccessMessage();
@@ -155,9 +155,9 @@ definition {
 			locator1 = "Message#ERROR",
 			value1 = "Your request failed to complete.");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_DISMISSIBLE",
-			value1 = "Unable to validate referenced page with URL ${url} because the page group with URL ${urlPattern} cannot be found");
+			value1 = ".*Unable to validate referenced page with URL ${url} because the page group with URL ${urlPattern} cannot be found.*");
 	}
 
 }

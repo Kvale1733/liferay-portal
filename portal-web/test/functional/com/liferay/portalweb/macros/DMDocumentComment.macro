@@ -27,10 +27,10 @@ definition {
 			locator1 = "DocumentsAndMedia#DESCRIPTIVE_LIST_DOCUMENT_TITLE",
 			value1 = ${dmDocumentTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_entryComment = ${commentBody},
 			locator1 = "Comments#COMMENT_BODY_SPECIFIC",
-			value1 = ${commentBody});
+			value1 = ".*${commentBody}.*");
 	}
 
 }

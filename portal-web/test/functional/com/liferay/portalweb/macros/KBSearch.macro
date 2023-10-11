@@ -11,10 +11,10 @@ definition {
 	}
 
 	macro viewSearchResultPG {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_kbArticleTitle = ${kbArticleTitle},
 			locator1 = "KnowledgeBase#SEARCH_WIDGET_ARTICLE_TITLE",
-			value1 = ${kbArticleTitle});
+			value1 = ".*${kbArticleTitle}.*");
 
 		AssertClick(
 			key_kbArticleTitle = ${kbArticleTitle},

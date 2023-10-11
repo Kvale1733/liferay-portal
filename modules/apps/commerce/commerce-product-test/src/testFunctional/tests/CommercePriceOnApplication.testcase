@@ -449,10 +449,10 @@ definition {
 		task ("Then the product costs 40 USD of the price list") {
 			CommerceNavigator.searchEntry(entryName = "ABS Sensor");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "ABS Sensor",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-				value1 = "$ 40.00");
+				value1 = ".*\$ 40.00.*");
 		}
 
 		task ("When the admin adds another Promotion, configured with priority 1 on the SKU MIN93015 with a Promo price of 10$") {
@@ -813,10 +813,10 @@ definition {
 				key_productName = "U-Joint",
 				locator1 = "CommerceAccelerators#PRODUCT_CARD_PRICE_ON_APPLICATION");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-				value1 = "$ 24.00");
+				value1 = ".*\$ 24.00.*");
 		}
 	}
 
@@ -861,10 +861,10 @@ definition {
 				urlAppend = "web/minium",
 				userEmailAddress = "buyer@liferay.com");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-				value1 = "$ 20.00");
+				value1 = ".*\$ 20.00.*");
 
 			AssertElementNotPresent(
 				key_productName = "U-Joint",
@@ -1080,9 +1080,9 @@ definition {
 
 			AssertElementNotPresent(locator1 = "CommerceAccelerators#PRODUCT_CARD_PRICE_ON_APPLICATION");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-				value1 = "$ 20.00");
+				value1 = ".*\$ 20.00.*");
 		}
 	}
 

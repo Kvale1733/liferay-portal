@@ -1373,9 +1373,9 @@ definition {
 
 		Navigator.openSpecificURL(url = ${documentTypeURL});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "You do not have the required permissions.");
+			value1 = ".*You do not have the required permissions\..*");
 	}
 
 	@description = "This is a test for LPS-136852. It checks that a guest cannot access a folder image without permissions."

@@ -242,18 +242,18 @@ definition {
 			locator1 = "MessageBoardsBannedUsers#BANNED_USERS_TABLE_BANNED_USER",
 			value1 = ${userScreenName});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoardsBannedUsers#BANNED_USERS_TABLE_BANNED_BY",
-			value1 = "Test Test");
+			value1 = ".*Test Test.*");
 
 		if (isSet(disableAutoExpire)) {
 			var unbanDate = DateUtil.getFormattedCurrentDate("M/d/yy");
 
 			echo("## * unbanDate: ${unbanDate}");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoardsBannedUsers#BANNED_USERS_TABLE_UNBAN_DATE",
-				value1 = ${unbanDate});
+				value1 = ".*${unbanDate}.*");
 
 			// We need to wait for the system time to pass by 1 minute in order to verify the auto expire is disabled. There is currently no easy way to manipulate the system time in CI for automation. 1 minute is the shortest value we can set while ensuring the stability of the test. See LPS-157957.
 
@@ -279,10 +279,10 @@ definition {
 
 		ProductMenuHelper.openProductMenu();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_siteName = ${userScreenName},
 			locator1 = "ProductMenu#SITE_NAME",
-			value1 = ${userScreenName});
+			value1 = ".*${userScreenName}.*");
 	}
 
 	macro viewDefaultEmailFromCP {
@@ -347,9 +347,9 @@ definition {
 			}
 
 			if (isSet(content)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CKEditor#BODY",
-					value1 = ${content});
+					value1 = ".*${content}.*");
 			}
 		}
 		else {
@@ -375,9 +375,9 @@ definition {
 			}
 
 			if (isSet(content)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CKEditor#BODY_1",
-					value1 = ${content});
+					value1 = ".*${content}.*");
 			}
 		}
 
@@ -395,9 +395,9 @@ definition {
 
 		AssertElementPresent(locator1 = "NavBar#CONTAINER");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no threads or categories.");
+			value1 = ".*There are no threads or categories\..*");
 	}
 
 	macro viewNoSearchResultSubjectPG {

@@ -2961,9 +2961,9 @@ definition {
 		}
 
 		task ("Then: The save fails and the correct error message appears") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_DISMISSIBLE",
-				value1 = "User Custom Fields: Each user field can only be mapped to one SAML attribute.");
+				value1 = ".*User Custom Fields: Each user field can only be mapped to one SAML attribute\..*");
 		}
 	}
 
@@ -3136,9 +3136,9 @@ definition {
 		}
 
 		task ("Then: The save of the connection fails and the correct error message appears") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_DISMISSIBLE",
-				value1 = "User Custom Fields: Each user field can only be mapped to one SAML attribute.");
+				value1 = ".*User Custom Fields: Each user field can only be mapped to one SAML attribute\..*");
 		}
 	}
 

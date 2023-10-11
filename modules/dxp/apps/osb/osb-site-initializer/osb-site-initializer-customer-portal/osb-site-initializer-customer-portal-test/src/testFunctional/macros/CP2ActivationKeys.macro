@@ -197,9 +197,9 @@ definition {
 	macro assertSelectedFieldText {
 		var key_label = ${field};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CP2ActivationKeys#KEY_COMPONENT_OPTION",
-			value1 = ${option});
+			value1 = ".*${option}.*");
 	}
 
 	macro assertSignatureWithNoKeysIsVisible {

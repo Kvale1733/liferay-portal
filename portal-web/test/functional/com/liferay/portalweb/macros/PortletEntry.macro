@@ -215,9 +215,9 @@ definition {
 	macro viewEmptyMessage {
 		var entity = StringUtil.toLowerCase(${entity});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no ${entity}.");
+			value1 = ".*There are no ${entity}\..*");
 	}
 
 	macro viewLocale {

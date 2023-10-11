@@ -2411,10 +2411,10 @@ definition {
 
 		Refresh();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Search#MODIFIED_FACET_SELECTION",
 			range = "Past 23 Hours",
-			value1 = "Past 23 Hours");
+			value1 = ".*Past 23 Hours.*");
 
 		Click(
 			locator1 = "Search#MODIFIED_FACET_SELECTION",
@@ -2609,21 +2609,21 @@ definition {
 		task ("Assert the default empty results display is used") {
 			SearchPage.searchEmbedded(searchTerm = "apple");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No results were found.");
+				value1 = ".*No results were found\..*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No results were found that matched the keywords: apple.");
+				value1 = ".*No results were found that matched the keywords: apple\..*");
 		}
 
 		task ("Assert the default pagination toolbar is used") {
 			SearchPage.searchEmbedded(searchTerm = "test");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Pagination#RESULTS",
-				value1 = "Showing 1 to ");
+				value1 = ".*Showing 1 to .*");
 		}
 	}
 

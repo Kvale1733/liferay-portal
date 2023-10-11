@@ -566,9 +566,9 @@ definition {
 				key_text = "Full Description",
 				locator1 = "Button#ANY");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceFrontStore#FS_PRODUCT_FULL_DESCRIPTION",
-				value1 = "This product has Full Description");
+				value1 = ".*This product has Full Description.*");
 		}
 	}
 
@@ -2839,9 +2839,9 @@ definition {
 			key_productSku = "BLACKSKU",
 			locator1 = "CommerceFrontStore#FS_PRODUCT_SKU");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "70.00");
+			value1 = ".*70.00.*");
 
 		Click(
 			key_optionName = "Color",
@@ -2866,9 +2866,9 @@ definition {
 			key_productSku = "BLUESKU",
 			locator1 = "CommerceFrontStore#FS_PRODUCT_SKU");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "90.00");
+			value1 = ".*90.00.*");
 	}
 
 	@description = "COMMERCE-6371. As a buyer, I want to be able to select an option value(SKU contributor) and I want to see product details updating(Price, SKU and Availability)"
@@ -2951,9 +2951,9 @@ definition {
 			key_filterOption = "MIN93022A",
 			locator1 = "AppBuilder#CHOOSE_APP_SEARCH_FILTER_BY_OPTION");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "120.00");
+			value1 = ".*120.00.*");
 
 		AssertElementPresent(
 			key_availability = "Available",
@@ -2972,9 +2972,9 @@ definition {
 			key_filterOption = "MIN93022B",
 			locator1 = "AppBuilder#CHOOSE_APP_SEARCH_FILTER_BY_OPTION");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "80.00");
+			value1 = ".*80.00.*");
 
 		AssertElementPresent(
 			key_availability = "Unavailable",

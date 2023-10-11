@@ -28,10 +28,10 @@ definition {
 				locator1 = "DocumentsAndMediaConfiguration#DISPLAY_SETTINGS_ROOT_FOLDER_FIELD",
 				value1 = ${dmRootFolderName});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_warningMessage = "The selected root folder cannot be found. Please select another one",
 				locator1 = "Message#WARNING_SPECIFIC",
-				value1 = "The selected root folder cannot be found. Please select another one");
+				value1 = ".*The selected root folder cannot be found. Please select another one.*");
 		}
 		else {
 			Panel.expandPanel(panel = "Folders Listing");
@@ -123,9 +123,9 @@ definition {
 	}
 
 	macro viewDefault {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no media files in this folder.");
+			value1 = ".*There are no media files in this folder\..*");
 	}
 
 	macro viewFolderItemsPG {

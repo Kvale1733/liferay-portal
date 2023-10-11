@@ -994,9 +994,9 @@ definition {
 	}
 
 	macro viewAlertInfo {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ALERT_DISMISSIBLE",
-			value1 = ${infoMessage});
+			value1 = ".*${infoMessage}.*");
 	}
 
 	macro viewGenericButton {
@@ -1124,9 +1124,9 @@ definition {
 				ACUtils.clearSearchBar();
 			}
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ACUtils#PARTIAL_NAME_LIST",
-				value1 = ${name});
+				value1 = ".*${name}.*");
 		}
 	}
 

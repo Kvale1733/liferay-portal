@@ -242,9 +242,9 @@ definition {
 
 		AssertVisible(locator1 = "WCEditWebContent#SIDEBAR");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Portlet#HEADER",
-			value1 = "WC Title");
+			value1 = ".*WC Title.*");
 	}
 
 	@priority = 4
@@ -750,9 +750,9 @@ definition {
 
 		SearchPage.searchEmbedded(searchTerm = "WC Title");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No results were found that matched the keywords");
+			value1 = ".*No results were found that matched the keywords.*");
 	}
 
 	@description = "This test will set up a search page and search on a newly added site. It will also use different scopes to assert search results for assets from multiple sites"

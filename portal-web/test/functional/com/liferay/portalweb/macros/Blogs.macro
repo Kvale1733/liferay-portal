@@ -101,9 +101,9 @@ definition {
 		if (isSet(viewVideoHelpMessage)) {
 			Click.clickNoMouseOverNoWaitForVisible(locator1 = "BlogsEntry#VIDEO_EMBED_HELP_MESSAGE");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BlogsEntry#VIDEO_EMBED_HELP_MESSAGE",
-				value1 = "Video playback is disabled during edit mode");
+				value1 = ".*Video playback is disabled during edit mode.*");
 		}
 
 		PortletEntry.publish();
@@ -332,9 +332,9 @@ definition {
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
 			value1 = ${entryTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = ${entryContent});
+			value1 = ".*${entryContent}.*");
 	}
 
 	macro addViaAPSelectScope {
@@ -360,9 +360,9 @@ definition {
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
 			value1 = ${entryTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = ${entryContent});
+			value1 = ".*${entryContent}.*");
 	}
 
 	macro addWithCustomAbstract {
@@ -517,9 +517,9 @@ definition {
 
 			Click(locator1 = "Button#MOVE_CURRENT_TO_AVAILABLE");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SocialBookmarks#ENABLE_SOCIAL_BOOKMARK_AVAILABLE_SELECT",
-				value1 = ${socialBookmarkSite});
+				value1 = ".*${socialBookmarkSite}.*");
 		}
 
 		IFrame.saveConfiguration();
@@ -715,9 +715,9 @@ definition {
 	macro viewContentAbstractDescription {
 		var key_entryAbstractDescription = ${descriptionValue};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "BlogsEntry#CONTENT_ABSTRACT_AP",
-			value1 = ${key_entryAbstractDescription});
+			value1 = ".*${key_entryAbstractDescription}.*");
 	}
 
 	macro viewEntryNotPresent {
@@ -743,9 +743,9 @@ definition {
 	}
 
 	macro viewNoEntryCP {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No entries were found.");
+			value1 = ".*No entries were found\..*");
 	}
 
 }

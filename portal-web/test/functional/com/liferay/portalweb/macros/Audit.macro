@@ -135,36 +135,36 @@ definition {
 			locator1 = "AuditReports#REPORTS_TABLE_RESOURCE_ACTION",
 			value1 = ${resourceAction});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AuditReports#REPORTS_DETAIL_RESOURCE_NAME",
-			value1 = ${resourceName});
+			value1 = ".*${resourceName}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AuditReports#REPORTS_DETAIL_RESOURCE_ACTION",
-			value1 = ${resourceAction});
+			value1 = ".*${resourceAction}.*");
 
 		if (isSet(userName)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "AuditReports#REPORTS_DETAIL_USER_NAME",
-				value1 = ${userName});
+				value1 = ".*${userName}.*");
 		}
 
 		for (var additionalInformationList : list ${additionalInformation}) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "AuditReports#REPORTS_DETAIL_ADDITIONAL_INFORMATION",
-				value1 = ${additionalInformationList});
+				value1 = ".*${additionalInformationList}.*");
 		}
 
 		if (isSet(clientIp)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "AuditReports#REPORTS_DETAIL_CLIENT_IP",
-				value1 = ${clientIp});
+				value1 = ".*${clientIp}.*");
 		}
 
 		if (isSet(groupId)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "AuditReports#REPORTS_DETAIL_GROUP_ID",
-				value1 = ${groupId});
+				value1 = ".*${groupId}.*");
 		}
 	}
 
@@ -177,28 +177,28 @@ definition {
 			resourceNameByPosition = ${nameByPosition},
 			value1 = ${resourceAction});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AuditReports#REPORTS_DETAIL_RESOURCE_NAME",
-			value1 = ${resourceName});
+			value1 = ".*${resourceName}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AuditReports#REPORTS_DETAIL_RESOURCE_ACTION",
-			value1 = ${resourceAction});
+			value1 = ".*${resourceAction}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AuditReports#REPORTS_DETAIL_USER_NAME",
-			value1 = ${userName});
+			value1 = ".*${userName}.*");
 
 		for (var additionalInformationList : list ${additionalInformation}) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "AuditReports#REPORTS_DETAIL_ADDITIONAL_INFORMATION",
-				value1 = ${additionalInformationList});
+				value1 = ".*${additionalInformationList}.*");
 		}
 
 		if (isSet(clientIp)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "AuditReports#REPORTS_DETAIL_CLIENT_IP",
-				value1 = ${clientIp});
+				value1 = ".*${clientIp}.*");
 		}
 	}
 

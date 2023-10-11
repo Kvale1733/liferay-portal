@@ -263,9 +263,9 @@ definition {
 		task ("Click on the email reports widget and see if the frequency is still Daily") {
 			ACEmailReport.accessEmailReportSettings();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Select#SELECT",
-				value1 = "Daily");
+				value1 = ".*Daily.*");
 		}
 
 		task ("Disable email reports and then see in the property that the email report has the status of disabled") {
@@ -293,9 +293,9 @@ definition {
 
 			ACEmailReport.accessEmailReportSettings();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Select#SELECT",
-				value1 = "Monthly");
+				value1 = ".*Monthly.*");
 		}
 	}
 

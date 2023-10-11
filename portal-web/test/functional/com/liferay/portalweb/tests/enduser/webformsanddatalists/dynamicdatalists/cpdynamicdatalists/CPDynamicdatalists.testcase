@@ -1423,9 +1423,9 @@ definition {
 
 		Button.clickPublish();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "TextInput#REQUIRED_ALERT",
-			value1 = "Boolean Required The Boolean field is required.");
+			value1 = ".*Boolean Required The Boolean field is required\..*");
 
 		FormFields.viewRequiredAsterisk();
 

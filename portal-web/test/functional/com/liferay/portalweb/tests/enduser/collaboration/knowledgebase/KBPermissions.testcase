@@ -206,9 +206,9 @@ definition {
 			kbArticleContent = "Knowledge Base Article Content",
 			kbArticleTitle = "Knowledge Base Article Title");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KnowledgeBase#LINK_THERE_ARE_SUGGESTIONS",
-			value1 = "There are 4 suggestions.");
+			value1 = ".*There are 4 suggestions\..*");
 
 		KBArticleSuggestion.viewPG(
 			kbSuggestionBody = "User 2 Knowledge Base Article Suggestion 1",

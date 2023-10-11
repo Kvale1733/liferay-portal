@@ -147,12 +147,12 @@ definition {
 		}
 
 		if (isSet(unitPrice)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnNumber = 3,
 				key_productName = ${productName},
 				key_value = ${unitPrice},
 				locator1 = "CommerceEntry#TABLE_SEARCH_BY_NAME_AND_COLUMN_CONTENT",
-				value1 = ${unitPrice});
+				value1 = ".*${unitPrice}.*");
 		}
 
 		if (isSet(productQuantity)) {
@@ -165,30 +165,30 @@ definition {
 		}
 
 		if (isSet(totalPrice)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnNumber = 5,
 				key_productName = ${productName},
 				key_value = ${totalPrice},
 				locator1 = "CommerceEntry#TABLE_SEARCH_BY_NAME_AND_COLUMN_CONTENT",
-				value1 = ${totalPrice});
+				value1 = ".*${totalPrice}.*");
 		}
 
 		if (isSet(importStatus)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnNumber = 6,
 				key_productName = ${productName},
 				key_value = ${importStatus},
 				locator1 = "CommerceEntry#TABLE_SEARCH_BY_NAME_AND_COLUMN_CONTENT",
-				value1 = ${importStatus});
+				value1 = ".*${importStatus}.*");
 		}
 
 		if (isSet(requestedDeliveryDate)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnNumber = 8,
 				key_productName = ${productName},
 				key_value = ${requestedDeliveryDate},
 				locator1 = "CommerceEntry#TABLE_SEARCH_BY_NAME_AND_COLUMN_CONTENT",
-				value1 = ${requestedDeliveryDate});
+				value1 = ".*${requestedDeliveryDate}.*");
 		}
 	}
 
@@ -1048,9 +1048,9 @@ definition {
 			locator1 = "Comments#COMMENT_BODY_SPECIFIC",
 			value1 = ${commerceOrderNoteBody});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Comments#USER_NAME",
-			value1 = ${commerceOrderNoteAuthor});
+			value1 = ".*${commerceOrderNoteAuthor}.*");
 	}
 
 	macro viewCPCommerceOrderNote {
@@ -1071,9 +1071,9 @@ definition {
 			locator1 = "Comments#COMMENT_BODY_SPECIFIC",
 			value1 = ${commerceOrderNoteBody});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Comments#USER_NAME",
-			value1 = ${commerceOrderNoteAuthor});
+			value1 = ".*${commerceOrderNoteAuthor}.*");
 
 		if (${restricted} == "true") {
 			AssertElementPresent(
@@ -1108,69 +1108,69 @@ definition {
 		WaitForPageLoad();
 
 		if (${addressType} == "Billing") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressStreet1},
 				locator1 = "CommerceOrders#ORDER_DETAILS_BILLING_ADDRESS",
-				value1 = ${addressStreet1});
+				value1 = ".*${addressStreet1}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressCity},
 				locator1 = "CommerceOrders#ORDER_DETAILS_BILLING_ADDRESS",
-				value1 = ${addressCity});
+				value1 = ".*${addressCity}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressRegion},
 				locator1 = "CommerceOrders#ORDER_DETAILS_BILLING_ADDRESS",
-				value1 = ${addressRegion});
+				value1 = ".*${addressRegion}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressZipCode},
 				locator1 = "CommerceOrders#ORDER_DETAILS_BILLING_ADDRESS",
-				value1 = ${addressZipCode});
+				value1 = ".*${addressZipCode}.*");
 		}
 		else if (${addressType} == "Shipping") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressStreet1},
 				locator1 = "CommerceOrders#ORDER_DETAILS_SHIPPING_ADDRESS",
-				value1 = ${addressStreet1});
+				value1 = ".*${addressStreet1}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressCity},
 				locator1 = "CommerceOrders#ORDER_DETAILS_SHIPPING_ADDRESS",
-				value1 = ${addressCity});
+				value1 = ".*${addressCity}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressRegion},
 				locator1 = "CommerceOrders#ORDER_DETAILS_SHIPPING_ADDRESS",
-				value1 = ${addressRegion});
+				value1 = ".*${addressRegion}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressZipCode},
 				locator1 = "CommerceOrders#ORDER_DETAILS_SHIPPING_ADDRESS",
-				value1 = ${addressZipCode});
+				value1 = ".*${addressZipCode}.*");
 		}
 	}
 
 	macro viewOrderPrices {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_priceName = "Subtotal",
 			locator1 = "CommerceOrders#ORDER_PRICES_SEPARETED",
-			value1 = ${subTotalPrice});
+			value1 = ".*${subTotalPrice}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_priceName = "Delivery",
 			locator1 = "CommerceOrders#ORDER_PRICES_SEPARETED",
-			value1 = ${deliveryPrice});
+			value1 = ".*${deliveryPrice}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_priceName = "Tax",
 			locator1 = "CommerceOrders#ORDER_PRICES_SEPARETED",
-			value1 = ${taxPrice});
+			value1 = ".*${taxPrice}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_priceName = "Total",
 			locator1 = "CommerceOrders#ORDER_PRICES_SEPARETED",
-			value1 = ${totalPrice});
+			value1 = ".*${totalPrice}.*");
 	}
 
 	macro viewOrdersDetails {
@@ -1261,52 +1261,52 @@ definition {
 
 	macro viewOrdersEntry {
 		if (isSet(addressAddress) && isSet(addressCity) && isSet(addressZipCode)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_DETAILS_BILLING_ADDRESS",
-				value1 = ${addressAddress});
+				value1 = ".*${addressAddress}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_DETAILS_BILLING_ADDRESS",
-				value1 = ${addressCity});
+				value1 = ".*${addressCity}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_DETAILS_BILLING_ADDRESS",
-				value1 = ${addressZipCode});
+				value1 = ".*${addressZipCode}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressAddress},
 				locator1 = "CommerceOrders#ORDER_DETAILS_SHIPPING_ADDRESS",
-				value1 = ${addressAddress});
+				value1 = ".*${addressAddress}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressCity},
 				locator1 = "CommerceOrders#ORDER_DETAILS_SHIPPING_ADDRESS",
-				value1 = ${addressCity});
+				value1 = ".*${addressCity}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressZipCode},
 				locator1 = "CommerceOrders#ORDER_DETAILS_SHIPPING_ADDRESS",
-				value1 = ${addressZipCode});
+				value1 = ".*${addressZipCode}.*");
 
 			if (isSet(deliveryTerm)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_deliveryTerm = ${deliveryTerm},
 					locator1 = "CommerceOrders#ORDER_DETAILS_DELIVERY_TERMS",
-					value1 = ${deliveryTerm});
+					value1 = ".*${deliveryTerm}.*");
 			}
 
 			if (isSet(orderType)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_orderType = ${orderType},
 					locator1 = "CommerceOrders#ORDER_DETAILS_ORDER_TYPE",
-					value1 = ${orderType});
+					value1 = ".*${orderType}.*");
 			}
 
 			if (isSet(paymentTerm)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_paymentTerm = ${paymentTerm},
 					locator1 = "CommerceOrders#ORDER_DETAILS_PAYMENT_TERMS",
-					value1 = ${paymentTerm});
+					value1 = ".*${paymentTerm}.*");
 			}
 		}
 
@@ -1323,9 +1323,9 @@ definition {
 		}
 
 		if (isSet(requestedDeliveryDate)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_DETAILS_REQUESTED_DELIVERY_DATE",
-				value1 = ${requestedDeliveryDate});
+				value1 = ".*${requestedDeliveryDate}.*");
 		}
 
 		if (isSet(productName) && isSet(productSku)) {
@@ -1339,20 +1339,20 @@ definition {
 				locator1 = "CommerceOrders#ORDER_DETAILS_PRODUCT_NAME",
 				value1 = ${productName});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productListPrice = ${productListPrice},
 				locator1 = "CommerceOrders#ORDER_DETAILS_PRODUCT_LIST_PRICE",
-				value1 = ${productListPrice});
+				value1 = ".*${productListPrice}.*");
 
 			AssertTextEquals(
 				key_productQuantity = ${productQuantity},
 				locator1 = "CommerceOrders#ORDER_DETAILS_PRODUCT_QUANTITY",
 				value1 = ${productQuantity});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productTotalPrice = ${productTotalPrice},
 				locator1 = "CommerceOrders#ORDER_DETAILS_TOTAL_PRICE",
-				value1 = ${productTotalPrice});
+				value1 = ".*${productTotalPrice}.*");
 		}
 
 		if (isSet(productDeliveryDate)) {
@@ -1370,10 +1370,10 @@ definition {
 		}
 
 		if (isSet(productDiscount)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productDiscount = ${productDiscount},
 				locator1 = "CommerceOrders#ORDER_DETAILS_PRODUCT_DISCOUNT",
-				value1 = ${productDiscount});
+				value1 = ".*${productDiscount}.*");
 		}
 
 		if (isSet(productOptions)) {
@@ -1388,38 +1388,38 @@ definition {
 				key_menuTab = "Payments",
 				locator1 = "CommerceEntry#MENU_TAB");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_DETAILS_PAYMENT_METHOD_NAME",
-				value1 = ${paymentMethod});
+				value1 = ".*${paymentMethod}.*");
 		}
 	}
 
 	macro viewOrderShipmentDetails {
 		if (isSet(addressAddress)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressAddress},
 				locator1 = "CommerceOrders#ORDER_DETAILS_SHIPPING_ADDRESS",
-				value1 = ${addressAddress});
+				value1 = ".*${addressAddress}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressCity},
 				locator1 = "CommerceOrders#ORDER_DETAILS_SHIPPING_ADDRESS",
-				value1 = ${addressCity});
+				value1 = ".*${addressCity}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressCountry},
 				locator1 = "CommerceOrders#ORDER_DETAILS_SHIPPING_ADDRESS",
-				value1 = ${addressCountry});
+				value1 = ".*${addressCountry}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressStreet1},
 				locator1 = "CommerceOrders#ORDER_DETAILS_SHIPPING_ADDRESS",
-				value1 = ${addressStreet1});
+				value1 = ".*${addressStreet1}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressZipCode},
 				locator1 = "CommerceOrders#ORDER_DETAILS_SHIPPING_ADDRESS",
-				value1 = ${addressZipCode});
+				value1 = ".*${addressZipCode}.*");
 		}
 
 		if (isSet(carrierBaseTrackingURL)) {

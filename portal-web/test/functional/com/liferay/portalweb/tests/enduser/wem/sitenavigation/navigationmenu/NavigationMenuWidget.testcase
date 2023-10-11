@@ -973,10 +973,10 @@ definition {
 
 		task ("View the custom fields are shown in Navigation Menu widget") {
 			for (var fieldValue : list "Page,Submenu,URL") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_portletName = "Menu Display",
 					locator1 = "ManagementBar#PORTLET_BODY",
-					value1 = ${fieldValue});
+					value1 = ".*${fieldValue}.*");
 			}
 		}
 	}

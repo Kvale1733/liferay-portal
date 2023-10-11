@@ -50,9 +50,9 @@ definition {
 
 					Click(locator1 = "DocumentsAndMediaConfiguration#DISPLAY_SETTINGS_MOVE_AVAILABLE_TO_CURRENT_BUTTON");
 
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "DocumentsAndMediaConfiguration#DISPLAY_SETTINGS_DISPLAY_STYLE_VIEWS_CURRENT_SELECT",
-						value1 = ${currentDisplayStyleView});
+						value1 = ".*${currentDisplayStyleView}.*");
 				}
 			}
 		}
@@ -162,9 +162,9 @@ definition {
 			locator1 = "Portlet#TITLE",
 			value1 = "Documents and Media");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no documents or media files in this folder.");
+			value1 = ".*There are no documents or media files in this folder\..*");
 	}
 
 	macro viewInvalidRootFolder {
@@ -176,10 +176,10 @@ definition {
 
 		SelectFrame.selectFrameNoLoading(locator1 = "DocumentsAndMedia#CONFIGURATION_IFRAME");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_warningMessage = "The selected root folder cannot be found. Please select another one",
 			locator1 = "Message#WARNING_SPECIFIC",
-			value1 = "The selected root folder cannot be found. Please select another one");
+			value1 = ".*The selected root folder cannot be found. Please select another one.*");
 
 		SelectFrame.selectFrameTop();
 	}
@@ -191,9 +191,9 @@ definition {
 			locator1 = "Home#SITE_ADMINISTRATION_PORTLET_TITLE",
 			value1 = "Documents and Media");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no documents or media files in this folder.");
+			value1 = ".*There are no documents or media files in this folder\..*");
 	}
 
 }

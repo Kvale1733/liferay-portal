@@ -10,10 +10,10 @@ definition {
 			locator1 = "Button#ANY",
 			value1 = "Search");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_networkDomain = ${networkDomain},
 			locator1 = "NetworkUtilities#NETWORK_DOMAIN",
-			value1 = ${networkDomain});
+			value1 = ".*${networkDomain}.*");
 	}
 
 }

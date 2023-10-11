@@ -100,11 +100,11 @@ definition {
 		task ("Then API Schema is not visible in the created API Application in API Explorer") {
 			APIExplorer.navigateToOpenAPI(customObjectPlural = "my-app");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#API_METHOD",
 				method = "getMyEndpointPage",
 				service = "default",
-				value1 = "/myEndpoint");
+				value1 = ".*/myEndpoint.*");
 
 			AssertElementNotPresent(
 				locator1 = "OpenAPI#SCHEMA_COLLAPSED",

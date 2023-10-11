@@ -1405,9 +1405,9 @@ definition {
 		}
 
 		task ("View the details of web content shown in Asset Publisher") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "AP#ASSET_ABSTRACT_DETAIL_CONTENT",
-				value1 = "Webcontent Content");
+				value1 = ".*Webcontent Content.*");
 
 			ControlMenu.viewHeaderTitle(headerTitle = "Site Page Name");
 		}

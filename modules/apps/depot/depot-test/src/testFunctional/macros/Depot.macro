@@ -312,10 +312,10 @@ definition {
 
 		Button.click(button = "Save");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_language = ${defaultDepotLanguage},
 			locator1 = "LanguageConfiguration#DEPOT_DEFAULT_LANGUAGE",
-			value1 = ${defaultDepotLanguage});
+			value1 = ".*${defaultDepotLanguage}.*");
 	}
 
 	macro configureDirectoryIndexing {
@@ -435,9 +435,9 @@ definition {
 
 			AssertConfirm(value1 = "Are you sure you want to deactivate staging for ${depotName}?");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#SUCCESS",
-				value1 = "Staging is successfully disabled.");
+				value1 = ".*Staging is successfully disabled\..*");
 		}
 		else if (IsElementPresent(locator1 = "SiteSettingsStaging#ENABLED_ON_REMOTE_LIVE_CHECKBOX")) {
 			Check.checkHiddenToggleSwitch(locator1 = "SiteSettingsStaging#NONE_RADIO");
@@ -448,9 +448,9 @@ definition {
 
 			AssertConfirm(value1 = "Are you sure you want to deactivate staging for ${depotName}?");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#SUCCESS",
-				value1 = "Staging is successfully disabled.");
+				value1 = ".*Staging is successfully disabled\..*");
 		}
 
 		if (isSet(remoteStaging)) {
@@ -574,9 +574,9 @@ definition {
 		Button.clickSave();
 
 		if (${duplicate} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "Please enter a unique name.");
+				value1 = ".*Please enter a unique name\..*");
 		}
 		else {
 			Alert.viewSuccessMessage();
@@ -882,10 +882,10 @@ definition {
 
 	macro viewCurrentLanguages {
 		for (var currentLanguage : list ${currentLanguages}) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_language = ${currentLanguage},
 				locator1 = "LanguageConfiguration#DEPOT_AVAILABLE_LANGUAGES",
-				value1 = ${currentLanguage});
+				value1 = ".*${currentLanguage}.*");
 		}
 
 		Button.click(button = "Edit");
@@ -900,23 +900,23 @@ definition {
 	}
 
 	macro viewDefaultCP {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No asset libraries were found.");
+			value1 = ".*No asset libraries were found\..*");
 	}
 
 	macro viewDefaultLanguage {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_language = ${defaultDepotLanguage},
 			locator1 = "LanguageConfiguration#DEPOT_DEFAULT_LANGUAGE",
-			value1 = ${defaultDepotLanguage});
+			value1 = ".*${defaultDepotLanguage}.*");
 
 		Button.click(button = "Edit");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_language = ${defaultDepotLanguage},
 			locator1 = "LanguageConfiguration#DEPOT_MANAGEMENT_PANEL_DEFAULT_LANGUAGE",
-			value1 = ${defaultDepotLanguage});
+			value1 = ".*${defaultDepotLanguage}.*");
 
 		AssertElementPresent(
 			key_language = ${defaultDepotLanguage},
@@ -934,16 +934,16 @@ definition {
 			key_languagesOption = "Define a custom default language and additional active languages for this asset library.",
 			locator1 = "Radio#DEPOT_LANGUAGES_OPTION");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_language = "English (United States)",
 			locator1 = "LanguageConfiguration#DEPOT_DEFAULT_LANGUAGE",
-			value1 = "English (United States)");
+			value1 = ".*English (United States).*");
 
 		for (var language : list "English (United States),Arabic (Saudi Arabia),Catalan (Spain),Chinese (China),Dutch (Netherlands),Finnish (Finland),French (France),German (Germany),Hungarian (Hungary),Japanese (Japan),Portuguese (Brazil),Spanish (Spain),Swedish (Sweden)") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_language = ${language},
 				locator1 = "LanguageConfiguration#DEPOT_AVAILABLE_LANGUAGES",
-				value1 = ${language});
+				value1 = ".*${language}.*");
 		}
 
 		AssertElementPresent(locator1 = "Button#SAVE");
@@ -1061,21 +1061,21 @@ definition {
 	}
 
 	macro viewLanguageSelectionOrder {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "LanguageConfiguration#DEPOT_LANGUAGE_LOCALIZATION_NAME_1",
-			value1 = ${localizationName1});
+			value1 = ".*${localizationName1}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "LanguageConfiguration#DEPOT_LANGUAGE_LOCALIZATION_NAME_2",
-			value1 = ${localizationName2});
+			value1 = ".*${localizationName2}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "LanguageConfiguration#DEPOT_LANGUAGE_LOCALIZATION_NAME_3",
-			value1 = ${localizationName3});
+			value1 = ".*${localizationName3}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "LanguageConfiguration#DEPOT_LANGUAGE_LOCALIZATION_NAME_4",
-			value1 = ${localizationName4});
+			value1 = ".*${localizationName4}.*");
 	}
 
 	macro viewMember {
@@ -1113,9 +1113,9 @@ definition {
 		if (${toolTip} == "true") {
 			MouseOver(locator1 = "Icon#TOOLTIP");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#TOOLTIP",
-				value1 = "Users are not allowed to request membership. Only site administrators can add new members.");
+				value1 = ".*Users are not allowed to request membership. Only site administrators can add new members\..*");
 		}
 	}
 
@@ -1158,23 +1158,23 @@ definition {
 	}
 
 	macro viewNoWorkflowResource {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No entries were found.");
+			value1 = ".*No entries were found\..*");
 	}
 
 	macro viewSearchResult {
 		var searchTerm = '''"${searchTerm}"''';
 
 		if (${resultCount} != 1) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ManagementBar#SEARCH_RESULT_SUMMARY",
-				value1 = "${resultCount} Results for ${searchTerm}");
+				value1 = ".*${resultCount} Results for ${searchTerm}.*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ManagementBar#SEARCH_RESULT_SUMMARY",
-				value1 = "1 Result for ${searchTerm}");
+				value1 = ".*1 Result for ${searchTerm}.*");
 		}
 
 		for (var depotName : list ${includedResults}) {

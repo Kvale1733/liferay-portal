@@ -53,9 +53,9 @@ definition {
 		}
 
 		task ("Then the value in respone equals to the one we created") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#GRAPHQL_RESPONSE",
-				value1 = "\"title\": \"Web Content Title\"");
+				value1 = ".*\"title\": \"Web Content Title\".*");
 		}
 	}
 
@@ -82,9 +82,9 @@ definition {
 		}
 
 		task ("Then the value in respone equals to the one we created") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#GRAPHQL_RESPONSE",
-				value1 = "\"name\": \"Vocabulary Name\"");
+				value1 = ".*\"name\": \"Vocabulary Name\".*");
 		}
 	}
 
@@ -111,9 +111,9 @@ definition {
 		}
 
 		task ("Then the value in respone equals to the one we created") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#GRAPHQL_RESPONSE",
-				value1 = "\"headline\": \"headline of my blog posting\"");
+				value1 = ".*\"headline\": \"headline of my blog posting\".*");
 		}
 	}
 
@@ -310,11 +310,11 @@ definition {
 		}
 
 		task ("Then header Accept-Language is included in request under Curl section") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#CURL_COMMAND",
 				method = "postSiteTaxonomyVocabulary",
 				service = "TaxonomyVocabulary",
-				value1 = "-H 'Accept-Language: test'");
+				value1 = ".*-H 'Accept-Language: test'.*");
 		}
 
 		task ("And Then BAD request is included in response section") {
@@ -323,10 +323,10 @@ definition {
 				method = "postSiteTaxonomyVocabulary",
 				value1 = 406);
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "postSiteTaxonomyVocabulary",
-				value1 = "\"status\": \"NOT_ACCEPTABLE\"");
+				value1 = ".*\"status\": \"NOT_ACCEPTABLE\".*");
 		}
 
 		task ("And Then assert details message in console") {
@@ -382,11 +382,11 @@ definition {
 		}
 
 		task ("Then header Accept-Language is included in request under Curl section") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#CURL_COMMAND",
 				method = "postSiteStructuredContentDraft",
 				service = "StructuredContent",
-				value1 = "-H 'Accept-Language: es-ES'");
+				value1 = ".*-H 'Accept-Language: es-ES'.*");
 		}
 
 		task ("And Then BAD request is included in response section") {
@@ -395,10 +395,10 @@ definition {
 				method = "postSiteStructuredContentDraft",
 				value1 = 400);
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "postSiteStructuredContentDraft",
-				value1 = "\"status\": \"BAD_REQUEST\"");
+				value1 = ".*\"status\": \"BAD_REQUEST\".*");
 		}
 
 		task ("And Then assert details message in console") {
@@ -454,11 +454,11 @@ definition {
 		}
 
 		task ("Then header Accept-Language is included in request under Curl section") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#CURL_COMMAND",
 				method = "postSiteStructuredContent",
 				service = "StructuredContent",
-				value1 = "-H 'Accept-Language: es-ES'");
+				value1 = ".*-H 'Accept-Language: es-ES'.*");
 		}
 
 		task ("And Then BAD request is included in response section") {
@@ -467,10 +467,10 @@ definition {
 				method = "postSiteStructuredContent",
 				value1 = 400);
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "postSiteStructuredContent",
-				value1 = "\"status\": \"BAD_REQUEST\"");
+				value1 = ".*\"status\": \"BAD_REQUEST\".*");
 		}
 
 		task ("And Then assert details message in console") {
@@ -509,18 +509,18 @@ definition {
 		}
 
 		task ("Then header Accept-Language is included in request under Curl section") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#CURL_COMMAND",
 				method = "getSiteStructuredContentsPage",
 				service = "StructuredContent",
-				value1 = "-H 'Accept-Language: es-ES'");
+				value1 = ".*-H 'Accept-Language: es-ES'.*");
 		}
 
 		task ("And Then the es-ES content is included in response") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getSiteStructuredContentsPage",
-				value1 = "WC Contenido");
+				value1 = ".*WC Contenido.*");
 		}
 	}
 
@@ -554,18 +554,18 @@ definition {
 		}
 
 		task ("Then header Accept-Language is included in request under Curl section") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#CURL_COMMAND",
 				method = "getSiteTaxonomyVocabulariesPage",
 				service = "TaxonomyVocabulary",
-				value1 = "-H 'Accept-Language: es-ES'");
+				value1 = ".*-H 'Accept-Language: es-ES'.*");
 		}
 
 		task ("And Then the es-ES content is included in response") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getSiteTaxonomyVocabulariesPage",
-				value1 = "Vocabulary Nombre");
+				value1 = ".*Vocabulary Nombre.*");
 		}
 	}
 
@@ -600,18 +600,18 @@ definition {
 		}
 
 		task ("Then header Accept-Language is included in request under Curl section") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#CURL_COMMAND",
 				method = "getSiteStructuredContentsPage",
 				service = "StructuredContent",
-				value1 = "-H 'Accept-Language: es-ES'");
+				value1 = ".*-H 'Accept-Language: es-ES'.*");
 		}
 
 		task ("And Then the es-ES content is included in response") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "getSiteStructuredContentsPage",
-				value1 = "WC Contenido");
+				value1 = ".*WC Contenido.*");
 		}
 	}
 

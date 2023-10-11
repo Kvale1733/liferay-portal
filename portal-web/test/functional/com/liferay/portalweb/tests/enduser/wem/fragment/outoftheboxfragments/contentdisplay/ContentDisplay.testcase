@@ -143,10 +143,10 @@ definition {
 				pageName = "Content Page Name",
 				siteName = "Test Site Name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "WCD#WEB_CONTENT_CONTENT",
-				value1 = "Web Content Content");
+				value1 = ".*Web Content Content.*");
 		}
 
 		task ("logout and login as new user") {
@@ -563,23 +563,23 @@ definition {
 
 			SelectFrameTop();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				fragmentName = "wc",
 				index = 1,
 				locator1 = "Fragment#FRAGMENT_BODY",
-				value1 = "Web Content Title");
+				value1 = ".*Web Content Title.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				fragmentName = "wc",
 				index = 1,
 				locator1 = "Fragment#FRAGMENT_BODY",
-				value1 = "Web Content Content");
+				value1 = ".*Web Content Content.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				fragmentName = "wc",
 				index = 1,
 				locator1 = "Fragment#FRAGMENT_BODY",
-				value1 = "Web Content Description");
+				value1 = ".*Web Content Description.*");
 		}
 	}
 
@@ -702,11 +702,11 @@ definition {
 			SelectFrameTop();
 
 			for (var content : list "Web Content With Text Title,Web Content Description") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					fragmentName = "wctext",
 					index = 1,
 					locator1 = "Fragment#FRAGMENT_BODY",
-					value1 = ${content});
+					value1 = ".*${content}.*");
 			}
 
 			AssertTextNotPresent(
@@ -732,11 +732,11 @@ definition {
 
 		task ("View displayed content") {
 			for (var content : list "Web Content With Text Title,Web Content Description") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					fragmentName = "wctext",
 					index = 1,
 					locator1 = "Fragment#FRAGMENT_BODY",
-					value1 = ${content});
+					value1 = ".*${content}.*");
 			}
 
 			AssertTextNotPresent(

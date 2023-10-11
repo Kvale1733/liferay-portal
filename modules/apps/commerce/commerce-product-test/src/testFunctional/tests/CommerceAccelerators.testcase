@@ -843,9 +843,9 @@ definition {
 
 		CommerceAcceleratorsInitializer.viewAllAccountsFromAccountSelector();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No accounts were found.");
+			value1 = ".*No accounts were found\..*");
 	}
 
 	@description = "This is a workaround for an issue with Minium's sidebar on CI"
@@ -925,9 +925,9 @@ definition {
 
 		CommerceNavigator.gotoMiniumSidebarItem(menuItem = "Account Management");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No accounts were found.");
+			value1 = ".*No accounts were found\..*");
 	}
 
 	@description = "This is for COMMERCE-2658. Can be Drag and Drop fragments on a Minium site page."

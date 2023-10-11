@@ -35,9 +35,9 @@ definition {
 	macro gotoSuggestionStatusNew {
 		var key_kbArticleTitle = ${kbArticleTitle};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KnowledgeBaseSuggestions#NAVIGATION_NEW",
-			value1 = "NEW (${suggestionCount})");
+			value1 = ".*NEW (${suggestionCount}).*");
 	}
 
 	macro moveToInProgressStatus {
@@ -59,13 +59,13 @@ definition {
 	macro viewNoDuplicatePG {
 		var key_kbSuggestionBody = ${kbSuggestionBody};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KnowledgeBase#LINK_THERE_ARE_SUGGESTIONS",
-			value1 = ${kbThereAreSuggestionsLink});
+			value1 = ".*${kbThereAreSuggestionsLink}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KnowledgeBaseSuggestions#USER_NAME",
-			value1 = ${kbSuggestionUserName});
+			value1 = ".*${kbSuggestionUserName}.*");
 
 		AssertTextEquals(
 			locator1 = "KnowledgeBaseSuggestions#CONTENT",
@@ -85,17 +85,17 @@ definition {
 	macro viewPG {
 		var key_kbSuggestionBody = ${kbSuggestionBody};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KnowledgeBaseSuggestions#USER_NAME",
-			value1 = ${kbSuggestionUserName});
+			value1 = ".*${kbSuggestionUserName}.*");
 
 		AssertTextEquals(
 			locator1 = "KnowledgeBaseSuggestions#CONTENT",
 			value1 = ${kbSuggestionBody});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KnowledgeBaseSuggestions#STATUS",
-			value1 = ${status});
+			value1 = ".*${status}.*");
 	}
 
 	macro viewSubmittedSuggestionCountNoPermissionPG {
@@ -104,23 +104,23 @@ definition {
 		AssertElementNotPresent(locator1 = "KnowledgeBaseSuggestions#NAVIGATION_BAR");
 
 		if (${kbSuggestionCount} == 1) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "KnowledgeBase#LINK_THERE_ARE_SUGGESTIONS",
-				value1 = "You sent one suggestion for this article.");
+				value1 = ".*You sent one suggestion for this article\..*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "KnowledgeBase#LINK_THERE_ARE_SUGGESTIONS",
-				value1 = "You sent ${kbSuggestionCount} suggestions for this article.");
+				value1 = ".*You sent ${kbSuggestionCount} suggestions for this article\..*");
 		}
 	}
 
 	macro viewSuggestionStatus {
 		var key_kbSuggestionBody = ${kbSuggestionBody};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KnowledgeBaseSuggestions#STATUS",
-			value1 = ${status});
+			value1 = ".*${status}.*");
 	}
 
 }

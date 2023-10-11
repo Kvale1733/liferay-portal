@@ -355,9 +355,9 @@ definition {
 			locator1 = "DDMSelectTemplate#TEMPLATE_TABLE_NAME_LINK",
 			value1 = ${ddlTemplateName});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Portlet#HEADER",
-			value1 = "${ddlTemplateName} (${ddlDataDefinitionName})");
+			value1 = ".*${ddlTemplateName} (${ddlDataDefinitionName}).*");
 
 		AssertTextEquals(
 			locator1 = "TextInput#NAME",

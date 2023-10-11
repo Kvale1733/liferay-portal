@@ -108,9 +108,9 @@ definition {
 
 		var outputContent = '''<div class="embedded-html-test"> Test Embedded HTML </div>''';
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ServerAdministrationScript#OUTPUT_FIELD",
-			value1 = ${outputContent});
+			value1 = ".*${outputContent}.*");
 
 		ServerAdministration.executeScript(
 			htmlOutput = "true",

@@ -465,9 +465,9 @@ definition {
 		}
 
 		task ("Then the region does not save") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "The region code is already used");
+				value1 = ".*The region code is already used.*");
 		}
 	}
 
@@ -635,15 +635,15 @@ definition {
 		}
 
 		task ("Then the regions will display priority in descending order") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 1,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "A Region");
+				value1 = ".*A Region.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 2,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "Anhui Sheng");
+				value1 = ".*Anhui Sheng.*");
 		}
 
 		task ("When a user switches the order") {
@@ -651,10 +651,10 @@ definition {
 		}
 
 		task ("Then the region priorities are displayed in ascending order") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 1,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "Anhui Sheng");
+				value1 = ".*Anhui Sheng.*");
 
 			LexiconEntry.viewNoEntry(rowEntry = "A Region");
 		}

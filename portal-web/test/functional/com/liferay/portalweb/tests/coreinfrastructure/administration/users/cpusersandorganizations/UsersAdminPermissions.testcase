@@ -183,9 +183,9 @@ definition {
 				key_title = "Select Site",
 				locator1 = "IFrame#MODAL_ANY");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No sites were found.");
+				value1 = ".*No sites were found\..*");
 		}
 	}
 

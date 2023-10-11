@@ -327,10 +327,10 @@ definition {
 
 			WebContentNavigator.openWebContentAdmin(siteURLKey = ${randomSiteURLKey});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_webContentTitle = "Web Content Title",
 				locator1 = "WC#ENTRY_LIST_TITLE_ON_LIVE",
-				value1 = "Web Content Title");
+				value1 = ".*Web Content Title.*");
 		}
 	}
 
@@ -725,10 +725,10 @@ definition {
 		task ("Assert web content has been published") {
 			WebContentNavigator.openWebContentAdmin(siteURLKey = "${randomSiteURLKey}-b");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_webContentTitle = "Web Content Title",
 				locator1 = "WC#ENTRY_LIST_TITLE_ON_LIVE",
-				value1 = "Web Content Title");
+				value1 = ".*Web Content Title.*");
 		}
 	}
 

@@ -996,9 +996,9 @@ Welcome to Liferay Community Edition Portal 7.4.0 CE GA1''';
 
 			LexiconList.clickListEntryTitle(listEntry = "Exhaust System");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No web content was found.");
+				value1 = ".*No web content was found\..*");
 		}
 	}
 

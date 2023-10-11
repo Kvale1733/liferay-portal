@@ -674,9 +674,9 @@ definition {
 		}
 
 		task ("Then the subscription option will display remaining available key activations") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CP2ActivationKeys#SUBSCRIPTION_KEY_AVAILABLE",
-				value1 = "Key activation available: 1 of");
+				value1 = ".*Key activation available: 1 of.*");
 		}
 	}
 
@@ -821,9 +821,9 @@ definition {
 		task ("Then a message will appear after the user selects a subscription with a permanent license type") {
 			CP2ActivationKeys.selectSubscription(position = 1);
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#INFO",
-				value1 = "Activation Keys will be valid indefinitely");
+				value1 = ".*Activation Keys will be valid indefinitely.*");
 		}
 	}
 
@@ -854,9 +854,9 @@ definition {
 		}
 
 		task ("Then a user can see that disabled subscriptions will have 0 keys available") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CP2ActivationKeys#SUBSCRIPTION_KEY_DISABLED",
-				value1 = "Key activation available: 0 of");
+				value1 = ".*Key activation available: 0 of.*");
 		}
 	}
 

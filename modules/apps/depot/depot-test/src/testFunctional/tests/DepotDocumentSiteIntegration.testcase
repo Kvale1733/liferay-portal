@@ -587,10 +587,10 @@ definition {
 			siteURLKey = "site-name",
 			webContentTitle = "WC WebContent Title");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_assetTitle = "Document_1.jpg",
 			locator1 = "AssetRelatedAssets#RELATED_ASSETS_TABLE_TYPE",
-			value1 = "DM Document Type Depot");
+			value1 = ".*DM Document Type Depot.*");
 	}
 
 	@description = "This ensures that a depot image in the KB content field can be rendered correctly on a connected site after moving it to a folder."

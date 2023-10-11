@@ -663,9 +663,9 @@ definition {
 
 		task ("Assert that some of the configured languages are available in available languages") {
 			for (var language : list "English (Australia),English (United Kingdom),Italian (Italy)") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "LanguageConfiguration#LANGUAGES_AVAILABLE",
-					value1 = ${language});
+					value1 = ".*${language}.*");
 			}
 		}
 	}
@@ -739,17 +739,17 @@ definition {
 
 		task ("Assert that some of the configured languages are available in available languages") {
 			for (var language : list "Hungarian (Hungary),Portuguese (Brazil)") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "LanguageConfiguration#LANGUAGES_AVAILABLE",
-					value1 = ${language});
+					value1 = ".*${language}.*");
 			}
 		}
 
 		task ("Assert that some of the configured languages are available in current languages") {
 			for (var language : list "Chinese (China),English (United States),French (France),German (Germany),Spanish (Spain)") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "LanguageConfiguration#LANGUAGES_CURRENT",
-					value1 = ${language});
+					value1 = ".*${language}.*");
 			}
 		}
 	}
@@ -928,13 +928,13 @@ definition {
 		}
 
 		task ("Then: Assert Timezone is included with account lockout message.") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_DISMISSIBLE",
-				value1 = "This account is locked until");
+				value1 = ".*This account is locked until.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_DISMISSIBLE",
-				value1 = "PKT.");
+				value1 = ".*PKT\..*");
 		}
 	}
 

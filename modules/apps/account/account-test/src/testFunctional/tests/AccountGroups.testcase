@@ -291,10 +291,10 @@ definition {
 			var index = 1;
 
 			for (var assigneeName : list "Account Name for Test,Banana Account,Filter By Name,Liferay Account") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_rowNumber = ${index},
 					locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-					value1 = ${assigneeName});
+					value1 = ".*${assigneeName}.*");
 
 				var index = ${index} + 1;
 			}
@@ -616,9 +616,9 @@ definition {
 
 			Navigator.gotoNavTab(navTab = "Accounts");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No accounts were found.");
+				value1 = ".*No accounts were found\..*");
 
 			LexiconEntry.gotoAdd();
 

@@ -52,10 +52,10 @@ definition {
 		UploadDependencyFile.uploadArchiveFile(fileName = ${calendarFile});
 
 		if (isSet(importValidationErrorMessage)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				importValidationErrorMessage = ${importValidationErrorMessage},
 				locator1 = "ExportImport#VALIDATION_ERROR_MESSAGE_HEADER",
-				value1 = ${importValidationErrorMessage});
+				value1 = ".*${importValidationErrorMessage}.*");
 		}
 		else {
 			Button.click(button = "Continue");
@@ -81,15 +81,15 @@ definition {
 
 		CalendarExportImport.gotoExportTab(subTab = "Current and Previous");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CalendarExportImport#EXPORTED_CALENDAR_FILE_NAME",
-			value1 = ${calendarSelected});
+			value1 = ".*${calendarSelected}.*");
 	}
 
 	macro viewNoProcessesOnCurrentAndPreviousTab {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "processes were found.");
+			value1 = ".*processes were found\..*");
 	}
 
 	macro viewSuccessStatusOnCurrentAndPreviousTab {

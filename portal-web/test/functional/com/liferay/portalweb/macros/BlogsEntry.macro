@@ -603,9 +603,9 @@ definition {
 			locator1 = "ReportContent#REPORT_BUTTON",
 			value1 = "Report");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ReportContent#SUCCESS_MESSAGE",
-			value1 = "Although we cannot disclose our final decision, we do review every report and appreciate your effort to make sure ${siteName} is a safe environment for everyone.");
+			value1 = ".*Although we cannot disclose our final decision, we do review every report and appreciate your effort to make sure ${siteName} is a safe environment for everyone\..*");
 
 		Click(locator1 = "Button#CLOSE");
 	}
@@ -680,9 +680,9 @@ definition {
 			locator1 = "Button#PUBLISH",
 			value1 = "Publish");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "TextInput#REQUIRED_ALERT",
-			value1 = "The Content field is required.");
+			value1 = ".*The Content field is required\..*");
 
 		AssertElementNotPresent(locator1 = "Message#SUCCESS");
 	}
@@ -692,9 +692,9 @@ definition {
 			locator1 = "Button#PUBLISH",
 			value1 = "Publish");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "TextInput#REQUIRED_ALERT",
-			value1 = "field is required.");
+			value1 = ".*field is required\..*");
 
 		AssertElementNotPresent(locator1 = "Message#SUCCESS");
 	}
@@ -877,9 +877,9 @@ definition {
 
 		WaitForLiferayEvent.initializeLiferayEventLog();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No entries were found.");
+			value1 = ".*No entries were found\..*");
 
 		Blogs.viewEntryNotPresent(entryTitle = ${entryTitle});
 	}
@@ -925,9 +925,9 @@ definition {
 			locator1 = "BlogsEntry#TITLE",
 			value1 = ${entryTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "BlogsEntry#CONTENT_ABSTRACT",
-			value1 = ${entryAbstractDescription});
+			value1 = ".*${entryAbstractDescription}.*");
 
 		AssertTextNotEquals(
 			locator1 = "BlogsEntry#CONTENT_GENERIC",
@@ -991,9 +991,9 @@ definition {
 	}
 
 	macro viewDefaultCP {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No entries were found.");
+			value1 = ".*No entries were found\..*");
 
 		AssertElementNotPresent(locator1 = "Blogs#ENTRY_TABLE_TITLE");
 	}
@@ -1080,15 +1080,15 @@ definition {
 		}
 
 		if (isSet(entryContentBold)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BlogsEntry#CONTENT_HTML_BOLD",
-				value1 = ${entryContentBold});
+				value1 = ".*${entryContentBold}.*");
 		}
 
 		if (isSet(entryContentItalics)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BlogsEntry#CONTENT_HTML_ITALICS",
-				value1 = ${entryContentItalics});
+				value1 = ".*${entryContentItalics}.*");
 		}
 
 		if (isSet(entryExternalURL)) {
@@ -1195,27 +1195,27 @@ definition {
 		}
 
 		if (isSet(entryContentBold)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BlogsEntry#CONTENT_HTML_BOLD",
-				value1 = ${entryContentBold});
+				value1 = ".*${entryContentBold}.*");
 		}
 
 		if (isSet(entryContentCite)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BlogsEntry#CONTENT_HTML_CITE",
-				value1 = ${entryContentCite});
+				value1 = ".*${entryContentCite}.*");
 		}
 
 		if (isSet(entryContentHtml)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BlogsEntry#CONTENT_HTML_H2",
-				value1 = ${entryContentHtml});
+				value1 = ".*${entryContentHtml}.*");
 		}
 
 		if (isSet(entryContentItalics)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BlogsEntry#CONTENT_HTML_ITALICS",
-				value1 = ${entryContentItalics});
+				value1 = ".*${entryContentItalics}.*");
 		}
 
 		if (isSet(entryExternalURL)) {
@@ -1255,13 +1255,13 @@ definition {
 
 		AssetPublisherPortlet.clickAssetTitle(assetTitle = ${entryTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
-			value1 = ${entryTitle});
+			value1 = ".*${entryTitle}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "APAsset#ASSET_CONTENT",
-			value1 = ${entryContent});
+			value1 = ".*${entryContent}.*");
 	}
 
 	macro viewInlineImage {
@@ -1442,9 +1442,9 @@ definition {
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
 			value1 = ${entryTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = ${entryContent});
+			value1 = ".*${entryContent}.*");
 
 		AssetPublisherPortlet.clickAssetTitle(assetTitle = ${entryTitle});
 
@@ -1452,13 +1452,13 @@ definition {
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
 			value1 = ${entryTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
-			value1 = ${entryTitle});
+			value1 = ".*${entryTitle}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "APAsset#ASSET_CONTENT",
-			value1 = ${entryContent});
+			value1 = ".*${entryContent}.*");
 	}
 
 	macro viewRelatedAssetPG {
@@ -1576,9 +1576,9 @@ definition {
 					locator1 = "BlogsEntry#TAG",
 					value1 = ${tagName});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "BlogsEntry#TAG_FILTER_TITLE",
-					value1 = "Entries with tag ${tagName}");
+					value1 = ".*Entries with tag ${tagName}.*");
 
 				AssertTextEquals(
 					locator1 = "BlogsEntry#TITLE",
@@ -1597,9 +1597,9 @@ definition {
 				locator1 = "BlogsEntry#TAG",
 				value1 = ${tagName});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BlogsEntry#TAG_FILTER_TITLE",
-				value1 = "Entries with tag ${tagName}");
+				value1 = ".*Entries with tag ${tagName}.*");
 
 			AssertTextEquals(
 				key_text = "Title",
@@ -1636,9 +1636,9 @@ definition {
 					locator1 = "BlogsEntry#TAG",
 					value1 = ${tagName});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "BlogsEntry#TAG_FILTER_TITLE",
-					value1 = "Entries with tag ${tagName}");
+					value1 = ".*Entries with tag ${tagName}.*");
 
 				AssertTextEquals(
 					locator1 = "BlogsEntry#TITLE",
@@ -1653,9 +1653,9 @@ definition {
 				locator1 = "BlogsEntry#TAG",
 				value1 = ${tagName});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BlogsEntry#TAG_FILTER_TITLE",
-				value1 = ${tagName});
+				value1 = ".*${tagName}.*");
 
 			AssertTextEquals(
 				locator1 = "BlogsEntry#TITLE",
@@ -1694,14 +1694,14 @@ definition {
 		var entryViewCount = StringUtil.extractDigits(${entryViewCount});
 
 		if (${entryViewCount} == 1) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BlogsEntry#ENTRY_VIEW_COUNT",
-				value1 = "${entryViewCount} View");
+				value1 = ".*${entryViewCount} View.*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BlogsEntry#ENTRY_VIEW_COUNT",
-				value1 = "${entryViewCount} Views");
+				value1 = ".*${entryViewCount} Views.*");
 		}
 
 		Navigator.gotoPage(pageName = ${pageName});
@@ -1723,14 +1723,14 @@ definition {
 		var entryViewCount = StringUtil.extractDigits(${entryViewCount});
 
 		if (${entryViewCount} == 1) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BlogsEntry#ENTRY_VIEW_COUNT",
-				value1 = "${entryViewCount} View");
+				value1 = ".*${entryViewCount} View.*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BlogsEntry#ENTRY_VIEW_COUNT",
-				value1 = "${entryViewCount} Views");
+				value1 = ".*${entryViewCount} Views.*");
 		}
 
 		Navigator.gotoPage(pageName = ${pageName});
@@ -1738,14 +1738,14 @@ definition {
 		if (${entryViewCount} == 1) {
 			var entryViewCount = ${entryViewCount} + 1;
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BlogsEntry#ENTRY_VIEW_COUNT",
-				value1 = "${entryViewCount} View");
+				value1 = ".*${entryViewCount} View.*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BlogsEntry#ENTRY_VIEW_COUNT",
-				value1 = "${entryViewCount} Views");
+				value1 = ".*${entryViewCount} Views.*");
 		}
 	}
 
@@ -1757,9 +1757,9 @@ definition {
 			locator1 = "BlogsEntry#TITLE",
 			value1 = ${entryTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "BlogsEntry#CONTENT_ABSTRACT",
-			value1 = ${entryAbstractDescription});
+			value1 = ".*${entryAbstractDescription}.*");
 	}
 
 	macro viewWithTitleDisplayTemplatePG {
@@ -1783,12 +1783,12 @@ definition {
 		var key_entryTitle = ${entryTitle};
 
 		if (IsTextEqual.isPartialText(locator1 = "Blogs#ENTRY_COMMENTS_COUNT", value1 = 2)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Blogs#ENTRY_COMMENTS_COUNT",
 				value1 = 2);
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Blogs#ENTRY_COMMENTS_COUNT",
 				value1 = 1);
 		}

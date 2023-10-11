@@ -51,9 +51,9 @@ definition {
 		if (${metadataSetHasReference} == "true") {
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_1",
-				value1 = "The structure cannot be deleted because it is required by one or more structure links.");
+				value1 = ".*The structure cannot be deleted because it is required by one or more structure links\..*");
 		}
 		else if (${deleteViaManagementBar} == "true") {
 			Alert.viewSuccessMessage();
@@ -159,9 +159,9 @@ definition {
 	}
 
 	macro viewDefaultCP {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no results.");
+			value1 = ".*There are no results\..*");
 
 		AssertElementNotPresent(
 			key_metadataSetName = "Google Docs Metadata",
@@ -173,9 +173,9 @@ definition {
 	}
 
 	macro viewMetadataSetNotFoundCP {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No results were found.");
+			value1 = ".*No results were found\..*");
 	}
 
 	macro viewMetadataSetTitle {

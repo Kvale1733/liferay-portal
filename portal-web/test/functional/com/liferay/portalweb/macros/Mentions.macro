@@ -245,9 +245,9 @@ definition {
 		// Disabling assertion for Test Test until LPS-108776 is fixed.
 
 		if (${mentionsUserFullName} != "Test Test") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ProductMenu#PRODUCT_MENU_PANEL_SITE_ADMINISTRATION_SITE_NAME",
-				value1 = ${mentionsUserFullName});
+				value1 = ".*${mentionsUserFullName}.*");
 		}
 	}
 
@@ -261,9 +261,9 @@ definition {
 
 		ProductMenuHelper.openProductMenu();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ProductMenu#PRODUCT_MENU_PANEL_SITE_ADMINISTRATION_SITE_NAME",
-			value1 = ${mentionsUserFullName});
+			value1 = ".*${mentionsUserFullName}.*");
 	}
 
 }

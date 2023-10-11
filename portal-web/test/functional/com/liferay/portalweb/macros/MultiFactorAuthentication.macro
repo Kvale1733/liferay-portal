@@ -327,9 +327,9 @@ definition {
 
 			Button.click(button = "Submit");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "Multi-factor authentication has failed.");
+				value1 = ".*Multi-factor authentication has failed\..*");
 
 			AssertElementNotPresent(locator1 = "UserBar#USER_AVATAR_IMAGE");
 		}

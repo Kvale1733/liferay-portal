@@ -154,9 +154,9 @@ definition {
 			entry = "Allowed Entry",
 			invalidEntry = "true");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "This entry is not possible.");
+			value1 = ".*This entry is not possible\..*");
 	}
 
 	@description = "LPS-189641 - Verify if is possible create a validation using the oldValue function with the Text Field using a system object"
@@ -404,9 +404,9 @@ definition {
 
 			Button.clickSave();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -504,9 +504,9 @@ definition {
 
 			Button.clickSave();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -587,9 +587,9 @@ definition {
 
 			Button.clickSave();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			ObjectAdmin.goToCustomObject(objectName = "CustomObject156703B");
 
@@ -678,9 +678,9 @@ definition {
 
 			Button.clickSave();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			ObjectAdmin.goToCustomObject(objectName = "CustomObject156703C");
 
@@ -768,9 +768,9 @@ definition {
 				entryValue = "Decline Entry",
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -807,9 +807,9 @@ definition {
 				entry = 2004,
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -881,9 +881,9 @@ definition {
 				entry = "01/01/2023",
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -919,9 +919,9 @@ definition {
 				entry = "02/02/2022",
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -991,9 +991,9 @@ definition {
 				entryValue = "It is not an email",
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -1063,9 +1063,9 @@ definition {
 				entryValue = "1.23",
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -1101,9 +1101,9 @@ definition {
 				entryValue = "9,87",
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -1173,9 +1173,9 @@ definition {
 				entryValue = "Invalid entry",
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -1248,9 +1248,9 @@ definition {
 				entry = 54321,
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -1289,9 +1289,9 @@ definition {
 				entry = 13579,
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -1364,9 +1364,9 @@ definition {
 				entry = 4999,
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -1447,9 +1447,9 @@ definition {
 				entry = 5001,
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -1529,9 +1529,9 @@ definition {
 				entryValue = "It is not a URL",
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -1601,9 +1601,9 @@ definition {
 				entryValue = "z",
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -1687,9 +1687,9 @@ definition {
 
 			Button.clickSave();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -1751,9 +1751,9 @@ definition {
 
 			Button.clickSave();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -1815,9 +1815,9 @@ definition {
 
 			Button.clickSave();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -1879,9 +1879,9 @@ definition {
 
 			Button.clickSave();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -1965,9 +1965,9 @@ definition {
 				entry = "05/30/2022",
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -1975,9 +1975,9 @@ definition {
 				entry = "01/07/2022",
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -2067,9 +2067,9 @@ definition {
 
 			Button.clickSave();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 
 			Navigator.gotoBack();
 
@@ -2263,9 +2263,9 @@ definition {
 		}
 
 		task ("Then the invalid object entry isn't added and the existing object entry isn't affected") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not valid for text entry, the field contains the word: dog.");
+				value1 = ".*This entry is not valid for text entry, the field contains the word: dog\..*");
 
 			ObjectAdmin.goToCustomObject(objectName = "CustomObject192647");
 
@@ -2835,9 +2835,9 @@ definition {
 			entryValue = "Invalid Entry",
 			invalidEntry = "true");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "This entry is not possible.");
+			value1 = ".*This entry is not possible\..*");
 	}
 
 	@description = "LPS-144474 - Verify that the message 'There was an unexpected error in fields validation. Please contact support' is displayed when the goovy sintax is incorrect"
@@ -2944,9 +2944,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "TextInput#REQUIRED_ALERT",
-			value1 = "Required");
+			value1 = ".*Required.*");
 	}
 
 	@description = "LPS-144474 - Verify that, when adding a New Validation, the Label field is required"
@@ -2970,9 +2970,9 @@ definition {
 			validationName = "",
 			validationType = "Groovy");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "TextInput#REQUIRED_ALERT",
-			value1 = "Required");
+			value1 = ".*Required.*");
 
 		Click(
 			key_modalTitle = "New Validation",
@@ -2988,9 +2988,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "TextInput#REQUIRED_ALERT",
-			value1 = "Required");
+			value1 = ".*Required.*");
 	}
 
 }

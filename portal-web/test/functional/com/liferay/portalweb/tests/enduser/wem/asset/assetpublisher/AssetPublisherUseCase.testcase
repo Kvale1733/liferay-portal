@@ -1194,10 +1194,10 @@ definition {
 
 			SelectFrameTop();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_text = "Select from List: Option 1",
 				locator1 = "APConfiguration#SOURCE_SCOPE_FIELD_FILTER_AND_VALUE",
-				value1 = "Select from List: Option 1");
+				value1 = ".*Select from List: Option 1.*");
 
 			PortletEntry.save();
 		}

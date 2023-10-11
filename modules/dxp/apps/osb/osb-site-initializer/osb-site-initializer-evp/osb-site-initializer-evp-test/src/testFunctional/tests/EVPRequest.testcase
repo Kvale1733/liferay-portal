@@ -242,7 +242,7 @@ definition {
 
 			EVPRequest.goToCreateRequest();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_value = 1000,
 				locator1 = "EVPRequest#AVAILABLE_VALUE",
 				value1 = 1000);
@@ -271,7 +271,7 @@ definition {
 
 			EVPRequest.goToCreateRequest();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_value = 700,
 				locator1 = "EVPRequest#AVAILABLE_VALUE",
 				value1 = 700);

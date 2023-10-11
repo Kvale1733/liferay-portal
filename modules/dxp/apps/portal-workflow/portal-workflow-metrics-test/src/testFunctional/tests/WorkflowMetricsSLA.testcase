@@ -431,19 +431,19 @@ definition {
 			key_slaWarning = "Set Up SLAs",
 			locator1 = "WorkflowMetricsSLA#SLA_SETUP_WARNING_BUTTON");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_errorMessage = "Fix blocked SLAs to resume accurate reporting.",
 			locator1 = "Message#ERROR",
-			value1 = "Fix blocked SLAs to resume accurate reporting.");
+			value1 = ".*Fix blocked SLAs to resume accurate reporting\..*");
 
 		Click(
 			key_slaTitle = "SLA Name",
 			locator1 = "WorkflowMetricsSLA#SLA_RECORD_TITLE");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_errorMessage = "The time frame options changed in the workflow definition. Please select new time frames.",
 			locator1 = "Message#ERROR",
-			value1 = "The time frame options changed in the workflow definition. Please select new time frames.");
+			value1 = ".*The time frame options changed in the workflow definition. Please select new time frames\..*");
 	}
 
 	@description = "LPS-89014 - Verify that the field Name should be in focus at the SLA page when the user selects to edit or to create a new SLA"

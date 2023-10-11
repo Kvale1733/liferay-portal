@@ -540,9 +540,9 @@ definition {
 			locator1 = "Modal#HEADER",
 			value1 = "Deletion Not Allowed");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Modal#BODY",
-			value1 = "has active relationships and cannot be deleted.");
+			value1 = ".*has active relationships and cannot be deleted\..*");
 	}
 
 	macro assertCannotDeleteRelationshipFromChildSideErrorMessage {
@@ -550,9 +550,9 @@ definition {
 			locator1 = "Modal#HEADER",
 			value1 = "Deletion Not Allowed");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Modal#BODY",
-			value1 = "You do not have permission to delete this relationship.");
+			value1 = ".*You do not have permission to delete this relationship\..*");
 	}
 
 	macro assertKeywordAndText {

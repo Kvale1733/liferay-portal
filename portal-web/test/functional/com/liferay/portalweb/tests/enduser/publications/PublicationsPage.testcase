@@ -99,12 +99,12 @@ definition {
 				pageName = "Test Page Name",
 				siteName = "Test Site Name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				fragmentName = "html",
 				id = "element-html",
 				index = 1,
 				locator1 = "Fragment#CONTRIBUTED_FRAGMENT_TEXT",
-				value1 = "WC WebContent Title");
+				value1 = ".*WC WebContent Title.*");
 		}
 
 		task ("Go to review changes and assert that the changes were indeed made") {
@@ -1435,9 +1435,9 @@ definition {
 
 		Button.clickPublish();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "No unresolved conflicts, ready to publish.");
+			value1 = ".*No unresolved conflicts, ready to publish\..*");
 	}
 
 }

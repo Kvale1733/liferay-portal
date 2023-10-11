@@ -670,9 +670,9 @@ definition {
 				userName = "");
 
 			if ((${sytemsObjects} == "Account") || (${sytemsObjects} == "Commerce Order") || (${sytemsObjects} == "Commerce Product") || (${sytemsObjects} == "Commerce Product Group") || (${sytemsObjects} == "Postal Address") || (${sytemsObjects} == "User")) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "AuditReports#REPORTS_DETAIL_ADDITIONAL_INFORMATION",
-					value1 = ${sytemsObjects});
+					value1 = ".*${sytemsObjects}.*");
 			}
 		}
 	}

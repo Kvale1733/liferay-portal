@@ -211,9 +211,9 @@ definition {
 				locator1 = "Modal#MODAL_FOOTER_BUTTON");
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no tags.");
+			value1 = ".*There are no tags\..*");
 	}
 
 	macro viewCP {

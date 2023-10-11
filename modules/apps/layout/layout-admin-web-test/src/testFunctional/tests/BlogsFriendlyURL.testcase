@@ -178,9 +178,9 @@ definition {
 
 		Button.clickPublish();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_ENTER_A_UNIQUE_TITLE",
-			value1 = "The URL title is already in use. Please enter a unique URL title.");
+			value1 = ".*The URL title is already in use. Please enter a unique URL title\..*");
 	}
 
 	@description = "This ensures that an old friendlyURL can be removed from the history."

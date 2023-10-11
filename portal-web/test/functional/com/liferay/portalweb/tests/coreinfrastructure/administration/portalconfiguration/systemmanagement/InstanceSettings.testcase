@@ -215,9 +215,9 @@ definition {
 				value1 = ${value1});
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Select#COUNTRY",
-			value1 = "China");
+			value1 = ".*China.*");
 
 		AssertTextEquals(
 			key_text = "Email Address",
@@ -1543,20 +1543,20 @@ definition {
 				asset = "${portalURL}: Dear userfn, your Password Has Been Changed",
 				recipient = "userfn userln");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_asset = "${portalURL}: Dear userfn, your Password Has Been Changed",
 				locator1 = "MockMock#MOCKMOCK_MESSAGE_BODY",
-				value1 = "Dear userfn/userfn userln,");
+				value1 = ".*Dear userfn/userfn userln,.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_asset = "${portalURL}: Dear userfn, your Password Has Been Changed",
 				locator1 = "MockMock#MOCKMOCK_MESSAGE_BODY",
-				value1 = "Your(userfn) password for ${portalURL} has been changed.");
+				value1 = ".*Your(userfn) password for ${portalURL} has been changed\..*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_asset = "${portalURL}: Dear userfn, your Password Has Been Changed",
 				locator1 = "MockMock#MOCKMOCK_MESSAGE_BODY",
-				value1 = "The request from userfn for a new password");
+				value1 = ".*The request from userfn for a new password.*");
 		}
 	}
 
@@ -1628,20 +1628,20 @@ definition {
 				asset = "${portalURL}: Dear userfn, please reset Your Password",
 				recipient = "userfn userln");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_asset = "${portalURL}: Dear userfn, please reset Your Password",
 				locator1 = "MockMock#MOCKMOCK_MESSAGE_BODY",
-				value1 = "Dear userfn/userfn userln,");
+				value1 = ".*Dear userfn/userfn userln,.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_asset = "${portalURL}: Dear userfn, please reset Your Password",
 				locator1 = "MockMock#MOCKMOCK_MESSAGE_BODY",
-				value1 = "You(userfn) can reset your password for");
+				value1 = ".*You(userfn) can reset your password for.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_asset = "${portalURL}: Dear userfn, please reset Your Password",
 				locator1 = "MockMock#MOCKMOCK_MESSAGE_BODY",
-				value1 = "The request from userfn for a new password");
+				value1 = ".*The request from userfn for a new password.*");
 		}
 	}
 

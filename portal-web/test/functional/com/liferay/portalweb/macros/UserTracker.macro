@@ -11,9 +11,9 @@ definition {
 
 		ScrollWebElementIntoView(locator1 = "ListGroupItem#ACCESSED_FRIENDLY_URLS");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ListGroupItem#ACCESSED_FRIENDLY_URLS",
-			value1 = ${friendlyURL});
+			value1 = ".*${friendlyURL}.*");
 	}
 
 }

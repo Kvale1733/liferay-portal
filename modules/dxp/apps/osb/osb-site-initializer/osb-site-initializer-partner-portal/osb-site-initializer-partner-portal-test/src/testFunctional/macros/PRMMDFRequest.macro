@@ -15,9 +15,9 @@ definition {
 	macro assertClaimMessage {
 		var key_claimMessage = ${claimMessage};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PRMMDFRequest#CLAIM_MESSAGE",
-			value1 = ${claimMessage});
+			value1 = ".*${claimMessage}.*");
 	}
 
 	macro CanNotViewStateManager {
@@ -909,22 +909,22 @@ definition {
 			key_fieldValue = ${startDate},
 			locator1 = "PRMMDFRequest#SUMMARY_FIELD");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_fieldName = "Start Date",
 			key_fieldValue = ${startDate},
 			locator1 = "PRMMDFRequest#SUMMARY_FIELD",
-			value1 = ${startDate});
+			value1 = ".*${startDate}.*");
 
 		ScrollWebElementIntoView(
 			key_fieldName = "End Date",
 			key_fieldValue = ${endDate},
 			locator1 = "PRMMDFRequest#SUMMARY_FIELD");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_fieldName = "End Date",
 			key_fieldValue = ${endDate},
 			locator1 = "PRMMDFRequest#SUMMARY_FIELD",
-			value1 = ${endDate});
+			value1 = ".*${endDate}.*");
 
 		ScrollWebElementIntoView(
 			key_fieldName = ${expenseOption},
@@ -1111,19 +1111,19 @@ definition {
 		}
 
 		if (isSet(startDate)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fieldName = "Start Date",
 				key_nameValue = ${startDate},
 				locator1 = "PRMMDFRequest#DETAIL_FIELD",
-				value1 = ${startDate});
+				value1 = ".*${startDate}.*");
 		}
 
 		if (isSet(endDate)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fieldName = "End Date",
 				key_nameValue = ${endDate},
 				locator1 = "PRMMDFRequest#DETAIL_FIELD",
-				value1 = ${endDate});
+				value1 = ".*${endDate}.*");
 		}
 
 		if (isSet(expense) && isSet(budget)) {

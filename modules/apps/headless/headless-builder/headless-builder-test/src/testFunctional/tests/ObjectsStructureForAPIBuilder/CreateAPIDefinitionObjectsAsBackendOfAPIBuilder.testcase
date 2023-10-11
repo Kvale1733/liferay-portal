@@ -87,10 +87,10 @@ definition {
 				method = "postAPIApplication",
 				value1 = 200);
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "postAPIApplication",
-				value1 = "\"key\": \"unpublished\"");
+				value1 = ".*\"key\": \"unpublished\".*");
 		}
 	}
 
@@ -188,10 +188,10 @@ definition {
 				method = "postAPIApplication",
 				value1 = 400);
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "postAPIApplication",
-				value1 = "Base URL can have a maximum of 255 alphanumeric characters.");
+				value1 = ".*Base URL can have a maximum of 255 alphanumeric characters\..*");
 		}
 
 		task ("And Then API application is not created") {
@@ -234,10 +234,10 @@ definition {
 		}
 
 		task ("Then I receive an error 'Object field name \"applicationStatus\" is not mapped to a valid list type entry'") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#RESPONSE_BODY",
 				method = "putAPIApplication",
-				value1 = "Object field name \\"applicationStatus\\" is not mapped to a valid list type entry");
+				value1 = ".*Object field name \\"applicationStatus\\" is not mapped to a valid list type entry.*");
 
 			AssertTextEquals(
 				locator1 = "OpenAPI#RESPONSE_CODE",

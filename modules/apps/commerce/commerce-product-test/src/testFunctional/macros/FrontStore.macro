@@ -253,17 +253,17 @@ definition {
 		}
 
 		if (isSet(paymentSubscriptionPeriod)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_subscriptionName = "Payment",
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_SUBSCRIPTION_INFO",
-				value1 = ${paymentSubscriptionPeriod});
+				value1 = ".*${paymentSubscriptionPeriod}.*");
 		}
 
 		if (isSet(deliverySubscriptionPeriod)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_subscriptionName = "Delivery",
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_SUBSCRIPTION_INFO",
-				value1 = ${deliverySubscriptionPeriod});
+				value1 = ".*${deliverySubscriptionPeriod}.*");
 		}
 
 		if (isSet(productListPrice)) {
@@ -289,13 +289,13 @@ definition {
 		}
 
 		if (isSet(discountPercentage) && isSet(productNetPrice)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_DISCOUNT",
-				value1 = ${discountPercentage});
+				value1 = ".*${discountPercentage}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-				value1 = ${productNetPrice});
+				value1 = ".*${productNetPrice}.*");
 		}
 
 		if (isSet(minQuantity)) {
@@ -319,9 +319,9 @@ definition {
 				key_text = "Full Description",
 				locator1 = "Button#ANY");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceFrontStore#FS_PRODUCT_FULL_DESCRIPTION",
-				value1 = ${productFullDescription});
+				value1 = ".*${productFullDescription}.*");
 		}
 
 		if (isSet(productSpecifications)) {
@@ -333,10 +333,10 @@ definition {
 				var specificationKey = StringUtil.extractFirst(${productSpecification}, ":");
 				var specificationValue = StringUtil.extractLast(${productSpecification}, ":");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_specification = ${specificationKey},
 					locator1 = "CommerceFrontStore#FS_PRODUCT_SPECIFICATIONS",
-					value1 = ${specificationValue});
+					value1 = ".*${specificationValue}.*");
 			}
 		}
 
@@ -350,15 +350,15 @@ definition {
 	}
 
 	macro assertPromoPrice {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_productName = ${productName},
 			locator1 = "CommerceFrontStore#FS_PRODUCT_VALUE_PROMO_PRICE",
-			value1 = ${promoPrice});
+			value1 = ".*${promoPrice}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_productName = ${productName},
 			locator1 = "CommerceFrontStore#FS_PRODUCT_VALUE_INACTIVE_PRICE",
-			value1 = ${basePrice});
+			value1 = ".*${basePrice}.*");
 	}
 
 	macro compareProducts {
@@ -511,23 +511,23 @@ definition {
 		}
 
 		if (isSet(cartSummarySubtotal)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_summaryTableItem = "Subtotal",
 				locator1 = "CommerceAccelerators#MINI_CART_SUMMARY_TABLE_ITEM",
-				value1 = "$ ${cartSummarySubtotal}");
+				value1 = ".*\$ ${cartSummarySubtotal}.*");
 		}
 
 		if (isSet(cartSummaryOrderDiscount)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_summaryTableItem = "Order Discount",
 				locator1 = "CommerceAccelerators#MINI_CART_SUMMARY_TABLE_ITEM",
-				value1 = "$ ${cartSummaryOrderDiscount}");
+				value1 = ".*\$ ${cartSummaryOrderDiscount}.*");
 		}
 
 		if (isSet(cartSummaryTotal)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#MINI_CART_SUMMARY_TABLE_TOTAL",
-				value1 = "$ ${cartSummaryTotal}");
+				value1 = ".*\$ ${cartSummaryTotal}.*");
 		}
 	}
 
@@ -548,10 +548,10 @@ definition {
 			value1 = ${cartItemQuantity});
 
 		if (isSet(cartItemPriceValue)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_cartItemSku = ${cartItemSku},
 				locator1 = "CommerceAccelerators#MINI_CART_ITEM_PRICE_VALUE",
-				value1 = "$ ${cartItemPriceValue}");
+				value1 = ".*\$ ${cartItemPriceValue}.*");
 		}
 
 		if (isSet(cartItemPromoPriceValue)) {
@@ -561,10 +561,10 @@ definition {
 		}
 
 		if (isSet(cartItemUOMKey)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_uom = ${cartItemUOMKey},
 				locator1 = "CommerceAccelerators#MINI_CART_ITEM_UOM_NAME",
-				value1 = ${cartItemUOMKey});
+				value1 = ".*${cartItemUOMKey}.*");
 		}
 
 		AssertElementPresent(
@@ -828,9 +828,9 @@ definition {
 
 				echo("Checking ${fsOptionValue} ${fsProductName} price is correct...");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-					value1 = ${fsPrice});
+					value1 = ".*${fsPrice}.*");
 
 				echo("Checking ${fsOptionValue} ${fsProductName} image is correct...");
 

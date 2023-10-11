@@ -408,54 +408,54 @@ definition {
 		}
 
 		if (IsElementPresent(key_addressInfo = "", locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SHIPPING_ADDRESS")) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressName},
 				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SHIPPING_ADDRESS",
-				value1 = ${addressName});
+				value1 = ".*${addressName}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressAddress},
 				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SHIPPING_ADDRESS",
-				value1 = ${addressAddress});
+				value1 = ".*${addressAddress}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressCity},
 				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SHIPPING_ADDRESS",
-				value1 = ${addressCity});
+				value1 = ".*${addressCity}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_addressInfo = ${addressCountry},
 				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SHIPPING_ADDRESS",
-				value1 = ${addressCountry});
+				value1 = ".*${addressCountry}.*");
 		}
 
 		if (IsElementPresent(key_addressInfo = "", locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_BILLING_ADDRESS")) {
 			if (isSet(billingAddressName)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_addressInfo = ${billingAddressName},
 					locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_BILLING_ADDRESS",
-					value1 = ${billingAddressName});
+					value1 = ".*${billingAddressName}.*");
 			}
 
 			if (isSet(billingAddress)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_addressInfo = ${billingAddressAddress},
 					locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_BILLING_ADDRESS",
-					value1 = ${billingAddressAddress});
+					value1 = ".*${billingAddressAddress}.*");
 			}
 
 			if (isSet(billingAddressCity)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_addressInfo = ${billingAddressCity},
 					locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_BILLING_ADDRESS",
-					value1 = ${billingAddressCity});
+					value1 = ".*${billingAddressCity}.*");
 			}
 
 			if (isSet(billingAddressCountry)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_addressInfo = ${billingAddressCountry},
 					locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_BILLING_ADDRESS",
-					value1 = ${billingAddressCountry});
+					value1 = ".*${billingAddressCountry}.*");
 			}
 		}
 
@@ -501,10 +501,10 @@ definition {
 		}
 
 		if (isSet(productName)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = ${productName},
 				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_PRODUCT_TABLE_PRODUCT",
-				value1 = ${productName});
+				value1 = ".*${productName}.*");
 		}
 
 		if (isSet(productQuantity)) {
@@ -515,40 +515,40 @@ definition {
 		}
 
 		if (isSet(productPrice)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productPrice = ${productPrice},
 				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_PRODUCT_TABLE_PRICE",
-				value1 = ${productPrice});
+				value1 = ".*${productPrice}.*");
 		}
 
 		if (isSet(productDiscountValue)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_column = "discount",
 				key_value = ${productDiscountValue},
 				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_PRODUCT_TABLE_VALUE",
-				value1 = ${productDiscountValue});
+				value1 = ".*${productDiscountValue}.*");
 		}
 
 		if (isSet(productDiscountedTotalPrice)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_column = "total",
 				key_value = ${productDiscountedTotalPrice},
 				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_PRODUCT_TABLE_VALUE",
-				value1 = ${productDiscountedTotalPrice});
+				value1 = ".*${productDiscountedTotalPrice}.*");
 		}
 
 		if (isSet(subtotalValue)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_subtotalValue = ${subtotalValue},
 				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SUBTOTAL",
-				value1 = ${subtotalValue});
+				value1 = ".*${subtotalValue}.*");
 		}
 
 		if (isSet(deliveryValue)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_deliveryValue = ${deliveryValue},
 				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_DELIVERY",
-				value1 = ${deliveryValue});
+				value1 = ".*${deliveryValue}.*");
 		}
 
 		if (isSet(deliveryDiscountValue)) {
@@ -567,24 +567,24 @@ definition {
 		}
 
 		if (isSet(shippingOption)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_shippingOption = ${shippingOption},
 				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SHIPPING_OPTION",
-				value1 = ${shippingOption});
+				value1 = ".*${shippingOption}.*");
 		}
 
 		if (isSet(taxValue)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_taxValue = ${taxValue},
 				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_TAX",
-				value1 = "$ ${taxValue}");
+				value1 = ".*\$ ${taxValue}.*");
 		}
 
 		if (isSet(totalValue)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_totalValue = ${totalValue},
 				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_TOTAL",
-				value1 = ${totalValue});
+				value1 = ".*${totalValue}.*");
 		}
 	}
 

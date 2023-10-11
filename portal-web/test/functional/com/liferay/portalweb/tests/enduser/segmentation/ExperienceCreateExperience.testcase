@@ -3238,15 +3238,15 @@ definition {
 		task ("Check that widget is present at both experiences") {
 			Navigator.openWithAppendToBaseURL(urlAppend = "web/test-site-name/experience-content-page");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SignIn#PORTLET_TITLE",
-				value1 = "You are signed in as");
+				value1 = ".*You are signed in as.*");
 
 			ContentPages.changeExperience(experienceName = "Experience Name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SignIn#PORTLET_TITLE",
-				value1 = "You are signed in as");
+				value1 = ".*You are signed in as.*");
 		}
 	}
 

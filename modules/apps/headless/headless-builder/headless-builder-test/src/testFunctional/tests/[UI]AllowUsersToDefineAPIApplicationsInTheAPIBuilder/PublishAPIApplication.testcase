@@ -127,9 +127,9 @@ definition {
 		}
 
 		task ("Then I can see the Cancel Changes dialog with message and Continue Without Saving button") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Modal#BODY",
-				value1 = "Are you sure you want to continue without saving?");
+				value1 = ".*Are you sure you want to continue without saving?.*");
 
 			AssertElementPresent(locator1 = "APIBuilder#CONTINUE_WITHOUT_SAVING_BUTTON");
 		}

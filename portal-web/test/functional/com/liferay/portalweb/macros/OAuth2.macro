@@ -671,9 +671,9 @@ definition {
 
 		Button.click(button = "Introspect Access Token");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "OAuth2#OAUTH2_TESTER_REQUEST_RESULTS",
-			value1 = ${requestResult});
+			value1 = ".*${requestResult}.*");
 	}
 
 	macro launchRequest {
@@ -690,9 +690,9 @@ definition {
 
 		Click(locator1 = "OAuth2#OAUTH2_TESTER_BTN_GET_USER");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "OAuth2#OAUTH2_TESTER_REQUEST_RESULTS",
-			value1 = "test@liferay.com");
+			value1 = ".*test@liferay.com.*");
 	}
 
 	macro launchRequestNotAuthorized {
@@ -700,15 +700,15 @@ definition {
 
 		Click(locator1 = "OAuth2#OAUTH2_TESTER_BTN_GET_USER");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "OAuth2#OAUTH2_TESTER_REQUEST_RESULTS",
-			value1 = "[]");
+			value1 = ".*[].*");
 	}
 
 	macro obtainOAuth2AccessNotAuthorized {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "OAuth2#OAUTH2_TESTER_REQUEST_RESULTS",
-			value1 = "[]");
+			value1 = ".*[].*");
 	}
 
 	macro openOAuth2Admin {
@@ -880,10 +880,10 @@ definition {
 		}
 
 		if (isSet(callbackUri)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_text = "redirectURIs",
 				locator1 = "TextArea#ANY",
-				value1 = ${callbackUri});
+				value1 = ".*${callbackUri}.*");
 		}
 
 		if (isSet(clientAuthenticationMethod)) {
@@ -894,10 +894,10 @@ definition {
 		}
 
 		if (isSet(jwks)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_text = "jwks",
 				locator1 = "TextArea#ANY",
-				value1 = ${jwks});
+				value1 = ".*${jwks}.*");
 		}
 
 		if (isSet(clientProfile)) {
@@ -983,9 +983,9 @@ definition {
 			locator1 = "NavBar#ACTIVE_NAV_ITEM_LINK");
 
 		if (${noAuthorizations} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No authorizations were found.");
+				value1 = ".*No authorizations were found\..*");
 		}
 		else {
 			AssertElementPresent(
@@ -1002,9 +1002,9 @@ definition {
 		UserBar.gotoDropdownItem(dropdownItem = "My Connected Applications");
 
 		if (${noAuthorizations} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No connected applications were found.");
+				value1 = ".*No connected applications were found\..*");
 		}
 		else {
 			AssertElementPresent(
@@ -1195,9 +1195,9 @@ definition {
 	}
 
 	macro viewUserConnectedExpirationValue {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "OAuth2#USER_CONNECTED_APP_EXPIRATION_VALUE",
-			value1 = ${expirationValue});
+			value1 = ".*${expirationValue}.*");
 	}
 
 	macro viewUserConnectedLastAccess {
@@ -1229,9 +1229,9 @@ definition {
 
 		Click(locator1 = "OAuth2#OAUTH2_TESTER_BTN_GET_USER");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "OAuth2#OAUTH2_TESTER_REQUEST_RESULTS",
-			value1 = "@liferay.com");
+			value1 = ".*@liferay.com.*");
 	}
 
 }

@@ -23,10 +23,10 @@ definition {
 
 		Navigator.gotoPage(pageName = "Documents and Media Page");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_dmDocumentTitle = "${dmDocumentTypeName} Title After Upgrade",
 			locator1 = "DocumentsAndMedia#DESCRIPTIVE_LIST_DOCUMENT_TITLE",
-			value1 = "${dmDocumentTypeName} Title After Upgrade");
+			value1 = ".*${dmDocumentTypeName} Title After Upgrade.*");
 	}
 
 	macro viewAndDeleteGoogleDriveDocuments {

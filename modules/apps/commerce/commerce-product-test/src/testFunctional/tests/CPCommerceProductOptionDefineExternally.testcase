@@ -100,18 +100,18 @@ definition {
 		task ("Then can see the discount applied to combined products in the mini-cart as less than 50%") {
 			CommerceNavigator.gotoMiniCart();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-				value1 = "27.00");
+				value1 = ".*27.00.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_index = 1,
 				locator1 = "CommerceAccelerators#MINI_CART_DISCOUNT_LEVELS",
-				value1 = "44.44");
+				value1 = ".*44.44.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-				value1 = "$ 15.00");
+				value1 = ".*\$ 15.00.*");
 		}
 
 		task ("And can see the discount price is only applied to the combined product on the order summary page") {

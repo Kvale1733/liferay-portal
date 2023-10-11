@@ -1073,10 +1073,10 @@ definition {
 
 		Blueprints.searchBlueprintsPreview(searchTerm = "red apple");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_resultRanking = 1,
 			locator1 = "Blueprints#BLUEPRINTS_PREVIEW_SEARCH_RESULT_SPECIFIC_RANKING",
-			value1 = "reddish apple");
+			value1 = ".*reddish apple.*");
 
 		PortletEntry.save();
 
@@ -1252,9 +1252,9 @@ definition {
 
 		Blueprints.gotoElement(element = "Copy of Test Element");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Blueprints#CODE_MIRROR_EDITOR",
-			value1 = "Copy Element");
+			value1 = ".*Copy Element.*");
 	}
 
 	@priority = 3
@@ -1395,9 +1395,9 @@ definition {
 
 		Button.click(button = "Create");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Blueprints#CODE_MIRROR_EDITOR",
-			value1 = "Test Element Description");
+			value1 = ".*Test Element Description.*");
 
 		PortletEntry.save();
 
@@ -2517,10 +2517,10 @@ definition {
 
 		Blueprints.searchBlueprintsPreview(searchTerm = "apple");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_resultRanking = 1,
 			locator1 = "Blueprints#BLUEPRINTS_PREVIEW_SEARCH_RESULT_SPECIFIC_RANKING",
-			value1 = "gala");
+			value1 = ".*gala.*");
 
 		var customJsonEdited = '''
 {
@@ -2680,10 +2680,10 @@ definition {
 			attributesValue = ${groupId},
 			searchTerm = "apple");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_resultRanking = 1,
 			locator1 = "Blueprints#BLUEPRINTS_PREVIEW_SEARCH_RESULT_SPECIFIC_RANKING",
-			value1 = "gala");
+			value1 = ".*gala.*");
 	}
 
 	@priority = 3
@@ -2734,15 +2734,15 @@ definition {
 
 		Blueprints.searchBlueprintsPreview(searchTerm = "apple");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_resultRanking = 1,
 			locator1 = "Blueprints#BLUEPRINTS_PREVIEW_SEARCH_RESULT_SPECIFIC_RANKING",
-			value1 = "WC Title");
+			value1 = ".*WC Title.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_resultRanking = 2,
 			locator1 = "Blueprints#BLUEPRINTS_PREVIEW_SEARCH_RESULT_SPECIFIC_RANKING",
-			value1 = "apple apple apple");
+			value1 = ".*apple apple apple.*");
 	}
 
 	@priority = 3
@@ -2769,9 +2769,9 @@ definition {
 
 		Blueprints.gotoElement(element = "Copy of Text Match Over Multiple Fields");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Blueprints#CODE_MIRROR_EDITOR",
-			value1 = "localized_title");
+			value1 = ".*localized_title.*");
 
 		AssertElementNotPresent(locator1 = "Blueprints#ELEMENTS_EDIT_PAGE_READ_ONLY_INDICATOR");
 
@@ -3015,10 +3015,10 @@ definition {
 			Blueprints.searchBlueprintsPreview(searchTerm = "fruit");
 
 			for (var item : list "Apple Fruit,Banana Fruit,Coconut Fruit") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_resultRanking = ${ranking},
 					locator1 = "Blueprints#BLUEPRINTS_PREVIEW_SEARCH_RESULT_SPECIFIC_RANKING",
-					value1 = ${item});
+					value1 = ".*${item}.*");
 
 				var ranking = ${ranking} + 1;
 			}
@@ -3057,10 +3057,10 @@ definition {
 			var ranking = 1;
 
 			for (var item : list "Coconut Fruit,Banana Fruit,Apple Fruit") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_resultRanking = ${ranking},
 					locator1 = "Blueprints#BLUEPRINTS_PREVIEW_SEARCH_RESULT_SPECIFIC_RANKING",
-					value1 = ${item});
+					value1 = ".*${item}.*");
 
 				var ranking = ${ranking} + 1;
 			}
@@ -3099,10 +3099,10 @@ definition {
 			var ranking = 1;
 
 			for (var item : list "Banana Fruit,Apple Fruit,Coconut Fruit") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_resultRanking = ${ranking},
 					locator1 = "Blueprints#BLUEPRINTS_PREVIEW_SEARCH_RESULT_SPECIFIC_RANKING",
-					value1 = ${item});
+					value1 = ".*${item}.*");
 
 				var ranking = ${ranking} + 1;
 			}
@@ -3141,10 +3141,10 @@ definition {
 			var ranking = 1;
 
 			for (var item : list "Coconut Fruit,Apple Fruit,Banana Fruit") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_resultRanking = ${ranking},
 					locator1 = "Blueprints#BLUEPRINTS_PREVIEW_SEARCH_RESULT_SPECIFIC_RANKING",
-					value1 = ${item});
+					value1 = ".*${item}.*");
 
 				var ranking = ${ranking} + 1;
 			}
@@ -3486,17 +3486,17 @@ definition {
 
 		var currentDate = DateUtil.getCurrentYear();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_cellPosition = 6,
 			key_entryTitle = "Test Blueprint",
 			locator1 = "Blueprints#BLUEPRINTS_ADMIN_ENTRY_CELL",
-			value1 = ${currentDate});
+			value1 = ".*${currentDate}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_cellPosition = 7,
 			key_entryTitle = "Test Blueprint",
 			locator1 = "Blueprints#BLUEPRINTS_ADMIN_ENTRY_CELL",
-			value1 = ${currentDate});
+			value1 = ".*${currentDate}.*");
 	}
 
 	@priority = 3
@@ -3878,17 +3878,17 @@ definition {
 
 		Button.click(button = "Clear");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_index = 1,
 			locator1 = "Blueprints#BLUEPRINTS_CLAUSE_CONTRIBUTOR_NTH_ITEM",
-			value1 = "Account Entry Keyword Query Contributor");
+			value1 = ".*Account Entry Keyword Query Contributor.*");
 
 		Click.clickNoMouseOver(locator1 = "Blueprints#BLUEPRINTS_CLAUSE_CONTRIBUTOR_SORT_BUTTON");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_index = 1,
 			locator1 = "Blueprints#BLUEPRINTS_CLAUSE_CONTRIBUTOR_NTH_ITEM",
-			value1 = "User Keyword Query Contributor");
+			value1 = ".*User Keyword Query Contributor.*");
 	}
 
 	@priority = 3
@@ -4193,9 +4193,9 @@ definition {
 			key_item = "Company ID",
 			locator1 = "Blueprints#ELEMENTS_EDIT_PAGE_PREDEFINED_VARIABLES_SIDEBAR_ITEM");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Blueprints#CODE_MIRROR_EDITOR",
-			value1 = "context.company_id");
+			value1 = ".*context.company_id.*");
 	}
 
 	@priority = 3
@@ -4438,13 +4438,13 @@ definition {
 			locator1 = "Blueprints#CODE_MIRROR_EDITOR",
 			value1 = "de_DE&quot: &quotTitel auf Deutsch");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Blueprints#CODE_MIRROR_EDITOR",
-			value1 = "\"es_ES\": \"Título en Español\"");
+			value1 = ".*\"es_ES\": \"Título en Español\".*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Blueprints#CODE_MIRROR_EDITOR",
-			value1 = "\"es_ES\": \"Descripción en Español\"");
+			value1 = ".*\"es_ES\": \"Descripción en Español\".*");
 
 		Click(
 			ariaLabel = "Edit Title",
@@ -4647,9 +4647,9 @@ definition {
 
 		Click(locator1 = "Button#PREVIEW");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Modal#BODY",
-			value1 = "Boost All Keywords Match");
+			value1 = ".*Boost All Keywords Match.*");
 	}
 
 	@priority = 3
@@ -4696,17 +4696,17 @@ definition {
 
 		var currentDate = DateUtil.getCurrentYear();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_cellPosition = 6,
 			key_entryTitle = "Test Element",
 			locator1 = "Blueprints#BLUEPRINTS_ADMIN_ENTRY_CELL",
-			value1 = ${currentDate});
+			value1 = ".*${currentDate}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_cellPosition = 7,
 			key_entryTitle = "Test Element",
 			locator1 = "Blueprints#BLUEPRINTS_ADMIN_ENTRY_CELL",
-			value1 = ${currentDate});
+			value1 = ".*${currentDate}.*");
 	}
 
 	@priority = 3
@@ -4724,17 +4724,17 @@ definition {
 
 		Click(locator1 = "Blueprints#BLUEPRINTS_PREVIEW_EXPAND_RESULT_BUTTON");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_fieldName = "ddmStructureKey",
 			locator1 = "Blueprints#BLUEPRINTS_PREVIEW_RESULT_FIELD_VALUE",
-			value1 = "BASIC-WEB-CONTENT");
+			value1 = ".*BASIC-WEB-CONTENT.*");
 
 		Click(locator1 = "Blueprints#BLUEPRINTS_PREVIEW_COLLAPSE_RESULT_BUTTON");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_fieldName = "entryClassName",
 			locator1 = "Blueprints#BLUEPRINTS_PREVIEW_RESULT_FIELD_VALUE",
-			value1 = "com.liferay.journal.model.JournalArticle");
+			value1 = ".*com.liferay.journal.model.JournalArticle.*");
 	}
 
 	@description = "This is a use case for LPS-147066."
@@ -4948,13 +4948,13 @@ definition {
 
 			Blueprints.gotoElement(element = "Limit Search to PDF files");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Blueprints#CODE_MIRROR_EDITOR",
-				value1 = "limit-search-to-pdf-files");
+				value1 = ".*limit-search-to-pdf-files.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Blueprints#CODE_MIRROR_EDITOR",
-				value1 = "limit-search-to-pdf-files-description");
+				value1 = ".*limit-search-to-pdf-files-description.*");
 		}
 
 		Navigator.gotoBack();
@@ -4980,10 +4980,10 @@ definition {
 				key_element = "A keresés korlátozása PDF-fájlokra",
 				locator1 = "Blueprints#BLUEPRINTS_ADD_ELEMENTS_SIDEBAR_ELEMENT_NAME");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_element = "A keresés korlátozása PDF-fájlokra",
 				locator1 = "Blueprints#BLUEPRINTS_ADD_ELEMENTS_SIDEBAR_ELEMENT_DESCRIPTION",
-				value1 = "A keresés korlátozása a mimeType mezőben meghatározott PDF-fájlokra");
+				value1 = ".*A keresés korlátozása a mimeType mezőben meghatározott PDF-fájlokra.*");
 		}
 
 		task ("Assert the title and description of an added OOTB Element instance within the Blueprint query builder is translated when using Hungarian locale") {
@@ -5024,10 +5024,10 @@ definition {
 			key_assetCategory = "Test Category (ID: ${categoryId})",
 			locator1 = "Blueprints#BLUEPRINTS_ASSET_CATEGORY_FIELD_AUTOCOMPLETE_DROPDOWN_ITEM");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_element = "Boost Contents in a Category",
 			locator1 = "Blueprints#BLUEPRINTS_ADDED_ELEMENT",
-			value1 = "Test Category (ID: ${categoryId})");
+			value1 = ".*Test Category (ID: ${categoryId}).*");
 
 		Blueprints.selectAddedElementMenuItem(
 			element = "Boost Contents in a Category",
@@ -5069,10 +5069,10 @@ definition {
 			key_assetCategory = "Test Category (ID: ${categoryId})",
 			locator1 = "Blueprints#BLUEPRINTS_ASSET_CATEGORY_FIELD_AUTOCOMPLETE_DROPDOWN_ITEM");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_element = "Boost Contents in a Category",
 			locator1 = "Blueprints#BLUEPRINTS_ADDED_ELEMENT",
-			value1 = "Test Category (ID: ${categoryId})");
+			value1 = ".*Test Category (ID: ${categoryId}).*");
 
 		Blueprints.selectAddedElementMenuItem(
 			element = "Boost Contents in a Category",
@@ -5099,10 +5099,10 @@ definition {
 			key_assetCategory = "Test Category (ID: ${categoryId})",
 			locator1 = "Blueprints#BLUEPRINTS_ASSET_CATEGORY_FIELD_AUTOCOMPLETE_DROPDOWN_ITEM");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_element = "Boost Contents in a Category",
 			locator1 = "Blueprints#BLUEPRINTS_ADDED_ELEMENT",
-			value1 = "Test Category (ID: ${categoryId})");
+			value1 = ".*Test Category (ID: ${categoryId}).*");
 
 		Click.clickNoMouseOver(
 			key_elementName = "Boost Contents in a Category",
@@ -5128,10 +5128,10 @@ definition {
 
 		Click(locator1 = "Modal#SAVE_BUTTON");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_element = "Boost Contents in a Category",
 			locator1 = "Blueprints#BLUEPRINTS_ADDED_ELEMENT",
-			value1 = "Test Category (ID: ${categoryId})");
+			value1 = ".*Test Category (ID: ${categoryId}).*");
 
 		Blueprints.selectAddedElementMenuItem(
 			element = "Boost Contents in a Category",
@@ -5425,17 +5425,17 @@ definition {
 
 		Blueprints.addElement(element = "Test Element");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_elementName = "Test Element",
 			key_fieldName = "Fields",
 			locator1 = "Blueprints#BLUEPRINTS_ADDED_ELEMENT_FIELD_LABEL",
-			value1 = "Optional");
+			value1 = ".*Optional.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_elementName = "Test Element",
 			key_fieldName = "Boost",
 			locator1 = "Blueprints#BLUEPRINTS_ADDED_ELEMENT_FIELD_LABEL",
-			value1 = "Optional");
+			value1 = ".*Optional.*");
 
 		Type(
 			key_elementName = "Test Element",
@@ -5700,9 +5700,9 @@ definition {
 
 		Confirm.dismissAlert();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Blueprints#CODE_MIRROR_EDITOR",
-			value1 = "Unsaved Element");
+			value1 = ".*Unsaved Element.*");
 
 		ClickNoError(
 			key_text = "Cancel",
@@ -5729,9 +5729,9 @@ definition {
 
 		Confirm.dismissAlert();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Blueprints#CODE_MIRROR_EDITOR",
-			value1 = "Unsaved Element");
+			value1 = ".*Unsaved Element.*");
 
 		ApplicationsMenuHelper.openApplicationsMenu();
 

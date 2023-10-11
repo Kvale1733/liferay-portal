@@ -49,9 +49,9 @@ definition {
 	macro gotoChildPagePG {
 		var key_wikiChildPageTitle = ${wikiChildPageTitle};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Wiki#CHILD_PAGE_HEADER",
-			value1 = "Child Page");
+			value1 = ".*Child Page.*");
 
 		AssertClick(
 			locator1 = "Wiki#CHILD_PAGE_TITLE",

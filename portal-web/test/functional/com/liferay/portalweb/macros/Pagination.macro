@@ -7,9 +7,9 @@ definition {
 
 		MenuItem.click(menuItem = ${itemsPerPage});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Pagination#ITEMS_PER_PAGE_SELECT",
-			value1 = ${itemsPerPage});
+			value1 = ".*${itemsPerPage}.*");
 	}
 
 	macro changePaginationViaKeyboard {
@@ -24,9 +24,9 @@ definition {
 			locator1 = "MenuItem#ANY_MENU_ITEM",
 			value1 = "\ENTER");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Pagination#ITEMS_PER_PAGE_SELECT",
-			value1 = ${itemsPerPage});
+			value1 = ".*${itemsPerPage}.*");
 	}
 
 	macro viewResults {

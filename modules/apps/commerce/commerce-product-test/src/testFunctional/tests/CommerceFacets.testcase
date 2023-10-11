@@ -34,37 +34,37 @@ definition {
 		}
 
 		task ("Then assert the new ranges with the correct counts are shown") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_facetType = "Price Range Facet",
 				key_termValue = "$ 0.00 - $ 59.99",
 				locator1 = "Search#FACET_TERM_FREQUENCIES",
 				value1 = 23);
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_facetType = "Price Range Facet",
 				key_termValue = "$ 60.00 - $ 99.99",
 				locator1 = "Search#FACET_TERM_FREQUENCIES",
 				value1 = 10);
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_facetType = "Price Range Facet",
 				key_termValue = "$ 100.00 - $ 199.99",
 				locator1 = "Search#FACET_TERM_FREQUENCIES",
 				value1 = 10);
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_facetType = "Price Range Facet",
 				key_termValue = "$ 200.00 - $ 499.99",
 				locator1 = "Search#FACET_TERM_FREQUENCIES",
 				value1 = 4);
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_facetType = "Price Range Facet",
 				key_termValue = "$ 500.00 - $ 999.99",
 				locator1 = "Search#FACET_TERM_FREQUENCIES",
 				value1 = 2);
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_facetType = "Price Range Facet",
 				key_termValue = "$ 1,000.00+",
 				locator1 = "Search#FACET_TERM_FREQUENCIES",
@@ -1008,11 +1008,11 @@ definition {
 		}
 
 		task ("Then the term count of that value doesn't change") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_facetType = "Price Range Facet",
 				key_termValue = "$ 50.00 - $ 99.99",
 				locator1 = "Search#FACET_TERM_FREQUENCIES",
-				value1 = "(12)");
+				value1 = ".*(12).*");
 		}
 
 		task ("And the term count of the other values doesn't change either") {
@@ -1020,11 +1020,11 @@ definition {
 				var priceRangeValue = StringUtil.extractFirst(${priceRangeValueAndCount}, ":");
 				var priceRangeCount = StringUtil.extractLast(${priceRangeValueAndCount}, ":");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_facetType = "Price Range Facet",
 					key_termValue = ${priceRangeValue},
 					locator1 = "Search#FACET_TERM_FREQUENCIES",
-					value1 = ${priceRangeCount});
+					value1 = ".*${priceRangeCount}.*");
 			}
 		}
 
@@ -1037,11 +1037,11 @@ definition {
 				var priceRangeValue = StringUtil.extractFirst(${priceRangeValueAndCount}, ":");
 				var priceRangeCount = StringUtil.extractLast(${priceRangeValueAndCount}, ":");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_facetType = "Price Range Facet",
 					key_termValue = ${priceRangeValue},
 					locator1 = "Search#FACET_TERM_FREQUENCIES",
-					value1 = ${priceRangeCount});
+					value1 = ".*${priceRangeCount}.*");
 			}
 		}
 	}

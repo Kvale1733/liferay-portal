@@ -60,10 +60,10 @@ definition {
 
 			WaitForElementNotPresent(locator1 = "IFrame#DIALOG");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_assetTitle = "Blogs Entry Title",
 				locator1 = "AssetRelatedAssets#RELATED_ASSETS_TABLE_TITLE",
-				value1 = "Blogs Entry Title");
+				value1 = ".*Blogs Entry Title.*");
 
 			RelatedAssets.selectAsset(
 				assetTitle = "Document_1.png",
@@ -71,15 +71,15 @@ definition {
 
 			WaitForElementNotPresent(locator1 = "IFrame#DIALOG");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_assetTitle = "Blogs Entry Title",
 				locator1 = "AssetRelatedAssets#RELATED_ASSETS_TABLE_TITLE",
-				value1 = "Blogs Entry Title");
+				value1 = ".*Blogs Entry Title.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_assetTitle = "Document_1.png",
 				locator1 = "AssetRelatedAssets#RELATED_ASSETS_TABLE_TITLE",
-				value1 = "Document_1.png");
+				value1 = ".*Document_1.png.*");
 
 			PortletEntry.publish();
 		}

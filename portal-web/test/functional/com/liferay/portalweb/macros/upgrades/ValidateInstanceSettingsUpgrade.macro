@@ -102,13 +102,13 @@ definition {
 			configurationName = "Language",
 			configurationScope = "Virtual Instance Scope");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "LanguageConfiguration#LANGUAGES_CURRENT",
-			value1 = "English (United States)");
+			value1 = ".*English (United States).*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "LanguageConfiguration#LANGUAGES_CURRENT",
-			value1 = "Spanish (Spain)");
+			value1 = ".*Spanish (Spain).*");
 
 		PortalSettings.gotoConfiguration(
 			configurationCategory = "Localization",

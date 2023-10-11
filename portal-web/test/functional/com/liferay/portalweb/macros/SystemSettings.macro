@@ -325,17 +325,17 @@ definition {
 	}
 
 	macro viewSettingsText {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_settingsText = ${settingsText},
 			locator1 = "SystemSettings#SETTINGS_TEXT",
-			value1 = ${settingsText});
+			value1 = ".*${settingsText}.*");
 	}
 
 	macro viewTextareaPartialText {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_label = ${settingName},
 			locator1 = "TextArea#ANY_LABELED",
-			value1 = ${settingValue});
+			value1 = ".*${settingValue}.*");
 	}
 
 	macro viewTextareaValue {

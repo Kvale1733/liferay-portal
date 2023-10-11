@@ -37,9 +37,9 @@ definition {
 			WaitForPageLoad();
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Gmail#GMAIL_HTML_MODE_MAIL_TABLE_USER_NAME",
-			value1 = ${emailFromUserName});
+			value1 = ".*${emailFromUserName}.*");
 
 		AssertClick.assertPartialTextClickAt(
 			locator1 = "Gmail#GMAIL_HTML_MODE_MAIL_TABLE_MESSAGE_TITLE",
@@ -199,9 +199,9 @@ definition {
 
 		var key_gmailAssetType = ${gmailAssetType};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Gmail#GMAIL_HTML_MODE_MESSAGE_TITLE",
-			value1 = ${gmailMessageTitle});
+			value1 = ".*${gmailMessageTitle}.*");
 
 		if (IsElementPresent(locator1 = "Gmail#GMAIL_HTML_MODE_MESSAGE_SHOW_QUOTED_TEXT_LINK")) {
 			Click(locator1 = "Gmail#GMAIL_HTML_MODE_MESSAGE_SHOW_QUOTED_TEXT_LINK");
@@ -211,17 +211,17 @@ definition {
 			Refresh();
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Gmail#GMAIL_HTML_MODE_MESSAGE_BODY_GREETING",
-			value1 = ${gmailMessageBody});
+			value1 = ".*${gmailMessageBody}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Gmail#GMAIL_HTML_MODE_MESSAGE_BODY",
-			value1 = ${gmailMessageBody});
+			value1 = ".*${gmailMessageBody}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Gmail#GMAIL_HTML_MODE_MESSAGE_BODY_CLOSING",
-			value1 = ${gmailMessageBody});
+			value1 = ".*${gmailMessageBody}.*");
 
 		if (isSet(gmailMessageAttachment)) {
 			var key_gmailMessageAttachment = ${gmailMessageAttachment};

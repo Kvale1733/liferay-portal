@@ -111,10 +111,10 @@ definition {
 
 			MenuItem.clickNoError(menuItem = "Edit");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_detail = "Shipping Method",
 				locator1 = "CommerceOrders#SHIPMENT_CARRIER_DETAILS",
-				value1 = "Flat Rate");
+				value1 = ".*Flat Rate.*");
 
 			CommerceShipments.assertShipmentItemWarehouseAndQuantityInShipment(
 				quantityInShipment = 2,
@@ -122,10 +122,10 @@ definition {
 				warehouseName = "Italy");
 
 			for (var address : list "${shippingAddressAddress},${shippingAddressCity},${shippingAddressName},${shippingAddressZipCode}") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_titleName = "Shipping Address",
 					locator1 = "CommerceOrders#ORDER_GENERAL_DETAILS_DESCRIPTION",
-					value1 = ${address});
+					value1 = ".*${address}.*");
 			}
 		}
 	}

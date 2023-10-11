@@ -359,9 +359,9 @@ definition {
 		task ("View pagination results for 20 entries") {
 			Tag.openTagsAdmin(siteURLKey = "Test Site Name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Pagination#ITEMS_PER_PAGE_SELECT",
-				value1 = "20 Entries");
+				value1 = ".*20 Entries.*");
 
 			Pagination.viewResults(results = "Showing 1 to 20 of 24 entries.");
 		}

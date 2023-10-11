@@ -383,9 +383,9 @@ definition {
 		task ("Search for texs in Search Bar to not get results") {
 			TeamExtranet.searchEmbedded(searchTerm = "texs");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No results were found that matched the keywords");
+				value1 = ".*No results were found that matched the keywords.*");
 		}
 	}
 

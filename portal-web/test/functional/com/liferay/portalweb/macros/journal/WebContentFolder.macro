@@ -21,9 +21,9 @@ definition {
 
 		AssertElementPresent(locator1 = "WC#ENTRY_LIST_THUMBNAIL");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "WC#ENTRY_LIST_TITLE",
-			value1 = ${folderName});
+			value1 = ".*${folderName}.*");
 	}
 
 	macro addSubfolderCP {
@@ -57,9 +57,9 @@ definition {
 
 		AssertElementPresent(locator1 = "WC#ENTRY_LIST_THUMBNAIL");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "WC#ENTRY_LIST_TITLE",
-			value1 = ${subfolderName});
+			value1 = ".*${subfolderName}.*");
 	}
 
 	macro checkSubfolderPermissions {
@@ -136,9 +136,9 @@ definition {
 
 		var key_webContentTitle = ${webContentTitle};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "WC#ENTRY_LIST_TITLE",
-			value1 = ${folderName});
+			value1 = ".*${folderName}.*");
 
 		AssertClick(
 			locator1 = "WC#ENTRY_LIST_TITLE",
@@ -154,9 +154,9 @@ definition {
 
 		LexiconEntry.changeDisplayStyle(displayStyle = "list");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "WC#ENTRY_LIST_TITLE",
-			value1 = ${webContentTitle});
+			value1 = ".*${webContentTitle}.*");
 
 		Click(locator1 = "WC#ENTRY_LIST_MENULIST_ICON");
 
@@ -168,9 +168,9 @@ definition {
 
 		var key_webContentTitle = ${folderName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "WC#ENTRY_LIST_TITLE",
-			value1 = ${folderName});
+			value1 = ".*${folderName}.*");
 
 		WebContentNavigator.gotoEntryMenuItem(
 			entry = ${folderName},

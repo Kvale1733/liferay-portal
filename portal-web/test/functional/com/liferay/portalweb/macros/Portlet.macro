@@ -653,9 +653,9 @@ definition {
 	macro viewBody {
 		var key_portletName = ${portletName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Portlet#BODY",
-			value1 = ${portletBody});
+			value1 = ".*${portletBody}.*");
 	}
 
 	macro viewCannotAddPG {
@@ -732,9 +732,9 @@ definition {
 	}
 
 	macro viewEmptyMessage {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = ${message});
+			value1 = ".*${message}.*");
 	}
 
 	macro viewNoPermissionPG {
@@ -843,9 +843,9 @@ definition {
 	}
 
 	macro viewPortletPresentPG {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PageEditor#CONTENT_PAGE_WEB_CONTENT_CONTENT",
-			value1 = ${portletContent});
+			value1 = ".*${portletContent}.*");
 	}
 
 	macro viewSpecificPG {
@@ -873,9 +873,9 @@ definition {
 	}
 
 	macro viewUndeployMessage {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Portlet#PORTLET_CONTENT",
-			value1 = "This portlet could not be found. Please redeploy it or remove it from the page.");
+			value1 = ".*This portlet could not be found. Please redeploy it or remove it from the page\..*");
 	}
 
 	macro waitForForm {

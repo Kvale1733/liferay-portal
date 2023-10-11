@@ -87,9 +87,9 @@ definition {
 			value1 = ${mbThreadAttachment});
 
 		if (${invalidSize} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoardsThread#MESSAGE_ATTACHMENT_INVALID_SIZE_ERROR",
-				value1 = "Please enter a file with a valid file size no larger than ${maxAttachmentFileSize}KB.");
+				value1 = ".*Please enter a file with a valid file size no larger than ${maxAttachmentFileSize}KB\..*");
 		}
 	}
 
@@ -201,10 +201,10 @@ definition {
 		Button.clickPublish();
 
 		if (${invalidCharacters} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_alertMessage = "One or more tags contains invalid characters.",
 				locator1 = "Message#ERROR_ENTER_A_VALID_VALUE",
-				value1 = "One or more tags contains invalid characters.");
+				value1 = ".*One or more tags contains invalid characters\..*");
 		}
 		else {
 			Alert.viewSuccessMessage();
@@ -454,9 +454,9 @@ definition {
 	macro deletePG {
 		var key_threadSubject = ${threadSubject};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_THREAD",
-			value1 = ${threadSubject});
+			value1 = ".*${threadSubject}.*");
 
 		LexiconEntry.openEntryMenu(rowEntry = ${threadSubject});
 
@@ -512,18 +512,18 @@ definition {
 		if (isSet(threadBody)) {
 			SelectFrame.selectFrameNoLoading(locator1 = "CKEditor#BODY_FIELD_IFRAME");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CKEditor#BODY",
-				value1 = ${threadBody});
+				value1 = ".*${threadBody}.*");
 		}
 
 		if (${threadAttachmentRemove} == "true") {
 			Panel.expandPanel(panel = "Attachments");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowEntry = ${mbAttachmentFile},
 				locator1 = "ContentRow#ENTRY_CONTENT_ENTRY_NAME_LINK",
-				value1 = ${mbAttachmentFile});
+				value1 = ".*${mbAttachmentFile}.*");
 
 			AssertClick(
 				key_attachmentName = ${mbAttachmentFile},
@@ -636,9 +636,9 @@ definition {
 				locator1 = "MessageBoardsThread#TITLE_HEADER",
 				value1 = "Edit ${threadSubject}");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoardsThread#THREAD_USERNAME",
-				value1 = ${userName});
+				value1 = ".*${userName}.*");
 
 			AssertTextEquals(
 				locator1 = "MessageBoardsThread#THREAD_USERNAME",
@@ -713,9 +713,9 @@ definition {
 			var key_threadSubject = ${threadSubjectEdit};
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_THREAD",
-			value1 = ${threadSubject});
+			value1 = ".*${threadSubject}.*");
 
 		Click(locator1 = "MessageBoards#VERTICAL_ELLIPSIS");
 
@@ -739,9 +739,9 @@ definition {
 			locator1 = "ReportContent#REPORT_BUTTON",
 			value1 = "Report");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ReportContent#SUCCESS_MESSAGE",
-			value1 = "Although we cannot disclose our final decision, we do review every report and appreciate your effort to make sure ${siteName} is a safe environment for everyone.");
+			value1 = ".*Although we cannot disclose our final decision, we do review every report and appreciate your effort to make sure ${siteName} is a safe environment for everyone\..*");
 
 		Click(locator1 = "Button#CLOSE");
 	}
@@ -762,23 +762,23 @@ definition {
 			AssertLocation(value1 = ${messageBoardsThreadURL});
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoards#THREAD_LIST_THREAD",
-				value1 = ${threadSubject});
+				value1 = ".*${threadSubject}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoards#THREAD_LIST_LAST_POST",
-				value1 = ${lastPostUserName});
+				value1 = ".*${lastPostUserName}.*");
 
 			if (${replyCount} == 1) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "MessageBoards#THREAD_LIST_REPLIES",
-					value1 = ${replyCount});
+					value1 = ".*${replyCount}.*");
 			}
 			else {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "MessageBoards#THREAD_LIST_REPLIES",
-					value1 = ${replyCount});
+					value1 = ".*${replyCount}.*");
 			}
 
 			AssertClick.assertPartialTextClickAt(
@@ -812,9 +812,9 @@ definition {
 
 		MenuItem.click(menuItem = "Mark as an Answer");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoardsThread#MESSAGE_ANSWER_1",
-			value1 = "Answer");
+			value1 = ".*Answer.*");
 	}
 
 	macro markAsAnswerPG {
@@ -824,9 +824,9 @@ definition {
 
 		MenuItem.click(menuItem = "Mark as an Answer");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoardsThread#MESSAGE_ANSWER_1",
-			value1 = "Answer");
+			value1 = ".*Answer.*");
 	}
 
 	macro movePG {
@@ -879,18 +879,18 @@ definition {
 	}
 
 	macro moveToRecycleBinCP {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_threadSubject = ${threadSubject},
 			locator1 = "MessageBoards#THREAD_LIST_THREAD",
-			value1 = ${threadSubject});
+			value1 = ".*${threadSubject}.*");
 
 		LexiconEntry.gotoEllipsisMenuItem(menuItem = "Delete");
 
 		VerifyElementPresent(locator1 = "Message#SUCCESS");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no threads or categories.");
+			value1 = ".*There are no threads or categories\..*");
 	}
 
 	// You can use this navigation when you need to access the configuration quickly without checking the UI.
@@ -1114,9 +1114,9 @@ definition {
 
 		Alert.viewSuccessMessage();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "This message does not have file attachments in the Recycle Bin.");
+			value1 = ".*This message does not have file attachments in the Recycle Bin\..*");
 
 		IFrame.closeFrame();
 
@@ -1146,9 +1146,9 @@ definition {
 			locator1 = "Button#SAVE_AS_DRAFT",
 			value1 = "Save as Draft");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoardsThread#TITLE_HEADER",
-			value1 = "Edit");
+			value1 = ".*Edit.*");
 
 		Alert.viewSuccessMessage();
 	}
@@ -1162,10 +1162,10 @@ definition {
 			locator1 = "MessageBoardsSplitThread#SPLIT_THREAD_INFO",
 			value1 = "Click OK to create a new thread with the following messages.");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_threadSubject = ${threadSubject},
 			locator1 = "MessageBoardsSplitThread#THREAD_TABLE_SUBJECT",
-			value1 = ${threadSubject});
+			value1 = ".*${threadSubject}.*");
 
 		Type(
 			locator1 = "TextInput#SUBJECT",
@@ -1290,17 +1290,17 @@ definition {
 		var key_answerCount = ${answerCount};
 		var key_threadSubject = ${threadSubject};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_ANSWER",
-			value1 = "${answerCount} Answer");
+			value1 = ".*${answerCount} Answer.*");
 
 		AssertClick.assertPartialTextClickAt(
 			locator1 = "MessageBoards#THREAD_LIST_THREAD",
 			value1 = ${threadSubject});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoardsThread#MESSAGE_ANSWER_1",
-			value1 = "Answer");
+			value1 = ".*Answer.*");
 
 		Click(
 			key_breadcrumbName = "Home",
@@ -1317,9 +1317,9 @@ definition {
 	}
 
 	macro viewBannedUserAuthenticationMessage {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_DISMISSIBLE",
-			value1 = "You have been banned by the moderator.");
+			value1 = ".*You have been banned by the moderator\..*");
 	}
 
 	macro viewBBCodeNoXSS {
@@ -1329,9 +1329,9 @@ definition {
 
 		MessageboardsThread.assertAlertNotPresent();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoardsThread#THREAD_USERNAME",
-			value1 = ${userName});
+			value1 = ".*${userName}.*");
 
 		AssertTextEquals(
 			locator1 = "MessageBoardsThread#THREAD_REPLY_SUBJECT",
@@ -1347,25 +1347,25 @@ definition {
 		var key_threadSubject = ${threadSubject};
 		var key_userName = ${userName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_THREAD",
-			value1 = ${threadSubject});
+			value1 = ".*${threadSubject}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_LAST_POST",
-			value1 = ${userName});
+			value1 = ".*${userName}.*");
 
 		var key_repliesCount = ${replyCount};
 
 		if (${replyCount} == 1) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoards#THREAD_LIST_REPLIES",
-				value1 = ${replyCount});
+				value1 = ".*${replyCount}.*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoards#THREAD_LIST_REPLIES",
-				value1 = ${replyCount});
+				value1 = ".*${replyCount}.*");
 		}
 
 		AssertElementPresent(locator1 = "MessageBoards#THREAD_LIST_VIEWS");
@@ -1380,22 +1380,22 @@ definition {
 			locator1 = "Portlet#HEADER",
 			value1 = ${threadSubject});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoardsThread#THREAD_USERNAME",
-			value1 = ${userName});
+			value1 = ".*${userName}.*");
 
 		AssertTextEquals(
 			locator1 = "MessageBoardsThread#THREAD_SUBJECT",
 			value1 = ${threadSubject});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoardsThread#THREAD_BODY",
-			value1 = ${threadBody});
+			value1 = ".*${threadBody}.*");
 
 		if (isSet(mbAttachmentFile)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoardsThread#MESSAGE_BODY_ATTACHMENT_1",
-				value1 = ${mbAttachmentFile});
+				value1 = ".*${mbAttachmentFile}.*");
 		}
 
 		if (isSet(threadBodyImage)) {
@@ -1410,9 +1410,9 @@ definition {
 		var key_threadSubject = ${threadSubject};
 		var key_userName = ${userName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no threads or categories.");
+			value1 = ".*There are no threads or categories\..*");
 
 		AssertTextNotPresent(value1 = ${threadSubject});
 
@@ -1436,9 +1436,9 @@ definition {
 
 		Alert.viewRequestFailedToComplete();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "You do not have the required permissions.");
+			value1 = ".*You do not have the required permissions\..*");
 
 		AssertTextNotPresent(value1 = ${threadSubject});
 
@@ -1455,9 +1455,9 @@ definition {
 		var key_threadStatus = "Draft";
 		var key_threadSubject = ${threadSubject};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_THREAD",
-			value1 = ${threadSubject});
+			value1 = ".*${threadSubject}.*");
 
 		AssertTextEquals(
 			locator1 = "MessageBoards#THREAD_LIST_WORKFLOW_STATUS",
@@ -1467,9 +1467,9 @@ definition {
 			locator1 = "MessageBoards#NAVIGATION_MY_POSTS",
 			value1 = "My Posts");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_THREAD",
-			value1 = ${threadSubject});
+			value1 = ".*${threadSubject}.*");
 
 		AssertTextEquals(
 			locator1 = "MessageBoards#THREAD_LIST_WORKFLOW_STATUS",
@@ -1498,9 +1498,9 @@ definition {
 		var key_threadStatus = "Locked";
 		var key_threadSubject = ${threadSubject};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_THREAD",
-			value1 = ${threadSubject});
+			value1 = ".*${threadSubject}.*");
 
 		AssertTextEquals(
 			locator1 = "MessageBoards#THREAD_LIST_STATUS",
@@ -1568,9 +1568,9 @@ definition {
 		var key_threadSubject = ${threadSubject};
 
 		if (isSet(unReadMBthread)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoards#THREAD_LIST_THREAD_UNREAD",
-				value1 = ${threadSubject});
+				value1 = ".*${threadSubject}.*");
 		}
 		else {
 			AssertTextEquals(
@@ -1595,18 +1595,18 @@ definition {
 	}
 
 	macro viewNoBannedUsers {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no banned users.");
+			value1 = ".*There are no banned users\..*");
 	}
 
 	macro viewNoPG {
 		var key_repliesCount = 0;
 		var key_threadSubject = ${threadSubject};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no threads or categories.");
+			value1 = ".*There are no threads or categories\..*");
 
 		AssertTextNotPresent(value1 = ${threadSubject});
 
@@ -1636,9 +1636,9 @@ definition {
 			locator1 = "MessageBoardsThread#TITLE_HEADER",
 			value1 = ${threadSubject});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoardsThread#THREAD_USERNAME",
-			value1 = ${userName});
+			value1 = ".*${userName}.*");
 
 		AssertTextEquals(
 			locator1 = "MessageBoardsThread#THREAD_SUBJECT",
@@ -1669,9 +1669,9 @@ definition {
 				locator1 = "MessageBoardsThread#TITLE_HEADER",
 				value1 = ${threadSubject});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoardsThread#THREAD_USERNAME",
-				value1 = ${userName});
+				value1 = ".*${userName}.*");
 
 			AssertTextEquals(
 				locator1 = "MessageBoardsThread#THREAD_SUBJECT",
@@ -1715,18 +1715,18 @@ definition {
 					locator1 = "MessageBoardsThread#TITLE_HEADER",
 					value1 = ${threadSubject});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "MessageBoardsThread#THREAD_USERNAME",
-					value1 = ${userName});
+					value1 = ".*${userName}.*");
 
 				AssertTextEquals(
 					locator1 = "MessageBoardsThread#THREAD_SUBJECT",
 					value1 = ${threadSubject2});
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_threadBody = ${threadBody2},
 					locator1 = "MessageBoardsThread#THREAD_BODY",
-					value1 = ${threadBody2});
+					value1 = ".*${threadBody2}.*");
 			}
 
 			if (isSet(workflowTask)) {
@@ -1744,15 +1744,15 @@ definition {
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
 			value1 = ${threadSubject});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = ${threadBody});
+			value1 = ".*${threadBody}.*");
 
 		AssetPublisherPortlet.clickAssetTitle(assetTitle = ${threadSubject});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
-			value1 = ${threadSubject});
+			value1 = ".*${threadSubject}.*");
 
 		AssertTextEquals(
 			locator1 = "AssetRelatedAssets#MESSAGE_BOARDS_THREAD_TITLE",
@@ -1769,18 +1769,18 @@ definition {
 		var key_userName = ${userName};
 
 		if (isSet(mbAttachmentFile)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoardsThread#MESSAGE_BODY_ATTACHMENT_1",
-				value1 = ${mbAttachmentFile});
+				value1 = ".*${mbAttachmentFile}.*");
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoardsThread#THREAD_USERNAME_2",
-			value1 = ${userName});
+			value1 = ".*${userName}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoardsThread#THREAD_BODY",
-			value1 = ${threadBody});
+			value1 = ".*${threadBody}.*");
 	}
 
 	macro viewReplyPG {
@@ -1789,22 +1789,22 @@ definition {
 		var key_threadSubject = ${threadSubject};
 		var key_userName = ${userName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_THREAD",
-			value1 = ${threadSubject});
+			value1 = ".*${threadSubject}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_LAST_POST",
-			value1 = ${userName});
+			value1 = ".*${userName}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_REPLIES",
-			value1 = ${replyCount});
+			value1 = ".*${replyCount}.*");
 
 		if (${guestReply} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoards#THREAD_LIST_LAST_POST",
-				value1 = "Anonymous");
+				value1 = ".*Anonymous.*");
 
 			AssertClick.assertPartialTextClickAt(
 				locator1 = "MessageBoards#THREAD_LIST_THREAD",
@@ -1827,9 +1827,9 @@ definition {
 				locator1 = "MessageBoardsThread#THREAD_BODY",
 				value1 = ${threadReplyBody});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoardsThread#THREAD_USERNAME",
-				value1 = ${userName});
+				value1 = ".*${userName}.*");
 		}
 		else {
 			AssertTextEquals(
@@ -1844,9 +1844,9 @@ definition {
 				locator1 = "MessageBoardsThread#THREAD_SUBJECT_2",
 				value1 = "RE: ${threadSubject}");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoardsThread#THREAD_USERNAME",
-				value1 = ${userName});
+				value1 = ".*${userName}.*");
 
 			AssertTextEquals(
 				locator1 = "MessageBoardsThread#MESSAGE_RATING_THUMBS_UP",
@@ -1858,13 +1858,13 @@ definition {
 
 			var key_threadBody = ${threadReplyBody};
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoardsThread#THREAD_BODY",
-				value1 = ${threadReplyBody});
+				value1 = ".*${threadReplyBody}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MessageBoardsThread#THREAD_USERNAME",
-				value1 = ${userName});
+				value1 = ".*${userName}.*");
 
 			AssertTextEquals(
 				locator1 = "MessageBoardsThread#MESSAGE_RATING_THUMBS_UP",
@@ -1900,11 +1900,11 @@ definition {
 		var key_threadSubject = ${threadSubject};
 		var key_userName = ${userName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_THREAD",
-			value1 = ${threadSubject});
+			value1 = ".*${threadSubject}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_REPLIES",
 			value1 = 1);
 
@@ -1931,9 +1931,9 @@ definition {
 			locator1 = "MessageBoardsThread#THREAD_SUBJECT",
 			value1 = ${threadSubject});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoardsThread#THREAD_BODY",
-			value1 = ${threadSplitReplyBody});
+			value1 = ".*${threadSplitReplyBody}.*");
 
 		if (isSet(siteName)) {
 			Navigator.openSitePage(
@@ -1948,11 +1948,11 @@ definition {
 		var key_threadBody = ${threadReplyBody};
 		var key_threadSubject = ${threadSplitSubject};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_THREAD",
-			value1 = ${threadSplitSubject});
+			value1 = ".*${threadSplitSubject}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_REPLIES",
 			value1 = 0);
 
@@ -2094,10 +2094,10 @@ definition {
 
 	macro viewThreadAttachment {
 		for (var mbThreadAttachment : list ${mbAttachmentFileList}) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_mbThreadAttachment = ${mbThreadAttachment},
 				locator1 = "MessageBoardsThread#MESSAGE_ATTACHMENT_IMAGE",
-				value1 = ${mbThreadAttachment});
+				value1 = ".*${mbThreadAttachment}.*");
 		}
 	}
 
@@ -2161,9 +2161,9 @@ definition {
 
 		AssertElementPresent(locator1 = "MessageBoards#THREAD_LIST_LAST_POST");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_THREAD",
-			value1 = ${threadSubject});
+			value1 = ".*${threadSubject}.*");
 
 		AssertTextEquals(
 			key_threadStatus = "Pending",
@@ -2174,9 +2174,9 @@ definition {
 			locator1 = "MessageBoards#NAVIGATION_MY_POSTS",
 			value1 = "My Posts");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoards#THREAD_LIST_THREAD",
-			value1 = ${threadSubject});
+			value1 = ".*${threadSubject}.*");
 
 		AssertTextEquals(
 			locator1 = "MessageBoardsThread#MESSAGE_WORKFLOW_STATUS_1",
@@ -2190,9 +2190,9 @@ definition {
 			locator1 = "MessageBoardsThread#TITLE_HEADER",
 			value1 = ${threadSubject});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MessageBoardsThread#THREAD_USERNAME",
-			value1 = ${userName});
+			value1 = ".*${userName}.*");
 
 		AssertTextEquals(
 			locator1 = "MessageBoardsThread#THREAD_SUBJECT",

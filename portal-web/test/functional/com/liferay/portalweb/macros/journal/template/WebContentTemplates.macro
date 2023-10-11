@@ -162,9 +162,9 @@ definition {
 		if (${webContentHasReference} == "true") {
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_1",
-				value1 = "The template cannot be deleted because it is required by one or more template links.");
+				value1 = ".*The template cannot be deleted because it is required by one or more template links\..*");
 		}
 		else {
 			Alert.viewSuccessMessage();
@@ -377,9 +377,9 @@ definition {
 			}
 
 			if (isSet(templateScript)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "DDMEditTemplate#CODE_MIRROR_EDITOR_CONTENT",
-					value1 = ${templateScript});
+					value1 = ".*${templateScript}.*");
 			}
 		}
 	}

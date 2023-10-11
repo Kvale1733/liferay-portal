@@ -119,26 +119,26 @@ definition {
 		task ("View mapped content") {
 			PageEditor.viewFragment(fragmentName = "Heading");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				fragmentName = "heading",
 				id = "element-text",
 				index = 1,
 				locator1 = "Fragment#CONTRIBUTED_FRAGMENT_TEXT",
-				value1 = "Category Name 3-1, Category Name 3-2, Category Name 3-3");
+				value1 = ".*Category Name 3-1, Category Name 3-2, Category Name 3-3.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				fragmentName = "heading",
 				id = "element-text",
 				index = 1,
 				locator1 = "Fragment#CONTRIBUTED_FRAGMENT_TEXT",
-				value1 = "Subcategory Name 2");
+				value1 = ".*Subcategory Name 2.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				fragmentName = "heading",
 				id = "element-text",
 				index = 1,
 				locator1 = "Fragment#CONTRIBUTED_FRAGMENT_TEXT",
-				value1 = "Category Name 1");
+				value1 = ".*Category Name 1.*");
 		}
 	}
 

@@ -360,16 +360,16 @@ definition {
 				value1 = "Please enter a valid email address.");
 		}
 		else if (${userEmailAddressVariation} == "Null") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "TextInput#REQUIRED_ALERT",
-				value1 = "The Email Address field is required.");
+				value1 = ".*The Email Address field is required\..*");
 		}
 		else if (${userEmailAddressVariation} == "Root") {
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_ENTER_A_VALID_EMAIL_ADDRESS",
-				value1 = "Please enter a valid email address.");
+				value1 = ".*Please enter a valid email address\..*");
 		}
 		else if (${userScreenNameVariation} == "Invalid") {
 			AssertTextEquals(
@@ -491,9 +491,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_1",
-			value1 = "The screen name you requested is reserved.");
+			value1 = ".*The screen name you requested is reserved\..*");
 	}
 
 	macro advancedSearchViaFriendsDirectoryPG {
@@ -530,9 +530,9 @@ definition {
 			value1 = "\RETURN");
 
 		if (${searchNoResults} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No users were found.");
+				value1 = ".*No users were found\..*");
 
 			var key_userScreenName = ${userScreenName};
 
@@ -593,9 +593,9 @@ definition {
 			value1 = "\RETURN");
 
 		if (${searchNoResults} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No users were found.");
+				value1 = ".*No users were found\..*");
 
 			var key_userScreenName = ${userScreenName};
 
@@ -656,9 +656,9 @@ definition {
 			value1 = "\RETURN");
 
 		if (${searchNoResults} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No users were found.");
+				value1 = ".*No users were found\..*");
 
 			var key_userScreenName = ${userScreenName};
 
@@ -719,9 +719,9 @@ definition {
 			value1 = "\RETURN");
 
 		if (${searchNoResults} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No users were found.");
+				value1 = ".*No users were found\..*");
 
 			var key_userScreenName = ${userScreenName};
 
@@ -1004,9 +1004,9 @@ definition {
 
 			Search.searchCP(searchTerm = "user1*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No users were found.");
+				value1 = ".*No users were found\..*");
 		}
 		else if (${userBasicSearch} == "Full Name") {
 			var fullName = '''"${userFirstName} ${userLastName}"''';
@@ -1027,9 +1027,9 @@ definition {
 
 			Search.searchCP(searchTerm = ${fullName});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No users were found.");
+				value1 = ".*No users were found\..*");
 		}
 		else if (${userBasicSearch} == "Quotes") {
 			var quotes = '''"${userScreenName}"''';
@@ -1556,24 +1556,24 @@ definition {
 		Button.clickSave();
 
 		if (${passwordTooShort} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_1",
-				value1 = "That password is too short. Please make sure your password is at least 6 characters long.");
+				value1 = ".*That password is too short. Please make sure your password is at least 6 characters long\..*");
 		}
 		else if (isSet(minimumNumbers)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_1",
-				value1 = "That password must contain at least ${minimumNumbers} numbers.");
+				value1 = ".*That password must contain at least ${minimumNumbers} numbers\..*");
 		}
 		else if (isSet(regex)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_1",
-				value1 = "That password does not comply with the regular expression ${regex}. Please enter a different password.");
+				value1 = ".*That password does not comply with the regular expression ${regex}. Please enter a different password\..*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_1",
-				value1 = "That password is invalid. Please enter in a different password.");
+				value1 = ".*That password is invalid. Please enter in a different password\..*");
 		}
 	}
 
@@ -2133,9 +2133,9 @@ definition {
 				password = ${password},
 				userEmailAddress = ${userEmailAddress});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_DISMISSIBLE",
-				value1 = "Authentication failed. Please try again.");
+				value1 = ".*Authentication failed. Please try again\..*");
 		}
 	}
 
@@ -2699,30 +2699,30 @@ definition {
 	macro viewAddress {
 		var key_primaryValue = ${street1};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "UsersAndOrganizations#USER_ADDRESS_TABLE",
-			value1 = ${city});
+			value1 = ".*${city}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "UsersAndOrganizations#USER_ADDRESS_TABLE",
-			value1 = ${country});
+			value1 = ".*${country}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "UsersAndOrganizations#USER_ADDRESS_TABLE",
-			value1 = ${postalCode});
+			value1 = ".*${postalCode}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "UsersAndOrganizations#USER_ADDRESS_TABLE",
-			value1 = ${region});
+			value1 = ".*${region}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "UsersAndOrganizations#USER_ADDRESS_TABLE",
-			value1 = ${street1});
+			value1 = ".*${street1}.*");
 
 		if (isSet(addressType)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "UsersAndOrganizations#USER_ADDRESS_TABLE_ADDRESS_TYPE",
-				value1 = ${addressType});
+				value1 = ".*${addressType}.*");
 		}
 	}
 
@@ -2744,29 +2744,29 @@ definition {
 			// Phone Numbers
 
 			if (isSet(number)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "UsersAndOrganizations#USER_CONTACT_INFORMATION_PHONE_NUMBER_TABLE",
-					value1 = ${number});
+					value1 = ".*${number}.*");
 			}
 
 			if (isSet(numberType)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "UsersAndOrganizations#USER_CONTACT_INFORMATION_TYPE_TABLE",
-					value1 = ${numberType});
+					value1 = ".*${numberType}.*");
 			}
 
 			if (isSet(extension)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "UsersAndOrganizations#USER_CONTACT_INFORMATION_EXTENSION_TABLE",
-					value1 = ${extension});
+					value1 = ".*${extension}.*");
 			}
 
 			// Additional Email Addresses
 
 			if (isSet(address)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "UsersAndOrganizations#USER_CONTACT_INFORMATION_EMAIL_ADDRESS_TABLE",
-					value1 = ${address});
+					value1 = ".*${address}.*");
 			}
 
 			if (isSet(addressCount)) {
@@ -2775,24 +2775,24 @@ definition {
 				while (${i} != ${addressCount}) {
 					var i = ${i} + 1;
 
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "UsersAndOrganizations#USER_CONTACT_INFORMATION_CONTAINER_TABLE",
-						value1 = "${addressPrefix}${i}@liferay.com");
+						value1 = ".*${addressPrefix}${i}@liferay.com.*");
 				}
 			}
 
 			// Websites
 
 			if (isSet(url)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "UsersAndOrganizations#USER_CONTACT_INFORMATION_EMAIL_ADDRESS_TABLE",
-					value1 = ${url});
+					value1 = ".*${url}.*");
 			}
 
 			if (isSet(websiteType)) {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "UsersAndOrganizations#USER_CONTACT_INFORMATION_TYPE_TABLE",
-					value1 = ${websiteType});
+					value1 = ".*${websiteType}.*");
 			}
 		}
 
@@ -2809,23 +2809,23 @@ definition {
 		if (${userEmailAddressVariation} == "At") {
 			Search.searchCP(searchTerm = ${userEmailAddress});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No users were found.");
+				value1 = ".*No users were found\..*");
 		}
 		else if (${userEmailAddressVariation} == "Period") {
 			Search.searchCP(searchTerm = ${userEmailAddress});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No users were found.");
+				value1 = ".*No users were found\..*");
 		}
 		else if (${userScreenNameVariation} == "Invalid") {
 			Search.searchCP(searchTerm = ${userScreenName});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No users were found.");
+				value1 = ".*No users were found\..*");
 		}
 		else {
 			UserNavigator.gotoUser(userScreenName = ${userScreenName});
@@ -2839,9 +2839,9 @@ definition {
 	}
 
 	macro viewExpiredSessionErrorMessage {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Home#ERROR_MESSAGE_EXPIRED_SESSION",
-			value1 = ${message});
+			value1 = ".*${message}.*");
 	}
 
 	macro viewIsPrimary {
@@ -2991,9 +2991,9 @@ definition {
 	}
 
 	macro viewNoUsersFoundCP {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No users were found.");
+			value1 = ".*No users were found\..*");
 	}
 
 	macro viewPasswordSection {

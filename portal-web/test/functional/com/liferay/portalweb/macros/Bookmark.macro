@@ -118,9 +118,9 @@ definition {
 
 		Alert.viewRequestFailedToComplete();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_ENTER_A_VALID_URL",
-			value1 = "Please enter a valid URL.");
+			value1 = ".*Please enter a valid URL\..*");
 	}
 
 	macro addNullCP {
@@ -378,9 +378,9 @@ definition {
 
 		Alert.viewSuccessMessage();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no bookmarks in this folder.");
+			value1 = ".*There are no bookmarks in this folder\..*");
 	}
 
 	macro moveToHomeCP {
@@ -432,17 +432,17 @@ definition {
 
 		Alert.viewSuccessMessage();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no bookmarks in this folder.");
+			value1 = ".*There are no bookmarks in this folder\..*");
 
 		Bookmark.openBookmarksAdmin(siteURLKey = "guest");
 
 		var key_assetName = ${bookmarkName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Bookmarks#DESCRIPTIVE_ENTRY_TITLE",
-			value1 = ${bookmarkName});
+			value1 = ".*${bookmarkName}.*");
 	}
 
 	macro moveToRecycleBinCP {
@@ -512,9 +512,9 @@ definition {
 	macro viewBookmark {
 		var key_assetName = ${bookmarkName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Bookmarks#DESCRIPTIVE_ENTRY_TITLE",
-			value1 = ${bookmarkName});
+			value1 = ".*${bookmarkName}.*");
 
 		AssertClick.assertTextClickAtNoJavaScript(
 			locator1 = "Bookmarks#DESCRIPTIVE_ENTRY_TITLE",
@@ -529,9 +529,9 @@ definition {
 
 		AssetPublisherPortlet.clickAssetTitle(assetTitle = ${bookmarkName});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
-			value1 = ${bookmarkName});
+			value1 = ".*${bookmarkName}.*");
 
 		Click(locator1 = "AP#ASSET_ABSTRACT_BOOKMARK_DETAIL_LINK");
 

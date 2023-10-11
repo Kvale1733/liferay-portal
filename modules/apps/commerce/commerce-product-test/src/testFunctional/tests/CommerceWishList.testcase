@@ -1037,25 +1037,25 @@ definition {
 				productSku = "MIN55859",
 				productTotalPrice = "68.00");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_priceName = "Subtotal",
 				locator1 = "CommerceOrders#ORDER_PRICES_SEPARETED",
-				value1 = "216.00");
+				value1 = ".*216.00.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_priceName = "Delivery",
 				locator1 = "CommerceOrders#ORDER_PRICES_SEPARETED",
-				value1 = "15.00");
+				value1 = ".*15.00.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_priceName = "Tax",
 				locator1 = "CommerceOrders#ORDER_PRICES_SEPARETED",
-				value1 = "0.00");
+				value1 = ".*0.00.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_priceName = "Total",
 				locator1 = "CommerceOrders#ORDER_PRICES_SEPARETED",
-				value1 = "231.00");
+				value1 = ".*231.00.*");
 		}
 	}
 

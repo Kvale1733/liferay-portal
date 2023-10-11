@@ -355,9 +355,9 @@ definition {
 
 			if (isSet(textResult)) {
 				for (var textResult : list ${textResult}) {
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "JSFShowcase#MODEL_RESULT",
-						value1 = ${textResult});
+						value1 = ".*${textResult}.*");
 				}
 			}
 		}
@@ -421,9 +421,9 @@ definition {
 
 			if (isSet(textResult)) {
 				for (var textResult : list ${textResult}) {
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						locator1 = "JSFShowcase#MODEL_RESULT_2",
-						value1 = ${textResult});
+						value1 = ".*${textResult}.*");
 				}
 			}
 		}

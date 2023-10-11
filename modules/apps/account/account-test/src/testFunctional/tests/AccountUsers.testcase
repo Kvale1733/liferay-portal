@@ -72,9 +72,9 @@ definition {
 			menuItem = "Edit",
 			rowEntry = "userfn userln");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Portlet#HEADER",
-			value1 = "Edit User userfn userln");
+			value1 = ".*Edit User userfn userln.*");
 
 		Navigator.gotoNavNested(navNested = "Accounts");
 
@@ -489,9 +489,9 @@ definition {
 		}
 
 		task ("Then Person accounts with assigned users do not display") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No accounts were found.");
+				value1 = ".*No accounts were found\..*");
 		}
 	}
 

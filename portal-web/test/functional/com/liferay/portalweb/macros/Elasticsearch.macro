@@ -101,17 +101,17 @@ definition {
 
 		Navigator.openSpecificURL(url = "http://${portalHostname}:${nodePort}/_cluster/health?level=indices&pretty");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "//body",
-			value1 = "\"cluster_name\" : \"LiferayElasticsearchCluster\"");
+			value1 = ".*\"cluster_name\" : \"LiferayElasticsearchCluster\".*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "//body",
-			value1 = "\"number_of_nodes\" : ${numberOfNodes}");
+			value1 = ".*\"number_of_nodes\" : ${numberOfNodes}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "//body",
-			value1 = "\"number_of_data_nodes\" : ${numberOfNodes}");
+			value1 = ".*\"number_of_data_nodes\" : ${numberOfNodes}.*");
 	}
 
 }

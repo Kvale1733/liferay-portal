@@ -31,12 +31,12 @@ definition {
 
 			SelectFrame(value1 = "relative=top");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_permissionSheetSubtitle = ${permissionSheetSubtitle},
 				key_permissionValue = ${permissionValue},
 				key_siteNameScope = ${siteNameScope},
 				locator1 = "RolesPermissions#PERMISSION_SITE_SCOPE",
-				value1 = ${siteNameScope});
+				value1 = ".*${siteNameScope}.*");
 		}
 		else if (isSet(removeSiteScope)) {
 			Click(
@@ -164,9 +164,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 
 		AssertChecked.assertCheckedNotVisible(locator1 = "Permissions#${permissionDefinitionKey}");
 	}
@@ -302,9 +302,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 
 		AssertNotChecked.assertNotCheckedNotVisible(locator1 = "Permissions#${permissionDefinitionKey}");
 	}
@@ -363,9 +363,9 @@ definition {
 		if (isSet(toolTip)) {
 			MouseOver(locator1 = "Icon#TOOLTIP");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#TOOLTIP",
-				value1 = ${toolTip});
+				value1 = ".*${toolTip}.*");
 		}
 
 		AssertTextEquals(
@@ -386,9 +386,9 @@ definition {
 	macro viewDefaultCP {
 		Search.searchCP(searchTerm = "Name");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No roles were found.");
+			value1 = ".*No roles were found\..*");
 	}
 
 	macro viewNoPermissionCP {
@@ -412,9 +412,9 @@ definition {
 			Click(locator1 = "Pagination#NEXT_LINK");
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "RolesPermissionsSummary#PERMISSION_TABLE_PERMISSIONS",
-			value1 = ${permissionNavigationValue});
+			value1 = ".*${permissionNavigationValue}.*");
 
 		if (isSet(siteNameScope)) {
 			AssertTextEquals(

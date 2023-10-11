@@ -274,9 +274,9 @@ definition {
 		}
 
 		task ("Then the changes are saved and a success message is displayed") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#SUCCESS",
-				value1 = "Your request completed successfully.");
+				value1 = ".*Your request completed successfully\..*");
 		}
 	}
 

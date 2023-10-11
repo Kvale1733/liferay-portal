@@ -730,13 +730,13 @@ definition {
 		}
 
 		task ("And the promo price is correct") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-				value1 = "100.00");
+				value1 = ".*100.00.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
-				value1 = "90.00");
+				value1 = ".*90.00.*");
 		}
 	}
 
@@ -1101,9 +1101,9 @@ definition {
 				key_cartItemSku = "MIN93015",
 				locator1 = "CommerceAccelerators#MINI_CART_ITEM_SKU");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-				value1 = "$ 25.00");
+				value1 = ".*\$ 25.00.*");
 		}
 
 		task ("And “Replacement” label is present") {
@@ -2056,13 +2056,13 @@ definition {
 				key_cartItemSku = "MIN93015",
 				locator1 = "CommerceAccelerators#MINI_CART_ITEM_SKU");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-				value1 = "50.00");
+				value1 = ".*50.00.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
-				value1 = "2.00");
+				value1 = ".*2.00.*");
 		}
 
 		task ("And “Replacement” label is present") {
@@ -2824,9 +2824,9 @@ definition {
 		}
 
 		task ("Then the SKU's price is discounted") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-				value1 = "$ 40.00");
+				value1 = ".*\$ 40.00.*");
 		}
 	}
 

@@ -24,9 +24,9 @@ definition {
 
 		AssertConfirm.waitForConfirmation(value1 = "Are you sure you want to delete this? It will be deleted immediately.");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Calendar#DELETED_CALENDAR_SUCCESS_MESSAGE",
-			value1 = "The calendar was deleted successfully.");
+			value1 = ".*The calendar was deleted successfully\..*");
 	}
 
 	macro _editName {
@@ -462,9 +462,9 @@ definition {
 
 		Click(locator1 = "CalendarImport#IMPORT_BUTTON");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CalendarImport#SUCCESS_MESSAGE",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 	}
 
 	macro removeViewPermissions {

@@ -131,9 +131,9 @@ definition {
 
 		Search.searchCP(searchTerm = "Name2");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No roles were found.");
+			value1 = ".*No roles were found\..*");
 	}
 
 	@priority = 4

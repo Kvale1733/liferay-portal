@@ -504,9 +504,9 @@ Sincerely,<br />
 		var key_reportsFileName = ${reportsFileName};
 
 		if (${scheduled} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ReportsAdminViewReportEntry#ENTRY_FILE_TABLE_FILE",
-				value1 = ${reportsFileName});
+				value1 = ".*${reportsFileName}.*");
 		}
 		else {
 			AssertTextEquals(

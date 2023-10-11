@@ -87,9 +87,9 @@ definition {
 
 		Alert.viewErrorMessage(errorMessage = "exceeded the maximum number of cluster nodes");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_2",
-			value1 = "This instance is not registered.");
+			value1 = ".*This instance is not registered\..*");
 
 		Clustering.shutdownSpecificServer(nodePort = 9080);
 
@@ -442,9 +442,9 @@ definition {
 
 		Alert.viewErrorMessage(errorMessage = "exceeded the maximum number of cluster nodes");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_2",
-			value1 = "This instance is not registered.");
+			value1 = ".*This instance is not registered\..*");
 
 		Clustering.shutdownSpecificServer(nodePort = 10080);
 

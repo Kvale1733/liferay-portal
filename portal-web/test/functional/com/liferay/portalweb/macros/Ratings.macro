@@ -256,9 +256,9 @@ definition {
 			locator1 = "Ratings#YOUR_RATING_STAR_RESULT_COUNT",
 			value1 = ${ratingStarCount});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Ratings#AVERAGE_STAR_RESULT",
-			value1 = ${averageRatingStarCount});
+			value1 = ".*${averageRatingStarCount}.*");
 	}
 
 	macro viewRateStarReadOnly {
@@ -290,9 +290,9 @@ definition {
 				key_ratingResult = ${ratingResult},
 				locator1 = "Ratings#THUMB");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#TOOLTIP",
-				value1 = ${ratingResult});
+				value1 = ".*${ratingResult}.*");
 		}
 	}
 

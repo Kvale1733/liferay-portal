@@ -104,15 +104,15 @@ definition {
 	macro viewPGViaGroupStatistics {
 		var key_siteStatistics = ${siteStatistics};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "GroupStatistics#SITE_STATISTICS_PANEL",
-			value1 = ${siteStatistics});
+			value1 = ".*${siteStatistics}.*");
 
 		var key_currentValue = ${currentValue};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "GroupStatistics#GROUP_STATISTICS_BODY_INFO",
-			value1 = ${currentValue});
+			value1 = ".*${currentValue}.*");
 
 		AssertElementPresent(locator1 = "GroupStatistics#GROUP_STATISTICS_BODY_CHART");
 	}

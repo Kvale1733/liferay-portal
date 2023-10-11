@@ -30,9 +30,9 @@ definition {
 
 		MenuItem.click(menuItem = ${itemsPerPage});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "WorkflowMetricsProcessListView#ITEMS_PER_PAGE_SELECT",
-			value1 = ${itemsPerPage});
+			value1 = ".*${itemsPerPage}.*");
 	}
 
 	macro metricsWorkflowSearch {

@@ -294,13 +294,13 @@ definition {
 
 			var currentDate = DateUtil.getFormattedCurrentDate("MMM d, yyyy");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "PageAudit#CACHE_ALERT",
-				value1 = "Showing data from ");
+				value1 = ".*Showing data from .*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "PageAudit#CACHE_ALERT",
-				value1 = "Reload to update data.");
+				value1 = ".*Reload to update data\..*");
 		}
 	}
 

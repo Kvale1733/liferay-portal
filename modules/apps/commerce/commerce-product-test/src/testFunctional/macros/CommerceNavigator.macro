@@ -273,11 +273,11 @@ definition {
 		for (var searchAssetTitle : list ${resultsList}) {
 			var resultOrder = ${resultOrder} + 1;
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_entryName = ${searchAssetTitle},
 				locator1 = "CommerceNavigation#ENTRY_NAME",
 				resultOrder = ${resultOrder},
-				value1 = ${searchAssetTitle});
+				value1 = ".*${searchAssetTitle}.*");
 		}
 	}
 

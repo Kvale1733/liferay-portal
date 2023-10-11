@@ -467,9 +467,9 @@ definition {
 		}
 
 		task ("View the empty info") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "There are no display page template usages.");
+				value1 = ".*There are no display page template usages\..*");
 		}
 
 		task ("View the View Usages action is disabled") {
@@ -549,10 +549,10 @@ definition {
 			var index = 1;
 
 			for (var webContentTitle : list "The First Web Content,The Second Web Content,The Third Web Content") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					index = ${index},
 					locator1 = "LexiconTable#TABLE_ROW",
-					value1 = ${webContentTitle});
+					value1 = ".*${webContentTitle}.*");
 
 				var index = ${index} + 1;
 			}
@@ -562,10 +562,10 @@ definition {
 			var index = 1;
 
 			for (var webContentTitle : list "The Third Web Content,The Second Web Content,The First Web Content") {
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					index = ${index},
 					locator1 = "LexiconTable#TABLE_ROW",
-					value1 = ${webContentTitle});
+					value1 = ".*${webContentTitle}.*");
 
 				var index = ${index} + 1;
 			}
@@ -712,11 +712,11 @@ definition {
 					locator1 = "LexiconTable#TABLE_ENTRY_INFO",
 					value1 = "Test Test");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					key_columnName = "modified-date",
 					key_tableEntry = "${assetType} Title",
 					locator1 = "LexiconTable#TABLE_ENTRY_INFO",
-					value1 = "Ago");
+					value1 = ".*Ago.*");
 			}
 		}
 	}

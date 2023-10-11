@@ -102,10 +102,10 @@ definition {
 			filterScope = "Owner: Test Test,Tag: tag1",
 			searchResults = "1 Result");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_position = 1,
 			locator1 = "LexiconList#LIST_ENTRY_X",
-			value1 = "DM Document 1");
+			value1 = ".*DM Document 1.*");
 
 		AssertElementNotPresent(
 			key_position = 2,
@@ -172,10 +172,10 @@ definition {
 			filterScope = "Category: Filtering,Extension: docx",
 			searchResults = "1 Result");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_position = 1,
 			locator1 = "LexiconList#LIST_ENTRY_X",
-			value1 = "Document_1.docx");
+			value1 = ".*Document_1.docx.*");
 
 		AssertElementNotPresent(
 			key_position = 2,
@@ -202,15 +202,15 @@ definition {
 
 		ManagementBar.setFilterAndOrder(orderBy = "Name");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_position = 1,
 			locator1 = "LexiconList#LIST_ENTRY_X",
-			value1 = "DM Folder 2");
+			value1 = ".*DM Folder 2.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_position = 2,
 			locator1 = "LexiconList#LIST_ENTRY_X",
-			value1 = "DM Folder 1");
+			value1 = ".*DM Folder 1.*");
 	}
 
 	@priority = 4

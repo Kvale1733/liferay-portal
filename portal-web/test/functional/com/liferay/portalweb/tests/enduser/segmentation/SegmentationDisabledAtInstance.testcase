@@ -53,9 +53,9 @@ definition {
 		}
 
 		task ("Check alert message") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Assigning roles by segment is disabled. To enable, go to Instance Settings.");
+				value1 = ".*Assigning roles by segment is disabled. To enable, go to Instance Settings\..*");
 		}
 
 		task ("Reset System Settings configuration") {
@@ -312,9 +312,9 @@ definition {
 		task ("Refresh and check if warning reappears") {
 			Refresh();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Segmentation is disabled");
+				value1 = ".*Segmentation is disabled.*");
 		}
 	}
 
@@ -332,9 +332,9 @@ definition {
 		task ("Refresh and check if warning reappears") {
 			Refresh();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Segmentation is disabled");
+				value1 = ".*Segmentation is disabled.*");
 		}
 
 		task ("Go to segments editor") {
@@ -348,9 +348,9 @@ definition {
 		task ("Refresh and check if warning reappears") {
 			Refresh();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Segmentation is disabled");
+				value1 = ".*Segmentation is disabled.*");
 		}
 	}
 
@@ -381,9 +381,9 @@ definition {
 
 			PageEditor.openExperienceMenu();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Segmentation is disabled");
+				value1 = ".*Segmentation is disabled.*");
 		}
 	}
 
@@ -411,9 +411,9 @@ definition {
 		task ("Refresh and check if warning reappears") {
 			Refresh();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Segmentation is disabled");
+				value1 = ".*Segmentation is disabled.*");
 		}
 	}
 
@@ -457,9 +457,9 @@ definition {
 
 			SelectFrameTop();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Segmentation is disabled");
+				value1 = ".*Segmentation is disabled.*");
 		}
 	}
 
@@ -489,9 +489,9 @@ definition {
 
 			AssetListsAdmin.editAssetList(assetListTitle = "Dynamic Collection Test");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Segmentation is disabled");
+				value1 = ".*Segmentation is disabled.*");
 		}
 	}
 
@@ -511,9 +511,9 @@ definition {
 
 			Segmentation.openSegmentsAdmin(siteURLKey = "test-site-name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Segmentation is disabled");
+				value1 = ".*Segmentation is disabled.*");
 		}
 
 		task ("Go to segments editor") {
@@ -529,9 +529,9 @@ definition {
 
 			Segmentation.openSegmentsAdmin(siteURLKey = "test-site-name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Segmentation is disabled");
+				value1 = ".*Segmentation is disabled.*");
 		}
 	}
 
@@ -566,9 +566,9 @@ definition {
 
 			PageEditor.openExperienceMenu();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Segmentation is disabled");
+				value1 = ".*Segmentation is disabled.*");
 		}
 	}
 
@@ -600,9 +600,9 @@ definition {
 
 			AssetListsAdmin.editAssetList(assetListTitle = "Manual Collection Test");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Segmentation is disabled");
+				value1 = ".*Segmentation is disabled.*");
 		}
 	}
 
@@ -650,9 +650,9 @@ definition {
 
 			SelectFrameTop();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Segmentation is disabled");
+				value1 = ".*Segmentation is disabled.*");
 		}
 	}
 
@@ -666,9 +666,9 @@ definition {
 
 			PageEditor.openExperienceMenu();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Segmentation is disabled");
+				value1 = ".*Segmentation is disabled.*");
 		}
 	}
 
@@ -688,9 +688,9 @@ definition {
 		}
 
 		task ("Check if warning appears") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "Segmentation is disabled");
+				value1 = ".*Segmentation is disabled.*");
 		}
 	}
 
@@ -710,9 +710,9 @@ definition {
 		}
 
 		task ("Check if warning appears") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "To enable, go to Instance Settings.");
+				value1 = ".*To enable, go to Instance Settings\..*");
 		}
 	}
 
@@ -734,9 +734,9 @@ definition {
 		}
 
 		task ("Check if warning appears") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "To enable, go to Instance Settings.");
+				value1 = ".*To enable, go to Instance Settings\..*");
 		}
 	}
 
@@ -746,9 +746,9 @@ definition {
 		task ("Open the Segments List and check if warning appears") {
 			Segmentation.openSegmentsAdmin(siteURLKey = "guest");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "To enable, go to Instance Settings.");
+				value1 = ".*To enable, go to Instance Settings\..*");
 		}
 	}
 
@@ -768,9 +768,9 @@ definition {
 		}
 
 		task ("Check if warning appears") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "To enable, go to Instance Settings.");
+				value1 = ".*To enable, go to Instance Settings\..*");
 		}
 	}
 
@@ -792,9 +792,9 @@ definition {
 		}
 
 		task ("Check if warning with link appears") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "To enable, go to Instance Settings.");
+				value1 = ".*To enable, go to Instance Settings\..*");
 		}
 	}
 
@@ -804,9 +804,9 @@ definition {
 		task ("Open the Segments List and check if warning with link appears") {
 			Segmentation.openSegmentsAdmin(siteURLKey = "guest");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "To enable, go to Instance Settings.");
+				value1 = ".*To enable, go to Instance Settings\..*");
 		}
 	}
 
@@ -840,9 +840,9 @@ definition {
 		}
 
 		task ("Check if warning appears") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "To enable, go to Instance Settings.");
+				value1 = ".*To enable, go to Instance Settings\..*");
 		}
 	}
 
@@ -856,9 +856,9 @@ definition {
 
 			PageEditor.openExperienceMenu();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "To enable, go to Instance Settings.");
+				value1 = ".*To enable, go to Instance Settings\..*");
 		}
 	}
 
@@ -943,9 +943,9 @@ definition {
 		}
 
 		task ("Check if warning is shown informing to contact system administrator appears") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "administrator to enable it.");
+				value1 = ".*administrator to enable it\..*");
 		}
 
 		task ("Login with the user admin") {
@@ -1004,9 +1004,9 @@ definition {
 
 			PageEditor.openExperienceMenu();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "administrator to enable it.");
+				value1 = ".*administrator to enable it\..*");
 		}
 
 		task ("Login with the user admin") {
@@ -1083,9 +1083,9 @@ definition {
 		}
 
 		task ("Czheck if warning is shown informing to contact system administrator appears") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "administrator to enable it.");
+				value1 = ".*administrator to enable it\..*");
 		}
 
 		task ("Login with the user admin") {
@@ -1152,9 +1152,9 @@ definition {
 		task ("Open the Segments List and check if warning is shown informing to contact system administrator appears") {
 			Segmentation.openSegmentsAdmin(siteURLKey = "guest");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "administrator to enable it.");
+				value1 = ".*administrator to enable it\..*");
 		}
 
 		task ("Login with the user admin") {

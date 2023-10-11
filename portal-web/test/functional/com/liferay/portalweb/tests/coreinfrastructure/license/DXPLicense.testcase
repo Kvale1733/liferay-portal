@@ -75,9 +75,9 @@ definition {
 
 		SelectFrame(value1 = "relative=top");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Modal#HEADER",
-			value1 = "Terms of Use");
+			value1 = ".*Terms of Use.*");
 
 		Click(locator1 = "Button#DONE");
 
@@ -168,9 +168,9 @@ definition {
 
 		SelectFrame(value1 = "relative=top");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Modal#HEADER",
-			value1 = "Terms of Use");
+			value1 = ".*Terms of Use.*");
 
 		Click(locator1 = "Button#DONE");
 

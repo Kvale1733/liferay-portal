@@ -373,23 +373,23 @@ definition {
 	}
 
 	macro viewDiscountedProductDetailsPage {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
-			value1 = ${productListPrice});
+			value1 = ".*${productListPrice}.*");
 
 		if (isSet(productPromoPrice)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_PROMO_PRICE_INACTIVE",
-				value1 = ${productPromoPrice});
+				value1 = ".*${productPromoPrice}.*");
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_DISCOUNT",
-			value1 = ${discountPercentage});
+			value1 = ".*${discountPercentage}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE",
-			value1 = ${productDiscountedPrice});
+			value1 = ".*${productDiscountedPrice}.*");
 	}
 
 	macro viewEnabledAddToCartButton {

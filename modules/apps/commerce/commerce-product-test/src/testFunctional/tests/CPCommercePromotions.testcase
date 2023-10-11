@@ -121,10 +121,10 @@ definition {
 		}
 
 		task ("Then the U-Joint price is the base price (24.00)") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceAccelerators#PRODUCT_CARD_PRICE",
-				value1 = "24.00");
+				value1 = ".*24.00.*");
 		}
 
 		task ("When the second promo entry is published and the buyer views the U-Joint product") {

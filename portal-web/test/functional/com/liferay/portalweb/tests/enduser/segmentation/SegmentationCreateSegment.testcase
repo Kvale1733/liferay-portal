@@ -2652,9 +2652,9 @@ definition {
 		}
 
 		task ("Check the user is lead to the main tab Session Property Vocabularies") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No entries for Session Property Vocabularies have been added yet.");
+				value1 = ".*No entries for Session Property Vocabularies have been added yet\..*");
 		}
 	}
 

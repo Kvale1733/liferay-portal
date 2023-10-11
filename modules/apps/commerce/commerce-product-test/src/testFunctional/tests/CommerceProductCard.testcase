@@ -106,10 +106,10 @@ definition {
 		}
 
 		task ("Then the price currency shown on the product card is USD") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-				value1 = "$");
+				value1 = ".*\$.*");
 		}
 	}
 
@@ -506,10 +506,10 @@ definition {
 
 		ApplicationsMenu.gotoSite(site = "Minium");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_productName = "U-Joint",
 			locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-			value1 = "€");
+			value1 = ".*€.*");
 	}
 
 	@description = "COMMERCE-5856. Verify buyers are redirected to the product details page when they click on a product card image."
@@ -2147,10 +2147,10 @@ definition {
 		}
 
 		task ("Then the product price is shown as the starting price") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "Brake Fluid",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-				value1 = "From $ 20.00");
+				value1 = ".*From $ 20.00.*");
 		}
 	}
 

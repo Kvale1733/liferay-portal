@@ -14,9 +14,9 @@ definition {
 			Navigator.openSpecificURL(url = "http://localhost:8282");
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MockMock#MOCKMOCK_HEADER_LINK",
-			value1 = "MockMock");
+			value1 = ".*MockMock.*");
 	}
 
 	macro _gotoMailMessage {
@@ -53,44 +53,44 @@ definition {
 		var key_recipient = ${recipient};
 		var key_sender = ${sender};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MockMock#MOCKMOCK_HAVE_EMAILS_MESSAGE",
-			value1 = "You have");
+			value1 = ".*You have.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MockMock#MOCKMOCK_FROM_FIELD",
-			value1 = ${sender});
+			value1 = ".*${sender}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MockMock#MOCKMOCK_TO_FIELD",
-			value1 = ${recipient});
+			value1 = ".*${recipient}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MockMock#MOCKMOCK_SUBJECT_FIELD",
-			value1 = ${asset});
+			value1 = ".*${asset}.*");
 	}
 
 	macro _viewMailMessage {
 		var key_asset = ${subject};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MockMock#MOCKMOCK_MESSAGE_BODY",
-			value1 = ${subject});
+			value1 = ".*${subject}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MockMock#MOCKMOCK_MESSAGE_BODY",
-			value1 = ${content});
+			value1 = ".*${content}.*");
 
 		if (isSet(fromAddress)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MockMock#MOCKMOCK_MESSAGE_BODY",
-				value1 = ${fromAddress});
+				value1 = ".*${fromAddress}.*");
 		}
 
 		if (isSet(toName)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MockMock#MOCKMOCK_MESSAGE_BODY",
-				value1 = ${toName});
+				value1 = ".*${toName}.*");
 		}
 	}
 
@@ -117,9 +117,9 @@ definition {
 				locator1 = "Link#ANY");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "MockMock#MOCKMOCK_SUBJECT_FIELD_LINK",
-				value1 = ${asset});
+				value1 = ".*${asset}.*");
 
 			AssertClick(
 				locator1 = "MockMock#MOCKMOCK_DELETE_FIELD",
@@ -295,9 +295,9 @@ definition {
 
 		var key_asset = ${content};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MockMock#MOCKMOCK_MESSAGE_BODY",
-			value1 = ${content});
+			value1 = ".*${content}.*");
 	}
 
 	macro viewNoMail {
@@ -318,9 +318,9 @@ definition {
 			asset = ${subject},
 			recipient = ${recipient});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "MockMock#MOCKMOCK_HTML_BODY_UNFORMATTED_FIELD",
-			value1 = ${unFormattedContent});
+			value1 = ".*${unFormattedContent}.*");
 	}
 
 }

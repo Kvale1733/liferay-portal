@@ -891,9 +891,9 @@ definition {
 		}
 
 		task ("View no site fits this level") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No sites were found.");
+				value1 = ".*No sites were found\..*");
 		}
 	}
 

@@ -2064,9 +2064,9 @@ definition {
 		}
 
 		task ("Then a message is seen stating the custom field cannot be deleted and the custom field isn't deleted") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Modal#BODY",
-				value1 = "\"Custom Attachment\" is the only field of the published object definition and cannot be deleted.");
+				value1 = ".*\"Custom Attachment\" is the only field of the published object definition and cannot be deleted\..*");
 
 			Button.click(button = "Done");
 
@@ -3244,9 +3244,9 @@ definition {
 				entry = "Entry Test",
 				invalidEntry = "true");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 		}
 	}
 
@@ -3334,9 +3334,9 @@ definition {
 				invalidEntry = "true",
 				updateEntry = ${externalReferenceCodeId});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "This entry is not possible.");
+				value1 = ".*This entry is not possible\..*");
 		}
 	}
 
@@ -3431,9 +3431,9 @@ definition {
 
 			Button.click(button = "Save");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "The sum must be less than or equal to 50");
+				value1 = ".*The sum must be less than or equal to 50.*");
 		}
 	}
 

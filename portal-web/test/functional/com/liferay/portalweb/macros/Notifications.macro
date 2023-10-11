@@ -176,9 +176,9 @@ definition {
 	}
 
 	macro viewDefaultContent {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "You do not have any notifications.");
+			value1 = ".*You do not have any notifications\..*");
 	}
 
 	macro viewDeletedContent {
@@ -214,18 +214,18 @@ definition {
 		var key_contentBody = ${contentBody};
 
 		if (isSet(fragmentName)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Notifications#NOTIFICATIONS_TITLE",
-				value1 = "${user} added a new comment to ${fragmentName}");
+				value1 = ".*${user} added a new comment to ${fragmentName}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Notifications#NOTIFICATIONS_TITLE",
-				value1 = "in the \"Content Page Name\" page.");
+				value1 = ".*in the \"Content Page Name\" page\..*");
 		}
 		else if (isSet(mentioned)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Notifications#NOTIFICATIONS_TITLE",
-				value1 = "${user} mentioned you in a comment in a ${assetType}.");
+				value1 = ".*${user} mentioned you in a comment in a ${assetType}\..*");
 		}
 		else {
 			AssertTextEquals(
@@ -233,9 +233,9 @@ definition {
 				value1 = "${user} added a new ${assetType} to ${content}.");
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Notifications#NOTIFICATIONS_CONTENT",
-			value1 = ${contentBody});
+			value1 = ".*${contentBody}.*");
 
 		if (isSet(viewEllipsisIcon)) {
 			AssertVisible(locator1 = "Notifications#NOTIFICATIONS_VERTICAL_ELLIPSIS");

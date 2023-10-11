@@ -58,15 +58,15 @@ definition {
 
 		LexiconEntry.changeDisplayStyle(displayStyle = "table");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 1,
 			locator1 = "LexiconTable#TABLE_ROW",
-			value1 = "DM Document Title 2");
+			value1 = ".*DM Document Title 2.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 2,
 			locator1 = "LexiconTable#TABLE_ROW",
-			value1 = "DM Document Title 1");
+			value1 = ".*DM Document Title 1.*");
 
 		DMDocument.updateFileOrder(
 			instanceSettings = "true",
@@ -82,15 +82,15 @@ definition {
 
 		DMNavigator.openDocumentsAndMediaAdmin(siteURLKey = "site-name");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 1,
 			locator1 = "LexiconTable#TABLE_ROW",
-			value1 = "DM Document Title 1");
+			value1 = ".*DM Document Title 1.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 2,
 			locator1 = "LexiconTable#TABLE_ROW",
-			value1 = "DM Document Title 2");
+			value1 = ".*DM Document Title 2.*");
 	}
 
 	@description = "This test ensures that when setting the DM File Order at different levels (Instance and System settings), the instance settings will take effect."
@@ -148,15 +148,15 @@ definition {
 
 		LexiconEntry.changeDisplayStyle(displayStyle = "table");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 1,
 			locator1 = "LexiconTable#TABLE_ROW",
-			value1 = "DM Document Title 1");
+			value1 = ".*DM Document Title 1.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 2,
 			locator1 = "LexiconTable#TABLE_ROW",
-			value1 = "DM Document Title 2");
+			value1 = ".*DM Document Title 2.*");
 
 		DMNavigator.openDocumentsAndMediaAdmin(siteURLKey = "site-name2");
 
@@ -168,15 +168,15 @@ definition {
 
 		LexiconEntry.changeDisplayStyle(displayStyle = "table");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 1,
 			locator1 = "LexiconTable#TABLE_ROW",
-			value1 = "DM Document Title 2");
+			value1 = ".*DM Document Title 2.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 2,
 			locator1 = "LexiconTable#TABLE_ROW",
-			value1 = "DM Document Title 1");
+			value1 = ".*DM Document Title 1.*");
 	}
 
 	@description = "This test ensures that when setting the DM File Order at different levels (Site and Instance settings), the site settings will take effect."

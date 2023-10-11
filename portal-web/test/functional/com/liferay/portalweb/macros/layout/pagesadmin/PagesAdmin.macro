@@ -121,9 +121,9 @@ definition {
 			locator1 = "TextInput#URL",
 			value1 = ${pageTypeURL});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PagesAdmin#PAGE_TYPE_DESCRIPTION",
-			value1 = "Show content from another website.");
+			value1 = ".*Show content from another website\..*");
 	}
 
 	macro _addPageTypeFullPageApplication {
@@ -1334,9 +1334,9 @@ definition {
 
 				MenuItem.click(menuItem = "Delete");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "Modal#BODY",
-					value1 = "Are you sure you want to delete the page");
+					value1 = ".*Are you sure you want to delete the page.*");
 
 				Click(
 					key_text = "Delete",
@@ -1356,9 +1356,9 @@ definition {
 
 				MenuItem.click(menuItem = "Delete");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "Modal#BODY",
-					value1 = "Are you sure you want to delete the page");
+					value1 = ".*Are you sure you want to delete the page.*");
 
 				Click(
 					key_text = "Delete",
@@ -1377,9 +1377,9 @@ definition {
 
 				MenuItem.click(menuItem = "Delete");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "Modal#BODY",
-					value1 = "Are you sure you want to delete the page");
+					value1 = ".*Are you sure you want to delete the page.*");
 
 				Click(
 					key_text = "Delete",
@@ -1399,9 +1399,9 @@ definition {
 
 				MenuItem.click(menuItem = "Delete");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "Modal#BODY",
-					value1 = "Are you sure you want to delete the page");
+					value1 = ".*Are you sure you want to delete the page.*");
 
 				Click(
 					key_text = "Delete",
@@ -1651,9 +1651,9 @@ definition {
 	macro viewPageTemplate {
 		Click(locator1 = "ControlMenu#INFO");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#CUSTOMIZED_PAGE_INFO",
-			value1 = "This page is linked to a page template. Disable the automatic propagation of changes to this page to be able to make modifications.");
+			value1 = ".*This page is linked to a page template. Disable the automatic propagation of changes to this page to be able to make modifications\..*");
 
 		ProductMenu.gotoPortlet(
 			category = "Site Builder",

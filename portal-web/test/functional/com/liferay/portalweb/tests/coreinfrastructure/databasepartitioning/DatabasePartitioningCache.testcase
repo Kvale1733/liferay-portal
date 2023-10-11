@@ -214,9 +214,9 @@ definition {
 			language = "Groovy",
 			script = "com.liferay.portal.kernel.service.GroupLocalServiceUtil.getGroup(${siteId});");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "No Group exists with the primary key");
+			value1 = ".*No Group exists with the primary key.*");
 
 		ApplicationsMenu.gotoPortlet(
 			category = "System",
@@ -236,9 +236,9 @@ definition {
 			language = "Groovy",
 			script = "com.liferay.portal.kernel.service.GroupLocalServiceUtil.getGroup(${siteId});");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "No Group exists with the primary key");
+			value1 = ".*No Group exists with the primary key.*");
 
 		Navigator.openSpecificURL(url = "http://www.able.com:8080");
 

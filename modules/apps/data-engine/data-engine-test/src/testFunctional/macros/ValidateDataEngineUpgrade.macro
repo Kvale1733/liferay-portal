@@ -8,9 +8,9 @@ definition {
 			portlet = "Dynamic Data Lists",
 			site = ${site});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no lists.");
+			value1 = ".*There are no lists\..*");
 
 		DDLNavigator.gotoManageDataDefinitions();
 

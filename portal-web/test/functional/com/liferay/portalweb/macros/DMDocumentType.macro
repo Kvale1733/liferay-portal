@@ -75,9 +75,9 @@ definition {
 		if (${documentTypeHasReference} == "true") {
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_1",
-				value1 = "Cannot delete a document type that is presently being used by one or more documents.");
+				value1 = ".*Cannot delete a document type that is presently being used by one or more documents\..*");
 		}
 		else {
 			Alert.viewSuccessMessage();
@@ -309,9 +309,9 @@ definition {
 	}
 
 	macro viewDefaultCP {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no results.");
+			value1 = ".*There are no results\..*");
 
 		AssertElementNotPresent(
 			key_dmDocumentTypeName = "Google Drive Shortcut",

@@ -737,9 +737,9 @@ definition {
 
 		WebContentStructures.deleteCP(structureName = "WC Structure Title");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "The structure cannot be deleted because it is required by one or more structure links.");
+			value1 = ".*The structure cannot be deleted because it is required by one or more structure links\..*");
 
 		NavItem.click(navItem = "Web Content");
 
@@ -1259,9 +1259,9 @@ definition {
 
 		WebContentStructures.deleteCP(structureName = "WC Structure Title");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "The structure cannot be deleted because it is required by one or more structure links.");
+			value1 = ".*The structure cannot be deleted because it is required by one or more structure links\..*");
 
 		NavItem.click(navItem = "Web Content");
 

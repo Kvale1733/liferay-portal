@@ -299,23 +299,23 @@ definition {
 
 				Click(locator1 = "Button#YOUTUBE_PLAY");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "Message#ERROR_INVALID_YOUTUBE_VIDEO",
-					value1 = "An error occurred. Please try again later.");
+					value1 = ".*An error occurred. Please try again later\..*");
 			}
 			else if (contains(${invalidURL}, "facebook")) {
 				SelectFrame.selectFrameNoLoading(locator1 = "IFrame#EXTERNAL_VIDEO_IFRAME");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "Message#ERROR_INVALID_FACEBOOK_VIDEO",
-					value1 = "Video Unavailable");
+					value1 = ".*Video Unavailable.*");
 			}
 			else if (contains(${invalidURL}, "vimeo")) {
 				SelectFrame.selectFrameNoLoading(locator1 = "IFrame#EXTERNAL_VIDEO_IFRAME");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "Message#ERROR_INVALID_VIMEO_VIDEO",
-					value1 = "The embed code for this video is not valid.");
+					value1 = ".*The embed code for this video is not valid\..*");
 			}
 			else {
 				AssertTextEquals(
@@ -670,9 +670,9 @@ definition {
 			locator1 = "ItemSelector#SIDEBAR_FILE_INFO_NAME",
 			value1 = ${uploadFileName});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ItemSelector#SIDEBAR_FILE_INFO_MODIFIED",
-			value1 = ${lastModifiedBy});
+			value1 = ".*${lastModifiedBy}.*");
 
 		var key_tab = "Version";
 
@@ -806,10 +806,10 @@ definition {
 		LexiconEntry.changeDisplayStyle(displayStyle = "table");
 
 		for (var videoShortcutTitle : list ${videoShortcutList}) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_tableEntry = ${videoShortcutTitle},
 				locator1 = "LexiconTable#TABLE_ENTRY_TITLE",
-				value1 = ${videoShortcutTitle});
+				value1 = ".*${videoShortcutTitle}.*");
 		}
 	}
 
@@ -1068,9 +1068,9 @@ definition {
 				key_rowEntry = ${webContentTitle},
 				locator1 = "ContentRow#ENTRY_CONTENT_ENTRY_NAME");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No web content was found.");
+				value1 = ".*No web content was found\..*");
 		}
 		else {
 			for (var webContentTitle : list ${webContentTitle}) {

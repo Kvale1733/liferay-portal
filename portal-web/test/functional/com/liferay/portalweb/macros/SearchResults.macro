@@ -122,11 +122,11 @@ definition {
 			key_searchAssetTitle = ${searchAssetTitle},
 			locator1 = "SearchPage#RESULT_DOCUMENT_DETAILS_KEY");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_documentDetailKey = ${documentDetailKey},
 			key_searchAssetTitle = ${searchAssetTitle},
 			locator1 = "SearchPage#RESULT_DOCUMENT_DETAILS_KEY_VALUE",
-			value1 = ${documentDetailKeyValue});
+			value1 = ".*${documentDetailKeyValue}.*");
 	}
 
 	macro viewMultipleSearchResults {
@@ -169,9 +169,9 @@ definition {
 	}
 
 	macro viewNoSearchResults {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No results were found that matched the keywords: ${searchTerm}.");
+			value1 = ".*No results were found that matched the keywords: ${searchTerm}\..*");
 	}
 
 	macro viewSearchResultNotPresent {
@@ -190,38 +190,38 @@ definition {
 
 	macro viewSearchResults {
 		if (isSet(searchAssetType)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_searchAssetTitle = ${searchAssetTitle},
 				key_searchAssetType = ${searchAssetType},
 				locator1 = "SearchPage#RESULT_TITLE_SPECIFIC",
-				value1 = ${searchAssetTitle});
+				value1 = ".*${searchAssetTitle}.*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_searchAssetTitle = ${searchAssetTitle},
 				locator1 = "SearchPage#RESULT_TITLE",
-				value1 = ${searchAssetTitle});
+				value1 = ".*${searchAssetTitle}.*");
 		}
 
 		if (isSet(entryDate)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_searchAssetTitle = ${searchAssetTitle},
 				key_searchAssetType = ${searchAssetType},
 				locator1 = "SearchPage#RESULT_TYPE_SPECIFIC_DATE",
-				value1 = ${entryDate});
+				value1 = ".*${entryDate}.*");
 		}
 
 		if (isSet(searchAssetSummary)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_searchAssetTitle = ${searchAssetTitle},
 				locator1 = "SearchPage#RESULT_SUMMARY_SPECIFIC",
-				value1 = ${searchAssetSummary});
+				value1 = ".*${searchAssetSummary}.*");
 		}
 
 		if (isSet(searchTerm)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SearchPage#RESULTS_PORTLET_SEARCH_QUERY",
-				value1 = ${searchTerm});
+				value1 = ".*${searchTerm}.*");
 		}
 	}
 
@@ -231,10 +231,10 @@ definition {
 		for (var searchAssetTitle : list ${resultsList}) {
 			var resultOrder = ${resultOrder} + 1;
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SearchPage#RESULT_TITLE_SPECIFIC_ORDER",
 				resultOrder = ${resultOrder},
-				value1 = ${searchAssetTitle});
+				value1 = ".*${searchAssetTitle}.*");
 		}
 	}
 

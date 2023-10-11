@@ -6,9 +6,9 @@ definition {
 
 		Click(locator1 = "Button#PLUS");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Portlet#HEADER",
-			value1 = "New Classification Rule");
+			value1 = ".*New Classification Rule.*");
 
 		PortletEntry.inputName(name = ${classificationName});
 
@@ -34,9 +34,9 @@ definition {
 	macro addDeviceFamilyCP {
 		Click(locator1 = "Button#PLUS");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Portlet#HEADER",
-			value1 = "New Device Family");
+			value1 = ".*New Device Family.*");
 
 		PortletEntry.inputName(name = ${deviceFamilyName});
 

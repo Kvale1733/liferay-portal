@@ -47,9 +47,9 @@ definition {
 
 			Click(locator1 = "Button#MOVE_AVAILABLE_TO_CURRENT");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "LanguageConfiguration#LANGUAGES_CURRENT",
-				value1 = ${currentLanguage});
+				value1 = ".*${currentLanguage}.*");
 		}
 
 		PortletEntry.save();
@@ -167,9 +167,9 @@ definition {
 		Panel.expandPanel(panel = "Languages");
 
 		for (var currentLanguage : list ${currentLanguageList}) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "LanguageConfiguration#LANGUAGES_CURRENT",
-				value1 = ${currentLanguage});
+				value1 = ".*${currentLanguage}.*");
 		}
 
 		SelectFrame(value1 = "relative=top");

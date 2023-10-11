@@ -512,9 +512,9 @@ definition {
 
 		Search.searchCP(searchTerm = "Document_4.txt");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No documents were found that matched the keywords");
+			value1 = ".*No documents were found that matched the keywords.*");
 
 		DMDocument.viewSearchResultsCP(
 			dmDocumentTitle = "Document_4.txt",
@@ -526,9 +526,9 @@ definition {
 
 		Alert.viewInfoMessageSpecific(infoMessage = "Filters only apply to documents in the local repository.");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no documents or media files that matched the filters in this repository.");
+			value1 = ".*There are no documents or media files that matched the filters in this repository\..*");
 
 		DMDocument.removeSearchFilter(filter = "Owner: Test Test");
 
@@ -851,9 +851,9 @@ definition {
 
 		Alert.viewRequestFailedToComplete();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "The source file does not have the same extension as the original file.");
+			value1 = ".*The source file does not have the same extension as the original file\..*");
 
 		DMNavigator.openToFolderInAdmin(
 			dmFolderName = "Collaboration Test Application",

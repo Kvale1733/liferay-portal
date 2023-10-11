@@ -1873,9 +1873,9 @@ definition {
 		task ("View no navigation menus are automatically created after adding pages") {
 			NavigationMenusAdmin.openNavigationMenusAdmin(siteURLKey = ${siteURLKey});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "There are no navigation menus.");
+				value1 = ".*There are no navigation menus\..*");
 		}
 	}
 

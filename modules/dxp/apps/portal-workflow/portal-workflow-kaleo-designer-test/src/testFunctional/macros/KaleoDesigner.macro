@@ -272,9 +272,9 @@ definition {
 
 		Click(locator1 = "WorkflowConfiguration#BLOGS_MOVE_TO_RECYCLE_BIN");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "WorkflowDefinition#DIALOG_BOX_BODY",
-			value1 = "Are you sure you want to delete");
+			value1 = ".*Are you sure you want to delete.*");
 
 		AssertClickNoError(
 			locator1 = "Button#DELETE",

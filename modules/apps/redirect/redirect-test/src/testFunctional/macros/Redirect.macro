@@ -46,29 +46,29 @@ definition {
 		Button.click(button = "Create");
 
 		if (${redirectURLVariation} == "Null") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "TextInput#REQUIRED_ALERT",
-				value1 = "field is required.");
+				value1 = ".*field is required\..*");
 		}
 		else if (${sourceURLVariation} == "Duplicate") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "Error:There is already a redirect set for the same source URL.");
+				value1 = ".*Error:There is already a redirect set for the same source URL\..*");
 		}
 		else if (${sourceURLVariation} == "Invalid") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "Please enter a source URL that does not begin with a slash.");
+				value1 = ".*Please enter a source URL that does not begin with a slash\..*");
 		}
 		else if (${sourceURLVariation} == "LengthLimit") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "Error: The source URL is too long.");
+				value1 = ".*Error: The source URL is too long\..*");
 		}
 		else if ((${destinationURLVariation} == "Space") || (${destinationURLVariation} == "RelativeURL")) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "TextInput#ALERT",
-				value1 = "This URL is not supported");
+				value1 = ".*This URL is not supported.*");
 		}
 		else if (${redirectChain} == "true") {
 			Redirect.configureRedirectChain(
@@ -301,9 +301,9 @@ definition {
 
 			MouseOver(locator1 = "Icon#TOOLTIP");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#TOOLTIP",
-				value1 = "The redirect type affects how long search engines and browsers cache the information.");
+				value1 = ".*The redirect type affects how long search engines and browsers cache the information\..*");
 		}
 
 		if (isSet(sourceURLEdit)) {
@@ -485,21 +485,21 @@ definition {
 		}
 
 		if (${multipleUrLs} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowEntry = ${ignoreURL},
 				locator1 = "ContentRow#ENTRY_CONTENT_ENTRY_NAME",
-				value1 = ${ignoreURL});
+				value1 = ".*${ignoreURL}.*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowEntry = ${ignoreURL},
 				locator1 = "ContentRow#ENTRY_CONTENT_ENTRY_NAME",
-				value1 = ${ignoreURL});
+				value1 = ".*${ignoreURL}.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowEntry = ${requestNumber},
 				locator1 = "ContentRow#ENTRY_CONTENT_ENTRY_NAME",
-				value1 = ${requestNumber});
+				value1 = ".*${requestNumber}.*");
 		}
 	}
 
@@ -539,15 +539,15 @@ definition {
 	}
 
 	macro viewEntry {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_rowEntry = ${sourceURL},
 			locator1 = "ContentRow#ENTRY_CONTENT_ENTRY_NAME",
-			value1 = ${sourceURL});
+			value1 = ".*${sourceURL}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_rowEntry = ${destinationURL},
 			locator1 = "ContentRow#ENTRY_CONTENT_ENTRY_NAME",
-			value1 = ${destinationURL});
+			value1 = ".*${destinationURL}.*");
 
 		if (isSet(redirectType)) {
 			AssertTextEquals(
@@ -601,15 +601,15 @@ definition {
 			locator1 = "Redirect#SIDEBAR_INFO_ITEM",
 			value1 = ${type});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_itemName = "Create Date",
 			locator1 = "Redirect#SIDEBAR_INFO_ITEM",
-			value1 = ${createDate});
+			value1 = ".*${createDate}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_itemName = "Latest Occurrence",
 			locator1 = "Redirect#SIDEBAR_INFO_ITEM",
-			value1 = ${latestOccurrence});
+			value1 = ".*${latestOccurrence}.*");
 
 		AssertTextEquals(
 			key_itemName = "Expiration Date",

@@ -43,9 +43,9 @@ definition {
 		Search.searchCP(searchTerm = ${userScreenName});
 
 		if (${userNameIsNotFound} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No users were found.");
+				value1 = ".*No users were found\..*");
 		}
 		else {
 			if (IsElementNotPresent(key_card = ${userScreenName}, locator1 = "Card#CARD")) {
@@ -196,9 +196,9 @@ definition {
 		else {
 			var name = StringUtil.unquote(${searchTerm});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_1",
-				value1 = ${name});
+				value1 = ".*${name}.*");
 		}
 	}
 
@@ -257,16 +257,16 @@ definition {
 		Navigator.gotoNavItem(navItem = "${membershipType}s");
 
 		if (${membershipType} == "User") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowEntry = "${userFirstName} ${userLastName}",
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_1",
-				value1 = "${userFirstName} ${userLastName}");
+				value1 = ".*${userFirstName} ${userLastName}.*");
 		}
 		else if (${membershipType} == "User Group") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowEntry = ${userGroupName},
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_1",
-				value1 = ${userGroupName});
+				value1 = ".*${userGroupName}.*");
 		}
 	}
 
@@ -281,9 +281,9 @@ definition {
 
 			var lowercaseNavItem = StringUtil.lowerCase(${navItem});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No ${lowercaseNavItem} were found.");
+				value1 = ".*No ${lowercaseNavItem} were found\..*");
 		}
 	}
 

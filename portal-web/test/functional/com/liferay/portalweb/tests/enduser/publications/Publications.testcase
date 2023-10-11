@@ -1387,25 +1387,25 @@ definition {
 
 		PublicationsNavigator.openPublicationsAdmin();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Publications#MANAGE_PUBLICATIONS_PAGE_TITLE",
-			value1 = "Listas de cambios");
+			value1 = ".*Listas de cambios.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_navItem = "Continua",
 			locator1 = "NavBar#ACTIVE_NAV_ITEM_LINK",
-			value1 = "Continua");
+			value1 = ".*Continua.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_tableHeader = "Publicación",
 			locator1 = "LexiconTable#TABLE_HEADER",
-			value1 = "Publicación");
+			value1 = ".*Publicación.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_columnName = "status",
 			key_tableEntry = "En progreso",
 			locator1 = "LexiconTable#TABLE_ENTRY_INFO",
-			value1 = "En progreso");
+			value1 = ".*En progreso.*");
 	}
 
 	@description = "This is a use case for LPS-153949. Users should always be able to modify their account regardless of whether they are in a publication."
@@ -1776,9 +1776,9 @@ definition {
 
 		Publications.unschedulePublication(publicationName = "Publication Name");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No publication has been scheduled yet.");
+			value1 = ".*No publication has been scheduled yet\..*");
 	}
 
 	@priority = 5
@@ -1816,9 +1816,9 @@ definition {
 
 		WebContentNavigator.openWebContentAdmin(siteURLKey = "guest");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No web content was found.");
+			value1 = ".*No web content was found\..*");
 	}
 
 	@description = "This is use case for LPS-176351. Can review changes when publication is published"
@@ -2273,10 +2273,10 @@ definition {
 
 			Publications.filterPublishedPublicationInDatasetDisplay(statusList = "Published");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_publicationName = "Publication Name",
 				locator1 = "Publications#PUBLICATION_NAME_IN_DATASET_DIAPLAY",
-				value1 = "Publication Name");
+				value1 = ".*Publication Name.*");
 		}
 	}
 

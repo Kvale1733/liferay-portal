@@ -194,9 +194,9 @@ definition {
 			AssertConfirm(value1 = "Are you sure you want to delete the selected entries? They will be deleted immediately.");
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No entries were found.");
+			value1 = ".*No entries were found\..*");
 	}
 
 	macro viewList {

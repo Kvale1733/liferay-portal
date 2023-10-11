@@ -3,9 +3,9 @@ definition {
 	macro activateCP {
 		var key_siteTemplateName = ${siteTemplateName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SiteTemplates#SITE_TEMPLATE_TABLE_NAME",
-			value1 = ${siteTemplateName});
+			value1 = ".*${siteTemplateName}.*");
 
 		LexiconEntry.gotoEntryMenuItem(
 			menuItem = "Activate",
@@ -188,9 +188,9 @@ definition {
 	macro deactivateCP {
 		var key_siteTemplateName = ${siteTemplateName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SiteTemplates#SITE_TEMPLATE_TABLE_NAME",
-			value1 = ${siteTemplateName});
+			value1 = ".*${siteTemplateName}.*");
 
 		LexiconEntry.gotoEntryMenuItemNoError(
 			menuItem = "Deactivate",
@@ -213,9 +213,9 @@ definition {
 		if (${associatedToSite} == "true") {
 			AssertElementPresent(locator1 = "Message#ERROR_DISMISSIBLE");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_DELETE_USED_SITE_TEMPLATES",
-				value1 = "You cannot delete site templates that are used by a site.");
+				value1 = ".*You cannot delete site templates that are used by a site\..*");
 
 			if (IsElementPresent(locator1 = "Button#CLOSE_MESSAGE")) {
 				Click(locator1 = "Button#CLOSE_MESSAGE");
@@ -229,9 +229,9 @@ definition {
 	macro deletePage {
 		var key_siteTemplateName = ${siteTemplateName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SiteTemplates#SITE_TEMPLATE_TABLE_NAME",
-			value1 = ${siteTemplateName});
+			value1 = ".*${siteTemplateName}.*");
 
 		LexiconEntry.openEntryMenu(rowEntry = ${siteTemplateName});
 
@@ -266,9 +266,9 @@ definition {
 	macro disablePropagation {
 		var key_siteTemplateName = ${siteTemplateName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SiteTemplates#SITE_TEMPLATE_TABLE_NAME",
-			value1 = ${siteTemplateName});
+			value1 = ".*${siteTemplateName}.*");
 
 		LexiconEntry.gotoEntryMenuItem(
 			menuItem = "Disable Propagation",
@@ -282,9 +282,9 @@ definition {
 
 		Click(locator1 = "ControlMenu#MERGE");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#CUSTOMIZED_PAGE_INFO",
-			value1 = "Each page modification can trigger a propagation from the site template to the connected sites. You can disable the propagation temporally and enable it later when the template is ready. Automatic propagation can be resource intensive depending on the scope of changes made to the template.");
+			value1 = ".*Each page modification can trigger a propagation from the site template to the connected sites. You can disable the propagation temporally and enable it later when the template is ready. Automatic propagation can be resource intensive depending on the scope of changes made to the template\..*");
 
 		AssertTextEquals(
 			locator1 = "Button#DISABLE_PROPAGATION",
@@ -294,9 +294,9 @@ definition {
 			locator1 = "Button#DISABLE_PROPAGATION",
 			value1 = "Disable Propagation");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ALERT_DISMISSIBLE",
-			value1 = "Propagation is disabled. Connected sites might not have been updated yet. Initial propagations to sites that are being created from this template still run.");
+			value1 = ".*Propagation is disabled. Connected sites might not have been updated yet. Initial propagations to sites that are being created from this template still run\..*");
 	}
 
 	macro editCP {
@@ -382,9 +382,9 @@ definition {
 	macro enablePropagation {
 		var key_siteTemplateName = ${siteTemplateName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SiteTemplates#SITE_TEMPLATE_TABLE_NAME",
-			value1 = ${siteTemplateName});
+			value1 = ".*${siteTemplateName}.*");
 
 		LexiconEntry.gotoEntryMenuItem(
 			menuItem = "Ready for Propagation",
@@ -398,9 +398,9 @@ definition {
 
 		Click(locator1 = "ControlMenu#MERGE");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#CUSTOMIZED_PAGE_INFO",
-			value1 = "Each page modification can trigger a propagation from the site template to the connected sites. You can disable the propagation temporally and enable it later when the template is ready. Automatic propagation can be resource intensive depending on the scope of changes made to the template.");
+			value1 = ".*Each page modification can trigger a propagation from the site template to the connected sites. You can disable the propagation temporally and enable it later when the template is ready. Automatic propagation can be resource intensive depending on the scope of changes made to the template\..*");
 
 		AssertTextEquals(
 			locator1 = "Button#ENABLE_PROPAGATION",
@@ -410,9 +410,9 @@ definition {
 			locator1 = "Button#ENABLE_PROPAGATION",
 			value1 = "Ready for Propagation");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ALERT_DISMISSIBLE",
-			value1 = "Propagation is enabled. Connected sites will be updated once a site page is visited.");
+			value1 = ".*Propagation is enabled. Connected sites will be updated once a site page is visited\..*");
 	}
 
 	macro getPageModificationDate {
@@ -440,9 +440,9 @@ definition {
 	macro gotoSettingsCP {
 		var key_siteTemplateName = ${siteTemplateName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SiteTemplates#SITE_TEMPLATE_TABLE_NAME",
-			value1 = ${siteTemplateName});
+			value1 = ".*${siteTemplateName}.*");
 
 		LexiconEntry.openEntryMenu(rowEntry = ${siteTemplateName});
 
@@ -549,9 +549,9 @@ definition {
 
 		Click.waitForMenuToggleJSClick(locator1 = "ControlMenu#INFO");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#CUSTOMIZED_PAGE_INFO",
-			value1 = "This page has been changed since the last update from the site template.");
+			value1 = ".*This page has been changed since the last update from the site template\..*");
 
 		AssertTextEquals(
 			locator1 = "Button#RESET_CHANGES",
@@ -597,10 +597,10 @@ definition {
 	}
 
 	macro viewCP {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_siteTemplateName = ${siteTemplateName},
 			locator1 = "SiteTemplates#SITE_TEMPLATE_TABLE_NAME",
-			value1 = ${siteTemplateName});
+			value1 = ".*${siteTemplateName}.*");
 
 		if (isSet(siteTemplateDescription)) {
 			AssertTextEquals(
@@ -614,9 +614,9 @@ definition {
 		for (var siteTemplateNameTranslation : list ${siteTemplateNameList}) {
 			var key_siteTemplateName = ${siteTemplateNameTranslation};
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SiteTemplates#SITE_TEMPLATE_TABLE_NAME",
-				value1 = ${siteTemplateNameTranslation});
+				value1 = ".*${siteTemplateNameTranslation}.*");
 		}
 	}
 
@@ -722,9 +722,9 @@ definition {
 	macro viewTemplateStatusCP {
 		var key_siteTemplateName = ${siteTemplateName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SiteTemplates#SITE_TEMPLATE_TABLE_NAME",
-			value1 = ${siteTemplateName});
+			value1 = ".*${siteTemplateName}.*");
 
 		AssertTextEquals(
 			locator1 = "SiteTemplates#SITE_TEMPLATE_TABLE_ACTIVE",

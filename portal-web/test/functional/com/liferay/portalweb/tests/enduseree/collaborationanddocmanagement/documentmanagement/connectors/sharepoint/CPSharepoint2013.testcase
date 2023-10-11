@@ -561,9 +561,9 @@ definition {
 
 		Alert.viewRequestFailedToComplete();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_PUBLISH_UNSUCCESSFUL_EXTENSION",
-			value1 = "The source file does not have the same extension as the original file.");
+			value1 = ".*The source file does not have the same extension as the original file\..*");
 
 		Navigator.openURL();
 
@@ -600,9 +600,9 @@ definition {
 
 		Alert.viewRequestFailedToComplete();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_PUBLISH_UNSUCCESSFUL_EXTENSION",
-			value1 = "The source file does not have the same extension as the original file.");
+			value1 = ".*The source file does not have the same extension as the original file\..*");
 
 		Navigator.openURL();
 

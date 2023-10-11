@@ -288,10 +288,10 @@ definition {
 		}
 
 		task ("then the currency should show US Dollar instead of Euro") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-				value1 = "$");
+				value1 = ".*\$.*");
 
 			AssertTextNotEquals.assertNotPartialText(
 				key_productName = "U-Joint",
@@ -935,10 +935,10 @@ definition {
 		}
 
 		task ("Then the currency should be set to Dollars and not Euros") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-				value1 = "$");
+				value1 = ".*\$.*");
 
 			AssertTextNotEquals.assertNotPartialText(
 				key_productName = "U-Joint",
@@ -2544,10 +2544,10 @@ definition {
 		}
 
 		task ("Then the currency should be displayed in Euros") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-				value1 = "€");
+				value1 = ".*€.*");
 
 			AssertTextNotEquals.assertNotPartialText(
 				key_productName = "U-Joint",
@@ -2565,10 +2565,10 @@ definition {
 		}
 
 		task ("Then the currency should be displayed in Euros") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-				value1 = "€");
+				value1 = ".*€.*");
 
 			AssertTextNotEquals.assertNotPartialText(
 				key_productName = "U-Joint",
@@ -2586,10 +2586,10 @@ definition {
 		}
 
 		task ("then the currency should show US Dollar instead of Euro") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-				value1 = "$");
+				value1 = ".*\$.*");
 
 			AssertTextNotEquals.assertNotPartialText(
 				key_productName = "U-Joint",

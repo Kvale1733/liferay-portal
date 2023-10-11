@@ -4,17 +4,17 @@ definition {
 		var key_kbChildArticleContent = ${kbChildArticleContent};
 		var key_kbChildArticleTitle = ${kbChildArticleTitle};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KnowledgeBase#CHILD_PAGE_HEADER",
-			value1 = "Child Article");
+			value1 = ".*Child Article.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KnowledgeBase#CHILD_PAGE_TITLE",
-			value1 = ${kbChildArticleTitle});
+			value1 = ".*${kbChildArticleTitle}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KnowledgeBase#CHILD_PAGE_CONTENT",
-			value1 = ${kbChildArticleContent});
+			value1 = ".*${kbChildArticleContent}.*");
 
 		AssertClick(
 			locator1 = "KnowledgeBase#CHILD_PAGE_TITLE",
@@ -237,23 +237,23 @@ definition {
 		}
 
 		if (${kbArticleInvalidContent} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "TextInput#REQUIRED_ALERT",
-				value1 = "The Content field is required.");
+				value1 = ".*The Content field is required\..*");
 		}
 		else if (${kbArticleDuplicateFriendlyURL} == "true") {
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_1",
-				value1 = "Please enter a unique friendly URL.");
+				value1 = ".*Please enter a unique friendly URL\..*");
 		}
 		else if (${kbMissingRequiredCategory} == "true") {
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_1",
-				value1 = "Please select at least one category for ${vocabularyName}.");
+				value1 = ".*Please select at least one category for ${vocabularyName}\..*");
 		}
 		else {
 			Alert.viewSuccessMessage();
@@ -506,9 +506,9 @@ definition {
 		AssertConfirm(value1 = "Are you sure you want to delete this? It will be deleted immediately.");
 
 		if (isSet(deleteViaKbArticle)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#INFO",
-				value1 = "Please configure this portlet to make it visible to all users.");
+				value1 = ".*Please configure this portlet to make it visible to all users\..*");
 		}
 		else {
 			Alert.viewSuccessMessage();
@@ -523,9 +523,9 @@ definition {
 
 			Click(locator1 = "Button#MOVE_CURRENT_TO_AVAILABLE");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SocialBookmarks#ENABLE_SOCIAL_BOOKMARK_AVAILABLE_SELECT",
-				value1 = ${socialBookmarkSite});
+				value1 = ".*${socialBookmarkSite}.*");
 		}
 	}
 
@@ -680,9 +680,9 @@ definition {
 
 			Click(locator1 = "Button#MOVE_AVAILABLE_TO_CURRENT");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SocialBookmarks#ENABLE_SOCIAL_BOOKMARK_CURRENT_SELECT",
-				value1 = ${socialBookmarkSite});
+				value1 = ".*${socialBookmarkSite}.*");
 		}
 	}
 
@@ -1373,9 +1373,9 @@ definition {
 			locator1 = "KnowledgeBaseArticle#TITLE",
 			value1 = ${kbChildArticleTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KnowledgeBaseArticle#CONTENT",
-			value1 = ${kbChildArticleContent});
+			value1 = ".*${kbChildArticleContent}.*");
 	}
 
 	macro viewChildArticlePG {
@@ -1439,9 +1439,9 @@ definition {
 					ManagementBar.clickInfo();
 				}
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "Message#WORKFLOW_STATUS",
-					value1 = ${kbStatus});
+					value1 = ".*${kbStatus}.*");
 			}
 
 			if (isSet(versionNumber)) {
@@ -1449,9 +1449,9 @@ definition {
 					ManagementBar.clickInfo();
 				}
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "KnowledgeBase#ARTICLE_VERSION_NUMBER",
-					value1 = ${versionNumber});
+					value1 = ".*${versionNumber}.*");
 			}
 
 			if (isSet(highlight)) {
@@ -1555,9 +1555,9 @@ definition {
 				value1 = "This folder is empty.");
 		}
 		else if (isSet(suggestions)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "There are no suggestions.");
+				value1 = ".*There are no suggestions\..*");
 		}
 		else {
 			AssertTextEquals(
@@ -1579,9 +1579,9 @@ definition {
 			value1 = ${kbExpirationStatus});
 
 		if (isSet(expirationTime)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "There are no suggestions.");
+				value1 = ".*There are no suggestions\..*");
 		}
 	}
 
@@ -1674,11 +1674,11 @@ definition {
 
 		var modifiedDate = DateUtil.getFormattedCurrentDate("MMMM d, yyyy");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_entryVersion = ${entryVersion},
 			locator1 = "KnowledgeBaseArticle#INFO_VERSION_SUBTITLE",
 			userName = ${userName},
-			value1 = "By ${userName}, on ${modifiedDate}");
+			value1 = ".*By ${userName}, on ${modifiedDate}.*");
 	}
 
 	macro viewKBArticlePriorityCP {
@@ -1760,9 +1760,9 @@ definition {
 	}
 
 	macro viewPG {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KnowledgeBase#DISPLAY_TITLE",
-			value1 = ${kbArticleTitle});
+			value1 = ".*${kbArticleTitle}.*");
 
 		AssertTextEquals(
 			locator1 = "KnowledgeBase#DISPLAY_CONTENT",
@@ -1817,9 +1817,9 @@ definition {
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
 			value1 = ${kbArticleTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = ${kbArticleContent});
+			value1 = ".*${kbArticleContent}.*");
 	}
 
 	macro viewPrintContent {

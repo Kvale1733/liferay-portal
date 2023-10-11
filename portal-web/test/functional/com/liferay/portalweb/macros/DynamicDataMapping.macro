@@ -822,9 +822,9 @@ definition {
 				value1 = ${fieldFieldLabel});
 		}
 		else if (${field} == "Paragraph") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "DDMEditStructure#FORM_FIELD",
-				value1 = ${field});
+				value1 = ".*${field}.*");
 		}
 		else if (${field} == "Separator") {
 			AssertElementPresent(locator1 = "DDMEditStructure#FORM_SEPARATOR");
@@ -850,9 +850,9 @@ definition {
 		var key_fieldName = ${fieldName};
 
 		for (var fieldOptionsName : list ${fieldOptionsNames}) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "DDMEditStructure#SETTINGS_OPTIONS",
-				value1 = ${fieldOptionsName});
+				value1 = ".*${fieldOptionsName}.*");
 		}
 
 		if (${fieldEditable} != "false") {

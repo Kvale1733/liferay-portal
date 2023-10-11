@@ -119,10 +119,10 @@ definition {
 			locator1 = "ContactsCenter#CONTACT_LIST",
 			value1 = ${contactName});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_contactText = ${contactName},
 			locator1 = "ContactsCenter#CONTACT_CONTAINER_TEXT",
-			value1 = ${contactName});
+			value1 = ".*${contactName}.*");
 
 		AssertTextEquals(
 			key_contactText = ${emailAddress},

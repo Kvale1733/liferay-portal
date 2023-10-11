@@ -19,9 +19,9 @@ definition {
 
 		echo("## * postYear: ${postYear}");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "BlogsRecentBloggers#POST_DATE",
-			value1 = ${postYear});
+			value1 = ".*${postYear}.*");
 	}
 
 }

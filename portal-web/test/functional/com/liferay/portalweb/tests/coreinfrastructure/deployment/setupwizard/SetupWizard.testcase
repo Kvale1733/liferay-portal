@@ -207,9 +207,9 @@ definition {
 		for (var fieldName : list "Portal Name,First Name,Last Name,Email,JDBC URL,JDBC Driver Class Name") {
 			var key_fieldName = ${fieldName};
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "TextInput#SPECIFIC_REQUIRED_ALERT",
-				value1 = "field is required.");
+				value1 = ".*field is required\..*");
 		}
 
 		AssertTextEquals(
@@ -243,9 +243,9 @@ definition {
 			locator1 = "TextInput#PORTAL_NAME",
 			value1 = "1234567890!@#$%^&*()~`");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_ENTER_A_VALID_EMAIL_ADDRESS",
-			value1 = "Please enter a valid email address.");
+			value1 = ".*Please enter a valid email address\..*");
 	}
 
 	@description = "This is a use case for LPS-187661. Verify a user created with default liferay admin credentials is not given admin rights by default if created by an admin with a non liferay domain."

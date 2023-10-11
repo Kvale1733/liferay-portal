@@ -1448,11 +1448,11 @@ definition {
 
 			CommerceNavigator.gotoMiniCart();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
 				value1 = 50);
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
 				value1 = 10);
 
@@ -1566,11 +1566,11 @@ definition {
 
 			CommerceNavigator.gotoMiniCart();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_INACTIVE",
 				value1 = 50);
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE_PROMO",
 				value1 = 15);
 
@@ -2690,10 +2690,10 @@ definition {
 
 			CommerceAcceleratorsInitializer.changeProductsSorting(sortingType = "Name Ascending");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "ABS Sensor",
 				locator1 = "CommerceEntry#PRODUCT_CARD_LIST_PRICE",
-				value1 = "100.00");
+				value1 = ".*100.00.*");
 		}
 	}
 
@@ -4131,10 +4131,10 @@ definition {
 				urlAppend = "web/minium",
 				userEmailAddress = "buyer@liferay.com");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "U-Joint",
 				locator1 = "CommerceAccelerators#PRODUCT_CARD_PRICE",
-				value1 = "2.00");
+				value1 = ".*2.00.*");
 		}
 	}
 

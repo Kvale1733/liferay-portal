@@ -365,9 +365,9 @@ definition {
 
 		MenuItem.click(menuItem = ${paginationNumber});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KaleoFormsAdminEditProcess#FIELD_SET_PAGINATION_SELECTOR_BUTTON",
-			value1 = "${paginationNumber} Entries");
+			value1 = ".*${paginationNumber} Entries.*");
 	}
 
 	macro editForm {
@@ -755,9 +755,9 @@ definition {
 	macro viewInvalidDefinitionMessage {
 		Alert.viewRequestFailedToComplete();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_1",
-			value1 = "Please add at least one field.");
+			value1 = ".*Please add at least one field\..*");
 	}
 
 	macro viewNewProcessProgressBar {
@@ -994,9 +994,9 @@ definition {
 		var key_fieldName = ${fieldName};
 		var key_kfProcessFieldData = ${kfProcessFieldData};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "KaleoFormsAdminViewProcessRecordsDetails#CURRENT_RECORD_FIELD",
-			value1 = ${kfProcessFieldData});
+			value1 = ".*${kfProcessFieldData}.*");
 	}
 
 	macro viewProcessRecordTable {

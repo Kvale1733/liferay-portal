@@ -256,9 +256,9 @@ definition {
 				locator1 = "ExportImport#VALIDATION_ERROR_MESSAGE",
 				value1 = "There are missing references that could not be found in the current environment. Please import the following elements first:");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ExportImport#VALIDATION_ERROR_LIST_ITEM",
-				value1 = ${importValidationMissingItem});
+				value1 = ".*${importValidationMissingItem}.*");
 		}
 		else if (isSet(import6210buildNumber)) {
 			AssertTextEquals(
@@ -349,17 +349,17 @@ definition {
 		}
 
 		if (isSet(importValidationMissingItem)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ExportImport#VALIDATION_ERROR_MESSAGE_HEADER",
-				value1 = "cannot be imported.");
+				value1 = ".*cannot be imported\..*");
 
 			AssertTextEquals(
 				locator1 = "ExportImport#VALIDATION_ERROR_MESSAGE",
 				value1 = "There are missing references that could not be found in the current environment. Please import the following elements first:");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ExportImport#VALIDATION_ERROR_LIST_ITEM",
-				value1 = ${importValidationMissingItem});
+				value1 = ".*${importValidationMissingItem}.*");
 		}
 
 		if (${importCampaignValidationError} == "true") {
@@ -367,13 +367,13 @@ definition {
 				locator1 = "ExportImport#VALIDATION_ERROR_MESSAGE",
 				value1 = "The following data will not be imported:");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ExportImport#VALIDATION_ERROR_LIST_ITEM",
-				value1 = "Campaign Tracking Action");
+				value1 = ".*Campaign Tracking Action.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ExportImport#VALIDATION_ERROR_LIST_ITEM",
-				value1 = "The original Referenced Asset does not exist in the current environment.");
+				value1 = ".*The original Referenced Asset does not exist in the current environment\..*");
 		}
 
 		if (${importFail} == "true") {

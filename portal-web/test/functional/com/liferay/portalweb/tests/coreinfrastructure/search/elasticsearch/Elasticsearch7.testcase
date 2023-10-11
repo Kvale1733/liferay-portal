@@ -156,10 +156,10 @@ definition {
 			key_navNested = "liferay-0",
 			locator1 = "NavNested#NAV_NESTED_LINK");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			indexName = "liferay-0",
 			locator1 = "Search#FIELD_MAPPINGS_EDITOR",
-			value1 = "liferay-0");
+			value1 = ".*liferay-0.*");
 
 		var companyId = JSONCompany.getCompanyId();
 
@@ -169,10 +169,10 @@ definition {
 			key_navNested = ${liferayIndexName},
 			locator1 = "NavNested#NAV_NESTED_LINK");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			indexName = ${liferayIndexName},
 			locator1 = "Search#FIELD_MAPPINGS_EDITOR",
-			value1 = ${liferayIndexName});
+			value1 = ".*${liferayIndexName}.*");
 	}
 
 	@priority = 4
@@ -372,15 +372,15 @@ definition {
 			locator1 = "SearchAdmin#ACTIVE_CONNECTION_COUNT",
 			value1 = 2);
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_connectionId = "__REMOTE__",
 			locator1 = "SearchAdmin#CLUSTER_NAME",
-			value1 = "LiferayElasticsearchCluster");
+			value1 = ".*LiferayElasticsearchCluster.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_connectionId = "connection2",
 			locator1 = "SearchAdmin#CLUSTER_NAME",
-			value1 = "LiferayElasticsearchClusterTwo");
+			value1 = ".*LiferayElasticsearchClusterTwo.*");
 
 		JSONWebcontent.addWebContent(
 			content = "WC Content",
@@ -498,9 +498,9 @@ definition {
 				locator1 = "Panel#PANEL",
 				value1 = "NODES (1)");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SearchAdmin#CONNECTION_ID",
-				value1 = "__REMOTE__");
+				value1 = ".*__REMOTE__.*");
 		}
 
 		task ("Execute concurrent reindex while using remote Elasticsearch") {
@@ -873,14 +873,14 @@ definition {
 
 		SearchPage.searchWidget(searchTerm = "bicycle");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_searchAssetTitle = "Abandoned Bicycle",
 			locator1 = "SearchPage#RESULT_TITLE",
-			value1 = "Abandoned Bicycle");
+			value1 = ".*Abandoned Bicycle.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SearchPage#RESULTS_PORTLET_SEARCH_QUERY",
-			value1 = "1 result for bicycle");
+			value1 = ".*1 result for bicycle.*");
 	}
 
 	@priority = 4
@@ -932,9 +932,9 @@ definition {
 			engineVendor = "Elasticsearch",
 			serverVersion = ${serverVersion});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SearchAdmin#CONNECTION_ID",
-			value1 = "__REMOTE__");
+			value1 = ".*__REMOTE__.*");
 
 		AssertTextNotEquals.assertNotPartialText(
 			locator1 = "SearchAdmin#SEARCH_ENGINE_VENDOR",
@@ -1009,10 +1009,10 @@ definition {
 
 		SearchAdministration.openSearchAdmin();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_connectionId = "__SIDECAR__",
 			locator1 = "SearchAdmin#CLUSTER_NAME",
-			value1 = "LiferayElasticsearchCluster1");
+			value1 = ".*LiferayElasticsearchCluster1.*");
 
 		Navigator.openURL();
 

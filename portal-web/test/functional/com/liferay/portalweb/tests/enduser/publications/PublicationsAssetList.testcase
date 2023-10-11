@@ -48,27 +48,27 @@ definition {
 		task ("Assert Asset List Entry names and types") {
 			AssetListsAdmin.openAssetListsAdmin(siteURLKey = "guest");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_title = "Manual Asset List Test",
 				locator1 = "AssetLists#ASSET_LIST_ENTRY_TITLE",
-				value1 = "Manual Asset List Test");
+				value1 = ".*Manual Asset List Test.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnName = "lfr-type",
 				key_tableEntry = "Manual",
 				locator1 = "LexiconTable#TABLE_ENTRY_INFO",
-				value1 = "Manual");
+				value1 = ".*Manual.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_title = "Dynamic Asset List Test",
 				locator1 = "AssetLists#ASSET_LIST_ENTRY_TITLE",
-				value1 = "Dynamic Asset List Test");
+				value1 = ".*Dynamic Asset List Test.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnName = "lfr-type",
 				key_tableEntry = "Dynamic",
 				locator1 = "LexiconTable#TABLE_ENTRY_INFO",
-				value1 = "Dynamic");
+				value1 = ".*Dynamic.*");
 		}
 
 		task ("Assert that it's possible to publish it") {
@@ -192,16 +192,16 @@ definition {
 		task ("Assert that the edited name remains after publishing the Publication") {
 			AssetListsAdmin.openAssetListsAdmin(siteURLKey = "guest");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_title = "Manual Asset List Edit",
 				locator1 = "AssetLists#ASSET_LIST_ENTRY_TITLE",
-				value1 = "Manual Asset List Edit");
+				value1 = ".*Manual Asset List Edit.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnName = "lfr-type",
 				key_tableEntry = "Manual",
 				locator1 = "LexiconTable#TABLE_ENTRY_INFO",
-				value1 = "Manual");
+				value1 = ".*Manual.*");
 		}
 	}
 

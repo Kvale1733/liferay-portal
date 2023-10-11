@@ -97,9 +97,9 @@ definition {
 			key_buttonName = "Purchase",
 			locator1 = "BridgeDemos#JSF_FLOWS_BUTTON");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "BridgeDemos#FIELD_ERROR_JSF_JSP",
-			value1 = "Value is required");
+			value1 = ".*Value is required.*");
 
 		Type(
 			key_field = "cvv",
@@ -110,9 +110,9 @@ definition {
 			key_buttonName = "Purchase",
 			locator1 = "BridgeDemos#JSF_FLOWS_BUTTON");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "BridgeDemos#RESULT_MESSAGE",
-			value1 = "Thank you John for your purchase.");
+			value1 = ".*Thank you John for your purchase\..*");
 	}
 
 	macro editDateFormat {
@@ -244,9 +244,9 @@ definition {
 
 			BridgeDemos.addComment(comments = ${comments});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "BridgeDemos#CONFIRMATION_FORM",
-				value1 = ${confirmation});
+				value1 = ".*${confirmation}.*");
 		}
 		else {
 			Type(
@@ -347,10 +347,10 @@ definition {
 		else if (${applicantName} == "JSF JSP") {
 			Click(locator1 = "BridgeDemos#SUBMIT_BUTTON");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fieldName = ${fieldName},
 				locator1 = "BridgeDemos#FIELD_ERROR_JSF_JSP",
-				value1 = ${errorMessage});
+				value1 = ".*${errorMessage}.*");
 		}
 		else if (${applicantName} == "Prime Faces") {
 			Click(locator1 = "BridgeDemos#SUBMIT_BUTTON");
@@ -415,22 +415,22 @@ definition {
 
 	macro viewFieldErrorMessage {
 		if (${applicantName} == "Butter Faces") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fieldName = ${fieldName},
 				locator1 = "BridgeDemos#FIELD_ERROR_BUTTER_FACES",
-				value1 = ${errorMessage});
+				value1 = ".*${errorMessage}.*");
 		}
 		else if (${applicantName} == "JSF JSP") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fieldName = ${fieldName},
 				locator1 = "BridgeDemos#FIELD_ERROR_JSF_JSP",
-				value1 = ${errorMessage});
+				value1 = ".*${errorMessage}.*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fieldName = ${fieldName},
 				locator1 = "BridgeDemos#FIELD_ERROR",
-				value1 = ${errorMessage});
+				value1 = ".*${errorMessage}.*");
 		}
 	}
 

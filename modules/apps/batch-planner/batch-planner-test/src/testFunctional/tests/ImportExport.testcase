@@ -700,29 +700,29 @@ definition {
 		}
 
 		task ("Then the executions should be ordered by create date in descending order") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 1,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "ObjectDefinition Plan Execution");
+				value1 = ".*ObjectDefinition Plan Execution.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 2,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "json_objectDefinition_import_approved");
+				value1 = ".*json_objectDefinition_import_approved.*");
 		}
 
 		task ("And Then I can reverse the order") {
 			ManagementBar.toggleViewOrder();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 1,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "json_objectDefinition_import_approved");
+				value1 = ".*json_objectDefinition_import_approved.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 2,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "ObjectDefinition Plan Execution");
+				value1 = ".*ObjectDefinition Plan Execution.*");
 		}
 	}
 

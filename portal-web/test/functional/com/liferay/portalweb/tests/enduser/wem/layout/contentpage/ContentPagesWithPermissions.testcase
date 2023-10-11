@@ -2422,9 +2422,9 @@ definition {
 			task ("View the alert message shown on General panel") {
 				PageEditor.gotoConfiguration(fragmentName = "Collection Display");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PageEditor#ITEM_CONFIGURATION_SIDEBAR",
-					value1 = "This content cannot be displayed due to permission restrictions.");
+					value1 = ".*This content cannot be displayed due to permission restrictions\..*");
 			}
 
 			task ("View the collapsed node of Collection Display is not shown on Browser panel") {
@@ -2487,9 +2487,9 @@ definition {
 			task ("View the alert message shown on General panel") {
 				PageEditor.gotoConfiguration(fragmentName = "Content Display");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "PageEditor#ITEM_CONFIGURATION_SIDEBAR",
-					value1 = "This content cannot be displayed due to permission restrictions.");
+					value1 = ".*This content cannot be displayed due to permission restrictions\..*");
 			}
 
 			task ("View the password-policies icon shown on Content Display node on Browser panel") {

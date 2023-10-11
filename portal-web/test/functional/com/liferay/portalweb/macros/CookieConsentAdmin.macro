@@ -12,9 +12,9 @@ definition {
 			locator1 = "Button#SAVE",
 			value1 = "Save");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 	}
 
 	@description = "Reset settings"
@@ -36,9 +36,9 @@ definition {
 
 		CookieBannerAdmin.saveConfiguration();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 	}
 
 	@description = "Set Cookie Policy link"
@@ -51,9 +51,9 @@ definition {
 			locator1 = "Button#SAVE",
 			value1 = "Save");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 	}
 
 	@description = "Set custom text for all fields at Instance level"
@@ -102,9 +102,9 @@ definition {
 		else {
 			CookieBannerAdmin.saveConfiguration();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#SUCCESS",
-				value1 = "Your request completed successfully.");
+				value1 = ".*Your request completed successfully\..*");
 		}
 	}
 
@@ -157,9 +157,9 @@ definition {
 		else {
 			CookieBannerAdmin.saveConfiguration();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#SUCCESS",
-				value1 = "Your request completed successfully.");
+				value1 = ".*Your request completed successfully\..*");
 		}
 	}
 

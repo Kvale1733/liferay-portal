@@ -967,9 +967,9 @@ definition {
 		}
 
 		task ("Then Confirm that 'This field is required' alert messages are present in the provider field") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#WARNING_FEEDBACK",
-				value1 = "This field is required.");
+				value1 = ".*This field is required\..*");
 		}
 	}
 
@@ -989,9 +989,9 @@ definition {
 		}
 
 		task ("Then Confirm that 'This field is required' alert messages are present in the provider field") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#WARNING_FEEDBACK",
-				value1 = "This field is required.");
+				value1 = ".*This field is required\..*");
 		}
 	}
 

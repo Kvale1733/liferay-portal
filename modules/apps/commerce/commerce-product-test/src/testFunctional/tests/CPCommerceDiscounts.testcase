@@ -85,9 +85,9 @@ definition {
 
 		AssertElementNotPresent(locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "24.00");
+			value1 = ".*24.00.*");
 
 		CommerceNavigator.gotoPortlet(
 			category = "Pricing",
@@ -130,9 +130,9 @@ definition {
 
 		AssertElementNotPresent(locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "24.00");
+			value1 = ".*24.00.*");
 
 		CommerceNavigator.gotoPortlet(
 			category = "Pricing",
@@ -223,9 +223,9 @@ definition {
 
 		AssertElementNotPresent(locator1 = "CommerceAccelerators#PRODUCT_DETAILS_NET_PRICE");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CommerceAccelerators#PRODUCT_DETAILS_LIST_PRICE",
-			value1 = "24.00");
+			value1 = ".*24.00.*");
 	}
 
 	@description = "COMMERCE-11821 | Discount is applied correctly when a tax category is enabled"
@@ -1263,10 +1263,10 @@ definition {
 		}
 
 		task ("Then the discount of 10% is applied") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_subtotalValue = "45.00",
 				locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SUBTOTAL",
-				value1 = "45.00");
+				value1 = ".*45.00.*");
 
 			Click(locator1 = "Button#CONTINUE");
 		}
@@ -1468,10 +1468,10 @@ definition {
 			locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SUBTOTAL",
 			value1 = "21.60");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_subtotalValue = "21.60",
 			locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SUBTOTAL",
-			value1 = "21.60");
+			value1 = ".*21.60.*");
 
 		Click(locator1 = "Button#CONTINUE");
 
@@ -1537,10 +1537,10 @@ definition {
 			locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SUBTOTAL",
 			value1 = "21.60");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_subtotalValue = "21.60",
 			locator1 = "CommerceAccelerators#CHECKOUT_SUMMARY_SUBTOTAL",
-			value1 = "21.60");
+			value1 = ".*21.60.*");
 
 		Click(locator1 = "Button#CONTINUE");
 
@@ -1568,9 +1568,9 @@ definition {
 			key_tab = "Apply",
 			locator1 = "Button#TAB_SUBMIT_BTN");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "The inserted coupon code has reached its usage limit.");
+			value1 = ".*The inserted coupon code has reached its usage limit\..*");
 	}
 
 	@description = "This is a test for COMMERCE-6229. Discount coupon code validators"

@@ -218,9 +218,9 @@ definition {
 		}
 
 		task ("And: Error message is present") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_DISMISSIBLE",
-				value1 = "Authentication failed. Please try again.");
+				value1 = ".*Authentication failed. Please try again\..*");
 		}
 	}
 
@@ -253,9 +253,9 @@ definition {
 		}
 
 		task ("And: Error message is present") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_DISMISSIBLE",
-				value1 = "Authentication failed. Please try again.");
+				value1 = ".*Authentication failed. Please try again\..*");
 		}
 	}
 

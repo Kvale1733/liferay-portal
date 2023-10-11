@@ -191,9 +191,9 @@ definition {
 
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "You do not have the required permissions.");
+				value1 = ".*You do not have the required permissions\..*");
 		}
 
 		task ("View message boards not shown for Guest") {
@@ -201,9 +201,9 @@ definition {
 
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "You do not have the required permissions.");
+				value1 = ".*You do not have the required permissions\..*");
 		}
 	}
 
@@ -286,9 +286,9 @@ definition {
 
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "You do not have the required permissions.");
+				value1 = ".*You do not have the required permissions\..*");
 		}
 
 		task ("View message boards is not shown for new user") {
@@ -296,9 +296,9 @@ definition {
 
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "You do not have the required permissions.");
+				value1 = ".*You do not have the required permissions\..*");
 		}
 	}
 

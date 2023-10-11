@@ -1073,9 +1073,9 @@ definition {
 	}
 
 	macro viewNoEntryCP {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no forms.");
+			value1 = ".*There are no forms\..*");
 	}
 
 	macro viewPageEmptyField {
@@ -1141,9 +1141,9 @@ definition {
 	}
 
 	macro viewSaveNotification {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Form#SAVE_NOTIFICATION",
-			value1 = "Draft");
+			value1 = ".*Draft.*");
 	}
 
 	macro viewSelectFromListOptionOnPreview {

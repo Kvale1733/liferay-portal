@@ -121,9 +121,9 @@ definition {
 				value1 = "Save");
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 	}
 
 }

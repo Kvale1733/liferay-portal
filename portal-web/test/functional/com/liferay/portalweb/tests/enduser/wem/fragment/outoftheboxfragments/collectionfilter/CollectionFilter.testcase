@@ -855,10 +855,10 @@ definition {
 				index = 2,
 				tagName = "electric");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "PageEditor#COLLECTION_DISPLAY_EMPTY_STATE",
-				value1 = "No Results Found");
+				value1 = ".*No Results Found.*");
 		}
 	}
 
@@ -1480,12 +1480,12 @@ definition {
 				targetCollection = "Dynamic Collection",
 				vocabularyName = "Vocabulary A");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnNumber = 1,
 				key_elementHeader = "//div[@aria-label='Collection Filter']//div[contains(@class,'page-editor__topper__content')]",
 				key_position = 1,
 				locator1 = "PageEditor#GRID_COLUMN_NESTED_ELEMENT",
-				value1 = "Vocabulary A");
+				value1 = ".*Vocabulary A.*");
 		}
 
 		task ("Select the Vocabulary B in Collection Filter inside second module and choose Multiple Selection") {
@@ -1497,12 +1497,12 @@ definition {
 				targetCollection = "Dynamic Collection",
 				vocabularyName = "Vocabulary B");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnNumber = 2,
 				key_elementHeader = "//div[@aria-label='Collection Filter']//div[contains(@class,'page-editor__topper__content')]",
 				key_position = 1,
 				locator1 = "PageEditor#GRID_COLUMN_NESTED_ELEMENT",
-				value1 = "Vocabulary B");
+				value1 = ".*Vocabulary B.*");
 		}
 
 		task ("Open the Preview modal") {
@@ -1787,11 +1787,11 @@ definition {
 		}
 
 		task ("View the category name is shown in Collection Filter") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				key_fragmentName = "Collection Filter",
 				locator1 = "Fragment#FRAGMENT_CONTENT",
-				value1 = "Category Name");
+				value1 = ".*Category Name.*");
 		}
 
 		task ("Open the Preview modal") {
@@ -2056,11 +2056,11 @@ definition {
 		}
 
 		task ("View the vocabulary name shown in Collection Filter") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				key_fragmentName = "Collection Filter",
 				locator1 = "Fragment#FRAGMENT_CONTENT",
-				value1 = "Vocabulary Name");
+				value1 = ".*Vocabulary Name.*");
 		}
 
 		task ("Open the Preview modal") {
@@ -2298,12 +2298,12 @@ definition {
 				targetCollection = "Manual Collection",
 				vocabularyName = "Vocabulary A");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnNumber = 1,
 				key_elementHeader = "//div[@aria-label='Collection Filter']//div[contains(@class,'page-editor__topper__content')]",
 				key_position = 1,
 				locator1 = "PageEditor#GRID_COLUMN_NESTED_ELEMENT",
-				value1 = "Vocabulary A");
+				value1 = ".*Vocabulary A.*");
 		}
 
 		task ("Select the Vocabulary B in Collection Filter inside second module and choose Multiple Selection") {
@@ -2315,12 +2315,12 @@ definition {
 				targetCollection = "Manual Collection",
 				vocabularyName = "Vocabulary B");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnNumber = 2,
 				key_elementHeader = "//div[@aria-label='Collection Filter']//div[contains(@class,'page-editor__topper__content')]",
 				key_position = 1,
 				locator1 = "PageEditor#GRID_COLUMN_NESTED_ELEMENT",
-				value1 = "Vocabulary B");
+				value1 = ".*Vocabulary B.*");
 		}
 
 		task ("Open the Preview modal") {
@@ -2604,11 +2604,11 @@ definition {
 		}
 
 		task ("Assert Vocabulary Name is shown in Collection Filter") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				key_fragmentName = "Collection Filter",
 				locator1 = "Fragment#FRAGMENT_CONTENT",
-				value1 = "Vocabulary Name");
+				value1 = ".*Vocabulary Name.*");
 		}
 
 		task ("Open the Preview modal") {
@@ -2928,11 +2928,11 @@ definition {
 		}
 
 		task ("Assert Vocabulary Name is shown in Collection Filter") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				key_fragmentName = "Collection Filter",
 				locator1 = "Fragment#FRAGMENT_CONTENT",
-				value1 = "Vocabulary Name");
+				value1 = ".*Vocabulary Name.*");
 		}
 
 		task ("Open the Preview modal") {
@@ -3152,11 +3152,11 @@ definition {
 		}
 
 		task ("Assert Category Name is shown in Collection Filter") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				key_fragmentName = "Collection Filter",
 				locator1 = "Fragment#FRAGMENT_CONTENT",
-				value1 = ${categoryName});
+				value1 = ".*${categoryName}.*");
 		}
 
 		task ("Open the Preview modal") {
@@ -3663,12 +3663,12 @@ definition {
 				fragmentName = "Collection Filter",
 				vocabularyName = "Size");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnNumber = 1,
 				key_elementHeader = "//div[@aria-label='Collection Filter']//div[contains(@class,'page-editor__topper__content')]",
 				key_position = 1,
 				locator1 = "PageEditor#GRID_COLUMN_NESTED_ELEMENT",
-				value1 = "Size");
+				value1 = ".*Size.*");
 		}
 
 		task ("View the source label of Collection Filter is Size") {
@@ -3697,12 +3697,12 @@ definition {
 				targetCollection = "Dynamic Collection",
 				vocabularyName = "Color");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_columnNumber = 2,
 				key_elementHeader = "//div[@aria-label='Collection Filter']//div[contains(@class,'page-editor__topper__content')]",
 				key_position = 1,
 				locator1 = "PageEditor#GRID_COLUMN_NESTED_ELEMENT",
-				value1 = "Pure Color");
+				value1 = ".*Pure Color.*");
 		}
 
 		task ("View the source label of second Collection Filter is not shown") {
@@ -3994,10 +3994,10 @@ definition {
 
 			Page.searchInCollectionFilter(searchTerm = "Toyota");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "PageEditor#COLLECTION_DISPLAY_EMPTY_STATE",
-				value1 = "No Results Found");
+				value1 = ".*No Results Found.*");
 
 			Close.closeWindow();
 
@@ -4024,10 +4024,10 @@ definition {
 
 			Page.searchInCollectionFilter(searchTerm = "BMW");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "PageEditor#COLLECTION_DISPLAY_EMPTY_STATE",
-				value1 = "No Results Found");
+				value1 = ".*No Results Found.*");
 		}
 
 		task ("Add the second content page") {
@@ -4092,10 +4092,10 @@ definition {
 				selectedName = "Trunk",
 				title = "Type");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "PageEditor#COLLECTION_DISPLAY_EMPTY_STATE",
-				value1 = "No Results Found");
+				value1 = ".*No Results Found.*");
 
 			Close.closeWindow();
 
@@ -4125,10 +4125,10 @@ definition {
 				selectedName = "Hatchback",
 				title = "Type");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "PageEditor#COLLECTION_DISPLAY_EMPTY_STATE",
-				value1 = "No Results Found");
+				value1 = ".*No Results Found.*");
 		}
 	}
 

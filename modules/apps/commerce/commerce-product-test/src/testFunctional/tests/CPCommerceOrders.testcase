@@ -3629,15 +3629,15 @@ definition {
 
 		CommerceNavigator.gotoMiniumSidebarItem(menuItem = "Account Management");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_rowEntry = "Commerce Account 1",
 			locator1 = "ContentRow#ENTRY_CONTENT_ENTRY_NAME",
-			value1 = "Commerce Account 1");
+			value1 = ".*Commerce Account 1.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_rowEntry = "Commerce Account 2",
 			locator1 = "ContentRow#ENTRY_CONTENT_ENTRY_NAME",
-			value1 = "Commerce Account 2");
+			value1 = ".*Commerce Account 2.*");
 
 		CommerceNavigator.gotoPortlet(
 			category = "Order Management",
@@ -4251,10 +4251,10 @@ definition {
 		var index = 1;
 
 		for (var accountName : list "Commerce Account,Commerce Account 2") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = ${index},
 				locator1 = "CommerceAccelerators#ACCOUNT_ORDER_NAME",
-				value1 = ${accountName});
+				value1 = ".*${accountName}.*");
 
 			var index = ${index} + 1;
 		}

@@ -119,73 +119,73 @@ definition {
 
 	macro viewColumnsOnDetails {
 		if (isSet(ddlCompany)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_ddlRecordFieldData = "Company",
 				locator1 = "DDLRecord#FIELD",
-				value1 = ${ddlCompany});
+				value1 = ".*${ddlCompany}.*");
 		}
 
 		if (isSet(ddlEmail)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_ddlRecordFieldData = "Email",
 				locator1 = "DDLRecord#FIELD",
-				value1 = ${ddlEmail});
+				value1 = ".*${ddlEmail}.*");
 		}
 
 		if (isSet(ddlFirstName)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_ddlRecordFieldData = "First Name",
 				locator1 = "DDLRecord#FIELD",
-				value1 = ${ddlFirstName});
+				value1 = ".*${ddlFirstName}.*");
 		}
 
 		if (isSet(ddlimService)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_ddlRecordFieldData = "Instant Messenger Service",
 				locator1 = "DDLRecord#FIELD",
-				value1 = ${ddlimService});
+				value1 = ".*${ddlimService}.*");
 		}
 
 		if (isSet(ddlUserName)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_ddlRecordFieldData = "Instant Messenger",
 				locator1 = "KaleoFormsNewSubmissions#FIELD_USERNAME",
-				value1 = ${ddlUserName});
+				value1 = ".*${ddlUserName}.*");
 		}
 
 		if (isSet(ddlJobTitle)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_ddlRecordFieldData = "Job Title",
 				locator1 = "DDLRecord#FIELD",
-				value1 = ${ddlJobTitle});
+				value1 = ".*${ddlJobTitle}.*");
 		}
 
 		if (isSet(ddlLastName)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_ddlRecordFieldData = "Last Name",
 				locator1 = "DDLRecord#FIELD",
-				value1 = ${ddlLastName});
+				value1 = ".*${ddlLastName}.*");
 		}
 
 		if (isSet(ddlnotes)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_ddlRecordFieldData = "Notes",
 				locator1 = "DDLRecord#FIELD",
-				value1 = ${ddlnotes});
+				value1 = ".*${ddlnotes}.*");
 		}
 
 		if (isSet(ddlPhoneMobile)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_ddlRecordFieldData = "Phone (Mobile)",
 				locator1 = "DDLRecord#FIELD",
-				value1 = ${ddlPhoneMobile});
+				value1 = ".*${ddlPhoneMobile}.*");
 		}
 
 		if (isSet(ddlPhoneOffice)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_ddlRecordFieldData = "Phone (Office)",
 				locator1 = "DDLRecord#FIELD",
-				value1 = ${ddlPhoneOffice});
+				value1 = ".*${ddlPhoneOffice}.*");
 		}
 	}
 

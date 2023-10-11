@@ -501,9 +501,9 @@ definition {
 				locator1 = "Modal#HEADER",
 				value1 = "Delete Item");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Modal#BODY",
-				value1 = "The item you want to delete has children that also can be removed.");
+				value1 = ".*The item you want to delete has children that also can be removed\..*");
 
 			Check.checkNotVisible(
 				key_text = ${actionName},
@@ -718,10 +718,10 @@ definition {
 	}
 
 	macro viewItemOrder {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_index = ${index},
 			locator1 = "SiteNavigationMenu#ITEM_ENTRY_N",
-			value1 = ${itemName});
+			value1 = ".*${itemName}.*");
 	}
 
 	macro viewItemStatus {

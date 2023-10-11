@@ -166,9 +166,9 @@ definition {
 				autocompleteField = "Document_1.jpg",
 				locator1 = "FragmentEditor#AUTOCOMPLETE_FIELD");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "FragmentEditor#HTML_EDITOR_CONTENT",
-				value1 = ${fragmentHtml});
+				value1 = ".*${fragmentHtml}.*");
 		}
 	}
 
@@ -218,9 +218,9 @@ definition {
 
 			var htmlContent = '''<div class="fragment_1">Fragment Name</div>''';
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "FragmentEditor#HTML_EDITOR_CONTENT",
-				value1 = ${htmlContent});
+				value1 = ".*${htmlContent}.*");
 		}
 	}
 
@@ -256,9 +256,9 @@ definition {
 
 			var htmlContent = '''<div class="fragment_1">New Fragment Name</div>''';
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "FragmentEditor#HTML_EDITOR_CONTENT",
-				value1 = ${htmlContent});
+				value1 = ".*${htmlContent}.*");
 		}
 	}
 

@@ -131,11 +131,11 @@ definition {
 			key_rowNumber = ${rowNumber},
 			locator1 = "WorkflowAllItems#METRICS_INSTANCE_ITEMS_POSITION");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_slaName = ${slaName},
 			key_slaPosition = ${slaPosition},
 			locator1 = "WorkflowAllItems#DUE_DATE_POPOVER_SLA_INFO",
-			value1 = ${slaName});
+			value1 = ".*${slaName}.*");
 	}
 
 	macro assertFilterOrder {
@@ -199,10 +199,10 @@ definition {
 			Refresh();
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_warningMessage = ${warningMessage},
 			locator1 = "Message#WARNING_SPECIFIC",
-			value1 = ${warningMessage});
+			value1 = ".*${warningMessage}.*");
 
 		while ((IsElementNotPresent(locator1 = "WorkflowMetricsSLA#SLA_PROCESS_DATE_MESSAGE")) && (maxIterations = "30")) {
 			Refresh();
@@ -244,9 +244,9 @@ definition {
 			Refresh();
 		}
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#WARNING_SPECIFIC",
-			value1 = ${warningMessage});
+			value1 = ".*${warningMessage}.*");
 	}
 
 	macro bulkReassignExceptionsSetup {
@@ -299,9 +299,9 @@ definition {
 
 		MenuItem.click(menuItem = ${itemsPerPage});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Questions#ITEMS_PER_PAGE_SELECT",
-			value1 = ${itemsPerPage});
+			value1 = ".*${itemsPerPage}.*");
 	}
 
 	macro checkCompletedWorkflowValues {
@@ -1161,9 +1161,9 @@ definition {
 				var key_currentDate = "${key_currentDateMonthShort} ${key_currentDateDay}, ${key_currentDateYear}";
 			}
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "WorkflowAllItems#DETAIL_PAGE_CREATION_DATE",
-				value1 = ${key_currentDate});
+				value1 = ".*${key_currentDate}.*");
 
 			AssertTextEquals(
 				locator1 = "WorkflowAllItems#DETAIL_PAGE_ASSET_TYPE",
@@ -1200,9 +1200,9 @@ definition {
 				var key_currentDate = "${key_currentDateMonthShort} ${key_currentDateDay}, ${key_currentDateYear}";
 			}
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "WorkflowAllItems#DETAIL_PAGE_END_DATE",
-				value1 = ${key_currentDate});
+				value1 = ".*${key_currentDate}.*");
 
 			AssertTextNotPresent(value1 = "Current Step");
 
@@ -1572,9 +1572,9 @@ definition {
 	macro viewTooltipCompletionVelocity {
 		MouseOver(locator1 = "WorkflowMetrics#METRICS_COMPLETION_VELOCITY_TOOLTIP");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#TOOLTIP",
-			value1 = "Completion velocity tracks the number of completed workflow instances over the selected time period.");
+			value1 = ".*Completion velocity tracks the number of completed workflow instances over the selected time period\..*");
 	}
 
 	macro viewTrackWorkflowModal {

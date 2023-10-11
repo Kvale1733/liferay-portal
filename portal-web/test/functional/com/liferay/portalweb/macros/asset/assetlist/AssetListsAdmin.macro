@@ -591,14 +591,14 @@ definition {
 		var key_title = ${assetListTitle};
 		var key_type = ${type};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "AssetLists#ASSET_LIST_ENTRY_TITLE",
-			value1 = ${assetListTitle});
+			value1 = ".*${assetListTitle}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_assetTitle = ${assetListTitle},
 			locator1 = "AssetLists#ASSET_TYPE_ROW",
-			value1 = ${type});
+			value1 = ".*${type}.*");
 	}
 
 	macro viewAssetTypeList {

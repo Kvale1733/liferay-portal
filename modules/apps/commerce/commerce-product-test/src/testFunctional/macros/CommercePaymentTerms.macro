@@ -148,25 +148,25 @@ definition {
 	}
 
 	macro viewTermsAndConditionsEntry {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_termsAndConditionsName = ${termsAndConditionsName},
 			locator1 = "CommercePaymentTerms#ORDER_DETAILS_TERMS_AND_CONDITIONS_NAME",
-			value1 = ${termsAndConditionsName});
+			value1 = ".*${termsAndConditionsName}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_termsAndConditionsType = ${termsAndConditionsType},
 			locator1 = "CommercePaymentTerms#ORDER_DETAILS_TERMS_AND_CONDITIONS_TYPE",
-			value1 = ${termsAndConditionsType});
+			value1 = ".*${termsAndConditionsType}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_valuePosition = ${valuePosition},
 			locator1 = "CommercePaymentTerms#ORDER_DETAILS_TERMS_AND_CONDITIONS_PRIORITY",
-			value1 = ${valuePosition});
+			value1 = ".*${valuePosition}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_termsAndConditionsActiveStatus = ${termsAndConditionsActiveStatus},
 			locator1 = "CommercePaymentTerms#ORDER_DETAILS_TERMS_AND_CONDITIONS_ACTIVE_STATUS",
-			value1 = ${termsAndConditionsActiveStatus});
+			value1 = ".*${termsAndConditionsActiveStatus}.*");
 	}
 
 	macro viewTermsAndConditionsEntrySortByPriority {

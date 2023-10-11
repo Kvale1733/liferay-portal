@@ -208,9 +208,9 @@ definition {
 
 		MenuItem.click(menuItem = ${itemsPerPage});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Questions#ITEMS_PER_PAGE_SELECT",
-			value1 = ${itemsPerPage});
+			value1 = ".*${itemsPerPage}.*");
 	}
 
 	macro changeTopic {
@@ -1134,22 +1134,22 @@ definition {
 	}
 
 	macro viewTagsFilterResults {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_position = ${position},
 			locator1 = "Questions#TAGS_POSITION",
-			value1 = ${tagName});
+			value1 = ".*${tagName}.*");
 
 		if (isSet(usedTimes)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_position = ${position},
 				locator1 = "Questions#TAGS_POSITION",
-				value1 = ${usedTimes});
+				value1 = ".*${usedTimes}.*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_position = ${position},
 				locator1 = "Questions#TAGS_POSITION",
-				value1 = "Created");
+				value1 = ".*Created.*");
 		}
 	}
 

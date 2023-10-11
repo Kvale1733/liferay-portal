@@ -387,9 +387,9 @@ definition {
 
 		Click(locator1 = "CKEditor#TOOLBAR_SOURCE_BUTTON");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ProcessBuilderKaleoDesignerReact#SOURCE_EDITOR",
-			value1 = "bpt");
+			value1 = ".*bpt.*");
 	}
 
 	@description = "This ensures that the translation files can be imported from a zip."

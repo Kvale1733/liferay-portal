@@ -198,9 +198,9 @@ definition {
 			key_text = "Publish",
 			locator1 = "Button#ANY");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "TextInput#REQUIRED_ALERT",
-			value1 = "This field is required.");
+			value1 = ".*This field is required\..*");
 	}
 
 	@description = "This test ensure is possible to repeat a rich text on a Web Content."

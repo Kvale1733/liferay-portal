@@ -2231,9 +2231,9 @@ definition {
 
 		SelectFrame(locator1 = "Message#ERROR");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "All required object fields must be associated to the first tab of a default object layout");
+			value1 = ".*All required object fields must be associated to the first tab of a default object layout.*");
 	}
 
 	@description = "LPS-139005 - Verify that is not possible to submit entries in a form with an Object that was inactivated"
@@ -2709,9 +2709,9 @@ definition {
 
 			CreateObject.saveObject();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#WARNING_FEEDBACK",
-				value1 = "If activated, the account restriction field must be selected.");
+				value1 = ".*If activated, the account restriction field must be selected\..*");
 
 			CreateObject.activeToogleAccountRestriction();
 

@@ -679,17 +679,17 @@ definition {
 
 		Navigator.openWithAppendToBaseURL(urlAppend = "web/guest/jsf-showcase/-/jsf-tag/h/outputscript/resource");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "JSFShowcase#EXAMPLE_TEXT",
-			value1 = "A script");
+			value1 = ".*A script.*");
 
 		// OutputScriptGeneral
 
 		Navigator.openWithAppendToBaseURL(urlAppend = "web/guest/jsf-showcase/-/jsf-tag/h/outputscript/general");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "JSFShowcase#EXAMPLE_TEXT",
-			value1 = "is rendered inline");
+			value1 = ".*is rendered inline.*");
 
 		// OutputStylesheetGeneral
 
@@ -703,9 +703,9 @@ definition {
 
 		var displayDate = DateUtil.getCurrentYear();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "JSFShowcase#EXAMPLE_TEXT",
-			value1 = ${displayDate});
+			value1 = ".*${displayDate}.*");
 
 		// OutputTextConversionTester
 

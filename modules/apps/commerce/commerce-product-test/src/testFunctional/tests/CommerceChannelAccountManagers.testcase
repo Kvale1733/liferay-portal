@@ -489,9 +489,9 @@ definition {
 
 			CommerceNavigator.gotoMiniumSidebarItem(menuItem = "Account Management");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No accounts were found.");
+				value1 = ".*No accounts were found\..*");
 		}
 	}
 
@@ -581,9 +581,9 @@ definition {
 
 			CommerceNavigator.gotoMiniumSidebarItem(menuItem = "Account Management");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No accounts were found.");
+				value1 = ".*No accounts were found\..*");
 		}
 	}
 

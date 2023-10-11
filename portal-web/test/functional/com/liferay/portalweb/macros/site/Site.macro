@@ -287,9 +287,9 @@ definition {
 
 		Click(locator1 = "Icon#INFO");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SiteMemberships#MEMBERSHIP_TYPE",
-			value1 = "Membership Type: Restricted");
+			value1 = ".*Membership Type: Restricted.*");
 
 		AssertElementPresent(locator1 = "SiteMemberships#REQUEST_MESSAGE");
 
@@ -596,10 +596,10 @@ definition {
 
 					Click(locator1 = "SiteSettingsDisplaySettings#TRANSFER_ITEM_LEFT_TO_RIGHT");
 
-					AssertTextEquals.assertPartialText(
+					AssertTextMatches(
 						key_position = "right",
 						locator1 = "SiteSettingsDisplaySettings#LANGUAGES_SELECT_FIELD",
-						value1 = ${currentSiteLanguage});
+						value1 = ".*${currentSiteLanguage}.*");
 				}
 			}
 		}
@@ -641,9 +641,9 @@ definition {
 
 		Search.searchCP(searchTerm = ${siteName});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Sites#SITE_TABLE_NAME",
-			value1 = ${siteName});
+			value1 = ".*${siteName}.*");
 
 		LexiconTable.clickEllipsisItem(
 			item = "Deactivate",
@@ -657,9 +657,9 @@ definition {
 		else {
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_2",
-				value1 = "The site cannot be deleted or deactivated because you are accessing the site.");
+				value1 = ".*The site cannot be deleted or deactivated because you are accessing the site\..*");
 		}
 	}
 
@@ -684,9 +684,9 @@ definition {
 
 		Search.searchCP(searchTerm = ${siteName});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Sites#SITE_TABLE_NAME",
-			value1 = ${siteName});
+			value1 = ".*${siteName}.*");
 
 		LexiconTable.clickEllipsisItem(
 			item = "Delete",
@@ -702,9 +702,9 @@ definition {
 
 		Alert.viewSuccessMessage();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No sites were found.");
+			value1 = ".*No sites were found\..*");
 	}
 
 	macro disableRecycleBinCP {
@@ -761,9 +761,9 @@ definition {
 		if (${friendlyURLInvalid} == "true") {
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_1",
-				value1 = "The friendly URL has too many slashes.");
+				value1 = ".*The friendly URL has too many slashes\..*");
 
 			AssertTextEquals(
 				locator1 = "TextInput#FRIENDLY_URL_SITE_SETTINGS",
@@ -880,9 +880,9 @@ definition {
 	macro joinViaMySitesPG {
 		var key_siteName = ${siteName};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No sites were found.");
+			value1 = ".*No sites were found\..*");
 
 		Navigator.gotoNavItem(navItem = "Available Sites");
 
@@ -1196,9 +1196,9 @@ definition {
 				key_parentSiteName = ${parentSiteName},
 				locator1 = "SitesSelectSite#SITES_TABLE_NAME");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No sites were found.");
+				value1 = ".*No sites were found\..*");
 		}
 
 		Close(locator1 = "null");
@@ -1333,10 +1333,10 @@ definition {
 			key_siteName = ${siteName},
 			locator1 = "Sites#SITE_TABLE_CHECKBOX");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_siteName = ${siteName},
 			locator1 = "Sites#SITE_TABLE_NAME",
-			value1 = ${siteName});
+			value1 = ".*${siteName}.*");
 
 		AssertTextEquals(
 			key_siteName = ${siteName},
@@ -1458,9 +1458,9 @@ definition {
 		if (${toolTip} == "true") {
 			MouseOver(locator1 = "Icon#TOOLTIP");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#TOOLTIP",
-				value1 = "Users are not allowed to request membership. Only site administrators can add new members.");
+				value1 = ".*Users are not allowed to request membership. Only site administrators can add new members\..*");
 		}
 	}
 
@@ -1495,9 +1495,9 @@ definition {
 
 		AssertElementNotPresent(locator1 = "SiteMemberships#REQUEST_MESSAGE");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SiteMemberships#MEMBERSHIP_TYPE",
-			value1 = "Membership Type: Restricted");
+			value1 = ".*Membership Type: Restricted.*");
 
 		AssertElementNotPresent(locator1 = "SiteMemberships#REQUEST_MESSAGE");
 
@@ -1578,14 +1578,14 @@ definition {
 		Navigator.gotoNavTab(navTab = "Site Template");
 
 		if (${clonedFromTemplate} == "true") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SiteSettingsSiteTemplate#CONTENT_CONTAINER",
-				value1 = "These pages are linked to site template ${siteTemplateName} without propagation of changes.");
+				value1 = ".*These pages are linked to site template ${siteTemplateName} without propagation of changes\..*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SiteSettingsSiteTemplate#CONTENT_CONTAINER",
-				value1 = "This site is not related to a site template.");
+				value1 = ".*This site is not related to a site template\..*");
 		}
 	}
 
@@ -1600,9 +1600,9 @@ definition {
 	macro viewSiteMembershipsRequest {
 		Click(locator1 = "Icon#INFO");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SiteMemberships#MEMBERSHIP_TYPE",
-			value1 = "Membership Type: Restricted");
+			value1 = ".*Membership Type: Restricted.*");
 
 		AssertElementPresent(locator1 = "SiteMemberships#REQUEST_MESSAGE");
 

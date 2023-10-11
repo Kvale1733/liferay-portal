@@ -67,9 +67,9 @@ definition {
 
 			Click(locator1 = "Button#MOVE_AVAILABLE_TO_CURRENT");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SocialBookmarks#ENABLE_SOCIAL_BOOKMARK_CURRENT_SELECT",
-				value1 = ${socialBookmarkSite});
+				value1 = ".*${socialBookmarkSite}.*");
 		}
 	}
 
@@ -162,13 +162,13 @@ definition {
 			locator1 = "Radio#SOCIAL_BOOKMARKS_DISPLAY_STYLE",
 			value1 = "Inline");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SocialBookmarks#ENABLE_SOCIAL_BOOKMARK_CURRENT_SELECT",
-			value1 = "Twitter");
+			value1 = ".*Twitter.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "SocialBookmarks#ENABLE_SOCIAL_BOOKMARK_CURRENT_SELECT",
-			value1 = "Facebook");
+			value1 = ".*Facebook.*");
 	}
 
 	macro viewDefaultConfigurationRSS {
@@ -196,9 +196,9 @@ definition {
 
 		AssertElementPresent(locator1 = "NavBar#CONTAINER");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No entries were found.");
+			value1 = ".*No entries were found\..*");
 	}
 
 	macro viewNoPermissionPG {
@@ -258,9 +258,9 @@ definition {
 			locator1 = "ProductMenu#PRODUCT_MENU_PANEL_SCOPE",
 			value1 = ${contentScopeName});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No entries were found.");
+			value1 = ".*No entries were found\..*");
 	}
 
 	macro viewScopeSelection {

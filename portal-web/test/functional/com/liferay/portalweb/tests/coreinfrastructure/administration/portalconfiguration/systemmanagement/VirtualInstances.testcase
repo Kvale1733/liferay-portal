@@ -212,9 +212,9 @@ definition {
 
 		Alert.viewRequestFailedToComplete();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_1",
-			value1 = "You do not have the required permissions.");
+			value1 = ".*You do not have the required permissions\..*");
 	}
 
 	@priority = 5

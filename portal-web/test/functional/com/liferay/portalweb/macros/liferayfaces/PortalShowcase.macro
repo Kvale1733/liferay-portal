@@ -95,21 +95,21 @@ definition {
 
 		AssertElementNotPresent(locator1 = "PortalShowcase#REQUIRED_ERROR_MESSAGE");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PortalShowcase#MODAL_VALUE",
-			value1 = "Hello to the whole World!");
+			value1 = ".*Hello to the whole World!.*");
 
 		PortalShowcase._writeAdjustedBoldText();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PortalShowcase#MODAL_VALUE",
-			value1 = "Hel${boldOpen}lo to the wh${boldClose}ole World!");
+			value1 = ".*Hel${boldOpen}lo to the wh${boldClose}ole World!.*");
 
 		PortalShowcase._writeAdjustedBoldItalicText();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PortalShowcase#MODAL_VALUE",
-			value1 = "Hel${boldOpen}lo t${italicOpen}o the wh${italicClose}${boldClose}${italicOpen}ole Wor${italicClose}ld!");
+			value1 = ".*Hel${boldOpen}lo t${italicOpen}o the wh${italicClose}${boldClose}${italicOpen}ole Wor${italicClose}ld!.*");
 
 		AssertElementNotPresent(locator1 = "PortalShowcase#REQUIRED_ERROR_MESSAGE");
 	}
@@ -135,9 +135,9 @@ definition {
 				key_message = ${messageImmediate1},
 				locator1 = "JSFShowcase#RESULT_MESSAGE");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "JSFShowcase#MODEL_RESULT",
-				value1 = ${textResult});
+				value1 = ".*${textResult}.*");
 		}
 
 		if (${immediate} == "false") {
@@ -151,9 +151,9 @@ definition {
 				key_message = ${messageImmediate2},
 				locator1 = "JSFShowcase#RESULT_MESSAGE");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "JSFShowcase#MODEL_RESULT_2",
-				value1 = ${textResult});
+				value1 = ".*${textResult}.*");
 		}
 	}
 

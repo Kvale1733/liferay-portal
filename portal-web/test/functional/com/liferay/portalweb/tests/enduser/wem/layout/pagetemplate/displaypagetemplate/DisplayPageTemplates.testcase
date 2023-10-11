@@ -59,9 +59,9 @@ definition {
 
 			DisplayPageTemplatesAdmin.deleteDisplayPage(displayPageName = "Display Page Name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR",
-				value1 = "Error:You cannot delete display page templates that are used by one or more items. Please view the usages and try to unassign them.");
+				value1 = ".*Error:You cannot delete display page templates that are used by one or more items. Please view the usages and try to unassign them\..*");
 
 			DisplayPageTemplatesAdmin.viewDisplayPagePresent(displayPageName = "Display Page Name");
 		}
@@ -570,12 +570,12 @@ definition {
 				fragmentName = "Heading",
 				id = "element-text");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				fragmentName = "html",
 				id = "element-html",
 				index = 1,
 				locator1 = "Fragment#CONTRIBUTED_FRAGMENT_TEXT",
-				value1 = "HTML Example");
+				value1 = ".*HTML Example.*");
 		}
 	}
 

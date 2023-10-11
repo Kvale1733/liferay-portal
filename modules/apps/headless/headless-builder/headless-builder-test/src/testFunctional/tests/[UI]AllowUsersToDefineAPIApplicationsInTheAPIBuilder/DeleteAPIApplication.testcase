@@ -192,10 +192,10 @@ definition {
 		}
 
 		task ("Then I can see message about type the API title") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_text = "Please type the API title mentioned above.",
 				locator1 = "APIBuilder#WARNING_MESSAGE_IN_DIALOG",
-				value1 = "Please type the API title mentioned above.");
+				value1 = ".*Please type the API title mentioned above\..*");
 		}
 
 		task ("And Then Delete button is disabled") {
@@ -215,9 +215,9 @@ definition {
 		}
 
 		task ("Then I can see the prompt message in the Delete API Application dialog") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Modal#BODY",
-				value1 = "This action cannot be undone and will delete all the related schemas and endpoints within this API.");
+				value1 = ".*This action cannot be undone and will delete all the related schemas and endpoints within this API\..*");
 		}
 	}
 

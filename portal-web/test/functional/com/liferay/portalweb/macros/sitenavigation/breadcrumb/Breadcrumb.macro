@@ -145,9 +145,9 @@ definition {
 	macro viewDisplayTemplatePreview {
 		SelectFrame(locator1 = "IFrame#CONFIGURATION");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Select#DISPLAY_TEMPLATE",
-			value1 = ${displayStyle});
+			value1 = ".*${displayStyle}.*");
 
 		SelectFrame(value1 = "relative=top");
 	}

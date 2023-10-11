@@ -70,9 +70,9 @@ definition {
 
 			ProductMenuHelper.openProductMenu();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ProductMenu#PRODUCT_MENU_PANEL_SITE_ADMINISTRATION_SITE_NAME",
-				value1 = ${site});
+				value1 = ".*${site}.*");
 		}
 	}
 

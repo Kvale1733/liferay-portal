@@ -137,9 +137,9 @@ definition {
 			locator1 = "BlogsEntry#TITLE",
 			value1 = ${entryTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "BlogsEntry#CONTENT_ABSTRACT",
-			value1 = ${entryAbstractDescription});
+			value1 = ".*${entryAbstractDescription}.*");
 
 		AssertClick(
 			locator1 = "BlogsEntry#TITLE_LINK",

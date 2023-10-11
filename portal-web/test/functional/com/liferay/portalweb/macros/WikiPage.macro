@@ -225,9 +225,9 @@ definition {
 
 		Alert.viewRequestFailedToComplete();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_1",
-			value1 = "Please enter a valid title.");
+			value1 = ".*Please enter a valid title\..*");
 	}
 
 	macro addFrontPageChildPageInvalidTitleViaWD {
@@ -253,9 +253,9 @@ definition {
 
 		Alert.viewRequestFailedToComplete();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_ENTER_A_VALID_TITLE",
-			value1 = "Please enter a valid title.");
+			value1 = ".*Please enter a valid title\..*");
 	}
 
 	macro addFrontPageCP {
@@ -391,9 +391,9 @@ definition {
 
 		Click(locator1 = "Button#PUBLISH_LOCALIZED");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = ${successMessage});
+			value1 = ".*${successMessage}.*");
 
 		AssertElementPresent(locator1 = "//html[@dir='${textDirection}']");
 
@@ -524,9 +524,9 @@ definition {
 
 			Alert.viewRequestFailedToComplete();
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_ENTER_A_VALID_TITLE",
-				value1 = "Please enter a valid title.");
+				value1 = ".*Please enter a valid title\..*");
 		}
 		else {
 			AssertClick(
@@ -782,9 +782,9 @@ definition {
 
 		VerifyElementPresent(locator1 = "Message#SUCCESS");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "WikiTable#ALL_PAGES_REVISION",
-			value1 = "1.0");
+			value1 = ".*1.0.*");
 
 		JSONRecycleBin.emptyRecycleBin();
 	}
@@ -1086,9 +1086,9 @@ definition {
 		var key_wikiPageTitle = ${wikiPage2Title};
 		var key_wikiVersionSummary = ${wikiVersion1Summary};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Wiki#HISTORY_VERSIONS_SUMMARY",
-			value1 = ${wikiVersion1Summary});
+			value1 = ".*${wikiVersion1Summary}.*");
 
 		var key_wikiPageRevision = "1.0";
 
@@ -1256,9 +1256,9 @@ definition {
 			locator1 = "WikiEntry#BODY",
 			value1 = ${wikiPageContent});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Wiki#CHILD_PAGE_HEADER",
-			value1 = "Child Page");
+			value1 = ".*Child Page.*");
 
 		var key_wikiChildPageTitle = ${wikiChildPageTitle};
 
@@ -1279,13 +1279,13 @@ definition {
 	macro viewCP {
 		var key_wikiPageTitle = ${wikiPageTitle};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Wiki#PAGE_HEADER",
-			value1 = ${wikiPageTitle});
+			value1 = ".*${wikiPageTitle}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "WikiEntry#BODY",
-			value1 = ${wikiPageContent});
+			value1 = ".*${wikiPageContent}.*");
 
 		if (isSet(contentImageName)) {
 			AssertElementPresent(
@@ -1351,9 +1351,9 @@ definition {
 	macro viewFrontPageCP {
 		var key_wikiPageTitle = "FrontPage";
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Wiki#PAGE_HEADER",
-			value1 = "FrontPage");
+			value1 = ".*FrontPage.*");
 
 		AssertTextEquals(
 			locator1 = "WikiEntry#BODY",
@@ -1470,9 +1470,9 @@ definition {
 			locator1 = "WikiTable#ALL_PAGES_STATUS",
 			value1 = "APPROVED");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "WikiTable#ALL_PAGES_REVISION",
-			value1 = ${wikiPageRevision});
+			value1 = ".*${wikiPageRevision}.*");
 
 		AssertElementNotPresent(
 			key_wikiPageUsername = "Test Test",

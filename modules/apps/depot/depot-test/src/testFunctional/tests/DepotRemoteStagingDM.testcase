@@ -3840,10 +3840,10 @@ definition {
 
 		AssetPublisherPortlet.viewAssetPG(assetTitle = "Document_2.jpg");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_assetTitle = "Document_2.jpg",
 			locator1 = "AP#ASSET_ABSTRACT_DESCRIPTION",
-			value1 = "This is an edit DM Document Description");
+			value1 = ".*This is an edit DM Document Description.*");
 	}
 
 	@description = "This ensures that the latest version of an image in a depot can be published in blogs when remote staging is enabled."

@@ -236,7 +236,7 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_columnClassName = "exchange-rate",
 			key_entryName = "Test Currency Edited",
 			locator1 = "CommerceEntry#CURRENCY_COLUMN_VALUE",

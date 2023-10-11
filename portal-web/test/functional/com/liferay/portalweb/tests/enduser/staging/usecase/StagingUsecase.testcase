@@ -457,9 +457,9 @@ definition {
 
 			Staging.gotoNavTab(tabName = "Scheduled");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No scheduled publish processes were found.");
+				value1 = ".*No scheduled publish processes were found\..*");
 		}
 
 		task ("When: User add a new scheduled custom publication") {
@@ -487,9 +487,9 @@ definition {
 
 			Staging.deletePublishTask(publicationTitle = "Initial Publish Process");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#EMPTY_INFO",
-				value1 = "No publish processes were found.");
+				value1 = ".*No publish processes were found\..*");
 		}
 
 		task ("When: User open the staging publish page") {

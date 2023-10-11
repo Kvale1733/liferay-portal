@@ -1903,9 +1903,9 @@ definition {
 
 		AssertElementPresent(locator1 = "Button#LEAVE");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Modal#BODY",
-			value1 = "Any unsaved changes will be lost, are you sure you want to leave?");
+			value1 = ".*Any unsaved changes will be lost, are you sure you want to leave?.*");
 	}
 
 }

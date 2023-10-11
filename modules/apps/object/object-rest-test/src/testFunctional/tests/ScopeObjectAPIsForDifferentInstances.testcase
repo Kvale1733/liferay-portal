@@ -181,10 +181,10 @@ definition {
 		}
 
 		task ("Then location field exists and name does not exist in postTest body") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#REQUEST_BODY",
 				method = "postTest",
-				value1 = "\"location\":");
+				value1 = ".*\"location\":.*");
 		}
 
 		task ("And Then location field exists and name does not exist in Test schema") {

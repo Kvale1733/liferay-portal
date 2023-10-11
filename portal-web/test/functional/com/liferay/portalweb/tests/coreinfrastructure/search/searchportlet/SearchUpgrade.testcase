@@ -543,10 +543,10 @@ definition {
 				key_element = "Text Match Over Multiple Fields",
 				locator1 = "Blueprints#BLUEPRINTS_ADD_ELEMENTS_SIDEBAR_ELEMENT_NAME");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_element = "Text Match Over Multiple Fields",
 				locator1 = "Blueprints#BLUEPRINTS_ADD_ELEMENTS_SIDEBAR_ELEMENT_DESCRIPTION",
-				value1 = "Search for a text match over multiple text fields.");
+				value1 = ".*Search for a text match over multiple text fields\..*");
 
 			Blueprints.searchAddElementsSidebar(element = "Title");
 
@@ -554,10 +554,10 @@ definition {
 				key_element = "Custom Element Title in English",
 				locator1 = "Blueprints#BLUEPRINTS_ADD_ELEMENTS_SIDEBAR_ELEMENT_NAME");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_element = "Custom Element Title in English",
 				locator1 = "Blueprints#BLUEPRINTS_ADD_ELEMENTS_SIDEBAR_ELEMENT_DESCRIPTION",
-				value1 = "Custom Element Description in English");
+				value1 = ".*Custom Element Description in English.*");
 		}
 
 		task ("Assert element instances within existing blueprint are using English translations and not language keys") {
@@ -599,13 +599,13 @@ definition {
 		task ("Assert title and description in OOTB element JSON configuration is using language keys") {
 			Blueprints.gotoEntry(title = "Text Match Over Multiple Fields");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Blueprints#CODE_MIRROR_EDITOR",
-				value1 = "text-match-over-multiple-fields");
+				value1 = ".*text-match-over-multiple-fields.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Blueprints#CODE_MIRROR_EDITOR",
-				value1 = "text-match-over-multiple-fields-description");
+				value1 = ".*text-match-over-multiple-fields-description.*");
 		}
 
 		Navigator.gotoBack();
@@ -637,10 +637,10 @@ definition {
 				key_element = "Corresponder texto por vários campos",
 				locator1 = "Blueprints#BLUEPRINTS_ADD_ELEMENTS_SIDEBAR_ELEMENT_NAME");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_element = "Corresponder texto por vários campos",
 				locator1 = "Blueprints#BLUEPRINTS_ADD_ELEMENTS_SIDEBAR_ELEMENT_DESCRIPTION",
-				value1 = "Buscar por uma correspondência de texto por vários campos de texto.");
+				value1 = ".*Buscar por uma correspondência de texto por vários campos de texto\..*");
 
 			Blueprints.searchAddElementsSidebar(element = "Título");
 
@@ -648,10 +648,10 @@ definition {
 				key_element = "Título em Português",
 				locator1 = "Blueprints#BLUEPRINTS_ADD_ELEMENTS_SIDEBAR_ELEMENT_NAME");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_element = "Título em Português",
 				locator1 = "Blueprints#BLUEPRINTS_ADD_ELEMENTS_SIDEBAR_ELEMENT_DESCRIPTION",
-				value1 = "Descrição em Português");
+				value1 = ".*Descrição em Português.*");
 		}
 
 		task ("Assert element instances within existing blueprint are using correct translations when using Portuguese locale") {

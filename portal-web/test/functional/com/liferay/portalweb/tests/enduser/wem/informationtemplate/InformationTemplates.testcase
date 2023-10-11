@@ -464,10 +464,10 @@ definition {
 				pageName = "Test Page Name",
 				siteName = "Test Site Name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				fragmentName = "component-paragraph",
 				locator1 = "Fragment#FRAGMENT_ANY_TEXT",
-				value1 = "Liferay University");
+				value1 = ".*Liferay University.*");
 		}
 	}
 

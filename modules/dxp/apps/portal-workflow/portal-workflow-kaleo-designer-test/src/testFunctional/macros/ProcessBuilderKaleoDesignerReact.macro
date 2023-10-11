@@ -1036,9 +1036,9 @@ definition {
 				locator1 = "ProcessBuilderKaleoDesignerReact#GROOVY_SOURCE_EDITOR",
 				value1 = ${groovyScript});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ProcessBuilderKaleoDesignerReact#GROOVY_SOURCE_EDITOR",
-				value1 = ${groovyScript});
+				value1 = ".*${groovyScript}.*");
 		}
 
 		if (${assignmentType} == "Role Type") {
@@ -2061,10 +2061,10 @@ definition {
 	}
 
 	macro viewXMLSourceCodeSnippet {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_codeSnippet = ${codeSnippet},
 			locator1 = "ProcessBuilderKaleoDesignerReact#XML_CODE_SNIPPET",
-			value1 = ${codeSnippet});
+			value1 = ".*${codeSnippet}.*");
 
 		if (isSet(codeSnippetNotPresent)) {
 			AssertElementNotPresent(

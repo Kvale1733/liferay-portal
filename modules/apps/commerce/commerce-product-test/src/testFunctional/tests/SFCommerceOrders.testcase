@@ -65,10 +65,10 @@ definition {
 		task ("Then the order date and time is shown") {
 			var currentDate = DateUtil.getFormattedCurrentDate("MMM d, yyyy K", "UTC");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_orderId = "",
 				locator1 = "CommerceOrders#PLACED_ORDERS_LIST_DATE",
-				value1 = ${currentDate});
+				value1 = ".*${currentDate}.*");
 		}
 
 		task ("When the user views the order from the placed orders details page") {
@@ -76,9 +76,9 @@ definition {
 		}
 
 		task ("Then the order date and time is shown") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_DETAILS_DATE",
-				value1 = ${currentDate});
+				value1 = ".*${currentDate}.*");
 		}
 	}
 
@@ -1154,17 +1154,17 @@ definition {
 		var city = "Roma, Roma, 00100";
 
 		for (var address : list "${street},${city}") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_titleName = "Billing Address",
 				locator1 = "CommerceOrders#ORDER_GENERAL_DETAILS_DESCRIPTION",
-				value1 = ${address});
+				value1 = ".*${address}.*");
 		}
 
 		for (var address : list "${street},${city}") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_titleName = "Shipping Address",
 				locator1 = "CommerceOrders#ORDER_GENERAL_DETAILS_DESCRIPTION",
-				value1 = ${address});
+				value1 = ".*${address}.*");
 		}
 	}
 
@@ -1235,9 +1235,9 @@ definition {
 		task ("Then the order date and time is shown") {
 			var currentDate = DateUtil.getFormattedCurrentDate("MMM d, yyyy K", "UTC");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "CommerceOrders#ORDER_DETAILS_DATE",
-				value1 = ${currentDate});
+				value1 = ".*${currentDate}.*");
 		}
 
 		task ("Given the Show Order Creation Time checkbox is unchecked in global settings") {
@@ -1631,10 +1631,10 @@ definition {
 			portletName = "Open Carts",
 			templateName = "Open Carts Test ADT");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_portletName = "Open Carts",
 			locator1 = "Portlet#BODY",
-			value1 = ${orderId});
+			value1 = ".*${orderId}.*");
 	}
 
 	@description = "COMMERCE-6666. I want to be able to select a Display Template in Placed Orders widget and see it applied to the widget"
@@ -1681,10 +1681,10 @@ definition {
 			portletName = "Placed Orders",
 			templateName = "Placed Orders Test ADT");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_portletName = "Placed Orders",
 			locator1 = "Portlet#BODY",
-			value1 = ${orderId});
+			value1 = ".*${orderId}.*");
 	}
 
 	@description = "COMMERCE-6382. As a buyer, I want to be able to see the list of shipments for an order item by clicking on 'Shipments'"

@@ -44,9 +44,9 @@ definition {
 				locator1 = "WikiTable#ALL_PAGES_REVISION",
 				value1 = ${wikiPageRevision});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "SpamModeration#WIKI_PAGE_TABLE_POSTED_BY",
-				value1 = ${wikiPageUsername});
+				value1 = ".*${wikiPageUsername}.*");
 
 			AssertElementPresent(locator1 = "SpamModeration#WIKI_PAGE_TABLE_ACTIONS");
 		}

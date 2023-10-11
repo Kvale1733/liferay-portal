@@ -138,9 +138,9 @@ definition {
 
 		LexiconCard.viewCardNotPresent(card = "Document_1.jpg");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#INFO",
-			value1 = "This application is not supported for Asset Libraries.");
+			value1 = ".*This application is not supported for Asset Libraries\..*");
 	}
 
 	@description = "This ensures that the Collections application can be viewed after reactivating in a depot."

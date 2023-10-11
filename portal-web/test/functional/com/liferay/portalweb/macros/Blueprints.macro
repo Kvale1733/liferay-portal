@@ -314,18 +314,18 @@ definition {
 		for (var entryTitle : list ${entryList}) {
 			var entryOrder = ${entryOrder} + 1;
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = ${entryOrder},
 				locator1 = "Blueprints#BLUEPRINTS_ADMIN_ENTRY_ROW_NUMBER",
-				value1 = ${entryTitle});
+				value1 = ".*${entryTitle}.*");
 		}
 	}
 
 	macro viewEntryDescription {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_entryTitle = ${title},
 			locator1 = "Blueprints#BLUEPRINTS_ADMIN_ENTRY_DESCRIPTION",
-			value1 = ${description});
+			value1 = ".*${description}.*");
 	}
 
 	macro viewEntryTitle {

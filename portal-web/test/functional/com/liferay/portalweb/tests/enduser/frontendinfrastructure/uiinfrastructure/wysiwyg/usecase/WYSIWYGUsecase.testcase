@@ -322,9 +322,9 @@ definition {
 
 		SelectFrame(locator1 = "IFrame#MODAL_BODY");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "//div[@class='portlet-body']/div[contains(@class,'container-fluid-max')]",
-			value1 = "Sample document for editor area test");
+			value1 = ".*Sample document for editor area test.*");
 
 		AssertElementPresent(locator1 = "//img[contains(@src,'redhead.JPG')]");
 
@@ -372,9 +372,9 @@ definition {
 
 		Click(locator1 = "CKEditor#TOOLBAR_PREVIEW_BUTTON");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CKEditor#SOURCE_CODE_DIALOG",
-			value1 = "<h1>Sample document for editor area test</h1>");
+			value1 = ".*<h1>Sample document for editor area test</h1>.*");
 
 		Type.typeCodeMirrorEditorNoError(
 			locator1 = "CKEditor#SOURCE_CODE_DIALOG",
@@ -412,13 +412,13 @@ definition {
 			locator1 = "CKEditor#SOURCE_CODE_DIALOG",
 			value1 = "<h1>Sample Header 1</h1><p>sample text</p>");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CKEditor#SOURCE_CODE_DIALOG",
-			value1 = "<h1>Sample Header 1</h1>");
+			value1 = ".*<h1>Sample Header 1</h1>.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CKEditor#SOURCE_CODE_DIALOG",
-			value1 = "<p>sample text</p>");
+			value1 = ".*<p>sample text</p>.*");
 
 		SelectFrame.selectFrameNoLoading(locator1 = "CKEditor#CODE_PREVIEW_IFRAME");
 
@@ -503,13 +503,13 @@ definition {
 			locator1 = "CKEditor#SOURCE_CODE_DIALOG",
 			value1 = "<h1>Sample Header 1</h1><p>sample text</p>");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CKEditor#SOURCE_CODE_DIALOG",
-			value1 = "<h1>Sample Header 1</h1>");
+			value1 = ".*<h1>Sample Header 1</h1>.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CKEditor#SOURCE_CODE_DIALOG",
-			value1 = "<p>sample text</p>");
+			value1 = ".*<p>sample text</p>.*");
 
 		takeScreenshot();
 	}

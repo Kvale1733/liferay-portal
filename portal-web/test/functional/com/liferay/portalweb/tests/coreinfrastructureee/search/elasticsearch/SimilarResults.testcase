@@ -568,10 +568,10 @@ definition {
 
 		AssetPublisherPortlet.clickAssetTitle(assetTitle = "Alpha Bravo Charlie Delta Echo Foxtrot");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_widgetName = "Similar Results",
 			locator1 = "Message#INFO_SPECIFIC_WIDGET",
-			value1 = "no similar results available");
+			value1 = ".*no similar results available.*");
 
 		SearchPage.configureSimilarResults(maximumItemDisplay = 5);
 
@@ -967,20 +967,20 @@ definition {
 
 		AssetPublisherPortlet.clickAssetTitle(assetTitle = "Similar Results WC Title 1");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_assetTitle = "Similar Results WC Title 1",
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
-			value1 = "Similar Results WC Title 1");
+			value1 = ".*Similar Results WC Title 1.*");
 
 		AssertClick.assertPartialTextClickAt(
 			key_linkResultTitle = "Similar Results WC Title 2",
 			locator1 = "Search#SIMILAR_RESULTS_LINK_TITLE",
 			value1 = "Similar Results WC Title 2");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_assetTitle = "Similar Results WC Title 2",
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
-			value1 = "Similar Results WC Title 2");
+			value1 = ".*Similar Results WC Title 2.*");
 	}
 
 	@priority = 4

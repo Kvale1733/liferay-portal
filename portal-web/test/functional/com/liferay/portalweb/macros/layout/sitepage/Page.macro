@@ -57,9 +57,9 @@ definition {
 	macro assertNodePortPG {
 		var key_nodePort = ${nodePort};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Home#NODE_NAME",
-			value1 = ${nodePort});
+			value1 = ".*${nodePort}.*");
 	}
 
 	macro changeSinglePageTheme {
@@ -279,14 +279,14 @@ definition {
 
 	macro viewCollectionItem {
 		if (isSet(key_rowNumber)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = ${itemName});
+				value1 = ".*${itemName}.*");
 		}
 		else {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_1",
-				value1 = ${itemName});
+				value1 = ".*${itemName}.*");
 		}
 	}
 
@@ -347,9 +347,9 @@ definition {
 	macro viewPageLockCheck {
 		Click(locator1 = "ControlMenu#INFO");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#CUSTOMIZED_PAGE_INFO",
-			value1 = "This page is linked to a site template which does not allow modifications to it.");
+			value1 = ".*This page is linked to a site template which does not allow modifications to it\..*");
 	}
 
 	macro viewPanelPortletListPG {

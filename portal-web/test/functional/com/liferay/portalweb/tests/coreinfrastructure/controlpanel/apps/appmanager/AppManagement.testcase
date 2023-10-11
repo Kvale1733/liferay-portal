@@ -57,28 +57,28 @@ definition {
 
 		ManagementBar.setFilterAndOrder(orderBy = "Title");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_rowEntry = "Independent",
 			locator1 = "ContentRow#ENTRY_CONTENT_PARTIAL_TEXt",
-			value1 = "Independent");
+			value1 = ".*Independent.*");
 
 		ManagementBar.toggleViewOrder(order = "up");
 
 		ManagementBar.setFilterAndOrder(filterBy = "Communication");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_rowEntry = "Wiki",
 			locator1 = "ContentRow#ENTRY_CONTENT_PARTIAL_TEXt",
-			value1 = "Wiki");
+			value1 = ".*Wiki.*");
 
 		ManagementBar.toggleViewOrder(order = "down");
 
 		ManagementBar.setFilterAndOrder(filterBy = "Utility");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_rowEntry = "Account",
 			locator1 = "ContentRow#ENTRY_CONTENT_PARTIAL_TEXt",
-			value1 = "Account");
+			value1 = ".*Account.*");
 	}
 
 	@priority = 3
@@ -755,9 +755,9 @@ definition {
 
 		Button.clickInstall();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_1",
-			value1 = "Error:Please upload a file with a valid extension (JAR, LPKG, or WAR File).");
+			value1 = ".*Error:Please upload a file with a valid extension (JAR, LPKG, or WAR File)\..*");
 	}
 
 	@description = "This test check search apps in marketplace store and check sign in and sign out."

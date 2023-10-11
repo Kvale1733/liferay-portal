@@ -25,9 +25,9 @@ definition {
 			locator1 = "Button#SAVE",
 			value1 = "Save");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 	}
 
 	macro configureMailServerSettings {
@@ -89,9 +89,9 @@ definition {
 			locator1 = "Button#SAVE",
 			value1 = "Save");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 	}
 
 	macro executeScript {
@@ -126,9 +126,9 @@ definition {
 
 		var key_actionsDescription = ${actionsDescription};
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ServerAdministrationResources#ACTIONS_TABLE_DESCRIPTION",
-			value1 = ${actionsDescription});
+			value1 = ".*${actionsDescription}.*");
 
 		AssertClick(
 			locator1 = "ServerAdministrationResources#ACTIONS_TABLE_EXECUTE",
@@ -208,9 +208,9 @@ definition {
 			locator1 = "Button#SAVE",
 			value1 = "Save");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUCCESS",
-			value1 = "Your request completed successfully.");
+			value1 = ".*Your request completed successfully\..*");
 	}
 
 	macro viewCategoryLogLevels {
@@ -239,9 +239,9 @@ definition {
 	}
 
 	macro viewOutputField {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ServerAdministrationScript#OUTPUT_FIELD",
-			value1 = ${valueName});
+			value1 = ".*${valueName}.*");
 	}
 
 	macro viewProperties {
@@ -254,9 +254,9 @@ definition {
 			locator1 = "ServerAdministrationProperties#PORTAL_SYSTEM_PROPERTY_TITLE",
 			value1 = ${propertyTitle});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "ServerAdministrationProperties#PORTAL_SYSTEM_PROPERTY_NAME",
-			value1 = ${propertyName});
+			value1 = ".*${propertyName}.*");
 	}
 
 }

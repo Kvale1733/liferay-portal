@@ -516,9 +516,9 @@ definition {
 
 		PopulateObjectFormsConfiguration.publishFormObject();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "You must define an object for the selected storage type.");
+			value1 = ".*You must define an object for the selected storage type\..*");
 	}
 
 }

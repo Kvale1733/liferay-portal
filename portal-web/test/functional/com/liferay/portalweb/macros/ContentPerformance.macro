@@ -20,10 +20,10 @@ definition {
 			var index = ListUtil.get(${list1}, ${i});
 			var language = ListUtil.get(${list2}, ${i});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_index = ${index},
 				locator1 = "Translation#DROPDOWN_MENU_ITEM_INDEX",
-				value1 = ${language});
+				value1 = ".*${language}.*");
 
 			var i = ${i} + 1;
 

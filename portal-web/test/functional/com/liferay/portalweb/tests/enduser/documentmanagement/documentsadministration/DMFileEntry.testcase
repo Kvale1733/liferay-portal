@@ -300,9 +300,9 @@ definition {
 			locator1 = "Modal#HEADER",
 			value1 = "Edit Categories");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Modal#BODY",
-			value1 = "You are editing the categories for the selected item.");
+			value1 = ".*You are editing the categories for the selected item\..*");
 
 		Type.sendKeys(
 			locator1 = "AssetCategorization#TAGS_FIELD",
@@ -364,9 +364,9 @@ definition {
 			locator1 = "Modal#HEADER",
 			value1 = "Edit Categories");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Modal#BODY",
-			value1 = "You are editing the categories for the selected item.");
+			value1 = ".*You are editing the categories for the selected item\..*");
 
 		Type.sendKeys(
 			locator1 = "AssetCategorization#TAGS_FIELD",
@@ -1520,15 +1520,15 @@ definition {
 				filterScope = "Category: Category1",
 				searchResults = "2 Results");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "DM Document Title 2");
+				value1 = ".*DM Document Title 2.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 2,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "DM Document Title 1");
+				value1 = ".*DM Document Title 1.*");
 		}
 
 		task ("Assert user can choose multiple categories to filter documents in Home folder") {
@@ -1544,10 +1544,10 @@ definition {
 				filterScope = "Category: Category1,Category: GlobalCategory",
 				searchResults = "1 Result");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "DM Document Title 2");
+				value1 = ".*DM Document Title 2.*");
 
 			AssertElementNotPresent(
 				key_dmDocumentTitle = "DM Document Title 1",
@@ -1590,10 +1590,10 @@ definition {
 			filterScope = "Category: Category1~!@#$*",
 			searchResults = "1 Result");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 1,
 			locator1 = "LexiconTable#TABLE_ROW",
-			value1 = "DM Document Title 1");
+			value1 = ".*DM Document Title 1.*");
 	}
 
 	@description = "This test ensures that users can choose one/multiple of the extensions to filter documents."
@@ -1647,15 +1647,15 @@ definition {
 				filterScope = "Extension: docx",
 				searchResults = "2 Results");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_2.docx In Folder");
+				value1 = ".*Document_2.docx In Folder.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 2,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_1.docx");
+				value1 = ".*Document_1.docx.*");
 		}
 
 		task ("Assert user can choose multiple extensions to filter documents in Home folder") {
@@ -1675,25 +1675,25 @@ definition {
 				filterScope = "Extension: xls,Extension: docx",
 				searchResults = "4 Results");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_2.xls In Folder");
+				value1 = ".*Document_2.xls In Folder.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 2,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_2.docx In Folder");
+				value1 = ".*Document_2.docx In Folder.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 3,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_1.xls");
+				value1 = ".*Document_1.xls.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 4,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_1.docx");
+				value1 = ".*Document_1.docx.*");
 		}
 
 		task ("Assert user can choose multiple extensions to filter documents in folder") {
@@ -1713,15 +1713,15 @@ definition {
 				filterScope = "Extension: docx",
 				searchResults = "2 Results");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_2.xls In Folder");
+				value1 = ".*Document_2.xls In Folder.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 2,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_2.docx In Folder");
+				value1 = ".*Document_2.docx In Folder.*");
 		}
 	}
 
@@ -1749,15 +1749,15 @@ definition {
 			filterBy = "Recent",
 			orderBy = "Modified Date");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 1,
 			locator1 = "LexiconTable#TABLE_ROW",
-			value1 = "DM Document Title 3");
+			value1 = ".*DM Document Title 3.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 2,
 			locator1 = "LexiconTable#TABLE_ROW",
-			value1 = "DM Document Title 2");
+			value1 = ".*DM Document Title 2.*");
 	}
 
 	@description = "This test covers LPS-136334. This test ensures that users can filter documents by Recent and order by Downloads."
@@ -1793,15 +1793,15 @@ definition {
 
 		LexiconEntry.changeDisplayStyle(displayStyle = "table");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 1,
 			locator1 = "LexiconTable#TABLE_ROW",
-			value1 = "Document_3.doc");
+			value1 = ".*Document_3.doc.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 2,
 			locator1 = "LexiconTable#TABLE_ROW",
-			value1 = "Document_2.doc");
+			value1 = ".*Document_2.doc.*");
 	}
 
 	@description = "This test ensures that users can choose one/multiple subcategories of the extensions to filter documents."
@@ -1872,10 +1872,10 @@ definition {
 				filterScope = "Extension: xlsx",
 				searchResults = "1 Result");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_1.xlsx");
+				value1 = ".*Document_1.xlsx.*");
 		}
 
 		task ("Assert user can choose multiple subcategories to filter documents") {
@@ -1895,15 +1895,15 @@ definition {
 				filterScope = "Extension: jpg,Extension: jpeg",
 				searchResults = "2 Results");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_3.jpg");
+				value1 = ".*Document_3.jpg.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 2,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_2.jpeg");
+				value1 = ".*Document_2.jpeg.*");
 		}
 
 		task ("Assert user can choose multiple subcategories from different extensions to filter documents") {
@@ -1923,15 +1923,15 @@ definition {
 				filterScope = "Extension: jpg,Extension: xls",
 				searchResults = "2 Results");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_3.jpg");
+				value1 = ".*Document_3.jpg.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 2,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_1.xls");
+				value1 = ".*Document_1.xls.*");
 		}
 
 		task ("Assert user can choose one category and one subcategory of extensions to filter documents") {
@@ -1951,20 +1951,20 @@ definition {
 				filterScope = "Extension: doc,Extension: pdf",
 				searchResults = "3 Results");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_2.pdf");
+				value1 = ".*Document_2.pdf.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 2,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_1.doc");
+				value1 = ".*Document_1.doc.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 3,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "Document_1.pdf");
+				value1 = ".*Document_1.pdf.*");
 		}
 	}
 
@@ -2423,9 +2423,9 @@ definition {
 			groupName = "Guest",
 			siteURLKey = "guest");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#SUBTITLE",
-			value1 = "This file is too large to preview. The maximum file size for previews is 1 KB.");
+			value1 = ".*This file is too large to preview. The maximum file size for previews is 1 KB\..*");
 	}
 
 	@description = "This test ensures that a user cannot set a previous expiration date."
@@ -2547,9 +2547,9 @@ definition {
 			siteURLKey = "guest");
 
 		for (var emptyStateInfo : list "No preview available,Hmm... looks like this item does not have a preview we can show you.") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "DocumentsAndMediaDocument#DOCUMENT_DETAILS_EMPTY_STATE_PREVIEW",
-				value1 = ${emptyStateInfo});
+				value1 = ".*${emptyStateInfo}.*");
 		}
 	}
 
@@ -3877,10 +3877,10 @@ definition {
 				filterScope = "Category: Category2",
 				searchResults = "1 Result");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "DM Document Title In Folder");
+				value1 = ".*DM Document Title In Folder.*");
 
 			AssertElementNotPresent(
 				key_dmDocumentTitle = "DM Document Title 1",
@@ -3902,10 +3902,10 @@ definition {
 				filterScope = "Category: Category1,Category: Category2",
 				searchResults = "1 Result");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				index = 1,
 				locator1 = "LexiconTable#TABLE_ROW",
-				value1 = "DM Document Title In Folder");
+				value1 = ".*DM Document Title In Folder.*");
 
 			AssertElementNotPresent(
 				key_dmDocumentTitle = "DM Document Title 1",

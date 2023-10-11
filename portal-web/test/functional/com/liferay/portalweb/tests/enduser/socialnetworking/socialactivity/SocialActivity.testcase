@@ -61,10 +61,10 @@ definition {
 			pageName = "Activities Page",
 			siteName = "Site Name");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_portletName = "Activities",
 			locator1 = "Portlet#BODY",
-			value1 = "There are no recent activities.");
+			value1 = ".*There are no recent activities\..*");
 
 		JSONDocument.addFileWithUploadedFile(
 			dmDocumentDescription = "DM Document Description",
@@ -122,10 +122,10 @@ definition {
 			pageName = "Activities Page",
 			siteName = "Site Name");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_portletName = "Activities",
 			locator1 = "Portlet#BODY",
-			value1 = "There are no recent activities.");
+			value1 = ".*There are no recent activities\..*");
 
 		JSONDocument.addFileWithUploadedFile(
 			dmDocumentDescription = "DM Document Description",
@@ -138,10 +138,10 @@ definition {
 			pageName = "Activities Page",
 			siteName = "Site Name");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_portletName = "Activities",
 			locator1 = "Portlet#BODY",
-			value1 = "There are no recent activities.");
+			value1 = ".*There are no recent activities\..*");
 
 		AssertElementNotPresent(
 			key_assetName = "DM Document Title",
@@ -176,10 +176,10 @@ definition {
 
 		Navigator.gotoPage(pageName = "Activities Page");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_portletName = "Activities",
 			locator1 = "Portlet#BODY",
-			value1 = "Test wrote a new wiki page, Wiki Page Title.");
+			value1 = ".*Test wrote a new wiki page, Wiki Page Title\..*");
 
 		Navigator.gotoPage(pageName = "Wiki Page");
 
@@ -195,10 +195,10 @@ definition {
 
 		Navigator.gotoPage(pageName = "Activities Page");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_portletName = "Activities",
 			locator1 = "Portlet#BODY",
-			value1 = "Test wrote a new wiki page, Wiki Page Title.");
+			value1 = ".*Test wrote a new wiki page, Wiki Page Title\..*");
 
 		AssertTextNotEquals.assertNotPartialText(
 			key_portletName = "Activities",

@@ -132,9 +132,9 @@ definition {
 			pageName = "Staging Test Page",
 			siteName = "Site Name");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no documents or media files in this folder.");
+			value1 = ".*There are no documents or media files in this folder\..*");
 
 		JSONStaging.enableLocalStaging(groupName = "Site Name");
 
@@ -741,27 +741,27 @@ definition {
 
 		Navigator.openSpecificURL(url = "${baseURL}/web/site-name-staging/-/${friendlyURL}");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_assetTitle = "Web Content Title",
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
-			value1 = "Web Content Title");
+			value1 = ".*Web Content Title.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_assetContent = "Web Content Content",
 			locator1 = "APAsset#ASSET_VIEW_CONTENT",
-			value1 = "Web Content Content");
+			value1 = ".*Web Content Content.*");
 
 		Navigator.openSpecificURL(url = "${baseURL}/web/site-name/-/${friendlyURL}");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_assetTitle = "Web Content Title",
 			locator1 = "AP#ASSET_ABSTRACT_TITLE",
-			value1 = "Web Content Title");
+			value1 = ".*Web Content Title.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_assetContent = "Web Content Content",
 			locator1 = "APAsset#ASSET_VIEW_CONTENT",
-			value1 = "Web Content Content");
+			value1 = ".*Web Content Content.*");
 	}
 
 	@priority = 3

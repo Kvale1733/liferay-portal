@@ -268,9 +268,9 @@ definition {
 	macro clickOnPreviewSourceContent {
 		Click(locator1 = "CKEditor#TOOLBAR_PREVIEW_BUTTON");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CKEditor#SOURCE_CODE_DIALOG",
-			value1 = ${content});
+			value1 = ".*${content}.*");
 	}
 
 	macro inputDataInColorField {

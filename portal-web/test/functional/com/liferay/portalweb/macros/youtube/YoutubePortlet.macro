@@ -11,9 +11,9 @@ definition {
 	macro assertVideoTitle {
 		SelectFrame(locator1 = "YoutubePortlet#VIDEO_IFRAME");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "YoutubePortlet#VIDEO_TITLE",
-			value1 = ${videoTitle});
+			value1 = ".*${videoTitle}.*");
 
 		SelectFrameTop();
 	}

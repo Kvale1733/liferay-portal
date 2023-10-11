@@ -243,11 +243,11 @@ definition {
 		}
 
 		task ("Then I can see '/{path}' is present under get{Endpoint}Page") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#API_METHOD",
 				method = "getTestEndpointPage",
 				service = "default",
-				value1 = "/testEndpoint");
+				value1 = ".*/testEndpoint.*");
 		}
 	}
 

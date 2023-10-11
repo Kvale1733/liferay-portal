@@ -151,9 +151,9 @@ definition {
 
 		var key_webContentTitle = "WC WebContent Title";
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "WC#ENTRY_LIST_TITLE_ON_LIVE",
-			value1 = "WC WebContent Title");
+			value1 = ".*WC WebContent Title.*");
 	}
 
 	@description = "This is a use case for LPS-94325."
@@ -858,10 +858,10 @@ definition {
 					key_text = "Open page ${nums}",
 					locator1 = "Link#ANY");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					index = 2,
 					locator1 = "WCD#WEB_CONTENT_CONTENT",
-					value1 = "Content-${nums}");
+					value1 = ".*Content-${nums}.*");
 
 				AssertLocation.assertPartialLocation(value1 = "/web/site-name/page-${nums}");
 			}
@@ -1082,10 +1082,10 @@ definition {
 
 		WikiNavigator.gotoAllPagesPG();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_wikiPageTitle = "Wiki Page Title",
 			locator1 = "WikiTable#ALL_PAGES_REVISION",
-			value1 = "1.1");
+			value1 = ".*1.1.*");
 
 		WikiNavigator.gotoPG(wikiPageTitle = "Wiki Page Title");
 
@@ -1099,10 +1099,10 @@ definition {
 
 		WikiNavigator.gotoAllPagesPG();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_wikiPageTitle = "Wiki Page Title",
 			locator1 = "WikiTable#ALL_PAGES_REVISION",
-			value1 = "1.1");
+			value1 = ".*1.1.*");
 
 		WikiNavigator.gotoPG(wikiPageTitle = "Wiki Page Title");
 
@@ -2601,10 +2601,10 @@ definition {
 			pageName = "Staging Test Page",
 			siteName = "Site Name");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 1,
 			locator1 = "WCD#WEB_CONTENT_CONTENT",
-			value1 = "Web Content Content 1");
+			value1 = ".*Web Content Content 1.*");
 
 		Navigator.gotoStagedSitePage(
 			pageName = "Staging Test Page 2",
@@ -2632,10 +2632,10 @@ definition {
 			pageName = "Staging Test Page",
 			siteName = "Site Name");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 1,
 			locator1 = "WCD#WEB_CONTENT_CONTENT",
-			value1 = "Web Content Content 1");
+			value1 = ".*Web Content Content 1.*");
 
 		Navigator.gotoSitePage(
 			pageName = "Staging Test Page 2",
@@ -2679,10 +2679,10 @@ definition {
 			pageName = "Staging Test Page 2",
 			siteName = "Site Name");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			index = 1,
 			locator1 = "WCD#WEB_CONTENT_CONTENT",
-			value1 = "Web Content Content 2");
+			value1 = ".*Web Content Content 2.*");
 
 		WebContentNavigator.openWebContentAdmin(siteURLKey = "site-name-staging");
 

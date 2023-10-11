@@ -156,9 +156,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "Error:At least one field must be added.");
+			value1 = ".*Error:At least one field must be added\..*");
 	}
 
 	@description = "This test covers LPS-126751. It ensures that a user cannot create a metadata set without a field."
@@ -171,9 +171,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR",
-			value1 = "Error:At least one field must be added.");
+			value1 = ".*Error:At least one field must be added\..*");
 	}
 
 	@description = "This ensures that a document can not be copied to a staging site."
@@ -2093,9 +2093,9 @@ definition {
 
 		DMFolder.viewCP(dmFolderName = "DM Folder 1");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no documents or media files in this folder.");
+			value1 = ".*There are no documents or media files in this folder\..*");
 	}
 
 	@description = "This test covers LPS-90557. It ensures that a basic document and a shortcut pointing to it can be removed and republished when enabling local staging."

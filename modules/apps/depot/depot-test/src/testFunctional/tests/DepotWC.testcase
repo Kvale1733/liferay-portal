@@ -64,9 +64,9 @@ definition {
 
 		ClickNoError(locator1 = "Icon#DELETE");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "No web content was found.");
+			value1 = ".*No web content was found\..*");
 	}
 
 	@description = "This test deletes template and structure in a depot."
@@ -97,17 +97,17 @@ definition {
 
 		WebContentTemplates.deleteCP(templateName = "WC Template Name");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no templates.");
+			value1 = ".*There are no templates\..*");
 
 		DepotNavigator.openDepotWebContentStructuresAdmin(depotName = "Test Depot Name");
 
 		WebContentStructures.deleteCP(structureName = "WC Structure Name");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#EMPTY_INFO",
-			value1 = "There are no structures.");
+			value1 = ".*There are no structures\..*");
 	}
 
 	@description = "This ensures that a web content folder can be edited in a depot."
@@ -129,10 +129,10 @@ definition {
 
 		PortletEntry.save();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_webContentTitle = "WC Folder Name Edit",
 			locator1 = "WC#ENTRY_LIST_TITLE",
-			value1 = "WC Folder Name Edit");
+			value1 = ".*WC Folder Name Edit.*");
 	}
 
 	@description = "This test edits template and structure in a depot. Skip the instance for performance improvement."

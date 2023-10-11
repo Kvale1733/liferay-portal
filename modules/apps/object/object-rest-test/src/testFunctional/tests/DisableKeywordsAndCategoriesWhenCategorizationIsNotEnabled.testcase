@@ -44,15 +44,15 @@ definition {
 		}
 
 		task ("Then I found the keywords and categories appear in the Request body") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#REQUEST_BODY",
 				method = "postUniversity",
-				value1 = "\"keywords\":");
+				value1 = ".*\"keywords\":.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "OpenAPI#REQUEST_BODY",
 				method = "postUniversity",
-				value1 = "\"taxonomyCategoryIds\":");
+				value1 = ".*\"taxonomyCategoryIds\":.*");
 		}
 	}
 

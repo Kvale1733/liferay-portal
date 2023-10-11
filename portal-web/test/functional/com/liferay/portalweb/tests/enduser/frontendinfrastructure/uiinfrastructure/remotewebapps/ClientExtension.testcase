@@ -1037,9 +1037,9 @@ definition {
 		}
 
 		task ("Then error message 'Please enter a valid URL' appears") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_ENTER_A_VALID_URL",
-				value1 = "Please enter a valid URL.");
+				value1 = ".*Please enter a valid URL\..*");
 		}
 	}
 
@@ -1060,9 +1060,9 @@ definition {
 		}
 
 		task ("Then an error message 'field is required' appears under URL") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#WARNING_FEEDBACK",
-				value1 = "The URL field is required");
+				value1 = ".*The URL field is required.*");
 		}
 
 		task ("And then Remote App is not added") {

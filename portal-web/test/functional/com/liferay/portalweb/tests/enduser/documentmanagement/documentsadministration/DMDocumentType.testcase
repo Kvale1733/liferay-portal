@@ -559,9 +559,9 @@ definition {
 
 		Button.clickPublish();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "TextInput#REQUIRED_ALERT",
-			value1 = "Title is required.");
+			value1 = ".*Title is required\..*");
 
 		AssertElementNotPresent(locator1 = "Message#SUCCESS_DISMISSIBLE");
 

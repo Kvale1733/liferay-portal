@@ -141,9 +141,9 @@ definition {
 
 		Button.clickSave();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_1",
-			value1 = "must have UPDATE permission for com.liferay.object.model.ObjectDefinition#");
+			value1 = ".*must have UPDATE permission for com.liferay.object.model.ObjectDefinition#.*");
 	}
 
 	macro changePagination {

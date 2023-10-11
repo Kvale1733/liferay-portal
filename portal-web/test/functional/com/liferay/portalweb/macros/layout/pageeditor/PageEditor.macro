@@ -1779,9 +1779,9 @@ definition {
 		Click(locator1 = "Modal#SAVE_BUTTON");
 
 		if (IsElementPresent(locator1 = "Message#ERROR_DISMISSIBLE")) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_DISMISSIBLE",
-				value1 = ${alertMessage});
+				value1 = ".*${alertMessage}.*");
 		}
 		else {
 			Alert.viewSuccessMessage();

@@ -677,10 +677,10 @@ definition {
 				locator1 = "Message#ERROR_IMPORT",
 				value1 = "1 item could not be imported.");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				itemName = "Custom Master Page Template",
 				locator1 = "Message#ERROR_IMPORT_SUBTEXT",
-				value1 = "master-page.json could not be imported because its page definition is invalid.");
+				value1 = ".*master-page.json could not be imported because its page definition is invalid\..*");
 		}
 
 		task ("Assert custom master is not imported") {
@@ -708,9 +708,9 @@ definition {
 				key_title = "Import File",
 				locator1 = "Header#H2_TITLE");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#SUBTITLE",
-				value1 = "Select a ZIP file containing one or multiple entries.Read more about exporting and importing page templates.");
+				value1 = ".*Select a ZIP file containing one or multiple entries.Read more about exporting and importing page templates\..*");
 
 			AssertVisible(
 				key_href = "https://learn.liferay.com/en/w/dxp/site-building/creating-pages/adding-pages/exporting-and-importing-page-templates",

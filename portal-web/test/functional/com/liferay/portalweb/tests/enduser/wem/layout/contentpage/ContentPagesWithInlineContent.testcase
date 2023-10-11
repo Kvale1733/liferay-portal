@@ -100,12 +100,12 @@ definition {
 		task ("View edited inline content in edit mode") {
 			PageEditor.viewFragment(fragmentName = "HTML");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				fragmentName = "html",
 				id = "element-html",
 				index = 1,
 				locator1 = "Fragment#CONTRIBUTED_FRAGMENT_TEXT",
-				value1 = "Edit HTML Title");
+				value1 = ".*Edit HTML Title.*");
 
 			PageEditor.publish();
 		}
@@ -115,12 +115,12 @@ definition {
 				pageName = "Content Page Name",
 				siteName = ${randomSiteName});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				fragmentName = "html",
 				id = "element-html",
 				index = 1,
 				locator1 = "Fragment#CONTRIBUTED_FRAGMENT_TEXT",
-				value1 = "Edit HTML Title");
+				value1 = ".*Edit HTML Title.*");
 		}
 	}
 

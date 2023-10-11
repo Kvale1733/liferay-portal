@@ -1305,58 +1305,58 @@ definition {
 		task ("Then users can be ordered by First Name") {
 			ManagementBar.setFilterAndOrder(orderBy = "First Name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 1,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "userfn userln");
+				value1 = ".*userfn userln.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 2,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "userfn1 userln5");
+				value1 = ".*userfn1 userln5.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 3,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "userfn5 userln2");
+				value1 = ".*userfn5 userln2.*");
 		}
 
 		task ("and users can be ordered by Last Name") {
 			ManagementBar.setFilterAndOrder(orderBy = "Last Name");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 1,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "userfn userln");
+				value1 = ".*userfn userln.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 2,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "userfn5 userln2");
+				value1 = ".*userfn5 userln2.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 3,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "userfn1 userln5");
+				value1 = ".*userfn1 userln5.*");
 		}
 
 		task ("and users can be ordered by Email Address") {
 			ManagementBar.setFilterAndOrder(orderBy = "Email Address");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 1,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "userfn1 userln5");
+				value1 = ".*userfn1 userln5.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 2,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "userfn5 userln2");
+				value1 = ".*userfn5 userln2.*");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_rowNumber = 3,
 				locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER",
-				value1 = "userfn userln");
+				value1 = ".*userfn userln.*");
 		}
 	}
 

@@ -115,9 +115,9 @@ definition {
 
 		Alert.viewRequestFailedToComplete();
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_1",
-			value1 = "Please enter a unique name.");
+			value1 = ".*Please enter a unique name\..*");
 	}
 
 	macro addPropertyCP {

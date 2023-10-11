@@ -17,13 +17,13 @@ definition {
 			locator1 = "Button#CONVERT",
 			value1 = "Convert");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CurrencyConverter#DATA_TABLE_FROM",
-			value1 = ${currencyDataFrom});
+			value1 = ".*${currencyDataFrom}.*");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "CurrencyConverter#DATA_TABLE_TO",
-			value1 = ${currencyDataTo});
+			value1 = ".*${currencyDataTo}.*");
 
 		AssertElementPresent(locator1 = "CurrencyConverter#DATA_GRAPH");
 	}

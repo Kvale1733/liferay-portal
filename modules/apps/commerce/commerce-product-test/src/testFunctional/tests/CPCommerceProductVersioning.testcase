@@ -265,10 +265,10 @@ definition {
 
 			CommerceNavigator.searchCatalog(productName = "Hoses");
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "Hoses",
 				locator1 = "CommerceAccelerators#PRODUCT_CARD_PRICE",
-				value1 = "$ 120.00");
+				value1 = ".*\$ 120.00.*");
 
 			CommerceAcceleratorsInitializer.gotoMiniumProductDetailsPage(productName = "Hoses");
 
@@ -313,10 +313,10 @@ definition {
 		}
 
 		task ("Then the admin will see only one Hoses with a different price") {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_productName = "Hoses",
 				locator1 = "CommerceAccelerators#PRODUCT_CARD_PRICE",
-				value1 = "$ 120.00");
+				value1 = ".*\$ 120.00.*");
 
 			AssertTextNotEquals.assertNotPartialText(
 				key_productName = "Hoses",

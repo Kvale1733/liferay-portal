@@ -467,10 +467,10 @@ definition {
 
 		MenuItem.click(menuItem = ${editLocalized});
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_countryName = ${countryName},
 			locator1 = "UsersAndOrganizations#ORGANIZATION_COUNTRY_NAME",
-			value1 = ${countryName});
+			value1 = ".*${countryName}.*");
 	}
 
 	macro viewParentOrganizationCP {

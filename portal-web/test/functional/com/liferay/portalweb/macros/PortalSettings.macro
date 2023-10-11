@@ -136,9 +136,9 @@ definition {
 
 				Click(locator1 = "Button#MOVE_AVAILABLE_TO_CURRENT");
 
-				AssertTextEquals.assertPartialText(
+				AssertTextMatches(
 					locator1 = "LanguageConfiguration#LANGUAGES_CURRENT",
-					value1 = ${currentPortalLanguage});
+					value1 = ".*${currentPortalLanguage}.*");
 			}
 		}
 
@@ -149,9 +149,9 @@ definition {
 				locator1 = "Select#DEFAULT_LANGUAGE",
 				value1 = ${defaultPortalLanguage});
 
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				locator1 = "Message#ERROR_3",
-				value1 = "This change will only affect the newly created localized content.");
+				value1 = ".*This change will only affect the newly created localized content\..*");
 		}
 
 		if (${failExpected} == "true") {
@@ -375,10 +375,10 @@ definition {
 			configurationScope = "Virtual Instance Scope");
 
 		if (isSet(orgName)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fieldLabel = "Organization Sites",
 				locator1 = "SystemSettings#LABEL",
-				value1 = "Organization Sites");
+				value1 = ".*Organization Sites.*");
 
 			Type(
 				key_text = "organization.group.names",
@@ -394,10 +394,10 @@ definition {
 		}
 
 		if (isSet(roleTitle)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fieldLabel = "Roles",
 				locator1 = "SystemSettings#LABEL",
-				value1 = "Roles");
+				value1 = ".*Roles.*");
 
 			Type(
 				key_text = "role.names",
@@ -413,10 +413,10 @@ definition {
 		}
 
 		if (isSet(userGroupName)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fieldLabel = "User Groups",
 				locator1 = "SystemSettings#LABEL",
-				value1 = "User Groups");
+				value1 = ".*User Groups.*");
 
 			Type(
 				key_text = "user.group.names",
@@ -432,10 +432,10 @@ definition {
 		}
 
 		if (isSet(siteName)) {
-			AssertTextEquals.assertPartialText(
+			AssertTextMatches(
 				key_fieldLabel = "Organization Sites",
 				locator1 = "SystemSettings#LABEL",
-				value1 = "Organization Sites");
+				value1 = ".*Organization Sites.*");
 
 			Type(
 				key_text = "group.names",
@@ -613,10 +613,10 @@ definition {
 			configurationName = "Reserved Credentials",
 			configurationScope = "Virtual Instance Scope");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_fieldLabel = "Email Addresses",
 			locator1 = "SystemSettings#LABEL",
-			value1 = "Email Addresses");
+			value1 = ".*Email Addresses.*");
 
 		Type(
 			key_text = "admin.reserved.email.addresses",
@@ -642,10 +642,10 @@ definition {
 			configurationName = "Reserved Credentials",
 			configurationScope = "Virtual Instance Scope");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_fieldLabel = "Screen Names",
 			locator1 = "SystemSettings#LABEL",
-			value1 = "Screen Names");
+			value1 = ".*Screen Names.*");
 
 		Type(
 			key_text = "admin.reserved.screen.names",
@@ -805,9 +805,9 @@ definition {
 			locator1 = "PortalSettingsAuthentication#LDAP_SERVER_TEST_LDAP_USERS_BUTTON",
 			value1 = "Test LDAP Users");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Modal#BODY",
-			value1 = "A subset of users has been displayed for you to review.");
+			value1 = ".*A subset of users has been displayed for you to review\..*");
 
 		Click(locator1 = "Button#CLOSE_MODAL");
 
@@ -815,9 +815,9 @@ definition {
 			locator1 = "PortalSettingsAuthentication#LDAP_SERVER_TEST_LDAP_GROUPS_BUTTON",
 			value1 = "Test LDAP Groups");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Modal#BODY",
-			value1 = "A subset of groups has been displayed for you to review.");
+			value1 = ".*A subset of groups has been displayed for you to review\..*");
 
 		Click(locator1 = "Button#CLOSE_MODAL");
 	}
@@ -904,17 +904,17 @@ definition {
 
 		Click(locator1 = "PortalSettingsAuthentication#LDAP_SERVER_DEFAULT_VALUES_MICROSOFT_ACTIVE_DIRECTORY_SERVER_RADIO");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PortalSettingsAuthentication#LDAP_SERVER_CONNECTION_BASE_PROVIDER_URL_HEADER",
-			value1 = "Base Provider URL");
+			value1 = ".*Base Provider URL.*");
 
 		AssertTextEquals(
 			locator1 = "PortalSettingsAuthentication#LDAP_SERVER_CONNECTION_BASE_PROVIDER_URL_FIELD",
 			value1 = "ldap://localhost:389");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PortalSettingsAuthentication#LDAP_SERVER_CONNECTION_BASE_DN_HEADER",
-			value1 = "Base DN");
+			value1 = ".*Base DN.*");
 
 		AssertTextEquals(
 			locator1 = "PortalSettingsAuthentication#LDAP_SERVER_CONNECTION_BASE_DN_FIELD",
@@ -953,33 +953,33 @@ definition {
 
 		AssertElementPresent(locator1 = "PortalSettingsAuthentication#AUTHENTICATION_OPEN_SSO_IMPORT_FROM_LDAP_CHECKBOX");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PortalSettingsAuthentication#AUTHENTICATION_OPEN_SSO_LOGIN_URL_HEADER",
-			value1 = "Login URL");
+			value1 = ".*Login URL.*");
 
 		AssertTextEquals(
 			locator1 = "PortalSettingsAuthentication#AUTHENTICATION_OPEN_SSO_LOGIN_URL_FIELD",
 			value1 = "http://openssohost.example.com:8080/opensso/UI/Login?goto=http://portalhost.example.com:8080/c/portal/login");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PortalSettingsAuthentication#AUTHENTICATION_OPEN_SSO_LOGOUT_URL_HEADER",
-			value1 = "Logout URL");
+			value1 = ".*Logout URL.*");
 
 		AssertTextEquals(
 			locator1 = "PortalSettingsAuthentication#AUTHENTICATION_OPEN_SSO_LOGOUT_URL_FIELD",
 			value1 = "http://openssohost.example.com:8080/opensso/UI/Logout?goto=http://portalhost.example.com:8080/web/guest/home");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PortalSettingsAuthentication#AUTHENTICATION_OPEN_SSO_SERVICE_URL_HEADER",
-			value1 = "Service URL");
+			value1 = ".*Service URL.*");
 
 		AssertTextEquals(
 			locator1 = "PortalSettingsAuthentication#AUTHENTICATION_OPEN_SSO_SERVICE_URL_FIELD",
 			value1 = "http://openssohost.example.com:8080/opensso");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PortalSettingsAuthentication#AUTHENTICATION_OPEN_SSO_SCREEN_NAME_ATTRIBUTE_HEADER",
-			value1 = "Screen Name Attribute");
+			value1 = ".*Screen Name Attribute.*");
 
 		AssertTextEquals(
 			locator1 = "PortalSettingsAuthentication#AUTHENTICATION_OPEN_SSO_SCREEN_NAME_ATTRIBUTE_FIELD",
@@ -1044,40 +1044,40 @@ definition {
 			checkboxName = "Apply to Existing Users",
 			locator1 = "Checkbox#ANY_CHECKBOX");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_fieldLabel = "Sites",
 			locator1 = "SystemSettings#LABEL",
-			value1 = "Sites");
+			value1 = ".*Sites.*");
 
 		AssertTextEquals(
 			key_text = "group.names",
 			locator1 = "TextArea#ANY",
 			value1 = "");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_fieldLabel = "Organization Sites",
 			locator1 = "SystemSettings#LABEL",
-			value1 = "Organization Sites");
+			value1 = ".*Organization Sites.*");
 
 		AssertTextEquals(
 			key_text = "organization.group.names",
 			locator1 = "TextArea#ANY",
 			value1 = "");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_fieldLabel = "Roles",
 			locator1 = "SystemSettings#LABEL",
-			value1 = "Roles");
+			value1 = ".*Roles.*");
 
 		Type.clickAtType(
 			key_text = "role.names",
 			locator1 = "TextArea#ANY",
 			value1 = "Power User\nUser");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_fieldLabel = "User Groups",
 			locator1 = "SystemSettings#LABEL",
-			value1 = "User Groups");
+			value1 = ".*User Groups.*");
 
 		AssertTextEquals(
 			key_text = "user.group.names",
@@ -1101,15 +1101,15 @@ definition {
 			locator1 = "PortalSettingsEmailNotifications#EMAIL_NOTIFICATIONS_ACCOUNT_CREATED_NOTIFICATION_SUBJECT_FIELD",
 			value1 = "[$PORTAL_URL$]: Your New Account");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PortalSettingsEmailNotifications#EMAIL_NOTIFICATIONS_ACCOUNT_CREATED_NOTIFICATION_BODY_WITH_PASSWORD_LINK_HEADER",
-			value1 = "Body with Password Link");
+			value1 = ".*Body with Password Link.*");
 
 		AssertElementPresent(locator1 = "PortalSettingsEmailNotifications#EMAIL_NOTIFICATIONS_ACCOUNT_CREATED_NOTIFICATION_BODY_WITH_PASSWORD_LINK_FIELD");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PortalSettingsEmailNotifications#EMAIL_NOTIFICATIONS_ACCOUNT_CREATED_NOTIFICATION_BODY_WITHOUT_PASSWORD_HEADER",
-			value1 = "Body without Password");
+			value1 = ".*Body without Password.*");
 
 		AssertElementPresent(locator1 = "PortalSettingsEmailNotifications#EMAIL_NOTIFICATIONS_ACCOUNT_CREATED_NOTIFICATION_BODY_WITHOUT_PASSWORD_FIELD");
 	}
@@ -1126,9 +1126,9 @@ definition {
 			locator1 = "PortalSettingsEmailNotifications#EMAIL_NOTIFICATIONS_PASSWORD_CHANGED_NOTIFICATION_SUBJECT_FIELD",
 			value1 = "[$PORTAL_URL$]: Your Password Has Been Changed");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "PortalSettingsEmailNotifications#EMAIL_NOTIFICATIONS_PASSWORD_CHANGED_NOTIFICATION_BODY_HEADER",
-			value1 = "Body");
+			value1 = ".*Body.*");
 
 		AssertElementPresent(locator1 = "PortalSettingsEmailNotifications#EMAIL_NOTIFICATIONS_PASSWORD_CHANGED_NOTIFICATION_BODY_FIELD");
 	}
@@ -1200,20 +1200,20 @@ definition {
 			configurationName = "Reserved Credentials",
 			configurationScope = "Virtual Instance Scope");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_fieldLabel = "Screen Names",
 			locator1 = "SystemSettings#LABEL",
-			value1 = "Screen Names");
+			value1 = ".*Screen Names.*");
 
 		AssertTextEquals(
 			key_text = "admin.reserved.screen.names",
 			locator1 = "TextArea#ANY",
 			value1 = "");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			key_fieldLabel = "Email Addresses",
 			locator1 = "SystemSettings#LABEL",
-			value1 = "Email Addresses");
+			value1 = ".*Email Addresses.*");
 
 		AssertTextEquals(
 			key_text = "admin.reserved.email.addresses",

@@ -858,21 +858,21 @@ definition {
 	}
 
 	macro viewAllAttributeMappingsMustSpecifyASAMLAttributeErrorMessage {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_DISMISSIBLE",
-			value1 = "Basic User Fields: All attribute mappings must specify a SAML attribute.");
+			value1 = ".*Basic User Fields: All attribute mappings must specify a SAML attribute\..*");
 	}
 
 	macro viewAuthenticationFailedErrorMessage {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_DISMISSIBLE",
-			value1 = "Authentication failed. Please try again.");
+			value1 = ".*Authentication failed. Please try again\..*");
 	}
 
 	macro viewEachUserFieldCanOnlyBeMappedToOneSAMLAttributeErrorMessage {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#ERROR_DISMISSIBLE",
-			value1 = "Basic User Fields: Each user field can only be mapped to one SAML attribute.");
+			value1 = ".*Basic User Fields: Each user field can only be mapped to one SAML attribute\..*");
 	}
 
 	macro viewEmailInputPresent {
@@ -882,9 +882,9 @@ definition {
 	macro viewIdPIconTooltip {
 		MouseOver(locator1 = "Icon#TOOLTIP");
 
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "Message#TOOLTIP",
-			value1 = "The identity provider role has been disabled. It can be re-enabled in System Settings.");
+			value1 = ".*The identity provider role has been disabled. It can be re-enabled in System Settings\..*");
 	}
 
 	macro viewNoAttributeMappingSelectedForUserMatching {
@@ -915,7 +915,7 @@ definition {
 	}
 
 	macro viewTesterRequestResults {
-		AssertTextEquals.assertPartialText(
+		AssertTextMatches(
 			locator1 = "OAuth2#OAUTH2_TESTER_REQUEST_RESULTS",
 			value1 = ${entry1},
 			value2 = ${entry},
