@@ -3,23 +3,33 @@ definition {
 	macro _writeAdjustedBoldItalicText {
 		Click(locator1 = "PortalShowcase#WRITEABLE_FIELD");
 
-		RobotType.robotTypeShortcut(locator1 = "Ctrl + a");
+		Type.sendKeys(
+			locator1 = "PortalShowcase#WRITEABLE_FIELD",
+			value1 = "keys=CTRL,a");
 
 		RobotType(locator1 = "Hel");
 
-		RobotType.robotTypeShortcut(locator1 = "Ctrl + b");
+		Type.sendKeys(
+			locator1 = "PortalShowcase#WRITEABLE_FIELD",
+			value1 = "keys=CTRL,b");
 
 		RobotType(locator1 = "lo t");
 
-		RobotType.robotTypeShortcut(locator1 = "Ctrl + i");
+		Type.sendKeys(
+			locator1 = "PortalShowcase#WRITEABLE_FIELD",
+			value1 = "keys=CTRL,i");
 
 		RobotType(locator1 = "o the wh");
 
-		RobotType.robotTypeShortcut(locator1 = "Ctrl + b");
+		Type.sendKeys(
+			locator1 = "PortalShowcase#WRITEABLE_FIELD",
+			value1 = "keys=CTRL,b");
 
 		RobotType(locator1 = "ole Wor");
 
-		RobotType.robotTypeShortcut(locator1 = "Ctrl + i");
+		Type.sendKeys(
+			locator1 = "PortalShowcase#WRITEABLE_FIELD",
+			value1 = "keys=CTRL,i");
 
 		RobotType(locator1 = "ld!");
 
@@ -29,15 +39,21 @@ definition {
 	macro _writeAdjustedBoldText {
 		Click(locator1 = "PortalShowcase#WRITEABLE_FIELD");
 
-		RobotType.robotTypeShortcut(locator1 = "Ctrl + a");
+		Type.sendKeys(
+			locator1 = "PortalShowcase#WRITEABLE_FIELD",
+			value1 = "keys=CTRL,a");
 
 		RobotType(locator1 = "Hel");
 
-		RobotType.robotTypeShortcut(locator1 = "Ctrl + b");
+		Type.sendKeys(
+			locator1 = "PortalShowcase#WRITEABLE_FIELD",
+			value1 = "keys=CTRL,b");
 
 		RobotType(locator1 = "lo to the wh");
 
-		RobotType.robotTypeShortcut(locator1 = "Ctrl + b");
+		Type.sendKeys(
+			locator1 = "PortalShowcase#WRITEABLE_FIELD",
+			value1 = "keys=CTRL,b");
 
 		RobotType(locator1 = "ole World!");
 

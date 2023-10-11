@@ -168,10 +168,14 @@ return element.textContent;
 		var mac = OSDetector.isApple();
 
 		if (${mac} == "true") {
-			RobotType.robotTypeShortcut(locator1 = "Shift + Command + r");
+			Type.sendKeys(
+				locator1 = "//body",
+				value1 = "keys=SHIFT,COMMAND,r");
 		}
 		else {
-			RobotType.robotTypeShortcut(locator1 = "Ctrl + Shift + r");
+			Type.sendKeys(
+				locator1 = "//body",
+				value1 = "keys=CTRL,SHIFT,r");
 		}
 
 		WaitForPageLoad();
