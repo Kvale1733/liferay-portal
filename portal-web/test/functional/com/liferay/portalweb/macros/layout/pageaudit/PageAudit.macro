@@ -40,7 +40,10 @@ definition {
 
 	@summary = "Default summary"
 	macro configureLocalizedURL() {
-		PortalSettings.openInstanceSettingsAdmin();
+		ApplicationsMenu.gotoPortlet(
+			category = "Configuration",
+			panel = "Control Panel",
+			portlet = "Instance Settings");
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Pages",

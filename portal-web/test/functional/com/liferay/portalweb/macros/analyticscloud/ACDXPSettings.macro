@@ -303,7 +303,10 @@ definition {
 
 	@summary = "Default summary"
 	macro goToInstanceSettingsAC() {
-		PortalSettings.openInstanceSettingsAdmin();
+		ApplicationsMenu.gotoPortlet(
+			category = "Configuration",
+			panel = "Control Panel",
+			portlet = "Instance Settings");
 
 		Click(locator1 = "ACDXPSettings#ANALYTICS_CLOUD_DXP_OPTION");
 	}
