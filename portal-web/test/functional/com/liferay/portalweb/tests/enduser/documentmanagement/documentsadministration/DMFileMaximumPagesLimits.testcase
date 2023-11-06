@@ -69,10 +69,7 @@ definition {
 
 		Alert.viewSuccessMessageText(successMessage = "Your request completed successfully.");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "System",
-			panel = "Control Panel",
-			portlet = "Server Administration");
+		ServerAdministration.openServerAdmin();
 
 		ServerAdministration.executeServerResourcesActions(actionsDescription = "Reset preview and thumbnail files for documents and media");
 
@@ -153,10 +150,7 @@ definition {
 
 		Alert.viewSuccessMessageText(successMessage = "Your request completed successfully.");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "System",
-			panel = "Control Panel",
-			portlet = "Server Administration");
+		ServerAdministration.openServerAdmin();
 
 		ServerAdministration.executeServerResourcesActions(actionsDescription = "Reset preview and thumbnail files for documents and media");
 
@@ -220,10 +214,7 @@ definition {
 
 		Alert.viewSuccessMessageText(successMessage = "Your request completed successfully.");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "System",
-			panel = "Control Panel",
-			portlet = "Server Administration");
+		ServerAdministration.openServerAdmin();
 
 		ServerAdministration.executeServerResourcesActions(actionsDescription = "Reset preview and thumbnail files for documents and media");
 
