@@ -293,10 +293,7 @@ definition {
 		task ("Disable Template Creation") {
 			Open.openInTheNewTab(value1 = "http://localhost:8080");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Dynamic Data Mapping",

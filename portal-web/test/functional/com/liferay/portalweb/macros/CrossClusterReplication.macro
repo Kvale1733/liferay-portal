@@ -35,10 +35,7 @@ definition {
 
 	@summary = "Default summary"
 	macro setupCrossClusterReplication() {
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Search",

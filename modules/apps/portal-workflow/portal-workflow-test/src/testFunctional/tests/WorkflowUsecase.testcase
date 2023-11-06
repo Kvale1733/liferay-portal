@@ -798,10 +798,7 @@ definition {
 		property test.liferay.virtual.instance = "false";
 
 		task ("Given administrators publish and edit workflows configuration is disabled") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Workflow",
@@ -843,10 +840,7 @@ definition {
 		property test.liferay.virtual.instance = "false";
 
 		task ("Given administrators publish and edit workflows configuration is enabled") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Workflow",

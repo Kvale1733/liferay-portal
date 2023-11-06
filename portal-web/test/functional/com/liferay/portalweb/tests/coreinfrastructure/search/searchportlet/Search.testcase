@@ -103,10 +103,7 @@ definition {
 
 		var templateKey = ApplicationDisplayTemplates.getWidgetTemplateKey(templateID = ${templateID});
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Search",

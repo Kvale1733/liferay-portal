@@ -1217,10 +1217,7 @@ ${runtimeInstance}
 		}
 
 		task ("Enable server connectors in System Settings") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Connectors",

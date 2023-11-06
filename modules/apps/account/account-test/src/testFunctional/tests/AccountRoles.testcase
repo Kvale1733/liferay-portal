@@ -1185,10 +1185,7 @@ definition {
 
 			Organization.addCP(orgName = "Test Org");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Audit",
@@ -1257,10 +1254,7 @@ definition {
 				siteName = "POWER SITE",
 				siteType = "Blank");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Audit",
@@ -1328,10 +1322,7 @@ definition {
 				userLastName = "Bloggs",
 				userScreenName = "joebloggs");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Audit",
@@ -1398,10 +1389,7 @@ definition {
 
 			UserGroup.addCP(userGroupName = "User Group Name");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Audit",
@@ -1469,10 +1457,7 @@ definition {
 				userLastName = "Bloggs",
 				userScreenName = "joebloggs");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Audit",

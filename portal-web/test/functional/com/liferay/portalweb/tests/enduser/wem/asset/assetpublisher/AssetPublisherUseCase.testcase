@@ -347,10 +347,7 @@ definition {
 		property test.run.type = "single";
 
 		task ("Add the Kaleo Forms admin portlet to blacklist") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Module Container",

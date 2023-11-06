@@ -457,10 +457,7 @@ definition {
 		property test.run.type = "single";
 
 		task ("Given the site designer enables the Changeable Default Language for web content") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Web Content",

@@ -1096,10 +1096,7 @@ definition {
 
 	@summary = "Default summary"
 	macro setSLADefinitionsJobInterval(slaJobInterval = null,definitionsJobInterval = null) {
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Workflow",

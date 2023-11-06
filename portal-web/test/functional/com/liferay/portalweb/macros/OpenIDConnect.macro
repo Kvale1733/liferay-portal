@@ -147,10 +147,7 @@ definition {
 
 	@summary = "Default summary"
 	macro enableOpenIdConnect() {
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "SSO",

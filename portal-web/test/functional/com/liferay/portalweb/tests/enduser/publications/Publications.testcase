@@ -1330,10 +1330,7 @@ definition {
 		}
 
 		task ("Go to Publications System Settings and uncheck the Context View checkbox") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Publications",

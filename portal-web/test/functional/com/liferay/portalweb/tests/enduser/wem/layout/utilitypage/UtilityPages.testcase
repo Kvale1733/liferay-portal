@@ -587,10 +587,7 @@ definition {
 		}
 
 		task ("Given the page designer has a private static page after enabling private pages") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Release Feature Flags",

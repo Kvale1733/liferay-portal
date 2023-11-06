@@ -1676,10 +1676,7 @@ definition {
 
 		// TODO Review
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		Click(
 			key_text = "Pricing",

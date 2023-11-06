@@ -133,10 +133,7 @@ definition {
 
 	@summary = "Default summary"
 	macro disableGooglePageSpeedViaSystemSettings(settingsScope = null) {
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		if (!(isSet(settingsScope))) {
 			SystemSettings.gotoConfiguration(
@@ -251,10 +248,7 @@ definition {
 
 	@summary = "Default summary"
 	macro setAPIViaSystemSettings(apiKey = null, preferredStrategy = null) {
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Pages",
@@ -330,10 +324,7 @@ definition {
 
 	@summary = "Default summary"
 	macro tearDownSystemSettingsConfigurations() {
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Pages",

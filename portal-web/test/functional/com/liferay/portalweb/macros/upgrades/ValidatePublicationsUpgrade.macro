@@ -27,10 +27,7 @@ definition {
 
 	@summary = "Default summary"
 	macro viewNoUnrelatedPreviews() {
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Upgrades",
@@ -75,10 +72,7 @@ definition {
 
 		AssertVisible(locator1 = "Publications#REVIEW_CHANGES_BUTTON");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Upgrades",
