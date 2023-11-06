@@ -222,10 +222,7 @@ definition {
 		property test.liferay.virtual.instance = "false";
 		property test.run.type = "single";
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Infrastructure",
@@ -401,10 +398,7 @@ definition {
 
 		PortalSettings.viewToggleSwitchNotChecked(portalSetting = "Show in Control Menu");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Users",

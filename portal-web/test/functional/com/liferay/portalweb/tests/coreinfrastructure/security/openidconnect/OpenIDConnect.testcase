@@ -135,10 +135,7 @@ definition {
 		task ("Given: Add the OSGI configuration file") {
 			AntCommands.runCommand("build-test-openid-connect.xml", "prepare-openid-connect-osgi-configuration -DopenIdConnectClientId=${openIdConnectClientId} -DopenIdConnectClientSecret=${openIdConnectClientSecret} -Dosgi.config.file.name=${osgiConfigFileName}");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "SSO",
@@ -589,10 +586,7 @@ definition {
 		task ("Given: Set up OKTA OIDC Provider") {
 			AntCommands.runCommand("build-test-openid-connect.xml", "prepare-openid-connect-osgi-configuration -DopenIdConnectClientId=${openIdConnectClientId} -DopenIdConnectClientSecret=${openIdConnectClientSecret} -Dosgi.config.file.name=${osgiConfigFileName}");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "SSO",
@@ -766,10 +760,7 @@ definition {
 		task ("Add the OSGI configuration file") {
 			AntCommands.runCommand("build-test-openid-connect.xml", "prepare-openid-connect-osgi-configuration -DopenIdConnectClientId=${openIdConnectClientId} -DopenIdConnectClientSecret=${openIdConnectClientSecret} -Dosgi.config.file.name=${osgiConfigFileName}");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "SSO",
@@ -823,10 +814,7 @@ definition {
 		task ("Add the OSGI configuration file") {
 			AntCommands.runCommand("build-test-openid-connect.xml", "prepare-openid-connect-osgi-configuration -DopenIdConnectClientId=${openIdConnectClientId} -DopenIdConnectClientSecret=${openIdConnectClientSecret} -Dosgi.config.file.name=${osgiConfigFileName}");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "SSO",
@@ -917,10 +905,7 @@ definition {
 		task ("Add the OSGI configuration file") {
 			AntCommands.runCommand("build-test-openid-connect.xml", "prepare-openid-connect-osgi-configuration -DopenIdConnectClientId=${openIdConnectClientId} -DopenIdConnectClientSecret=${openIdConnectClientSecret} -Dosgi.config.file.name=${osgiConfigFileName}");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "SSO",
@@ -1398,10 +1383,7 @@ definition {
 		task ("Add the OSGI configuration file") {
 			AntCommands.runCommand("build-test-openid-connect.xml", "prepare-openid-connect-osgi-configuration -DopenIdConnectClientId=${openIdConnectClientId} -DopenIdConnectClientSecret=${openIdConnectClientSecret} -Dosgi.config.file.name=${osgiConfigFileName}");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "SSO",
@@ -1454,10 +1436,7 @@ definition {
 		task ("Add the OSGI configuration file") {
 			AntCommands.runCommand("build-test-openid-connect.xml", "prepare-openid-connect-osgi-configuration -DopenIdConnectClientId=${openIdConnectClientId} -DopenIdConnectClientSecret=${openIdConnectClientSecret} -Dosgi.config.file.name=${osgiConfigFileName}");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "SSO",

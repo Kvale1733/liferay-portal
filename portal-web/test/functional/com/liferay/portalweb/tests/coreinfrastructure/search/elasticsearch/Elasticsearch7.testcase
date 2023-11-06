@@ -977,10 +977,7 @@ definition {
 			searchAssetTitle = "apple",
 			searchAssetType = "Web Content Article");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Search",

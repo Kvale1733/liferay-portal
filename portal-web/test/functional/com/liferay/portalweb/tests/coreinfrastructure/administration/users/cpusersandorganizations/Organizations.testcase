@@ -1441,10 +1441,7 @@ definition {
 
 		JSONOrganization.addOrganization(organizationName = "North America");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Users",

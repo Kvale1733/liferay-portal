@@ -123,10 +123,7 @@ definition {
 
 	@summary = "Default summary"
 	macro viewSystemSettings() {
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Web Content",
@@ -161,10 +158,7 @@ definition {
 
 		FormFields.viewCheckboxNotChecked(fieldName = "expireAllArticleVersionsEnabled");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Web Content",
@@ -179,10 +173,7 @@ definition {
 
 		FormFields.viewCheckboxNotChecked(fieldName = "journalArticleForceAutogenerateId");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Web Content",
@@ -201,10 +192,7 @@ definition {
 
 		FormFields.viewCheckboxNotChecked(fieldName = "emailArticleUpdatedEnabled");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Wiki",
@@ -247,10 +235,7 @@ definition {
 			fieldName = "rssAbstractLength",
 			fieldValue = 500);
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Wiki",
@@ -270,10 +255,7 @@ definition {
 		// Ignore test until LPS-97976 is resolved
 
 		/*
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Dynamic Data Mapping",
@@ -294,10 +276,7 @@ definition {
 			fieldName = "smallImageMaxSize",
 			fieldValue = "5120");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Dynamic Data Mapping",

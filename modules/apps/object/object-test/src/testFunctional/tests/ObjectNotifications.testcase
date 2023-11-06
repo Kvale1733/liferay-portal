@@ -788,10 +788,7 @@ definition {
 		}
 
 		task ("And given the Notification Queue Entry Delete Interval is set to 1 in System Settings > Notifications > Notification Queue") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Notifications",

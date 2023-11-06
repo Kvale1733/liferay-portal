@@ -200,10 +200,7 @@ definition {
 		}
 
 		task ("Assert that 'Check Interval' it's one at Segment Analytics Cloud in System Settings") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Segments",

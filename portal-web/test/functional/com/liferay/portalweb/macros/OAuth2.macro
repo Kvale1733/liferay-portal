@@ -104,10 +104,7 @@ definition {
 
 	@summary = "Default summary"
 	macro addPrefixHandlerInSystemSettings(excludedScopesName = null, symbolicName = null, separator = null, serviceProperties = null, osgiJaxrsName = null) {
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "OAuth 2",

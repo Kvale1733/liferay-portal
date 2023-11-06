@@ -17,6 +17,15 @@
 		</then>
 	</if>
 
+			User.loginPG(
+				nodePort = 9080,
+				password = "test",
+				userEmailAddress = "test@liferay.com");
+
+SystemSettings.openSystemSettingsAdmin();
+
+:9080
+
 	<property file="${project.dir}/test.profile-dxp.properties" />
 	<property file="${project.dir}/test.generated.properties" />
 	<property file="${project.dir}/test.${user.name}.properties" />

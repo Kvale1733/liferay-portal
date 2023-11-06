@@ -886,10 +886,7 @@ definition {
 		property test.run.type = "single";
 
 		task ("Select the Flattened Tree as Category Navigation Display Style") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Assets",

@@ -281,12 +281,7 @@ definition {
 		task ("Given: Enable local staging with advanced staging configuration checkbox unchecked in system setting.") {
 			JSONStaging.enableLocalStaging(groupName = "Site Name");
 
-			Navigator.openURL();
-
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Infrastructure",
@@ -367,12 +362,7 @@ definition {
 		task ("Given: Enable remote staging with advanced staging configuration checkbox unchecked in system setting.") {
 			Staging.remoteStagingSetUpViaJson(groupName = "Site Name");
 
-			Navigator.openURL();
-
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Infrastructure",
@@ -539,12 +529,7 @@ definition {
 		task ("Given: Enable local staging with advanced staging configuration checkbox unchecked in system setting.") {
 			JSONStaging.enableLocalStaging(groupName = "Site Name");
 
-			Navigator.openURL();
-
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Infrastructure",
@@ -1036,10 +1021,7 @@ definition {
 		var randomSiteName = "Liferay DXP";
 
 		task ("Given: Replicate Individual Deletions is active, MULTIPLE (specifically two) Web Contents are created and Staging is enabled") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Infrastructure",
@@ -1425,10 +1407,7 @@ definition {
 
 		JSONStaging.enableLocalStaging(groupName = "Site Name");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Infrastructure",
@@ -3155,10 +3134,7 @@ definition {
 		property test.liferay.virtual.instance = "false";
 		property test.run.type = "single";
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Infrastructure",

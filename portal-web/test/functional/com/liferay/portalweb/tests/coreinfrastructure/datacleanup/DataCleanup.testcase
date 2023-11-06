@@ -47,10 +47,7 @@ definition {
 			echo("${resourceActionTable} - Failed to find Hello World in ResourceAction table.");
 		}
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Upgrades",
@@ -127,10 +124,7 @@ definition {
 			fail("Failed to find opensocial portlet in expandoTable table.");
 		}
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Upgrades",
@@ -206,10 +200,7 @@ definition {
 			fail("Failed to find shopping in ResourceAction table.");
 		}
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Upgrades",
@@ -279,10 +270,7 @@ definition {
 			fail("Failed to find software catalog in ResourceAction table.");
 		}
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Upgrades",
@@ -352,10 +340,7 @@ definition {
 
 		AssertConsoleTextNotPresent(value1 = "Completed upgrade process com.liferay.data.cleanup.internal.upgrade.ExpiredJournalArticleUpgradeProcess");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Upgrades",
@@ -402,10 +387,7 @@ definition {
 		property test.liferay.virtual.instance = "false";
 		property test.run.type = "single";
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Upgrades",
@@ -420,10 +402,7 @@ definition {
 
 		AssertNotChecked.assertNotCheckedNotVisible(locator1 = "SystemSettings#SETTING_FIELD_NAME_CHECKBOX");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Upgrades",

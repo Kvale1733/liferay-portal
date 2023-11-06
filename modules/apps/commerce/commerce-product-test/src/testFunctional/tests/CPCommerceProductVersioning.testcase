@@ -69,10 +69,7 @@ definition {
 		}
 
 		task ("And the admin disable the versioning") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			Click(
 				key_text = "Catalog",

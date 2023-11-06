@@ -61,10 +61,7 @@ definition {
 
 		Navigator.openSpecificURL(url = "http://localhost:9080");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin(baseURL = "http://localhost:9080");
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Assets",

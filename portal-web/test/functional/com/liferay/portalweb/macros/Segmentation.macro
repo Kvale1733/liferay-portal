@@ -448,10 +448,7 @@ definition {
 				configurationScope = "Virtual Instance Scope");
 		}
 		else if (${key_portlet} == "System Settings") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Segments",
@@ -540,10 +537,7 @@ definition {
 
 	@summary = "Default summary"
 	macro updateSegmentsInterval(interval = null) {
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+		SystemSettings.openSystemSettingsAdmin();
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Segments",

@@ -36,10 +36,7 @@ definition {
 		property test.run.type = "single";
 
 		task ("Given: Uncheck the Validate Missing References box in System settings") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Infrastructure",

@@ -77,10 +77,7 @@ definition {
 		}
 
 		task ("Enable Assign roles by segment from system settings") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Segments",
@@ -166,10 +163,7 @@ definition {
 		}
 
 		task ("Enable Assign roles by segment") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Segments",
@@ -221,10 +215,7 @@ definition {
 		}
 
 		task ("Enable Assign roles by segment from system settings") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Segments",
@@ -304,10 +295,7 @@ definition {
 		}
 
 		task ("Enable Assign roles by segment at System Settings") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Segments",
@@ -419,10 +407,7 @@ definition {
 		}
 
 		task ("Assert the Enable Assign roles by segments checkbox is disabled") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Segments",
@@ -464,10 +449,7 @@ definition {
 		property test.run.type = "single";
 
 		task ("Assert the Enable Assign roles by segments checkbox is disabled") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Segments",
@@ -513,10 +495,7 @@ definition {
 		}
 
 		task ("Enable Assign roles by segment at System Settings") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Segments",
@@ -565,10 +544,7 @@ definition {
 		}
 
 		task ("Enable Assign roles by segment from system settings") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Segments",
@@ -632,10 +608,7 @@ definition {
 		}
 
 		task ("Enable Assign roles by segment") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Segments",
@@ -684,10 +657,7 @@ definition {
 		property test.run.type = "single";
 
 		task ("Enable Assign roles by segment") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Segments",

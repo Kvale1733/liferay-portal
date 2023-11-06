@@ -2030,10 +2030,7 @@ definition {
 		property test.run.type = "single";
 
 		task ("Given: User disable the validation of file entries and layout references") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
+			SystemSettings.openSystemSettingsAdmin();
 
 			SystemSettings.gotoConfiguration(
 				configurationCategory = "Infrastructure",
