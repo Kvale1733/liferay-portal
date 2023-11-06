@@ -12,10 +12,7 @@ definition {
 	@summary = "Default summary"
 	macro addLiferayManagerUserRole() {
 		for (var userScreenName : list "manager,finance") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Users",
-				panel = "Control Panel",
-				portlet = "Users and Organizations");
+			User.openUsersAdmin();
 
 			User.assignRegularRoleCP(
 				roleTitle = "Liferay Manager",

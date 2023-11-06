@@ -86,10 +86,7 @@ definition {
 			userLastName = ${userLastName},
 			userScreenName = ${userScreenName});
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
+		User.openUsersAdmin();
 
 		User.editPasswordCP(
 			currentPassword = ${currentPassword},
@@ -129,10 +126,7 @@ definition {
 			userLastName = ${userLastName},
 			userScreenName = ${userScreenName});
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
+		User.openUsersAdmin();
 
 		User.editPasswordCP(
 			currentPassword = ${currentPassword},
@@ -242,10 +236,7 @@ definition {
 			userLastName = ${userLastName},
 			userScreenName = ${userScreenName});
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
+		User.openUsersAdmin();
 
 		User.editPasswordCP(
 			currentPassword = ${currentPassword},
@@ -308,10 +299,7 @@ definition {
 			userLastName = ${userLastName},
 			userScreenName = ${userScreenName});
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
+		User.openUsersAdmin();
 
 		User.editPasswordCP(
 			currentPassword = ${currentPassword},

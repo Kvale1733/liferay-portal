@@ -106,10 +106,7 @@ definition {
 
 	@summary = "Default summary"
 	macro viewAndEditUser() {
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
+		User.openUsersAdmin();
 
 		User.viewCP(
 			userBirthday = "09/09/1999",
@@ -197,10 +194,7 @@ definition {
 			locator1 = "UsersAndOrganizationsEditUser#DISPLAY_SETTINGS_GREETING_FIELD",
 			value1 = "Welcome Organization Usersn! This is a pre-upgrade edit!");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
+		User.openUsersAdmin();
 
 		UserNavigator.gotoUser(userScreenName = "usersn");
 
@@ -222,10 +216,7 @@ definition {
 			locator1 = "Permissions#CONTENT_PERMISSIONS_ROLE_NAME",
 			value1 = "Organization Administrator");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
+		User.openUsersAdmin();
 
 		User.editPasswordCP(
 			requirePasswordReset = "true",
@@ -276,10 +267,7 @@ definition {
 			userLoginEmailAddress = "test@liferay.com",
 			userLoginFullName = "Test Test");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
+		User.openUsersAdmin();
 
 		UserNavigator.gotoUser(userScreenName = "usersn");
 
@@ -308,10 +296,7 @@ definition {
 
 		PortletEntry.save();
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
+		User.openUsersAdmin();
 
 		User.viewCP(
 			userEmailAddress = "user@liferay.com",
@@ -339,10 +324,7 @@ definition {
 			locator1 = "UsersAndOrganizationsEditUser#DISPLAY_SETTINGS_GREETING_FIELD",
 			value1 = "Welcome Organization Usersn! This is a post-upgrade edit!");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
+		User.openUsersAdmin();
 
 		UserNavigator.gotoUser(userScreenName = "usersn1");
 
@@ -358,10 +340,7 @@ definition {
 
 		Click(locator1 = "Icon#DELETE");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
+		User.openUsersAdmin();
 
 		User.unassignRegularRoleCP(
 			regularRoleName = "Administrator",
@@ -379,28 +358,19 @@ definition {
 
 		User.removeContactInformation(rowEntry = "https://www.google.com/");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
+		User.openUsersAdmin();
 
 		User.deactivateCP(userFirstName = "userfn1");
 
 		User.deleteCP();
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
+		User.openUsersAdmin();
 
 		User.searchCP(searchTerm = "usersn");
 
 		User.viewNoUsersFoundCP();
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
+		User.openUsersAdmin();
 
 		UsersAndOrganizationsNavigator.gotoOrganizations();
 
