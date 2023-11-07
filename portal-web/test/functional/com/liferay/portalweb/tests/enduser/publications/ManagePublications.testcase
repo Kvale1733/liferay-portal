@@ -285,10 +285,7 @@ definition {
 		property osgi.module.configuration.file.names = "com.liferay.change.tracking.configuration.CTSettingsConfiguration.config";
 		property osgi.module.configurations = "enabled=B\"false\"";
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Publications",
-			panel = "Applications",
-			portlet = "Publications");
+		PublicationsNavigator.openPublicationsAdmin();
 
 		PortletEntry.save();
 
@@ -342,10 +339,7 @@ definition {
 			groupName = "Guest",
 			layoutName = "Test Page Name");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Publications",
-			panel = "Applications",
-			portlet = "Publications");
+		PublicationsNavigator.openPublicationsAdmin();
 
 		Publications.deletePublication(publicationName = "Publication Name");
 

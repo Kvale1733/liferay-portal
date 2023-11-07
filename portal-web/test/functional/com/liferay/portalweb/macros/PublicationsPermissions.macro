@@ -75,20 +75,14 @@ definition {
 			key_menuItem = "Create New Publication",
 			locator1 = "MenuItem#ANY_MENU_ITEM");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Publications",
-			panel = "Applications",
-			portlet = "Publications");
+		PublicationsNavigator.openPublicationsAdmin();
 
 		AssertElementNotPresent(locator1 = "Button#PLUS");
 	}
 
 	@summary = "Default summary"
 	macro assertNoPermissionToPublishPublication(publicationName = null) {
-		ApplicationsMenu.gotoPortlet(
-			category = "Publications",
-			panel = "Applications",
-			portlet = "Publications");
+		PublicationsNavigator.openPublicationsAdmin();
 
 		Click(
 			key_publicationName = ${publicationName},

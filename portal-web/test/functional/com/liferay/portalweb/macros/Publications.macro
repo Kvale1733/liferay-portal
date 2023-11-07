@@ -166,10 +166,7 @@ definition {
 			Alert.viewSuccessMessage();
 		}
 		else {
-			ApplicationsMenu.gotoPortlet(
-				category = "Publications",
-				panel = "Applications",
-				portlet = "Publications");
+			PublicationsNavigator.openPublicationsAdmin();
 
 			Click.waitForMenuToggleJSClick(locator1 = "Publications#PUBLICATIONS_ELLIPSIS");
 
@@ -232,10 +229,7 @@ definition {
 			Alert.viewSuccessMessage();
 		}
 		else {
-			ApplicationsMenu.gotoPortlet(
-				category = "Publications",
-				panel = "Applications",
-				portlet = "Publications");
+			PublicationsNavigator.openPublicationsAdmin();
 
 			Check.checkToggleSwitch(locator1 = "Publications#ENABLE_PUBLICATIONS_TOGGLE_SWITCH");
 

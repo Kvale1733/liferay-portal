@@ -74,10 +74,7 @@ definition {
 
 		Publications.createNewPublication(publicationName = "Publication Name");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Publications",
-			panel = "Applications",
-			portlet = "Publications");
+		PublicationsNavigator.openPublicationsAdmin();
 
 		Publications.deletePublication(publicationName = "Publication Name");
 

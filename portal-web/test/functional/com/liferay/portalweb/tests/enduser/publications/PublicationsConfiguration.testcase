@@ -63,10 +63,7 @@ definition {
 			groupName = "Site Name",
 			remotePort = 9080);
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Publications",
-			panel = "Applications",
-			portlet = "Publications");
+		PublicationsNavigator.openPublicationsAdmin();
 
 		Check.checkToggleSwitch(locator1 = "Publications#ENABLE_PUBLICATIONS_TOGGLE_SWITCH");
 
@@ -81,10 +78,7 @@ definition {
 			specificURL = "http://localhost:9080",
 			userEmailAddress = "test@liferay.com");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Publications",
-			panel = "Applications",
-			portlet = "Publications");
+		PublicationsNavigator.openPublicationsAdmin();
 
 		Check.checkToggleSwitch(locator1 = "Publications#ENABLE_PUBLICATIONS_TOGGLE_SWITCH");
 
@@ -104,10 +98,7 @@ definition {
 
 		Staging.activateStagingCP(siteName = ${siteName});
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Publications",
-			panel = "Applications",
-			portlet = "Publications");
+		PublicationsNavigator.openPublicationsAdmin();
 
 		Check.checkToggleSwitch(locator1 = "Publications#ENABLE_PUBLICATIONS_TOGGLE_SWITCH");
 
