@@ -141,10 +141,7 @@ definition {
 
 		IFrame.closeFrame();
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "Search");
+		SearchAdministration.openSearchAdmin();
 
 		SearchAdministration.executeReindex(action = "All Spell Check Dictionaries");
 
@@ -1459,10 +1456,7 @@ definition {
 		property test.liferay.virtual.instance = "false";
 		property test.run.type = "single";
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "Search");
+		SearchAdministration.openSearchAdmin();
 
 		SearchAdministration.executeReindex();
 
