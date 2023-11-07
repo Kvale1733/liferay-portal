@@ -116,10 +116,7 @@ definition {
 			gotoPublicationsAdmin = "true",
 			publicationName = "Publication Name 2");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Publications",
-			panel = "Applications",
-			portlet = "Publications");
+		PublicationsNavigator.openPublicationsAdmin();
 
 		Publications.deletePublication(publicationName = "Publication Name 2");
 
@@ -2088,7 +2085,10 @@ definition {
 			groupName = "Guest",
 			title = "WC WebContent 1 Title");
 
-		PublicationsNavigator.openPublicationsAdmin();
+		ApplicationsMenu.gotoPortlet(
+			category = "Publications",
+			panel = "Applications",
+			portlet = "Publications");
 
 		Publications.schedulePublication(publicationName = "Publication Name 1");
 
