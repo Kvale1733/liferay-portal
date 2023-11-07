@@ -348,10 +348,7 @@ definition {
 
 			Navigator.openSpecificURL(url = "http://www.able.com:8080");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Sites",
-				panel = "Control Panel",
-				portlet = "Sites");
+			Site.openSitesAdmin();
 
 			Site.addBlankCP(siteName = "Site Name");
 
