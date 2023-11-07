@@ -32,10 +32,7 @@ definition {
 		property test.liferay.virtual.instance = "false";
 		property test.run.type = "single";
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "Search");
+		SearchAdministration.openSearchAdmin();
 
 		var serverVersion = PropsUtil.get("solr.version");
 
@@ -137,10 +134,7 @@ definition {
 			mimeType = "text/plain",
 			sourceFileName = "Document_1.txt");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "Search");
+		SearchAdministration.openSearchAdmin();
 
 		SearchAdministration.executeReindex();
 
@@ -204,10 +198,7 @@ definition {
 			mimeType = "text/plain",
 			sourceFileName = "Document_1.txt");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "Search");
+		SearchAdministration.openSearchAdmin();
 
 		SearchAdministration.executeReindex();
 
@@ -258,10 +249,7 @@ definition {
 
 		Navigator.openURL();
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "Search");
+		SearchAdministration.openSearchAdmin();
 
 		SearchAdministration.executeReindex();
 

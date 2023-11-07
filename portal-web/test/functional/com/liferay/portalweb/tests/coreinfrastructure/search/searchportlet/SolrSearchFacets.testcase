@@ -390,10 +390,7 @@ definition {
 
 		// Workaround for LPS-89026
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "Search");
+		SearchAdministration.openSearchAdmin();
 
 		SearchAdministration.executeReindex();
 
