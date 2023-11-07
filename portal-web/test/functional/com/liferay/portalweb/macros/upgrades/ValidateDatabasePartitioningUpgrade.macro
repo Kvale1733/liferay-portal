@@ -23,10 +23,7 @@ definition {
 
 		User.viewNoUsersFoundCP();
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Roles");
+		Role.openRolesAdmin();
 
 		Role.viewCP(
 			roleTitle = "Roles Regrole1 Name",
@@ -72,10 +69,7 @@ definition {
 
 		User.viewNoUsersFoundCP();
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Roles");
+		Role.openRolesAdmin();
 
 		Role.viewCP(
 			roleTitle = "Roles Regrole2 Name",
