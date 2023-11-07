@@ -247,10 +247,7 @@ definition {
 
 		Navigator.openURL();
 
-		ApplicationsMenu.gotoPortlet(
-			category = "System",
-			panel = "Control Panel",
-			portlet = "Virtual Instances");
+		PortalInstances.openVirtualInstancesAdmin();
 
 		PortalInstances.addCP(
 			mailDomain = "www.baker.com",
@@ -294,10 +291,7 @@ definition {
 
 		Navigator.openURL();
 
-		ApplicationsMenu.gotoPortlet(
-			category = "System",
-			panel = "Control Panel",
-			portlet = "Virtual Instances");
+		PortalInstances.openVirtualInstancesAdmin();
 
 		PortalInstances.addCP(
 			mailDomain = "www.able.com",
