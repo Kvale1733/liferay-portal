@@ -558,10 +558,7 @@ definition {
 
 	@summary = "Default summary"
 	macro duplicateNotPublishedWorkflow(workflowName = null, workflowCopyName = null) {
-		ApplicationsMenu.gotoPortlet(
-			category = "Workflow",
-			panel = "Applications",
-			portlet = "Process Builder");
+		Workflow.openWorkflowListView();
 
 		Click(
 			key_workflowDefinitionTitle = ${workflowName},
@@ -576,10 +573,7 @@ definition {
 
 	@summary = "Default summary"
 	macro duplicateSingleApproverWorkflow(workflowName = null) {
-		ApplicationsMenu.gotoPortlet(
-			category = "Workflow",
-			panel = "Applications",
-			portlet = "Process Builder");
+		Workflow.openWorkflowListView();
 
 		Click(
 			key_workflowDefinitionTitle = "Single Approver",
@@ -930,10 +924,7 @@ definition {
 
 	@summary = "Default summary"
 	macro tearDownPortalWorkflow() {
-		ApplicationsMenu.gotoPortlet(
-			category = "Workflow",
-			panel = "Applications",
-			portlet = "Process Builder");
+		Workflow.openWorkflowListView();
 
 		Navigator.gotoNavItem(navItem = "Configuration");
 
@@ -965,20 +956,14 @@ definition {
 
 	@summary = "Default summary"
 	macro tearDownSpecificWorkflowDefinition(workflowDefinitionTitle = null) {
-		ApplicationsMenu.gotoPortlet(
-			category = "Workflow",
-			panel = "Applications",
-			portlet = "Process Builder");
+		Workflow.openWorkflowListView();
 
 		var key_workflowDefinitionTitle = ${workflowDefinitionTitle};
 
 		while (IsElementPresent(locator1 = "WorkflowDefinition#DEFINITION_TABLE_SPECIFIC_DEFINITION_ELLIPSIS")) {
 			Workflow.unpublishWorkflowDefinition(workflowDefinitionTitle = ${workflowDefinitionTitle});
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Workflow",
-				panel = "Applications",
-				portlet = "Process Builder");
+			Workflow.openWorkflowListView();
 
 			Workflow.deleteWorkflowDefinition(workflowDefinitionTitle = ${workflowDefinitionTitle});
 		}
@@ -986,10 +971,7 @@ definition {
 
 	@summary = "Default summary"
 	macro tearDownWorkflowDefinitions() {
-		ApplicationsMenu.gotoPortlet(
-			category = "Workflow",
-			panel = "Applications",
-			portlet = "Process Builder");
+		Workflow.openWorkflowListView();
 
 		while (IsElementPresent(locator1 = "WorkflowDefinition#DEFINITION_TABLE_EXTRA")) {
 			if (IsElementPresent(locator1 = "WorkflowDefinition#DEFINITION_TABLE_DEFINITION_EXTRA_ELLIPSIS")) {
