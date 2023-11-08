@@ -409,10 +409,7 @@ definition {
 	@summary = "Default summary"
 	macro goToRemoteAppsPortlet() {
 		if (IsElementNotPresent(locator1 = "ClientExtension#REMOTE_APPS_HEADER")) {
-			ApplicationsMenu.gotoPortlet(
-				category = "Custom Apps",
-				panel = "Applications",
-				portlet = "Client Extensions");
+			ClientExtension.openClientExtensionsAdmin();
 		}
 	}
 
