@@ -2414,10 +2414,7 @@ definition {
 		}
 
 		task ("And a Commerce Order Item Custom field is created") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "Custom Fields");
+			CustomFields.openCustomFieldAdmin();
 
 			CustomFields.addCP(
 				customFieldName = "test custom field",
