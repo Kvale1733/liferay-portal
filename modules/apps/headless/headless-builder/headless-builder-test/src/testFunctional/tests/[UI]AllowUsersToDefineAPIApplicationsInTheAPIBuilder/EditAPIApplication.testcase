@@ -165,10 +165,7 @@ definition {
 		property test.run.type = "single";
 
 		task ("When I click on the dropdown menu of created API application") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Object",
-				panel = "Control Panel",
-				portlet = "API Builder");
+			APIBuilderUI.openAPIBuilderAdmin();
 
 			Click(
 				key_title = "App-test",

@@ -120,10 +120,7 @@ definition {
 				password = "test",
 				userEmailAddress = "test@liferay.com");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Object",
-				panel = "Control Panel",
-				portlet = "API Builder");
+			APIBuilderUI.openAPIBuilderAdmin();
 
 			AssertElementPresent(
 				key_name = "My-app",
@@ -187,10 +184,7 @@ definition {
 				password = "test",
 				userEmailAddress = "test@liferay.com");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Object",
-				panel = "Control Panel",
-				portlet = "API Builder");
+			APIBuilderUI.openAPIBuilderAdmin();
 
 			AssertElementPresent(
 				key_name = "My-app",

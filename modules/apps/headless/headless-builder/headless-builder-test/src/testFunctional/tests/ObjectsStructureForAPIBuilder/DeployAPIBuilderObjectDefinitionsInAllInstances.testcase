@@ -76,10 +76,7 @@ definition {
 		}
 
 		task ("And Then I can see the newly created API in API Builder") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Object",
-				panel = "Control Panel",
-				portlet = "API Builder");
+			APIBuilderUI.openAPIBuilderAdmin();
 
 			AssertElementPresent(
 				key_name = "test",

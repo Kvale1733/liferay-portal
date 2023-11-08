@@ -13,10 +13,7 @@ definition {
 		User.firstLoginPG();
 
 		task ("Given navigate to Object > API Builder") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Object",
-				panel = "Control Panel",
-				portlet = "API Builder");
+			APIBuilderUI.openAPIBuilderAdmin();
 		}
 
 		task ("And Given click New button to add one API") {

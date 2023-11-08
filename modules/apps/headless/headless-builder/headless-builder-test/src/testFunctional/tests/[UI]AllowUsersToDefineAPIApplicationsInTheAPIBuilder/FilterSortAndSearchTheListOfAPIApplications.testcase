@@ -26,10 +26,7 @@ definition {
 				baseURL = "test3",
 				title = "test3");
 
-			ApplicationsMenu.gotoPortlet(
-				category = "Object",
-				panel = "Control Panel",
-				portlet = "API Builder");
+			APIBuilderUI.openAPIBuilderAdmin();
 		}
 	}
 
