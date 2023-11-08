@@ -1056,10 +1056,7 @@ definition {
 
 		Clustering.viewClusterStatusInConsole();
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Monitoring");
+		UserTracker.openMonitoringAdmin();
 
 		Clustering.viewLiveSessionCount(count = 1);
 
@@ -1068,10 +1065,7 @@ definition {
 			password = "test",
 			userEmailAddress = "test@liferay.com");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Monitoring");
+		UserTracker.openMonitoringAdmin();
 
 		Clustering.viewLiveSessionCount(count = 2);
 
@@ -1080,10 +1074,7 @@ definition {
 			password = "test",
 			userEmailAddress = "test@liferay.com");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Monitoring");
+		UserTracker.openMonitoringAdmin();
 
 		Clustering.viewLiveSessionCount(count = 3);
 
@@ -1094,10 +1085,7 @@ definition {
 			password = "test",
 			userEmailAddress = "test@liferay.com");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Monitoring");
+		UserTracker.openMonitoringAdmin();
 
 		Clustering.viewLiveSessionCount(count = 3);
 	}

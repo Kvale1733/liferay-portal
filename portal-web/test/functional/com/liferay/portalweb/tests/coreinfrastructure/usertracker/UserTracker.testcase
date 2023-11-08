@@ -27,10 +27,7 @@ definition {
 		property test.liferay.virtual.instance = "false";
 		property test.run.type = "single";
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Monitoring");
+		UserTracker.openMonitoringAdmin();
 
 		UserTracker.viewAccessedURL(friendlyURL = "http://localhost:8080/web/guest/home");
 
@@ -48,10 +45,7 @@ definition {
 			specificURL = "http://www.able.com:8080",
 			userEmailAddress = "test@www.able.com");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Monitoring");
+		UserTracker.openMonitoringAdmin();
 
 		UserTracker.viewAccessedURL(friendlyURL = "http://www.able.com:8080/web/guest/home");
 	}
@@ -84,10 +78,7 @@ definition {
 			specificURL = "http://www.able.com:8080",
 			userEmailAddress = "test@www.able.com");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Monitoring");
+		UserTracker.openMonitoringAdmin();
 
 		AssertTextEquals(
 			locator1 = "LexiconTable#TABLE_HITS_COUNT",
@@ -111,10 +102,7 @@ definition {
 			specificURL = "http://www.baker.com:8080",
 			userEmailAddress = "test@www.baker.com");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Monitoring");
+		UserTracker.openMonitoringAdmin();
 
 		AssertTextEquals(
 			locator1 = "LexiconTable#TABLE_HITS_COUNT",
@@ -122,10 +110,7 @@ definition {
 
 		Navigator.openSpecificURL(url = "http://www.able.com:8080");
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Monitoring");
+		UserTracker.openMonitoringAdmin();
 
 		AssertTextEquals(
 			locator1 = "LexiconTable#TABLE_HITS_COUNT",
