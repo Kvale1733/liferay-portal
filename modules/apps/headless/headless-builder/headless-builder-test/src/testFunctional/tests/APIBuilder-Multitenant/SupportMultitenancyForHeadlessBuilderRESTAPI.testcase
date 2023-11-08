@@ -55,10 +55,7 @@ definition {
 		property test.run.type = "single";
 
 		task ("When I go to API Builder through Control Panel in the new virtual instance") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Object",
-				panel = "Control Panel",
-				portlet = "API Builder");
+			APIBuilderUI.openAPIBuilderAdmin();
 		}
 
 		task ("Then no API application is present") {

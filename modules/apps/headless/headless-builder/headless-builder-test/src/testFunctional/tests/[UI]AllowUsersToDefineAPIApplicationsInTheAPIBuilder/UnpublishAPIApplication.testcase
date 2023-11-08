@@ -123,10 +123,7 @@ definition {
 		}
 
 		task ("And Then I can see unpublished status in API Builder") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Object",
-				panel = "Control Panel",
-				portlet = "API Builder");
+			APIBuilderUI.openAPIBuilderAdmin();
 
 			AssertElementPresent(
 				key_status = "Unpublished",

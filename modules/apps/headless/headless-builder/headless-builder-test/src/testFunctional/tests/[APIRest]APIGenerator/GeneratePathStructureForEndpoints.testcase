@@ -278,10 +278,7 @@ definition {
 		property test.run.type = "single";
 
 		task ("Given going to Control Panel > Object > Headless Builder") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Object",
-				panel = "Control Panel",
-				portlet = "API Builder");
+			APIBuilderUI.openAPIBuilderAdmin();
 		}
 
 		task ("When I create a new API Application") {

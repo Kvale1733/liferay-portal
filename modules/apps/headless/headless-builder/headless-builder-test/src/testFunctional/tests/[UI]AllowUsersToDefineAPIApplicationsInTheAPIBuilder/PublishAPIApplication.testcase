@@ -192,10 +192,7 @@ definition {
 		}
 
 		task ("Then I can see updated title in API Builder") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Object",
-				panel = "Control Panel",
-				portlet = "API Builder");
+			APIBuilderUI.openAPIBuilderAdmin();
 
 			AssertElementPresent(
 				key_name = "App-test-1",

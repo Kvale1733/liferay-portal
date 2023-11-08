@@ -36,10 +36,7 @@ definition {
 		}
 
 		task ("When navigate to API builder") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Object",
-				panel = "Control Panel",
-				portlet = "API Builder");
+			APIBuilderUI.openAPIBuilderAdmin();
 		}
 
 		task ("Then the published API application created is shown") {
@@ -63,10 +60,7 @@ definition {
 		}
 
 		task ("When navigate to API builder") {
-			ApplicationsMenu.gotoPortlet(
-				category = "Object",
-				panel = "Control Panel",
-				portlet = "API Builder");
+			APIBuilderUI.openAPIBuilderAdmin();
 		}
 
 		task ("Then the unpublished API application created is shown") {

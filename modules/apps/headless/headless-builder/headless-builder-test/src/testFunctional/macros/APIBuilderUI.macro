@@ -122,10 +122,7 @@ definition {
 
 	@summary = "Default summary"
 	macro changePublicationStatus(key_title = null) {
-		ApplicationsMenu.gotoPortlet(
-			category = "Object",
-			panel = "Control Panel",
-			portlet = "API Builder");
+		APIBuilderUI.openAPIBuilderAdmin();
 
 		WaitForElementPresent(
 			key_objectLabel = "API Builder",
@@ -146,10 +143,7 @@ definition {
 	macro createAPIApplication(baseURL = null, description = null, title = null) {
 		Variables.assertDefined(parameterList = ${title});
 
-		ApplicationsMenu.gotoPortlet(
-			category = "Object",
-			panel = "Control Panel",
-			portlet = "API Builder");
+		APIBuilderUI.openAPIBuilderAdmin();
 
 		if (isSet(addByPlus)) {
 			Click(locator1 = "Button#PLUS");
@@ -250,10 +244,7 @@ definition {
 
 	@summary = "Default summary"
 	macro deleteAPIApplication(key_title = null) {
-		ApplicationsMenu.gotoPortlet(
-			category = "Object",
-			panel = "Control Panel",
-			portlet = "API Builder");
+		APIBuilderUI.openAPIBuilderAdmin();
 
 		Click(
 			key_title = ${key_title},
@@ -360,10 +351,7 @@ definition {
 
 	@summary = "Default summary"
 	macro goToEditAPIApplicationPage(key_title = null) {
-		ApplicationsMenu.gotoPortlet(
-			category = "Object",
-			panel = "Control Panel",
-			portlet = "API Builder");
+		APIBuilderUI.openAPIBuilderAdmin();
 
 		WaitForElementPresent(
 			key_objectLabel = "API Builder",
@@ -393,6 +381,15 @@ definition {
 		Click(
 			locator1 = "Button#BUTTON_WITH_VALUE",
 			value = ${tabEntity});
+	}
+
+	@summary = "Navigate to the API Builder Admin page via url"
+	macro openAPIBuilderAdmin(baseURL = null) {
+		Navigator.openWithAppendToBaseURL(
+			baseURL = ${baseURL},
+			urlAppend = "group/guest/~/control_panel/manage?p_p_id=com_liferay_headless_builder_web_internal_portlet_HeadlessBuilderPortlet");
+
+		WaitForVisible(locator1 = "Button#PLUS");
 	}
 
 	@summary = "Default summary"
