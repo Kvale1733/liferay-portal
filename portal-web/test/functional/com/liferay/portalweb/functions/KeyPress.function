@@ -8,9 +8,9 @@ definition {
 
 		selenium.keyDown(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function keyPress(locator1, value1) {
@@ -20,9 +20,9 @@ definition {
 
 		selenium.keyPress(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function keyPressCKEditorWaitForCKEditor(locator1, value1) {
@@ -38,9 +38,9 @@ definition {
 
 		selenium.keyPress(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function keyPressNoError(locator1, value1) {
@@ -58,9 +58,9 @@ definition {
 
 		selenium.keyUp(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

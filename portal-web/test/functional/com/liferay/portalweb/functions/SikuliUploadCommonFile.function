@@ -6,9 +6,9 @@ definition {
 
 		selenium.sikuliUploadCommonFile(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

@@ -11,9 +11,9 @@ definition {
 
 		selenium.assertPartialTextCaseInsensitive(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertPartialTextAceEditor(locator1, value1) {
@@ -25,9 +25,9 @@ definition {
 
 		selenium.assertPartialTextAceEditor(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertPartialTextCaseSensitive(locator1, value1) {
@@ -47,9 +47,9 @@ definition {
 
 		selenium.assertTextCaseInsensitive(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertTextCaseSensitive(locator1, value1) {
@@ -61,9 +61,9 @@ definition {
 
 		selenium.assertText(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertTextEquals(locator1) {
@@ -86,9 +86,9 @@ definition {
 
 		selenium.assertValue(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

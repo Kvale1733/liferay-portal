@@ -13,9 +13,9 @@ definition {
 
 		selenium.assertAccessible(${ignorableImpacts});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

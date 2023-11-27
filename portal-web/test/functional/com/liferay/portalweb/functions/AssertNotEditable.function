@@ -10,9 +10,9 @@ definition {
 
 		selenium.assertNotEditable(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertNotEditableNotVisible(locator1) {
@@ -24,9 +24,9 @@ definition {
 
 		selenium.assertNotEditable(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

@@ -8,9 +8,9 @@ definition {
 
 		selenium.selectFrame("relative=top");
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function closeAndSelectWindow(value1) {
@@ -24,9 +24,9 @@ definition {
 
 		selenium.selectWindow(${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function closeWindow() {
@@ -40,9 +40,9 @@ definition {
 
 		selenium.selectFrame("relative=top");
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

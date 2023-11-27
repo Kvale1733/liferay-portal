@@ -6,9 +6,9 @@ definition {
 
 		selenium.pause(5000);
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

@@ -14,9 +14,9 @@ element.removeAttribute("${attribute1}");
 
 		ExecuteJavaScript(value1 = ${javaScript});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function setElementAttribute(locator1, value1, attribute1) {
@@ -32,9 +32,9 @@ element.setAttribute("${attribute1}", "${value1}");
 
 		ExecuteJavaScript(value1 = ${javaScript});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

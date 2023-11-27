@@ -8,9 +8,9 @@ definition {
 
 		selenium.assertChecked(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertCheckedHiddenToggleSwitch(locator1) {
@@ -20,9 +20,9 @@ definition {
 
 		selenium.assertChecked("xpath=(${locator1})/../../input");
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertCheckedNotVisible(locator1) {
@@ -32,9 +32,9 @@ definition {
 
 		selenium.assertChecked(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

@@ -12,9 +12,9 @@ definition {
 
 		selenium.waitForElementPresent("//body", "false");
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

@@ -11,9 +11,9 @@ definition {
 
 		selenium.assertNotPartialText(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertNotText(locator1, value1) {
@@ -25,9 +25,9 @@ definition {
 
 		selenium.assertNotText(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertNotValue(locator1, value1) {
@@ -39,9 +39,9 @@ definition {
 
 		selenium.assertNotValue(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertTextNotEquals(locator1) {

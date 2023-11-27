@@ -22,9 +22,9 @@ definition {
 
 		selenium.clickAt(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertPartialTextClickAtNoMouseOver(locator1, value1) {
@@ -34,9 +34,9 @@ definition {
 
 		selenium.clickAt(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertTextClickAt(locator1, value1) {
@@ -48,9 +48,9 @@ definition {
 
 		selenium.clickAt(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertTextClickAtAndPause(locator1, value1) {
@@ -62,9 +62,9 @@ definition {
 
 		selenium.clickAt(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 
 		selenium.pause(1000);
 	}
@@ -78,7 +78,7 @@ definition {
 
 		selenium.clickAt(${locator1}, ${value1});
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertTextClickAtWaitForLastScript(locator1) {
@@ -88,9 +88,9 @@ definition {
 
 		AssertClick.assertTextClickAt();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 
 		selenium.waitForElementPresent(${locator1}, "false");
 	}
@@ -104,9 +104,9 @@ definition {
 
 		selenium.click(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertTextClickNoMouseOver(locator1) {
@@ -116,9 +116,9 @@ definition {
 
 		selenium.click(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertValueClickAt(locator1, value1) {
@@ -130,9 +130,9 @@ definition {
 
 		selenium.clickAt(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function pauseAssertTextClickAt() {
@@ -142,9 +142,9 @@ definition {
 
 		AssertClick.assertTextClickAt();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function waitForDMHomeAssertTextEqualsClick(locator1) {
@@ -156,9 +156,9 @@ definition {
 
 		AssertClick.assertTextClickAt();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

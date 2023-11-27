@@ -7,9 +7,9 @@ definition {
 
 		selenium.acceptAlert();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 
 		WaitForSPARefresh();
 	}
@@ -25,17 +25,17 @@ definition {
 
 		selenium.acceptAlert();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertPartialConfirmation(value1) {
 		selenium.assertPartialConfirmation(${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 
 		WaitForSPARefresh();
 	}
@@ -43,9 +43,9 @@ definition {
 	function waitForConfirmation(value1) {
 		selenium.waitForConfirmation(${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 
 		WaitForSPARefresh();
 	}

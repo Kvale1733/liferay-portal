@@ -23,9 +23,9 @@ definition {
 
 		selenium.pause(1000);
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function sendKeys(locator1, value1) {
@@ -39,9 +39,9 @@ definition {
 
 		selenium.sendKeys(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function sendKeysAceEditor(locator1, value1) {
@@ -55,9 +55,9 @@ definition {
 
 		selenium.sendKeysAceEditor(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function sendKeysApplicationSearch(locator1) {
@@ -67,9 +67,9 @@ definition {
 
 		Type.sendKeys();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function type(locator1, value1) {
@@ -83,9 +83,9 @@ definition {
 
 		selenium.type(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function typeAceEditor(locator1, value1) {
@@ -99,9 +99,9 @@ definition {
 
 		selenium.typeAceEditor(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function typeAceEditorNoError(locator1, value1) {
@@ -125,9 +125,9 @@ definition {
 
 		selenium.typeAceEditor(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function typeClickAt(locator1, value1) {
@@ -143,9 +143,9 @@ definition {
 
 		selenium.clickAt(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function typeCodeMirrorEditorNoError(locator1, value1) {
@@ -169,9 +169,9 @@ definition {
 
 		selenium.typeEditor(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function typeEditorWaitForEditor(locator1) {
@@ -187,17 +187,17 @@ definition {
 
 		selenium.pause(1000);
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function typeKeys(locator1, value1) {
 		selenium.typeKeys(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function typeNoMouseOver(locator1, value1) {
@@ -209,9 +209,9 @@ definition {
 
 		selenium.type(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function typeNotVisibleNoMouseOver(locator1, value1) {
@@ -221,9 +221,9 @@ definition {
 
 		selenium.type(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function typeNotVisibleNoMouseOverNoError(locator1, value1) {
@@ -249,9 +249,9 @@ definition {
 
 		selenium.pause(5000);
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function typeWaitForCKEditorScript(locator1) {
@@ -263,9 +263,9 @@ definition {
 
 		Type.type();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

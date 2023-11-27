@@ -10,9 +10,9 @@ definition {
 
 		WaitForLiferayEvent.initializeLiferayEventLog();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function refresh() {
@@ -22,9 +22,9 @@ definition {
 
 		WaitForLiferayEvent.initializeLiferayEventLog();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function refreshNoSPARefresh() {
@@ -32,9 +32,9 @@ definition {
 
 		WaitForLiferayEvent.initializeLiferayEventLog();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

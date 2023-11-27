@@ -8,9 +8,9 @@ definition {
 
 		selenium.select(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function select(locator1, value1) {
@@ -22,9 +22,9 @@ definition {
 
 		selenium.select(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

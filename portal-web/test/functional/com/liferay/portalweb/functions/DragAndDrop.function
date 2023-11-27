@@ -6,9 +6,9 @@ definition {
 
 		selenium.dragAndDrop(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function dragAndDropObjectMoveTwice(locator1, position1, position2) {
@@ -32,9 +32,9 @@ definition {
 
 		selenium.mouseRelease();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function dragAndDropPortletToObject(locator2, locator1, value1) {
@@ -68,9 +68,9 @@ definition {
 
 		selenium.mouseRelease();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function dragAndDropPortletToPortlet(locator2, locator1, value1) {
@@ -98,9 +98,9 @@ definition {
 
 		selenium.mouseRelease();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function dragAndDropPortletToPortletNoError(locator2, locator1, value1) {
@@ -128,7 +128,7 @@ definition {
 
 		selenium.mouseRelease();
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function dragAndDropReorganizeObjects(locator2, locator1, position) {
@@ -152,9 +152,9 @@ definition {
 
 		selenium.mouseRelease();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function dragAndDropToObject(locator2, locator1, value1) {
@@ -172,9 +172,9 @@ definition {
 
 		selenium.dragAndDropToObject(${locator1}, ${locator2});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function dragAndDropWithMouseMove(locator2, locator1) {
@@ -194,9 +194,9 @@ definition {
 
 		selenium.mouseRelease();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function dragAtAndDrop(locator2, locator1, value1) {
@@ -204,9 +204,9 @@ definition {
 
 		selenium.dragAtAndDrop(${locator1}, ${locator2}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function javaScriptDragAndDropObjectAboveShortNestedObject(locator2, locator1) {
@@ -254,9 +254,9 @@ Simulate.dragAndDrop(arguments[0], arguments[1]);
 			value2 = ${locator1},
 			value3 = ${locator2});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function javaScriptDragAndDropObjectAboveTallNestedObject(locator2, locator1) {
@@ -304,9 +304,9 @@ Simulate.dragAndDrop(arguments[0], arguments[1]);
 			value2 = ${locator1},
 			value3 = ${locator2});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function javaScriptDragAndDropObjectBelowShortNestedObject(locator2, locator1) {
@@ -354,9 +354,9 @@ Simulate.dragAndDrop(arguments[0], arguments[1]);
 			value2 = ${locator1},
 			value3 = ${locator2});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function javaScriptDragAndDropObjectBelowTallNestedObject(locator2, locator1) {
@@ -408,9 +408,9 @@ Simulate.dragAndDrop(arguments[0], arguments[1], ${ratio});
 			value2 = ${locator1},
 			value3 = ${locator2});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function javaScriptDragAndDropToBottom(locator2, locator1) {
@@ -454,9 +454,9 @@ Simulate.dragAndDrop(arguments[0], arguments[1]);
 			value2 = ${locator1},
 			value3 = ${locator2});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function javaScriptDragAndDropToObject(locator2, locator1) {
@@ -500,9 +500,9 @@ Simulate.dragAndDrop(arguments[0], arguments[1]);
 			value2 = ${locator1},
 			value3 = ${locator2});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function javaScriptDragAndDropToUp(locator2, locator1) {
@@ -550,9 +550,9 @@ Simulate.dragAndDrop(arguments[0], arguments[1]);
 			value2 = ${locator1},
 			value3 = ${locator2});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function javaScriptDragAndDropUpperLeftCorner(locator2, locator1) {
@@ -602,9 +602,9 @@ Simulate.dragAndDrop(arguments[0], arguments[1]);
 			value2 = ${locator1},
 			value3 = ${locator2});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

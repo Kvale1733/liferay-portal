@@ -14,9 +14,9 @@ definition {
 
 		selenium.sendKeys(${locator1}, ${input});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

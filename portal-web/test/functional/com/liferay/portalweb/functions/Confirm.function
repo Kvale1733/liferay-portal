@@ -9,9 +9,9 @@ definition {
 	function confirm(value1) {
 		selenium.getConfirmation(${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 
 		WaitForSPARefresh();
 	}

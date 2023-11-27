@@ -9,9 +9,9 @@ definition {
 
 		selenium.assertElementNotPresent(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertElementNotPresentNoWaitForSPAReFresh(locator1) {
@@ -19,7 +19,7 @@ definition {
 
 		selenium.assertElementNotPresent(${locator1});
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

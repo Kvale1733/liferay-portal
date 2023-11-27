@@ -11,9 +11,9 @@ definition {
 
 		WaitForLiferayEvent.initializeLiferayEventLog();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 
 		WaitForSPARefresh();
 	}

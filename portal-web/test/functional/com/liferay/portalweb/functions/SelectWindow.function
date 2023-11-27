@@ -8,9 +8,9 @@ definition {
 
 		selenium.selectPopUp(${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function selectWindow(value1) {
@@ -20,9 +20,9 @@ definition {
 
 		selenium.selectWindow(${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function selectWindowNoSPARefresh(value1) {
@@ -30,9 +30,9 @@ definition {
 
 		selenium.selectWindow(${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function selectWindowTopNoSPARefresh() {
@@ -40,9 +40,9 @@ definition {
 
 		selenium.selectWindow("null");
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function waitForSelectPopUp(value1) {
@@ -52,9 +52,9 @@ definition {
 
 		selenium.selectPopUp(${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

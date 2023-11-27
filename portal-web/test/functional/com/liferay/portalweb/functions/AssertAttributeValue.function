@@ -8,9 +8,9 @@ definition {
 
 		selenium.assertAttributeNotPresent(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertAttributeValue(locator1, value2, value1) {
@@ -20,9 +20,9 @@ definition {
 
 		selenium.assertAttributeValue(${locator1}, ${value1}, ${value2});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

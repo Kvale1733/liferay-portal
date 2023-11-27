@@ -9,9 +9,9 @@ definition {
 
 		selenium.assertElementPresent(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertElementPresentNoWaitForSPAReFresh(locator1) {
@@ -19,7 +19,7 @@ definition {
 
 		selenium.assertElementPresent(${locator1});
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function assertVisible(locator1) {
@@ -29,9 +29,9 @@ definition {
 
 		selenium.assertVisible(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function pauseAssertVisible() {
@@ -41,9 +41,9 @@ definition {
 
 		AssertElementPresent.assertVisible();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

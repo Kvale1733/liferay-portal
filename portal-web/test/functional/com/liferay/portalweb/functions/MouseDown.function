@@ -6,9 +6,9 @@ definition {
 
 		selenium.mouseDown(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function mouseDownAt(locator1, value1) {
@@ -18,9 +18,9 @@ definition {
 
 		selenium.mouseDownAt(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

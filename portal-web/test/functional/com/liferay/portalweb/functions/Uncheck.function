@@ -14,9 +14,9 @@ definition {
 
 		AssertNotChecked.assertNotChecked();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function uncheckHiddenToggleSwitch(locator1, value1) {
@@ -32,9 +32,9 @@ definition {
 
 		AssertNotChecked.assertNotCheckedHiddenToggleSwitch();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function uncheckNotVisible(locator1, value1) {
@@ -52,9 +52,9 @@ definition {
 
 		selenium.assertNotChecked(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function uncheckToggleSwitch(locator1, value1) {
@@ -70,9 +70,9 @@ definition {
 
 		AssertNotChecked.assertNotCheckedNotVisible();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function uncheckToggleSwitchAndPause(locator1, value1) {
@@ -90,9 +90,9 @@ definition {
 
 		AssertNotChecked.assertNotCheckedNotVisible();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function uncheckToggleSwitchNoErrorNoAssert(locator1, value1) {

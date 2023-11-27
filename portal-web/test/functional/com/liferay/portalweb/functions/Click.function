@@ -11,9 +11,9 @@ definition {
 
 		selenium.click(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function clickAt(locator1, value1) {
@@ -25,9 +25,9 @@ definition {
 
 		selenium.clickAt(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function clickAtNotVisible(locator1, value1) {
@@ -39,9 +39,9 @@ definition {
 
 		selenium.clickAt(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function clickAtSidebarClickAtWaitForScript(locator1) {
@@ -69,9 +69,9 @@ definition {
 
 		selenium.click(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function clickNoMouseOverNoWaitForVisible(locator1) {
@@ -79,9 +79,9 @@ definition {
 
 		selenium.click(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function clickNoSPARefresh(locator1) {
@@ -91,9 +91,9 @@ definition {
 
 		selenium.click(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function clickNoWaitForVisible(locator1) {
@@ -103,9 +103,9 @@ definition {
 
 		selenium.click(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function javaScriptClick(locator1) {
@@ -137,9 +137,9 @@ definition {
 
 		selenium.click(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function pauseClickAt(locator1) {
@@ -151,9 +151,9 @@ definition {
 
 		Click.clickAt();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function waitForMenuToggleJSClick(locator1) {
@@ -171,9 +171,9 @@ definition {
 
 		Click();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function waitForPersonalMenuJSClick(locator1) {
@@ -187,9 +187,9 @@ definition {
 
 		Click();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

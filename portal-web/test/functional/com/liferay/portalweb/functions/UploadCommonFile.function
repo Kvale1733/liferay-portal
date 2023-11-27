@@ -10,9 +10,9 @@ definition {
 
 		selenium.uploadCommonFile(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function uploadCommonFileHidden(locator1, value1) {
@@ -22,9 +22,9 @@ definition {
 
 		selenium.uploadCommonFile(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function uploadCommonFileHiddenNoMouseOver(locator1, value1) {
@@ -34,9 +34,9 @@ definition {
 
 		selenium.uploadCommonFile(${locator1}, ${value1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

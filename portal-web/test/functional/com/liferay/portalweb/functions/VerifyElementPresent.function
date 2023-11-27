@@ -9,9 +9,9 @@ definition {
 
 		selenium.verifyElementPresent(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }

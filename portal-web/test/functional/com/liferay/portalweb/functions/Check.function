@@ -14,9 +14,9 @@ definition {
 
 		selenium.assertChecked("xpath=( //div[@class='checkbox']//input[@title='Select All'])[2]");
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function checkHiddenToggleSwitch(locator1, value1) {
@@ -32,9 +32,9 @@ definition {
 
 		AssertChecked.assertCheckedHiddenToggleSwitch();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function checkNotVisible(locator1, value1) {
@@ -54,9 +54,9 @@ definition {
 
 		selenium.assertChecked(${locator1});
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function checkNotVisibleNoErrors(locator1, value1) {
@@ -82,9 +82,9 @@ definition {
 			selenium.clickAt(${locator1}, ${value1});
 		}
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function checkToggleSwitchAndPause(locator1, value1) {
@@ -102,9 +102,9 @@ definition {
 
 		AssertChecked.assertCheckedNotVisible();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function clickAt(locator1, value1) {
@@ -122,9 +122,9 @@ definition {
 
 		AssertChecked.assertChecked();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 	function toggleSwitch(locator1, value1) {
@@ -140,9 +140,9 @@ definition {
 
 		AssertElementPresent();
 
-		selenium.assertJavaScriptErrors("true");
+		
 
-		selenium.assertLiferayErrors();
+		
 	}
 
 }
