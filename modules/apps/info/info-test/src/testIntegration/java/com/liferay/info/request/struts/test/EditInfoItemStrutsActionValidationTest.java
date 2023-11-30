@@ -19,15 +19,20 @@ import com.liferay.info.exception.InfoFormValidationException;
 import com.liferay.info.field.InfoField;
 import com.liferay.info.field.InfoFieldSet;
 import com.liferay.info.field.type.TextInfoFieldType;
+import com.liferay.info.item.InfoItemServiceRegistry;
 import com.liferay.info.item.capability.InfoItemCapability;
 import com.liferay.info.localized.InfoLocalizedValue;
 import com.liferay.info.test.util.MockInfoServiceRegistrationHolder;
 import com.liferay.info.test.util.info.item.creator.MockInfoItemCreator;
 import com.liferay.info.test.util.model.MockObject;
 import com.liferay.layout.page.template.info.item.capability.EditPageInfoItemCapability;
+import com.liferay.layout.page.template.model.LayoutPageTemplateStructure;
+import com.liferay.layout.page.template.service.LayoutPageTemplateStructureLocalService;
 import com.liferay.layout.provider.LayoutStructureProvider;
 import com.liferay.layout.test.util.ContentLayoutTestUtil;
 import com.liferay.layout.test.util.LayoutTestUtil;
+import com.liferay.layout.util.structure.LayoutStructure;
+import com.liferay.layout.util.structure.LayoutStructureItem;
 import com.liferay.portal.kernel.exception.InfoFormException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
@@ -60,6 +65,7 @@ import com.liferay.portal.test.rule.PermissionCheckerMethodTestRule;
 import com.liferay.segments.service.SegmentsExperienceLocalService;
 
 import java.util.List;
+import java.util.Map;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -184,21 +190,38 @@ public class EditInfoItemStrutsActionValidationTest {
 					logEntry.getMessage());
 			}
 
-			Assert.assertTrue(
-				SessionErrors.contains(
-					mockHttpServletRequest, InfoFormException.class));
+			LayoutPageTemplateStructure layoutPageTemplateStructure =
+				_layoutPageTemplateStructureLocalService.
+					fetchLayoutPageTemplateStructure(
+						_group.getGroupId(), layout.getPlid());
 
-			InfoFormException infoFormException =
-				(InfoFormException)SessionErrors.get(
-					mockHttpServletRequest, InfoFormException.class);
+			LayoutStructure layoutStructure = LayoutStructure.of(
+				layoutPageTemplateStructure.getDefaultSegmentsExperienceData());
 
-			Assert.assertTrue(
-				infoFormException instanceof
-					InfoFormValidationException.InvalidCaptcha);
+			Map<Long, LayoutStructureItem> fragmentLayoutStructureItems =
+				layoutStructure.getFragmentLayoutStructureItems();
 
-			Assert.assertFalse(
-				SessionMessages.contains(
-					mockHttpServletRequest, InfoFormException.class));
+			for (Map.Entry<Long, LayoutStructureItem>
+					fragmentLayoutStructureItem :
+						fragmentLayoutStructureItems.entrySet()) {
+
+				String key = String.valueOf(
+					fragmentLayoutStructureItem.getKey());
+
+				Assert.assertTrue(
+					SessionErrors.contains(mockHttpServletRequest, key));
+
+				InfoFormException infoFormException =
+					(InfoFormException)SessionErrors.get(
+						mockHttpServletRequest, key);
+
+				Assert.assertTrue(
+					infoFormException instanceof
+						InfoFormValidationException.InvalidCaptcha);
+
+				Assert.assertFalse(
+					SessionMessages.contains(mockHttpServletRequest, key));
+			}
 		}
 	}
 
@@ -632,6 +655,13 @@ public class EditInfoItemStrutsActionValidationTest {
 
 	@DeleteAfterTestRun
 	private Group _group;
+
+	@Inject
+	private InfoItemServiceRegistry _infoItemServiceRegistry;
+
+	@Inject
+	private LayoutPageTemplateStructureLocalService
+		_layoutPageTemplateStructureLocalService;
 
 	@Inject
 	private LayoutStructureProvider _layoutStructureProvider;
