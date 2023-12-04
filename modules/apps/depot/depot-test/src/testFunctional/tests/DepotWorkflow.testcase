@@ -20,6 +20,7 @@ definition {
 		JSONDepot.connectSite(
 			depotName = "Test Depot Name",
 			groupName = "Site Name");
+		
 	}
 
 	tearDown {
